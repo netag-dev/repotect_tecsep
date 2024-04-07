@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>850</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dashboard</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_aside_menu">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>251</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color:#2f6d58</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/img/logo_tecsep-1-removebg-preview.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_dashboard">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_dashboard{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_dashboard:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_dashboard:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string> Dashboard</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>house-solid.svg</normaloff>house-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_compliance">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_compliance{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px
+}
+
+QPushButton#btn_compliance:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_compliance:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }
+</string>
+     </property>
+     <property name="text">
+      <string> Compliance</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>vial-solid.svg</normaloff>vial-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_wbco">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>340</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_wbco{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px;
+}
+
+QPushButton#btn_wbco:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_wbco:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> WBCO Tools</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>tools.svg</normaloff>tools.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_filtration">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>390</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_filtration{
+
+border:none;
+color:white;
+font-size:19px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px;
+}
+
+QPushButton#btn_filtration:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_filtration:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> Filtration</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>oil-well-solid.svg</normaloff>oil-well-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_tank_cleaning">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>440</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_tank_cleaning{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_tank_cleaning:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_tank_cleaning:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> Tank Cleaning</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>soap-solid.svg</normaloff>soap-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_user_profile">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>710</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_user_profile{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_user_profile:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_user_profile:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string>User Profile</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-solid.svg</normaloff>user-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_logout">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>760</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_logout{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_logout:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_logout:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string>Logout</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>right-from-bracket-solid.svg</normaloff>right-from-bracket-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_user">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_user{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_user:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_user:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string> Personnel</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-solid.svg</normaloff>user-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_customer">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>240</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_customer{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_customer:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_customer:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string>Customers</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-group-solid.svg</normaloff>user-group-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>0</y>
+      <width>1151</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1151</width>
+      <height>861</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>861</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#eff2f9;
+
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#fff</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lbl_user_logado">
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>20</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Victor Manuel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="img_user_logado">
+      <property name="geometry">
+       <rect>
+        <x>980</x>
+        <y>10</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #fff;
+border-radius:30px;
+width:30px;
+height:30px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>user_dark.svg</normaloff>user_dark.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>1151</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#2d6b56;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lbl_form_tittle">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 30px;
+color:#fff;</string>
+      </property>
+      <property name="text">
+       <string>Consumable - Add </string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>21</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbl_form_text">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>391</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Below are the fields to be filled in to generate a new consumable</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_9">
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>830</y>
+       <width>1151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#2d6b56;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>-40</x>
+       <y>750</y>
+       <width>41</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>270</y>
+       <width>1071</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_list_report">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>240</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_list_report{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_list_report:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_list_report:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+     </property>
+     <property name="text">
+      <string>List all consumables</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/file-lines-solid.svg</normaloff>../../img/file-lines-solid.svg</iconset>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_description_man_hour_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>400</y>
+       <width>491</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_description_man_hour_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>370</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(52, 52, 52);</string>
+     </property>
+     <property name="text">
+      <string>Name of the consumable</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_next_step_fluid_information">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>490</y>
+       <width>491</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_next_step_fluid_information{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_fluid_information:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_fluid_information:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+     </property>
+     <property name="text">
+      <string>Save a Consumable</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_description_man_hour_4">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>370</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(52, 52, 52);</string>
+     </property>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_description_man_hour_4">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>400</y>
+       <width>491</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_description_man_hour_5">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>460</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(52, 52, 52);</string>
+     </property>
+     <property name="text">
+      <string>Quantity in stock</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txt_description_man_hour_5">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>490</y>
+       <width>491</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <zorder>lbl_description_man_hour_3</zorder>
+    <zorder>frame_2</zorder>
+    <zorder>frame_3</zorder>
+    <zorder>frame_9</zorder>
+    <zorder>line_2</zorder>
+    <zorder>line_3</zorder>
+    <zorder>btn_list_report</zorder>
+    <zorder>txt_description_man_hour_3</zorder>
+    <zorder>btn_next_step_fluid_information</zorder>
+    <zorder>lbl_description_man_hour_4</zorder>
+    <zorder>txt_description_man_hour_4</zorder>
+    <zorder>lbl_description_man_hour_5</zorder>
+    <zorder>txt_description_man_hour_5</zorder>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>

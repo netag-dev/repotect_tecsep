@@ -1,0 +1,3329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>850</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dashboard</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_aside_menu">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>251</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color:#2f6d58</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/img/logo_tecsep-1-removebg-preview.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_dashboard">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_dashboard{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_dashboard:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_dashboard:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string> Dashboard</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>house-solid.svg</normaloff>house-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_compliance">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_compliance{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px
+}
+
+QPushButton#btn_compliance:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_compliance:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }
+</string>
+     </property>
+     <property name="text">
+      <string> Compliance</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>vial-solid.svg</normaloff>vial-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_wbco">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>340</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_wbco{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px;
+}
+
+QPushButton#btn_wbco:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_wbco:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> WBCO Tools</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>tools.svg</normaloff>tools.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_filtration">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>390</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_filtration{
+
+border:none;
+color:white;
+font-size:19px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+text-align:left;
+padding:10px;
+}
+
+QPushButton#btn_filtration:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+}
+
+QPushButton#btn_filtration:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> Filtration</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>oil-well-solid.svg</normaloff>oil-well-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_tank_cleaning">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>440</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_tank_cleaning{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_tank_cleaning:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_tank_cleaning:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string> Tank Cleaning</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>soap-solid.svg</normaloff>soap-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_user_profile">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>710</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_user_profile{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_user_profile:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_user_profile:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string>User Profile</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-solid.svg</normaloff>user-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_logout">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>760</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#btn_logout{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_logout:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_logout:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+ }</string>
+     </property>
+     <property name="text">
+      <string>Logout</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>right-from-bracket-solid.svg</normaloff>right-from-bracket-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_user">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_user{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_user:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_user:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string> Personnel</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-solid.svg</normaloff>user-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_customer">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>240</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_customer{
+
+border:none;
+color:white;
+font-size:18px;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:left;
+}
+
+QPushButton#btn_customer:hover{
+ background-color: #044e42;
+border-radius: 12px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_customer:pressed {
+ background-color: #044e42;
+border-radius: 12px;
+background-color: #033029;
+padding:10px;
+ }
+
+
+</string>
+     </property>
+     <property name="text">
+      <string>Customers</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>user-group-solid.svg</normaloff>user-group-solid.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>25</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>0</y>
+      <width>1151</width>
+      <height>861</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1151</width>
+      <height>861</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>861</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#eff2f9;
+
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#fff</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lbl_user_logado">
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>20</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Victor Manuel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="img_user_logado">
+      <property name="geometry">
+       <rect>
+        <x>980</x>
+        <y>10</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #fff;
+border-radius:30px;
+width:30px;
+height:30px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>user_dark.svg</normaloff>user_dark.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>1151</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#2d6b56;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lbl_form_tittle">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>441</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 30px;
+color:#fff;</string>
+      </property>
+      <property name="text">
+       <string>Tank Cleaning - Add new Report</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>21</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbl_form_text">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>391</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Below are the fields to be filled in to generate a new report</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_9">
+     <property name="geometry">
+      <rect>
+       <x>-1</x>
+       <y>830</y>
+       <width>1151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:#2d6b56;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>-40</x>
+       <y>750</y>
+       <width>41</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>270</y>
+       <width>1071</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_list_report">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>240</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+
+QPushButton#btn_list_report{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_list_report:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_list_report:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+     </property>
+     <property name="text">
+      <string>List all report</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../img/file-lines-solid.svg</normaloff>../../img/file-lines-solid.svg</iconset>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="tab_menus_wbco">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>310</y>
+       <width>1081</width>
+       <height>501</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	
+			QTabWidget::pane {
+
+		              
+
+            }
+            QTabWidget::tab-bar {
+               
+            }
+            QTabBar::tab {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                            stop: 0 #044e42, stop: 0.4 #044e42,
+                                            stop: 0.5 #044e42, stop: 1.0 #044e42);
+                border: 6px solid #eff2f9;
+				
+               
+              
+                padding: 8px;
+				color:white;
+				border-top-left-radius:8px;
+				border-top-right-radius:8px;
+            }
+            QTabBar::tab:selected, QTabBar::tab:hover {
+                background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                            stop: 0 #033029, stop: 0.4 #033029,
+                                            stop: 0.5 #033029, stop: 1.0 #033029);
+            }</string>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>true</bool>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tab_report_information">
+      <attribute name="title">
+       <string>Report Information</string>
+      </attribute>
+      <widget class="QLabel" name="lbl_customer">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_customer">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_well_number">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Well Number</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_well_number">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_job_ref">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Job Ref. Number</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_job_ref">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_rig_name">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>140</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_field_location">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>230</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_aproved_by">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_job_type">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>320</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_project_description">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>400</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_rig_name">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>110</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Rig Name</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_field_location">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>200</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Field/Location</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_job_type">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>290</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Job Type</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_contacto_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Report Date</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_approved_by">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Approved By</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QDateEdit{
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+
+}</string>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="accelerated">
+        <bool>false</bool>
+       </property>
+       <property name="correctionMode">
+        <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+       </property>
+       <property name="showGroupSeparator" stdset="0">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_description">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>370</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Project Description</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_tank_information">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>400</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_tank_information{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_tank_information:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_tank_information:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <zorder>lbl_description</zorder>
+      <zorder>lbl_approved_by</zorder>
+      <zorder>lbl_contacto_7</zorder>
+      <zorder>lbl_job_type</zorder>
+      <zorder>lbl_field_location</zorder>
+      <zorder>lbl_rig_name</zorder>
+      <zorder>lbl_customer</zorder>
+      <zorder>cbx_customer</zorder>
+      <zorder>lbl_well_number</zorder>
+      <zorder>cbx_well_number</zorder>
+      <zorder>lbl_job_ref</zorder>
+      <zorder>txt_job_ref</zorder>
+      <zorder>txt_rig_name</zorder>
+      <zorder>txt_field_location</zorder>
+      <zorder>txt_aproved_by</zorder>
+      <zorder>txt_job_type</zorder>
+      <zorder>txt_project_description</zorder>
+      <zorder>dateEdit</zorder>
+      <zorder>btn_next_step_tank_information</zorder>
+     </widget>
+     <widget class="QWidget" name="tab_tank">
+      <attribute name="title">
+       <string>Tank Information</string>
+      </attribute>
+      <widget class="QPushButton" name="btn_next_step_dayshift_activities">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>381</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_dayshift_activities{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_dayshift_activities:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_dayshift_activities:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_type_hse_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Number Tank</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_quantity_hse_2">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>100</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Type West</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_comments_2">
+       <property name="geometry">
+        <rect>
+         <x>720</x>
+         <y>100</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Volume West</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments_non_produtive_man_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>381</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments_non_produtive_man_4">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>130</y>
+         <width>311</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments_non_produtive_man_5">
+       <property name="geometry">
+        <rect>
+         <x>720</x>
+         <y>130</y>
+         <width>351</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <zorder>lbl_comments_2</zorder>
+      <zorder>lbl_quantity_hse_2</zorder>
+      <zorder>lbl_type_hse_2</zorder>
+      <zorder>btn_next_step_dayshift_activities</zorder>
+      <zorder>txt_comments_non_produtive_man_3</zorder>
+      <zorder>txt_comments_non_produtive_man_4</zorder>
+      <zorder>txt_comments_non_produtive_man_5</zorder>
+     </widget>
+     <widget class="QWidget" name="tb_dayshift_activities">
+      <attribute name="title">
+       <string>Dayshift Activities</string>
+      </attribute>
+      <widget class="QLabel" name="lbl_daily_progress">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Daily Progress</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_dayshift_per_person">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>410</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_dayshift_per_person{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_dayshift_per_person:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_dayshift_per_person:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txt_area_daily_progress">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>1051</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+       <property name="placeholderText">
+        <string> Write here...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_planned_activities">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Planned Activites (Next 24hrs)</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txt_area_planed_activities">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>1051</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+       <property name="placeholderText">
+        <string> Write here...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_norm_reading">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>210</y>
+         <width>331</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>NORM Reading result and contamination control</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txt_area_norm_reading">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>240</y>
+         <width>1051</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+       <property name="placeholderText">
+        <string> Write here...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_equipament_material">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Equipament Material</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="txt_area_equipament_material">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>1051</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+       <property name="placeholderText">
+        <string> Write here...</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_dayshift_per_person">
+      <attribute name="title">
+       <string>Dayshift per person</string>
+      </attribute>
+      <widget class="QLabel" name="lbl_name_person_dayshift">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_trade">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Trade</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_crew_change">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>140</y>
+         <width>231</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_person_dayshift">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_planed_dembed">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Planned Demeb</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_crew_change">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>110</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Crew Change</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_trade">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_planned_demeb">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_hse">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>210</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_hse{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_hse:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_hse:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_add_information_dayshift">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>210</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_add_information_dayshift{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_add_information_dayshift:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_add_information_dayshift:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Add the filled information to report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_dayshift">
+       <property name="geometry">
+        <rect>
+         <x>770</x>
+         <y>140</y>
+         <width>245</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_shift_dayshift">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>110</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Shift</string>
+       </property>
+      </widget>
+      <zorder>lbl_shift_dayshift</zorder>
+      <zorder>lbl_planed_dembed</zorder>
+      <zorder>lbl_crew_change</zorder>
+      <zorder>lbl_name_person_dayshift</zorder>
+      <zorder>lbl_trade</zorder>
+      <zorder>txt_crew_change</zorder>
+      <zorder>cbx_person_dayshift</zorder>
+      <zorder>cbx_trade</zorder>
+      <zorder>cbx_planned_demeb</zorder>
+      <zorder>btn_next_step_hse</zorder>
+      <zorder>btn_add_information_dayshift</zorder>
+      <zorder>cbx_dayshift</zorder>
+     </widget>
+     <widget class="QWidget" name="tab_hse">
+      <attribute name="title">
+       <string>HSE(updated daily)</string>
+      </attribute>
+      <widget class="QLabel" name="lbl_type_hse">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_comments">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>80</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Comments</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbx_type_hse">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>251</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_quantity">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>110</y>
+         <width>231</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_quantity_hse">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>80</y>
+         <width>61</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>110</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_add_information_hse">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_add_information_hse{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_add_information_hse:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_add_information_hse:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Add the filled information to report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>180</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_produtive_man{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_produtive_man:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_produtive_man:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <zorder>lbl_quantity_hse</zorder>
+      <zorder>lbl_type_hse</zorder>
+      <zorder>lbl_comments</zorder>
+      <zorder>cbx_type_hse</zorder>
+      <zorder>txt_quantity</zorder>
+      <zorder>txt_comments</zorder>
+      <zorder>btn_add_information_hse</zorder>
+      <zorder>btn_next_step_produtive_man</zorder>
+     </widget>
+     <widget class="QWidget" name="tab_productive_man_hour">
+      <attribute name="title">
+       <string>Productive Man Hour </string>
+      </attribute>
+      <widget class="QLabel" name="lbl_visual_complete">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>280</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Visual  Complete %</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_original_hour">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Original Hours Estimated</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_booked_today">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_hour_remaining">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>230</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_hour_booked_date">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>140</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_hour_booked_date">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>110</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Hours Booked To Date</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_qt_booked_today">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_description_man_hour">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_qt_booked_today">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>20</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Q/T Booked Today</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_hour_remaining">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>200</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Hours Remainig</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_visual_complete">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>310</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_numer_work">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Work Order Number</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_booked_today">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Hours Booked Today</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>380</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_non_produtive_man{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_non_produtive_man:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_non_produtive_man:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_add_information_productive_man">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_add_information_productive_man{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_add_information_productive_man:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_add_information_productive_man:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Add the filled information to report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_numbrt_work">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_description_man_hour">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_original_hour">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <zorder>lbl_booked_today</zorder>
+      <zorder>lbl_description_man_hour</zorder>
+      <zorder>lbl_hour_remaining</zorder>
+      <zorder>lbl_hour_booked_date</zorder>
+      <zorder>lbl_qt_booked_today</zorder>
+      <zorder>lbl_visual_complete</zorder>
+      <zorder>lbl_original_hour</zorder>
+      <zorder>txt_booked_today</zorder>
+      <zorder>txt_hour_remaining</zorder>
+      <zorder>txt_hour_booked_date</zorder>
+      <zorder>txt_qt_booked_today</zorder>
+      <zorder>txt_visual_complete</zorder>
+      <zorder>lbl_numer_work</zorder>
+      <zorder>btn_next_step_non_produtive_man</zorder>
+      <zorder>btn_add_information_productive_man</zorder>
+      <zorder>txt_numbrt_work</zorder>
+      <zorder>txt_description_man_hour</zorder>
+      <zorder>txt_original_hour</zorder>
+     </widget>
+     <widget class="QWidget" name="tab_non_productive_man_hour">
+      <attribute name="title">
+       <string>Non Prod Man Hour </string>
+      </attribute>
+      <widget class="QComboBox" name="cbx_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>251</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>110</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_quantity_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>110</y>
+         <width>231</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_next_step_competency">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>180</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_next_step_competency{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_next_step_competency:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_next_step_competency:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Next Step</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_add_information_non_productive">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_add_information_non_productive{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_add_information_non_productive:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_add_information_non_productive:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Add the filled information to report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_quantity_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>80</y>
+         <width>61</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_comments_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>80</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Comments</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_type_non_produtive_man">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </widget>
+      <zorder>lbl_comments_non_produtive_man</zorder>
+      <zorder>lbl_quantity_non_produtive_man</zorder>
+      <zorder>lbl_type_non_produtive_man</zorder>
+      <zorder>cbx_non_produtive_man</zorder>
+      <zorder>txt_comments_non_produtive_man</zorder>
+      <zorder>txt_quantity_non_produtive_man</zorder>
+      <zorder>btn_next_step_competency</zorder>
+      <zorder>btn_add_information_non_productive</zorder>
+     </widget>
+     <widget class="QWidget" name="tab_competency_profile">
+      <attribute name="title">
+       <string>Competency Profiles</string>
+      </attribute>
+      <widget class="QLabel" name="lbl_comments_competency">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>200</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Comments</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_completed_to_date">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>150</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_element_completed">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>150</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_unit_completed">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>60</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_completed_to_date">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>120</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>% Completed to Date</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_element_completed">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Element completed</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_unit_competed">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>30</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Unit completed</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_name_competency">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(52, 52, 52);</string>
+       </property>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_comments_competency">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_add_information_competency">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>230</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_add_information_competency{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_add_information_competency:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_add_information_competency:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Add the filled information to report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_save_report">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QPushButton#btn_save_report{
+
+border:none;
+background-color:#044e42;
+color:white;
+font-size:14px;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+text-align:rigth;
+}
+
+QPushButton#btn_save_report:hover{
+ background-color: #044e42;
+border-radius: 6px;
+transition: background-color 0.5s ease;
+padding:10px;
+}
+
+QPushButton#btn_save_report:pressed {
+ background-color: #044e42;
+border-radius: 6px;
+background-color: #033029;
+padding:10px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>Save Report</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../../img/check-solid.svg</normaloff>../../img/check-solid.svg</iconset>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="txt_name_competency_profile">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>491</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+
+
+background-color:#fff;
+border: 1px solid #8ec0af;
+border-radius: 6px
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+      <zorder>lbl_element_completed</zorder>
+      <zorder>lbl_completed_to_date</zorder>
+      <zorder>lbl_unit_competed</zorder>
+      <zorder>lbl_name_competency</zorder>
+      <zorder>lbl_comments_competency</zorder>
+      <zorder>txt_completed_to_date</zorder>
+      <zorder>txt_element_completed</zorder>
+      <zorder>txt_unit_completed</zorder>
+      <zorder>txt_comments_competency</zorder>
+      <zorder>btn_add_information_competency</zorder>
+      <zorder>btn_save_report</zorder>
+      <zorder>txt_name_competency_profile</zorder>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
+</ui>
