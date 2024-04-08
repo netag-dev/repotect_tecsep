@@ -378,7 +378,7 @@ class Ui_MainWindow(object):
             msg_error = QMessageBox()
             msg_error.setIcon(QMessageBox.Information)
             msg_error.setText('Customer added successfully')
-            msg_error.setWindowTitle('Adding Cusotmer')
+            msg_error.setWindowTitle('Adding Customer')
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             msg_error.setWindowIcon(icon)
