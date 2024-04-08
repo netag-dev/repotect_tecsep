@@ -44,7 +44,7 @@ def eliminar(type_fluid_proprieties, value, report_information_cp):
         connection.close()
         return 0
     
-##################  Listagens #####################
+################## Listagens #####################
 
 def listar_drilling_fluid():
     try:
