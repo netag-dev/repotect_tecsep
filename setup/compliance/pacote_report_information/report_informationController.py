@@ -36,3 +36,7 @@ def listar_report_information_by_job_ref(job_ref):
 def buscar_id_by_report_date(report_date):
     return model.buscar_id_by_report_date(report_date)
 
+
+def buscar_id_ultimo_report():
+    return model.buscar_id_ultimo_report()
+

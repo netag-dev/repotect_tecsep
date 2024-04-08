@@ -1,21 +1,17 @@
 import psycopg2
 import conection.connect as connecao
 
-def cadastrar(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume):
+def cadastrar(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute(""" INSERT INTO fluid_information_cp(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume) values(%s,%s,%s,%s,%s,%s,%s,%s,%s) """,(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume))    
+        cursor.execute(""" INSERT INTO fluid_information_cp(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """,(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report,))    
         connection.commit()
         cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
-        return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+        return e
+    return 0
 
 def editar(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume, id):
     try: 
@@ -27,10 +23,7 @@ def editar(mud_type, rig_type, density_type, hole_type, rig_total_volume, densit
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            return 0
+    return 0
 
 def delete_data(density, viscosity_vp, viscosity_yp, hole_volume):
     connection = connecao.cria_connecao()
@@ -41,9 +34,7 @@ def delete_data(density, viscosity_vp, viscosity_yp, hole_volume):
     except Exception as e:
         print(f"Erro: {e}")
         return -1
-    finally:
-        connection.close()
-        return 0   
+    return 0   
                 
 def listar():    
     try: 

@@ -174,3 +174,14 @@ def buscar_id_by_report_date(report_date):
     finally:
         connection.close()
 
+
+def buscar_id_ultimo_report():
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT id FROM report_information_cp ORDER BY id DESC LIMIT 1""")
+            id = cursor.fetchone()
+            return id
+    finally:
+        connection.close()
+

@@ -9,6 +9,8 @@ from compliance.pack_mud_type import mud_typeController as controller_mud
 from compliance.pack_fluid_proprieties import fluiid_properties_Controller as controller_fluid
 from compliance.pack_sample_location import sample_locationController as controller_sample_location
 from compliance.pack_model_average import average_modelController as controller_model_average
+from compliance.fluid_information import fluid_informationController as controller_fluid_information
+from compliance.pack_drilling_fluid_property import drilling_fluid_propertyController as controller_drilling_fluid
 
 
 from PyQt5.QtGui import QIntValidator
@@ -1348,11 +1350,11 @@ class Ui_MainWindow(object):
         "")
         self.btn_next_drilling_fluid.setIcon(icon10)
         self.btn_next_drilling_fluid.setObjectName("btn_next_drilling_fluid")
-        self.btn_add_information_dayshift = QtWidgets.QPushButton(self.tab_drilling_fluid_information)
-        self.btn_add_information_dayshift.setGeometry(QtCore.QRect(10, 190, 491, 41))
-        self.btn_add_information_dayshift.setStyleSheet("\n"
+        self.btn_add_information_drilling_fluid = QtWidgets.QPushButton(self.tab_drilling_fluid_information)
+        self.btn_add_information_drilling_fluid.setGeometry(QtCore.QRect(10, 190, 491, 41))
+        self.btn_add_information_drilling_fluid.setStyleSheet("\n"
         "\n"
-        "QPushButton#btn_add_information_dayshift{\n"
+        "QPushButton#btn_add_information_drilling_fluid{\n"
         "\n"
         "border:none;\n"
         "background-color:#044e42;\n"
@@ -1364,22 +1366,22 @@ class Ui_MainWindow(object):
         "text-align:rigth;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_add_information_dayshift:hover{\n"
+        "QPushButton#btn_add_information_drilling_fluid:hover{\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "transition: background-color 0.5s ease;\n"
         "padding:10px;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_add_information_dayshift:pressed {\n"
+        "QPushButton#btn_add_information_drilling_fluid:pressed {\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "background-color: #033029;\n"
         "padding:10px;\n"
         " }\n"
         "")
-        self.btn_add_information_dayshift.setIcon(icon10)
-        self.btn_add_information_dayshift.setObjectName("btn_add_information_dayshift")
+        self.btn_add_information_drilling_fluid.setIcon(icon10)
+        self.btn_add_information_drilling_fluid.setObjectName("btn_add_information_drilling_fluid")
         
        
         self.lbl_fluid_proprietes.raise_()
@@ -1387,7 +1389,7 @@ class Ui_MainWindow(object):
         self.cbx_fluid_proprieties.raise_()
         self.txt_value.raise_()
         self.btn_next_drilling_fluid.raise_()
-        self.btn_add_information_dayshift.raise_()
+        self.btn_add_information_drilling_fluid.raise_()
         self.tab_menus_compliance.addTab(self.tab_drilling_fluid_information, "")
         self.tab_add_sample = QtWidgets.QWidget()
         self.tab_add_sample.setObjectName("tab_add_sample")
@@ -1472,20 +1474,20 @@ class Ui_MainWindow(object):
 
         #----------------------------- Segunda Linha Inicio -----------------------___#
 
-        self.dateEdit_test = QtWidgets.QDateEdit(self.tab_add_sample)
-        self.dateEdit_test.setGeometry(QtCore.QRect(10, 140, 351, 41))
-        self.dateEdit_test.setStyleSheet("QDateEdit{\n"
+        self.data_test = QtWidgets.QDateEdit(self.tab_add_sample)
+        self.data_test.setGeometry(QtCore.QRect(10, 140, 351, 41))
+        self.data_test.setStyleSheet("QDateEdit{\n"
         "\n"
         "background-color:#fff;\n"
         "border: 1px solid #8ec0af;\n"
         "border-radius: 6px\n"
         "\n"
         "}")
-        self.dateEdit_test.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.dateEdit_test.setAccelerated(False)
-        self.dateEdit_test.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)
-        self.dateEdit_test.setProperty("showGroupSeparator", False)
-        self.dateEdit_test.setObjectName("dateEdit_test")
+        self.data_test.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.data_test.setAccelerated(False)
+        self.data_test.setCorrectionMode(QtWidgets.QAbstractSpinBox.CorrectToPreviousValue)
+        self.data_test.setProperty("showGroupSeparator", False)
+        self.data_test.setObjectName("data_test")
         
         self.lbl_Data_Teste = QtWidgets.QLabel(self.tab_add_sample)
         self.lbl_Data_Teste.setGeometry(QtCore.QRect(10, 115, 250, 20))
@@ -2560,15 +2562,16 @@ class Ui_MainWindow(object):
         self.btn_next_drilling_fluid.setText(_translate("MainWindow", "Next Step"))
         self.btn_next_drilling_fluid.clicked.connect(lambda:validator_hse())
         
-        self.btn_add_information_dayshift.setText(_translate("MainWindow", "Add the filled information to report"))
-        self.btn_add_information_dayshift.clicked.connect(lambda:add_personel_shift_to_report())
+        self.btn_add_information_drilling_fluid.setText(_translate("MainWindow", "Add the filled information to report"))
+        self.btn_add_information_drilling_fluid.clicked.connect(lambda:add_drilling_fluid())
 
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_drilling_fluid_information), _translate("MainWindow", "Drilling Fluid Proprieties"))
         self.lbl_depth.setText(_translate("MainWindow", "Depth Location"))
         self.lbl_sample_number.setText(_translate("MainWindow", "Sample Number"))
         self.lbl_sample_location.setText(_translate("MainWindow", "Sample Location"))
         self.btn_add_sample.setText(_translate("MainWindow", "Add Sample"))
-        self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting())
+
+        
 
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_add_sample), _translate("MainWindow", "Average OOC"))
         self.lbl_back.setText(_translate("MainWindow", "Back"))
@@ -2593,9 +2596,7 @@ class Ui_MainWindow(object):
         self.btn_add_information_solid_sample.clicked.connect(lambda:add_non_produtive_to_report())
 
         self.btn_list_dril_flui_prop.clicked.connect(lambda:show_form_fluid_proprietes())
-
         
-
         self.lbl_flow.setText(_translate("MainWindow", "Flow"))
         self.lbl_weigth.setText(_translate("MainWindow", "Weight in"))
         self.lbl_bwl_speed.setText(_translate("MainWindow", "Bowl Speed (rpm )"))
@@ -2604,6 +2605,7 @@ class Ui_MainWindow(object):
         self.lbl_ongoing_rig_activity.setText(_translate("MainWindow", "Ongoing Rig Activity"))
         
         
+        self.btn_next_step_solid.clicked.connect(lambda:next_step_solid())
         self.btn_next_fluid_information.setText(_translate("MainWindow", "Next"))
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_ongoing_rig), _translate("MainWindow", "Inventory Mob"))
 
@@ -2665,8 +2667,6 @@ class Ui_MainWindow(object):
                 if item[1] == nome:
                     return item[0]
             return None
-                
-
 
         carregar_cliente()
         carregar_empregado()
@@ -2674,6 +2674,8 @@ class Ui_MainWindow(object):
         carregar_fluid_properties()
         carregar_sample_location_occ()
         carregar_model_average()
+
+        
        
         def show_message_sucess():
             msg_error = QMessageBox()
@@ -2694,16 +2696,6 @@ class Ui_MainWindow(object):
             icon.addPixmap(QtGui.QPixmap(".img/img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
-
-        
-
-        
-
-        
-
-        
-
-        
 
         def message_error_validation(text_input_error,tittle_windows):
             msg_error = QMessageBox()
@@ -2759,20 +2751,31 @@ class Ui_MainWindow(object):
 
         def save_fluid_information():
 
-            lista_mud = controller_mud.listar()
-            id_mud_type = return_id(self.cbx_mud_type.currentText(),lista_mud)
-            rig_total = self.txt_rig_volume.text()
-            density = self.txt_density.text()
-            viscosity_pv = self.txt_viscosity_pv.text()
-            viscosity_yp = self.txt_viscosity_yp.text()
-            hole_volume = self.txt_hole_volume.text()
-            tipo_density = self.cbx_density_type.currentText()
-            tipo_rig_volume = self.cbx_rig_volume_type.currentText()
-            hole_volume_type = self.cbx_hole_volume_type.currentText()
+            try:
+                lista_mud = controller_mud.listar()
+                id_mud_type = return_id(self.cbx_mud_type.currentText(),lista_mud)
+                rig_total = self.txt_rig_volume.text()
+                density = self.txt_density.text()
+                viscosity_pv = self.txt_viscosity_pv.text()
+                viscosity_yp = self.txt_viscosity_yp.text()
+                hole_volume = self.txt_hole_volume.text()
+                tipo_density = self.cbx_density_type.currentText()
+                tipo_rig_volume = self.cbx_rig_volume_type.currentText()
+                hole_volume_type = self.cbx_hole_volume_type.currentText()
+                id_last_report = controller.buscar_id_ultimo_report()
+
+                fluid_information = controller_fluid_information.cadastrar(id_mud_type,tipo_rig_volume,tipo_density,hole_volume_type,rig_total,density,viscosity_pv,viscosity_yp,hole_volume,id_last_report)
+                
+                if fluid_information != 0:
+                    message_error_validation(fluid_information,"Fluid Information")
+                    
+                else:
+                    show_message_sucess()
+                    self.tab_menus_compliance.setCurrentIndex(5)
+            except Exception as e:
+                message_error_validation(e,"Fluid Information")
 
             
-
-            self.tab_menus_compliance.setCurrentIndex(5)
                      
 
                 
@@ -2788,13 +2791,24 @@ class Ui_MainWindow(object):
                 
 
         
-        def add_personel_shift_to_report():
+        def add_drilling_fluid():
           
-          
-               show_message_sucess()
+            try:
+                lista_fluid_properties = controller_fluid.listar()
+                id_fluid_properties = return_id(self.cbx_fluid_proprieties.currentText(),lista_fluid_properties)
+                value_fluid_properties = self.txt_value.text()
+                id_last_report = controller.buscar_id_ultimo_report()
+                drilling_fluid = controller_drilling_fluid.cadastrar(id_fluid_properties,value_fluid_properties,id_last_report)
+                if drilling_fluid != 0:
+                    message_error_validation(drilling_fluid,"Drilling Fluid Properties")
+                else:
+                    show_message_sucess()
+            except Exception as e:
+               message_error_validation(e,"Drillin Fluid Properties")
 
            
-
+        def next_step_solid():
+            self.tab_menus_compliance.setCurrentIndex(7)
 
         def add_hse_to_report():
              
@@ -2862,11 +2876,13 @@ class Ui_MainWindow(object):
             show_message_sucess()
 
 
-        def add_sample_average_dry_cutting():
+        def add_sample_average_dry_cutting(depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
+
+            
             self.window = QtWidgets.QMainWindow()
             import compliance.compliance_sample as add
             self.ui = add.Ui_MainWindow()
-            self.ui.setupUi(self.window)
+            self.ui.setupUi(self.window,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report)
             self.window.show()
             #MainWindow.close()
 
@@ -2919,6 +2935,18 @@ class Ui_MainWindow(object):
              self.window.show()
              MainWindow.close()
 
+        
+        lista_model_average = controller_model_average.listar()
+        lista_sample_location = controller_sample_location.listar()
+
+        id_sample_location = return_id(self.cbx_sample_location_occ.currentText(),lista_sample_location)
+        #id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
+        id_last_report = controller.buscar_id_ultimo_report()
+
+        self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting(self.txt_depth_location.text(),id_sample_location,self.txt_sample_number.text(),self.data_test.text(),self.time_test.text(),self.cbx_model_average.currentText(),self.txt_number_of_shakers.text(),self.txt_number_of_cutting.text(),id_last_report))
+
+
+
         #Funcao para Salvar
         def save_report_header(customer):
 
@@ -2943,6 +2971,7 @@ class Ui_MainWindow(object):
             id_compliance_enginer = return_id(self.cbx_compliance_enginer.currentText(),lista_empregado)
             id_solids_sample_location = return_id(self.cbx_solids_sample_location.currentText(),lista_sample_location)
             id_user_logado = controller.buscar_id_user_logado(user_logado)
+
 
             #Salvar Report Information
             try:

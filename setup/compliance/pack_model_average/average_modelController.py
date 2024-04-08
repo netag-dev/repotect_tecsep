@@ -15,5 +15,8 @@ def listar():
 def listar_table():
     return model.listar_table()
 
+def return_id_by_name(model_):
+    return model.return_id_by_name(model_)
+
 
 
