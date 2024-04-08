@@ -5,7 +5,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDesktopWidget
 from modulo_personnel.personnel import form_personeel_list
 import res
-
+import psycopg2
+import conection.connect as connecao
 
 class Ui_dashboard_ui(object):
 
@@ -348,14 +349,75 @@ class Ui_dashboard_ui(object):
         self.btn_customer.clicked.connect(lambda: call_form_client())
 
         self.label.setText(_translate("dashboard_ui", "Dashboard"))
+    
+        def listar_drilling_fluid():
+            try:
+                connection = connecao.cria_connecao()
+                cursor = connection.cursor()
+                cursor.execute("SELECT COUNT(*) FROM report_information_cp")
+                dados = cursor.fetchone()
+                cursor.close()
+            except Exception as e:
+                print(f"Erro na Base de dados: {e}")
+            finally:
+                if connection:
+                    cursor.close()
+                return dados[0]
+                 
+        
         self.lbl_compliance.setText(_translate("dashboard_ui", "Drilling Fluid Compliance"))
-        self.lbl_total_compliance.setText(_translate("dashboard_ui", "0"))
+        self.lbl_total_compliance.setText(_translate("dashboard_ui", str(listar_drilling_fluid())))
+        
+        def listar_wbco():
+            try:
+                connection = connecao.cria_connecao()
+                cursor = connection.cursor()
+                cursor.execute("SELECT COUNT(*) FROM tb_report_wbco")
+                dados = cursor.fetchone()
+                cursor.close()
+            except Exception as e:
+                print(f"Erro na Base de dados: {e}")
+            finally:
+                if connection:
+                    cursor.close()
+                return dados[0]
+        
         self.lbl_wbco_tools.setText(_translate("dashboard_ui", "WBCO Tools Services"))
-        self.lbl_total_wbco_tools.setText(_translate("dashboard_ui", "0"))
+        self.lbl_total_wbco_tools.setText(_translate("dashboard_ui", str(listar_wbco())))
+        
+        def listar_filtration():
+            try:
+                connection = connecao.cria_connecao()
+                cursor = connection.cursor()
+                cursor.execute("SELECT COUNT(*) FROM tb_report_ft")
+                dados = cursor.fetchone()
+                cursor.close()
+            except Exception as e:
+                print(f"Erro na Base de dados: {e}")
+            finally:
+                if connection:
+                    cursor.close()
+                return dados[0]
+        
         self.lbl_filtration.setText(_translate("dashboard_ui", "Filtration"))
-        self.lbl_total_filtration.setText(_translate("dashboard_ui", "0"))
+        self.lbl_total_filtration.setText(_translate("dashboard_ui", str(listar_filtration())))
+        
+        def listar_tank_cleaning():
+            try:
+                connection = connecao.cria_connecao()
+                cursor = connection.cursor()
+                cursor.execute("SELECT COUNT(*) FROM tb_report_tc ")
+                dados = cursor.fetchone()
+                cursor.close()
+            except Exception as e:
+                print(f"Erro na Base de dados: {e}")
+            finally:
+                if connection:
+                    cursor.close()
+                return dados[0]
+        
         self.lbl_tank_cleaning.setText(_translate("dashboard_ui", " Tank Cleaning "))
-        self.lbl_total_tank_cleaning.setText(_translate("dashboard_ui", "0"))
+        self.lbl_total_tank_cleaning.setText(_translate("dashboard_ui", str(listar_tank_cleaning())))
 
         def call_form_user():
             self.window = QtWidgets.QMainWindow()
