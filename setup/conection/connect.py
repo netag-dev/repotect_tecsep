@@ -5,7 +5,7 @@ def cria_connecao():
                 database = "repotec", 
                 host = "localhost", 
                 user = "postgres", 
-                password = "postgres", 
-                port = "5433" 
+                password = "Beto@guildo12", 
+                port = "5432" 
             )
 
