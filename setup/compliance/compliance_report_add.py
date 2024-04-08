@@ -10,6 +10,7 @@ from compliance.pack_fluid_proprieties import fluiid_properties_Controller as co
 from compliance.pack_sample_location import sample_locationController as controller_sample_location
 from compliance.pack_model_average import average_modelController as controller_model_average
 from compliance.fluid_information import fluid_informationController as controller_fluid_information
+from compliance.pack_drilling_fluid_property import drilling_fluid_propertyController as controller_drilling_fluid
 
 
 from PyQt5.QtGui import QIntValidator
@@ -2750,26 +2751,29 @@ class Ui_MainWindow(object):
 
         def save_fluid_information():
 
-            lista_mud = controller_mud.listar()
-            id_mud_type = return_id(self.cbx_mud_type.currentText(),lista_mud)
-            rig_total = self.txt_rig_volume.text()
-            density = self.txt_density.text()
-            viscosity_pv = self.txt_viscosity_pv.text()
-            viscosity_yp = self.txt_viscosity_yp.text()
-            hole_volume = self.txt_hole_volume.text()
-            tipo_density = self.cbx_density_type.currentText()
-            tipo_rig_volume = self.cbx_rig_volume_type.currentText()
-            hole_volume_type = self.cbx_hole_volume_type.currentText()
-            id_last_report = controller.buscar_id_ultimo_report()
+            try:
+                lista_mud = controller_mud.listar()
+                id_mud_type = return_id(self.cbx_mud_type.currentText(),lista_mud)
+                rig_total = self.txt_rig_volume.text()
+                density = self.txt_density.text()
+                viscosity_pv = self.txt_viscosity_pv.text()
+                viscosity_yp = self.txt_viscosity_yp.text()
+                hole_volume = self.txt_hole_volume.text()
+                tipo_density = self.cbx_density_type.currentText()
+                tipo_rig_volume = self.cbx_rig_volume_type.currentText()
+                hole_volume_type = self.cbx_hole_volume_type.currentText()
+                id_last_report = controller.buscar_id_ultimo_report()
 
-            fluid_information = controller_fluid_information.cadastrar(id_mud_type,tipo_rig_volume,tipo_density,hole_volume_type,rig_total,density,viscosity_pv,viscosity_yp,hole_volume,id_last_report)
-            
-            if fluid_information != 0:
-                message_error_validation(fluid_information,"Fluid Information")
+                fluid_information = controller_fluid_information.cadastrar(id_mud_type,tipo_rig_volume,tipo_density,hole_volume_type,rig_total,density,viscosity_pv,viscosity_yp,hole_volume,id_last_report)
                 
-            else:
-                show_message_sucess()
-                self.tab_menus_compliance.setCurrentIndex(5)
+                if fluid_information != 0:
+                    message_error_validation(fluid_information,"Fluid Information")
+                    
+                else:
+                    show_message_sucess()
+                    self.tab_menus_compliance.setCurrentIndex(5)
+            except Exception as e:
+                message_error_validation(e,"Fluid Information")
 
             
                      
@@ -2789,11 +2793,14 @@ class Ui_MainWindow(object):
         
         def add_drilling_fluid():
           
-            lista_fluid_properties = controller_fluid.listar()
-            id_fluid_properties = return_id(self.cbx_fluid_proprieties.currentText(),lista_fluid_properties)
-            value_fluid_properties = self.txt_value.text()
-
-            show_message_sucess()
+            try:
+                lista_fluid_properties = controller_fluid.listar()
+                id_fluid_properties = return_id(self.cbx_fluid_proprieties.currentText(),lista_fluid_properties)
+                value_fluid_properties = self.txt_value.text()
+                drilling_fluid = controller_drilling_fluid.cadastrar()
+                show_message_sucess()
+            except Exception as e:
+               message_error_validation(e,"Drillin Fluid Properties")
 
            
         def next_step_solid():
