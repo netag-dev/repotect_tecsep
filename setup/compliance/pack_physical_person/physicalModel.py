@@ -6,14 +6,13 @@ def listar_physical(pp_email):
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
         cursor.execute(""" SELECT pp_name, pp_email, pp_type, pp_senha FROM tb_physical_person WHERE pp_email = %s """, (pp_email))
-        dados = cursor.fetchall()
-        dados_novo = [item[1] for item in dados]
+        dados = cursor.fetchone()
         cursor.close()
     except Exception as e:
         print(f"Erro na Base de dados: {e}")
     finally:
         if connection:
             cursor.close()
-            return dados_novo
+            return dados
         
         

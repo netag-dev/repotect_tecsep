@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import compliance.pack_physical_person.physicalController
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow,user_logado):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(700, 350)
         MainWindow.setMinimumSize(QtCore.QSize(700, 350))
@@ -98,10 +98,10 @@ class Ui_MainWindow(object):
 "border: 1px solid #8ec0af;\n"
 "border-radius: 6px\n"
 "}")
-        list_physical =  compliance.pack_physical_person.physicalController.listar_physical()
-        for us in list_physical:
+        
+        
                 
-                self.txt_nome.setPlaceholderText(us[2])
+        
         self.txt_nome.setObjectName("txt_nome")
         self.txt_email = QtWidgets.QLineEdit(self.frame)
         self.txt_email.setGeometry(QtCore.QRect(350, 150, 321, 41))
@@ -112,7 +112,6 @@ class Ui_MainWindow(object):
 "border: 1px solid #8ec0af;\n"
 "border-radius: 6px\n"
 "}")
-        self.txt_email.setPlaceholderText(us[3])
         self.txt_email.setObjectName("txt_email")
         self.lbl_email = QtWidgets.QLabel(self.frame)
         self.lbl_email.setGeometry(QtCore.QRect(350, 120, 311, 31))
@@ -130,7 +129,6 @@ class Ui_MainWindow(object):
 "border: 1px solid #8ec0af;\n"
 "border-radius: 6px\n"
 "}")
-        self.txt_senha.setPlaceholderText(us[4])
         self.txt_senha.setObjectName("txt_senha")
         self.lbl_senha = QtWidgets.QLabel(self.frame)
         self.lbl_senha.setGeometry(QtCore.QRect(10, 210, 311, 31))
@@ -155,7 +153,6 @@ class Ui_MainWindow(object):
 "border: 1px solid #8ec0af;\n"
 "border-radius: 6px\n"
 "}")
-        self.txt_nivel_acesso.setPlaceholderText(us[6])
         self.txt_nivel_acesso.setObjectName("txt_nivel_acesso")
         self.lbl_email.raise_()
         self.lbl_nivel_acesso.raise_()
@@ -183,6 +180,14 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        list_physical =  compliance.pack_physical_person.physicalController.listar_physical(user_logado)
+
+        self.txt_nome.setText(str(list_physical[0]))
+        self.txt_email.setText(str(list_physical[1]))
+        self.txt_nivel_acesso.setText(str(list_physical[2]))
+        self.txt_senha.setText(str(list_physical[3]))
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

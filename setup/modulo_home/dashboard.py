@@ -472,7 +472,7 @@ class Ui_dashboard_ui(object):
             self.window = QtWidgets.QMainWindow()
             import modulo_home.user_profile as user
             self.ui = user.Ui_MainWindow()
-            self.ui.setupUi(self.window)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
 
         def logout():
