@@ -2534,7 +2534,7 @@ class Ui_MainWindow(object):
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_report_information), _translate("MainWindow", "Report Information"))
         
         self.btn_next_step_driliing_properties.setText(_translate("MainWindow", "Next Step"))
-        self.btn_next_step_driliing_properties.clicked.connect(lambda:validator_dayshift_activity())
+        self.btn_next_step_driliing_properties.clicked.connect(lambda:save_fluid_information())
 
         self.lbl_mud_type.setText(_translate("MainWindow", "Mud Type/Base Oil Type"))
         self.lbl_rig_total_volume_type.setText(_translate("MainWindow", "Rig total volume type"))
@@ -2759,9 +2759,20 @@ class Ui_MainWindow(object):
 
         def save_fluid_information():
 
+            lista_mud = controller_mud.listar()
+            id_mud_type = return_id(self.cbx_mud_type.currentText(),lista_mud)
+            rig_total = self.txt_rig_volume.text()
+            density = self.txt_density.text()
+            viscosity_pv = self.txt_viscosity_pv.text()
+            viscosity_yp = self.txt_viscosity_yp.text()
+            hole_volume = self.txt_hole_volume.text()
+            tipo_density = self.cbx_density_type.currentText()
+            tipo_rig_volume = self.cbx_rig_volume_type.currentText()
+            hole_volume_type = self.cbx_hole_volume_type.currentText()
+
             
 
-            self.tab_menus_compliance.setCurrentIndex(3)
+            self.tab_menus_compliance.setCurrentIndex(5)
                      
 
                 
