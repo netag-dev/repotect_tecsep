@@ -11,6 +11,8 @@ from compliance.pack_sample_location import sample_locationController as control
 from compliance.pack_model_average import average_modelController as controller_model_average
 from compliance.fluid_information import fluid_informationController as controller_fluid_information
 from compliance.pack_drilling_fluid_property import drilling_fluid_propertyController as controller_drilling_fluid
+from compliance.pack_solids_control import solidsController as solid_controller
+from compliance.pack_audit import auditController as audit_controller
 
 
 from PyQt5.QtGui import QIntValidator
@@ -1843,43 +1845,11 @@ class Ui_MainWindow(object):
         self.lbl_middle.setFont(font)
         self.lbl_middle.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_middle.setObjectName("lbl_middle")
-        self.btn_next_step_non_produtive_man = QtWidgets.QPushButton(self.tab_solid_control)
-        self.btn_next_step_non_produtive_man.setGeometry(QtCore.QRect(530, 380, 491, 41))
-        self.btn_next_step_non_produtive_man.setStyleSheet("\n"
+        self.btn_next_step_solid_control_sample = QtWidgets.QPushButton(self.tab_solid_control)
+        self.btn_next_step_solid_control_sample.setGeometry(QtCore.QRect(10, 380, 491, 41))
+        self.btn_next_step_solid_control_sample.setStyleSheet("\n"
         "\n"
-        "QPushButton#btn_next_step_non_produtive_man{\n"
-        "\n"
-        "border:none;\n"
-        "background-color:#044e42;\n"
-        "color:white;\n"
-        "font-size:14px;\n"
-        "border-radius: 6px;\n"
-        "transition: background-color 0.5s ease;\n"
-        "padding:10px;\n"
-        "text-align:rigth;\n"
-        "}\n"
-        "\n"
-        "QPushButton#btn_next_step_non_produtive_man:hover{\n"
-        " background-color: #044e42;\n"
-        "border-radius: 6px;\n"
-        "transition: background-color 0.5s ease;\n"
-        "padding:10px;\n"
-        "}\n"
-        "\n"
-        "QPushButton#btn_next_step_non_produtive_man:pressed {\n"
-        " background-color: #044e42;\n"
-        "border-radius: 6px;\n"
-        "background-color: #033029;\n"
-        "padding:10px;\n"
-        " }\n"
-        "")
-        self.btn_next_step_non_produtive_man.setIcon(icon10)
-        self.btn_next_step_non_produtive_man.setObjectName("btn_next_step_non_produtive_man")
-        self.btn_add_information_productive_man = QtWidgets.QPushButton(self.tab_solid_control)
-        self.btn_add_information_productive_man.setGeometry(QtCore.QRect(10, 380, 491, 41))
-        self.btn_add_information_productive_man.setStyleSheet("\n"
-        "\n"
-        "QPushButton#btn_add_information_productive_man{\n"
+        "QPushButton#btn_next_step_solid_control_sample{\n"
         "\n"
         "border:none;\n"
         "background-color:#044e42;\n"
@@ -1891,22 +1861,23 @@ class Ui_MainWindow(object):
         "text-align:rigth;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_add_information_productive_man:hover{\n"
+        "QPushButton#btn_next_step_solid_control_sample:hover{\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "transition: background-color 0.5s ease;\n"
         "padding:10px;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_add_information_productive_man:pressed {\n"
+        "QPushButton#btn_next_step_solid_control_sample:pressed {\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "background-color: #033029;\n"
         "padding:10px;\n"
         " }\n"
         "")
-        self.btn_add_information_productive_man.setIcon(icon10)
-        self.btn_add_information_productive_man.setObjectName("btn_add_information_productive_man")
+        self.btn_next_step_solid_control_sample.setIcon(icon10)
+        self.btn_next_step_solid_control_sample.setObjectName("btn_next_step_solid_control_sample")
+        
         self.txt_shaker_api = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_shaker_api.setGeometry(QtCore.QRect(10, 50, 491, 41))
         self.txt_shaker_api.setStyleSheet("QLineEdit{\n"
@@ -1949,8 +1920,7 @@ class Ui_MainWindow(object):
         self.txt_hour_run.raise_()
         self.txt_front.raise_()
         self.lbl_shalker_api.raise_()
-        self.btn_next_step_non_produtive_man.raise_()
-        self.btn_add_information_productive_man.raise_()
+        self.btn_next_step_solid_control_sample.raise_()
         self.txt_shaker_api.raise_()
         self.txt_scaper.raise_()
         self.txt_back.raise_()
@@ -1990,11 +1960,11 @@ class Ui_MainWindow(object):
         "}")
         self.txt_flow.setPlaceholderText("")
         self.txt_flow.setObjectName("txt_flow")
-        self.btn_next_step_ongoing_rig = QtWidgets.QPushButton(self.tab_solid_control_sample)
-        self.btn_next_step_ongoing_rig.setGeometry(QtCore.QRect(10, 200, 351, 41))
-        self.btn_next_step_ongoing_rig.setStyleSheet("\n"
+        self.btn_next_step_audit = QtWidgets.QPushButton(self.tab_solid_control_sample)
+        self.btn_next_step_audit.setGeometry(QtCore.QRect(10, 200, 351, 41))
+        self.btn_next_step_audit.setStyleSheet("\n"
         "\n"
-        "QPushButton#btn_next_step_ongoing_rig{\n"
+        "QPushButton#btn_next_step_audit{\n"
         "\n"
         "border:none;\n"
         "background-color:#044e42;\n"
@@ -2006,22 +1976,22 @@ class Ui_MainWindow(object):
         "text-align:rigth;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_next_step_ongoing_rig:hover{\n"
+        "QPushButton#btn_next_step_audit:hover{\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "transition: background-color 0.5s ease;\n"
         "padding:10px;\n"
         "}\n"
         "\n"
-        "QPushButton#btn_next_step_ongoing_rig:pressed {\n"
+        "QPushButton#btn_next_step_audit:pressed {\n"
         " background-color: #044e42;\n"
         "border-radius: 6px;\n"
         "background-color: #033029;\n"
         "padding:10px;\n"
         " }\n"
         "")
-        self.btn_next_step_ongoing_rig.setIcon(icon10)
-        self.btn_next_step_ongoing_rig.setObjectName("btn_next_step_ongoing_rig")
+        self.btn_next_step_audit.setIcon(icon10)
+        self.btn_next_step_audit.setObjectName("btn_next_step_audit")
         self.btn_add_information_solid_sample = QtWidgets.QPushButton(self.tab_solid_control_sample)
         self.btn_add_information_solid_sample.setGeometry(QtCore.QRect(750, 130, 300, 41))
         self.btn_add_information_solid_sample.setStyleSheet("\n"
@@ -2127,7 +2097,7 @@ class Ui_MainWindow(object):
 
         self.txt_sample_number_non_produtive_man.raise_()
         self.txt_flow.raise_()
-        self.btn_next_step_ongoing_rig.raise_()
+        self.btn_next_step_audit.raise_()
         self.btn_add_information_solid_sample.raise_()
         self.tab_menus_compliance.addTab(self.tab_solid_control_sample, "")
 
@@ -2581,19 +2551,16 @@ class Ui_MainWindow(object):
         self.lbl_shalker_api.setText(_translate("MainWindow", "Shaker (Screen-API mesh)"))
 
         self.lbl_middle.setText(_translate("MainWindow", "Middle"))
-        self.btn_next_step_non_produtive_man.setText(_translate("MainWindow", "Next Step"))
-        self.btn_next_step_non_produtive_man.clicked.connect(lambda:validator_non_produtive_man_hour())
+        self.btn_next_step_solid_control_sample.setText(_translate("MainWindow", "Next Step"))
+        self.btn_next_step_solid_control_sample.clicked.connect(lambda:validator_solid_control())
 
-
-        self.btn_add_information_productive_man.setText(_translate("MainWindow", "Add the filled information to report"))
-        self.btn_add_information_productive_man.clicked.connect(lambda:add_produtive_man_to_report())
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_solid_control), _translate("MainWindow", "Solids Control "))
         
-        self.btn_next_step_ongoing_rig.setText(_translate("MainWindow", "Next Step"))
-        self.btn_next_step_ongoing_rig.clicked.connect(lambda:validator_imob_inventory())
+        self.btn_next_step_audit.setText(_translate("MainWindow", "Next Step"))
+        self.btn_next_step_audit.clicked.connect(lambda:validator_imob_inventory())
         
         self.btn_add_information_solid_sample.setText(_translate("MainWindow", "Add the filled information to report"))
-        self.btn_add_information_solid_sample.clicked.connect(lambda:add_non_produtive_to_report())
+        self.btn_add_information_solid_sample.clicked.connect(lambda:add_sollid_control())
 
         self.btn_list_dril_flui_prop.clicked.connect(lambda:show_form_fluid_proprietes())
         
@@ -2619,7 +2586,7 @@ class Ui_MainWindow(object):
 
         self.lbl_user_logado.setText(str(user_logado))
 
-        #self.btn_save_report.clicked.connect()
+        self.btn_add_information_audit_questions.clicked.connect(lambda:add_auti_questionary())
 
 
         def carregar_poco(cliente):
@@ -2849,10 +2816,18 @@ class Ui_MainWindow(object):
 
                 show_message_sucess()
 
-        def add_non_produtive_to_report():
-             
+        def add_sollid_control():
             
-             show_message_sucess()
+            lista_sample_location = controller_sample_location.listar()
+            lista_model_average = controller_model_average.listar()
+
+            id_sample_location = return_id(self.cbx_sample_location_occ.currentText(),lista_sample_location)
+            id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
+
+            save_solid_control = solid_controller.cadastrar(self.txt_shaker_api.text(),
+            self.txt_scaper.text(),self.txt_back.text(),self.txt_middle.text(),self.txt_front.text(),self.txt_hour_run.text(),id_sample_location,self.txt_dryer_screen_size.text(),self.txt_bwl_speed.text(),self.txt_flow.text(),"15",self.txt_daily_occ.text(),id_last_report)
+
+            show_message_sucess()
 
         
                   
@@ -2864,9 +2839,9 @@ class Ui_MainWindow(object):
 
                 self.tab_menus_compliance.setCurrentIndex(5)
 
-        def validator_non_produtive_man_hour():
+        def validator_solid_control():
 
-                self.tab_menus_compliance.setCurrentIndex(6)
+                self.tab_menus_compliance.setCurrentIndex(8)
 
         def validator_imob_inventory():
 
@@ -3013,7 +2988,10 @@ class Ui_MainWindow(object):
 
             # Condicao para adicao de usuario
             show_message_sucess()
-                
+
+        def add_auti_questionary():
+            save_audit = audit_controller.cadastrar(self.cbx_finding.currentText(),self.radioYes.text(),self.txt_time.text(),self.txt_contrator.text(),id_last_report)
+            print(save_audit)  
 
 if __name__ == "__main__":
     import sys

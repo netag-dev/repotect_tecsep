@@ -1132,13 +1132,13 @@ class Ui_MainWindow(object):
                         error_message("Adding Sample",save_sample)
                 else:
                         success_message(" Adding Success","Data Add Sucessful")
-                        save_average = average_controller.cadastrar(id_model,depth_location,sample_number,
-                        dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
-                        weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
-
-                print(save_average)
              except Exception as e:
                 error_message("Addinf Sample",e)
+
+             save_average = average_controller.cadastrar_average(id_model,depth_location,sample_number,
+                dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
+                weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
+             print(save_average)
 
 
 
