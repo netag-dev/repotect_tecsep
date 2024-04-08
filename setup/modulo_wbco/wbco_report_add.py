@@ -5,6 +5,7 @@ import modulo_wbco.wbcoController
 import modulo_wbco.report_wbco
 import modulo_wbco.sizeController
 import modulo_wbco.threadController
+from modulo_wbco import wbcoController as controller
 from reportlab.platypus import Image, Paragraph, Table
 from reportlab.lib import colors
 from reportlab.lib.utils import ImageReader
@@ -1802,13 +1803,19 @@ class Ui_MainWindow(object):
                 id_od = modulo_wbco.sizeController.buscar_id_by_size(self.cbx_od.currentText())
                 id_casing_size = modulo_wbco.sizeController.buscar_id_by_size(self.cbx_size.currentText())
 
+                cout_job_ref = controller.verificar_job_ref(self.txt_job_ref.text(),id_supervisor)
+
+                
+
+                total_days_enginer = int(cout_job_ref) + 1
+
                 modulo_wbco.wbcoController.salvar_report_information(txt_area_on_going,id_casing_size,
                 self.txt_length.text(),id_od,self.txt_id.text(),self.txt_size_well.text(),self.txt_weigth_range.text(),self.txt_volume_capacity.text(),
-                self.cbx_hole_volume.currentText(),txt_wbco_activity,self.cbx_shitf_supervisor.currentText(),id_poco,id_supervisor,id_cliente,id_empregador,id_ultimo_registo_report_header)
+                self.cbx_hole_volume.currentText(),txt_wbco_activity,self.cbx_shitf_supervisor.currentText(),total_days_enginer,id_poco,id_supervisor,id_cliente,id_empregador,id_ultimo_registo_report_header)
 
                 id_empregador_tecnico = modulo_wbco.wbcoController.carregar_buscar_id_empregador_por_nome(cbx_enginer_techinical)
                 id_ultimo_report = modulo_wbco.wbcoController.carregar_buscar_id_report()
-                valor_retorno = modulo_wbco.wbcoController.salvar_tecnico_em_servico(id_empregador_tecnico,self.cdx_shift_techinical.currentText(),id_ultimo_report)
+                valor_retorno = modulo_wbco.wbcoController.salvar_tecnico_em_servico(id_empregador_tecnico,self.cdx_shift_techinical.currentText(),"15",id_ultimo_report)
                 if valor_retorno == 0:
                     show_message_sucess_validator("Activity Information","Data was entry sucessful")
                     self.tab_menus_wbco.setCurrentIndex(4)

@@ -595,6 +595,20 @@ def buscar_total_days_supervisor(job_ref,id_supervisor):
         return total_days[0]
     
 
+def verificar_job_ref(job_ref,id_supervisor):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT COUNT(*) FROM tb_report_wbco,tb_report_header WHERE tb_report_header.id = tb_report_wbco.id_report_header
+            AND tb_report_header.rpt_job_ref_number = %s AND tb_report_header.id_physical_person = %s """,(job_ref,id_supervisor))
+            job_ref = cursor.fetchone()
+    except Exception as e:
+        print(f"Erro: {e}")
+        return e
+    finally:
+        return job_ref[0]
+            
+
 
 
 

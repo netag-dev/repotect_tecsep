@@ -174,3 +174,6 @@ def buscar_id_personeel_postion(pp_description):
 
 def buscar_total_days_supervisor(job_ref,id_supervisor):
     return modulo_wbco.wbcoModel.buscar_total_days_supervisor(job_ref,id_supervisor)
+
+def verificar_job_ref(job_ref,id_supervisor):
+    return modulo_wbco.wbcoModel.verificar_job_ref(job_ref,id_supervisor)

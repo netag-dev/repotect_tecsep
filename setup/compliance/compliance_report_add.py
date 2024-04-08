@@ -2797,8 +2797,12 @@ class Ui_MainWindow(object):
                 lista_fluid_properties = controller_fluid.listar()
                 id_fluid_properties = return_id(self.cbx_fluid_proprieties.currentText(),lista_fluid_properties)
                 value_fluid_properties = self.txt_value.text()
-                drilling_fluid = controller_drilling_fluid.cadastrar()
-                show_message_sucess()
+                id_last_report = controller.buscar_id_ultimo_report()
+                drilling_fluid = controller_drilling_fluid.cadastrar(id_fluid_properties,value_fluid_properties,id_last_report)
+                if drilling_fluid != 0:
+                    message_error_validation(drilling_fluid,"Drilling Fluid Properties")
+                else:
+                    show_message_sucess()
             except Exception as e:
                message_error_validation(e,"Drillin Fluid Properties")
 
