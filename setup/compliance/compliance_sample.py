@@ -3,6 +3,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from compliance.pack_model_average import average_modelController as controller
 from compliance.pack_sample_cp import sample_cpController as sample_controller
+from compliance.pack_average_ooc_cp import average_oocController as average_controller
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
@@ -131,23 +132,23 @@ class Ui_MainWindow(object):
         self.txt_wercb = QtWidgets.QLineEdit(self.frame)
         self.txt_wercb.setGeometry(QtCore.QRect(670, 130, 351, 41))
         self.txt_wercb.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        "\n"
+        "\n"
+        "background-color:#fff;\n"
+        "border: 1px solid #8ec0af;\n"
+        "border-radius: 6px\n"
+        "}")
         self.txt_wercb.setPlaceholderText("")
         self.txt_wercb.setObjectName("txt_wercb")
         self.txt_wfrcbsg = QtWidgets.QLineEdit(self.frame)
         self.txt_wfrcbsg.setGeometry(QtCore.QRect(10, 210, 321, 41))
         self.txt_wfrcbsg.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        "\n"
+        "\n"
+        "background-color:#fff;\n"
+        "border: 1px solid #8ec0af;\n"
+        "border-radius: 6px\n"
+        "}")
         self.txt_wfrcbsg.setPlaceholderText("")
         self.txt_wfrcbsg.setObjectName("txt_wfrcbsg")
         self.lbl_wfrcbsg = QtWidgets.QLabel(self.frame)
@@ -825,12 +826,21 @@ class Ui_MainWindow(object):
         self.lbl_mwp.setText(_translate("MainWindow", "Mud Weight PPG  "))
         self.lbl_ac.setText(_translate("MainWindow", "Accuracy check ( If outside 95 to 105 range re-run retort)"))
         self.btn_add_sample.setText(_translate("MainWindow", " Add Sample"))
+        self.btn_add_sample.clicked.connect(lambda:save_sample())
 
         
 
         def error_message(title,message):
              msg = QMessageBox()
              msg.setIcon(QMessageBox.Critical)
+             msg.setText(title)
+             msg.setInformativeText(str(message))
+             msg.setWindowTitle("Error")
+             msg.exec_()
+
+        def success_message(title,message):
+             msg = QMessageBox()
+             msg.setIcon(QMessageBox.Information)
              msg.setText(title)
              msg.setInformativeText(str(message))
              msg.setWindowTitle("Error")
@@ -1076,14 +1086,59 @@ class Ui_MainWindow(object):
         if id_model is None:
              error_message("Error to Select Model","Model was not selected")
         else:
-             
+             pass
+
+        def save_sample():
              syntenct_sg = self.txt_synthetic_sg.text()
              rop_at_time = self.txt_rop_at_time.text()
-             weight_empty = self.txt_w
+             weight_empty = self.txt_wercb.text()
+             weight_filled_body_sample = self.txt_wfrcbsg.text()
+             weight_filled_body_sample_water = self.txt_wfgcbswg.text()
+             weight_graduated_cyinder = self.txt_wgceg.text()
+             weight_graduated_cyinder_condensate = self.txt_wgccg.text()
+             volume_of_water_in_graduate = self.txt_vwgcm.text()
+             weight_retort_cell = self.txt_wrccarcg.text()
+             weight_of_sample = self.txt_wsg.text()
+             weight_of_water = self.txt_wwag.text()
+             volume_of_sample = self.txt_vsm.text()
+             weight_oil = self.txt_wocg.text()
+             weight_condensate_gms = self.txt_wcg.text()
+             density_sample_sg = self.txt_dss.text()
+             vol_oil = self.txt_vom.text()
+             weigth_water = self.txt_wwsg.text()
+             weight_dry_solids_calculated = self.txt_wdscg.text()
+             perc_water_by_volume = self.txt_wbv.text()
+             perc_oil_by_volume = self.txt_obv.text()
+             weight_dry_solids_actual = self.txt_wdsag.text()
+             perc_solids_by_volume = self.txt_sbv.text()
+             perc_oil_by_weight = self.txt_obw.text()
+             perc_water_by_weight = self.txt_wbw.text()    
+             perc_solids_by_weight = self.txt_sbw.text()
+             ooc = self.txt_wowcg.text()
+             soc = self.txt_wsdcg.text()
+             mud_weight = self.txt_mwp.text()
+             acuracy_check = self.txt_ac.text()
 
-             save_sample = sample_controller.cadastrar()
+             try:
+                save_sample = sample_controller.cadastrar(syntenct_sg,rop_at_time,
+                weight_empty,weight_filled_body_sample,weight_filled_body_sample_water,
+                weight_graduated_cyinder,weight_graduated_cyinder_condensate,
+                volume_of_water_in_graduate,weight_retort_cell,weight_of_sample,weight_of_water,volume_of_sample,
+                weight_oil,weight_condensate_gms,density_sample_sg,vol_oil,weigth_water,
+                weight_dry_solids_calculated,perc_water_by_volume,perc_oil_by_volume,weight_dry_solids_actual,
+                perc_solids_by_volume,perc_oil_by_weight,perc_water_by_weight,perc_solids_by_weight,ooc,soc,mud_weight,acuracy_check)
 
-             print(depth_location,sample_location,sample_number,dataTeste,timeTest,id_model,numberOfShake,numberOfCuttings,id_report)
+                if save_sample != 0:
+                        error_message("Adding Sample",save_sample)
+                else:
+                        success_message(" Adding Success","Data Add Sucessful")
+                        save_average = average_controller.cadastrar(id_model,depth_location,sample_number,
+                        dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
+                        weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
+
+                print(save_average)
+             except Exception as e:
+                error_message("Addinf Sample",e)
 
 
 
