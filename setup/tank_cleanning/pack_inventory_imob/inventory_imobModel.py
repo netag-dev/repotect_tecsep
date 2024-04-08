@@ -101,7 +101,7 @@ def get_stoq_consumivel(id):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT cs_quantity FROM tb_consumables_tc WHERE id = %s """,(id,))
+            cursor.execute(""" SELECT cs_daily_used FROM tb_consumables_tc WHERE id = %s """,(id,))
             
             quantity = cursor.fetchone()
 
@@ -133,7 +133,7 @@ def get_stoq_ppe(id):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT pi_quantity FROM tb_pipe_tc WHERE id = %s """,(id,))
+            cursor.execute(""" SELECT pi_daily_used FROM tb_pipe_tc WHERE id = %s """,(id,))
             
             quantity = cursor.fetchone()
 
@@ -239,7 +239,7 @@ def update_stoque_consumiveis(id_consumivel,quantidade):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" UPDATE tb_consumables_tc SET cs_quantity = %s WHERE id = %s """,(quantidade,id_consumivel))
+            cursor.execute(""" UPDATE tb_consumables_tc SET cs_daily_used = %s WHERE id = %s """,(quantidade,id_consumivel))
             
             connection.commit()
 
@@ -257,7 +257,7 @@ def update_stoque_ppe(id,quantidade):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" UPDATE tb_pipe_tc SET pi_quantity = %s WHERE id = %s """,(quantidade,id))
+            cursor.execute(""" UPDATE tb_pipe_tc SET pi_daily_used = %s WHERE id = %s """,(quantidade,id))
             
             connection.commit()
 

@@ -110,7 +110,7 @@ def buscar_ppe(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT pi_name,pi_quantity ,'PPE' as ppe_type FROM tb_pipe_tc,tb_ppe_tc_report, tb_report_tc
+            cursor.execute(""" SELECT pi_name,pi_daily_used ,'PPE' as ppe_type FROM tb_pipe_tc,tb_ppe_tc_report, tb_report_tc
                             WHERE tb_ppe_tc_report.id_ppe = tb_pipe_tc.id
                             AND tb_ppe_tc_report.id_report_tc = tb_report_tc.id
                             AND tb_report_tc.id = %s """,(ref_report,))

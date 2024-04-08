@@ -77,7 +77,7 @@ def listar_tipo_hse():
         
 def buscar_id_hse_por_tipo(tipo):
     try:
-        connection = psycopg2.connect(database = "repotec", host = "localhost", user = "postgres", password = "postgres", port = "5432")
+        connection = connecao.cria_connecao()
         cursor = connection.cursor()
         cursor.execute(""" SELECT id FROM public.tb_typehse_tc WHERE tb_typehse_tc.thse_description = %s """,(tipo,))
         id_turno = cursor.fetchone()

@@ -17,5 +17,8 @@ def save_data(name, email, id_personnel_position):
 
 def buscar_id_by_name_email(name,email):
     return modulo_wbco.enginierwbcoModel.buscar_id_by_name_email(name,email)
+
+def verificar_job_ref(job_ref,id_employee):
+    return modulo_wbco.enginierwbcoModel.verificar_job_ref(job_ref,id_employee)
     
     

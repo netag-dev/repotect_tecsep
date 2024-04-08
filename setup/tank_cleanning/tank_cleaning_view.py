@@ -654,7 +654,7 @@ class Ui_MainWindow(object):
 
         list_report = tank_cleanning.pack_report.reportController.listar_report()
         print(list_report)
-        self.table_tank_cleaning_report.setRowCount(10)
+        self.table_tank_cleaning_report.setRowCount(25)
         tablerow = 0
 
         for row in list_report:

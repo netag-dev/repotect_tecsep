@@ -634,7 +634,7 @@ class Ui_MainWindow(object):
         self.table_wbco_report.horizontalHeaderItem(4).setTextAlignment(0x0001)
 
         list_report = modulo_wbco.wbcoController.listar_report()
-        self.table_wbco_report.setRowCount(10)
+        self.table_wbco_report.setRowCount(30)
         tablerow = 0
 
         for row in list_report:

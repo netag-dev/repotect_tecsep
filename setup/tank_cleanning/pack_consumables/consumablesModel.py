@@ -114,7 +114,7 @@ def buscar_consumiveis(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT cs_name,cs_quantity ,'Consumable' as consumivel_type FROM tb_consumables_tc,tb_consumiveis_tc_report, tb_report_tc
+            cursor.execute(""" SELECT cs_name,cs_daily_used ,'Consumable' as consumivel_type FROM tb_consumables_tc,tb_consumiveis_tc_report, tb_report_tc
                             WHERE tb_consumiveis_tc_report.id_consumiveis = tb_consumables_tc.id
                             AND tb_consumiveis_tc_report.id_report_tc = tb_report_tc.id
                             AND tb_report_tc.id = %s """,(ref_report,))

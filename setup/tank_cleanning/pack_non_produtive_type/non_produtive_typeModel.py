@@ -48,7 +48,7 @@ def listar():
         
 def buscar_id_non_produtive_por_tipo(tipo):
     try:
-        connection = psycopg2.connect(database = "repotec", host = "localhost", user = "postgres", password = "postgres", port = "5432")
+        connection = connecao.cria_connecao()
         cursor = connection.cursor()
         cursor.execute(""" SELECT id FROM tb_non_produtive_type_tc WHERE npt_description = %s """,(tipo,))
         id_turno = cursor.fetchone()

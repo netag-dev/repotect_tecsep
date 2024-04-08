@@ -42,6 +42,7 @@ class GerarReport:
         dados_actividades = lista_actividade
         dados_man_produtive = lista_man_produtive_hour
         dados_tank_information = lista_tank_information
+        print(dados_tank_information)
         dados_hse = lista_hse
         dados_non_produtive = listar_non_produtive_man
         dados_consumiveis = lista_consumiveis
