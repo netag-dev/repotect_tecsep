@@ -52,7 +52,7 @@ def listar_employe():
     try:
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM employee_cp ")
+        cursor.execute("SELECT * FROM employee_cp")
         lista_empregado = cursor.fetchall()
         nova_lista = [(item[0],item[1]) for item in lista_empregado]
         print(nova_lista)
@@ -67,7 +67,7 @@ def buscar_cliente():
     
     try:
         with connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM tb_legal_person ")
+            cursor.execute("SELECT * FROM tb_legal_person")
             lista_cliente = cursor.fetchall()
             lista_cliente_convertida = [(item[0],item[2]) for item in lista_cliente]
             return lista_cliente_convertida
@@ -122,6 +122,9 @@ def listar():
         if connection:
             cursor.close()
             return dados_novo
+
+      
+        
         
 def listar_table():    
     try: 
