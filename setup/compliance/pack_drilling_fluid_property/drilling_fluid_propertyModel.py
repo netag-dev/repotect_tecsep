@@ -55,7 +55,7 @@ def listar_drilling_fluid():
         dados_novo = [item[1] for item in dados]
         cursor.close()
     except Exception as e:
-        print(f"Erro ao na Base de dados {e}")
+        print(f"Erro ao na Base de dados: {e}")
     finally:
         if connection:
             cursor.close()
