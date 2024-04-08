@@ -338,6 +338,8 @@ class Ui_dashboard_ui(object):
         self.btn_tank_cleaning.setText(_translate("dashboard_ui", " Tank Cleaning"))
         self.btn_tank_cleaning.clicked.connect(lambda:show_add_tank_cleaning())
         self.btn_user_profile.setText(_translate("dashboard_ui", "User Profile"))
+        self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
+
         self.btn_user.clicked.connect(lambda: call_form_user())
 
         self.btn_logout.setText(_translate("dashboard_ui", "Logout"))
@@ -465,6 +467,13 @@ class Ui_dashboard_ui(object):
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             dashboard_ui.close()
+
+        def show_perfil_user():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_home.user_profile as user
+            self.ui = user.Ui_MainWindow()
+            self.ui.setupUi(self.window)
+            self.window.show()
 
         def logout():
             self.window = QtWidgets.QMainWindow()

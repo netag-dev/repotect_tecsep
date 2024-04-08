@@ -2,6 +2,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from compliance.pack_model_average import average_modelController as controller
+from compliance.pack_sample_cp import sample_cpController as sample_controller
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
@@ -1075,6 +1076,13 @@ class Ui_MainWindow(object):
         if id_model is None:
              error_message("Error to Select Model","Model was not selected")
         else:
+             
+             syntenct_sg = self.txt_synthetic_sg.text()
+             rop_at_time = self.txt_rop_at_time.text()
+             weight_empty = self.txt_w
+
+             save_sample = sample_controller.cadastrar()
+
              print(depth_location,sample_location,sample_number,dataTeste,timeTest,id_model,numberOfShake,numberOfCuttings,id_report)
 
 
