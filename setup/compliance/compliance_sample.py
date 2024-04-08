@@ -1,10 +1,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-
+from compliance.pack_model_average import average_modelController as controller
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1050, 870)
         MainWindow.setMinimumSize(QtCore.QSize(1050, 870))
@@ -762,13 +762,13 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         
             
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
         self.lbl_form_tittle.setText(_translate("MainWindow", "Samples"))
@@ -825,6 +825,7 @@ class Ui_MainWindow(object):
         self.lbl_ac.setText(_translate("MainWindow", "Accuracy check ( If outside 95 to 105 range re-run retort)"))
         self.btn_add_sample.setText(_translate("MainWindow", " Add Sample"))
 
+        
 
         def error_message(title,message):
              msg = QMessageBox()
@@ -1069,6 +1070,12 @@ class Ui_MainWindow(object):
                         self.txt_ac.setText(str(result_str))
              except (TypeError,ValueError,ZeroDivisionError) as e:
                 error_message("Error Check Accuracy",e)
+
+        id_model = controller.return_id_by_name(model)
+        if id_model is None:
+             error_message("Error to Select Model","Model was not selected")
+        else:
+             print(depth_location,sample_location,sample_number,dataTeste,timeTest,id_model,numberOfShake,numberOfCuttings,id_report)
 
 
 

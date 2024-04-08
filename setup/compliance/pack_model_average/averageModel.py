@@ -74,5 +74,20 @@ def listar_table():
         if connection:
             cursor.close()
             return dados
+        
+
+def return_id_by_name(model):
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute("SELECT id FROM model_average_cp WHERE model = %s",(model,))
+        dados = cursor.fetchone()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao na Base de Dados: {e}")
+    finally:
+        if connection:
+            cursor.close()
+            return dados
     
 
