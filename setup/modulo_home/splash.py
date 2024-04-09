@@ -1,6 +1,6 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sys
+from modulo_home import login
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -16,17 +16,29 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(0, -50, 851, 561))
         self.pushButton.setAutoFillBackground(True)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../img/splash-tecpro2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./img/splash-tecpro2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QtCore.QSize(3000, 1000))
         self.pushButton.setObjectName("pushButton")
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
         self.progressBar.setGeometry(QtCore.QRect(190, 390, 491, 31))
-        self.progressBar.setProperty("value", 70)
+        
+        self.countdown_time = 0  # Contar em segundos.
+        self.timer = QtCore.QTimer(self.centralwidget)
+        self.timer.timeout.connect(self.update_progress_bar)
+        self.timer.start(40)  # Correr por 40 milésimos 
+
+        self.update_progress_bar()  # Método que inicializa o Progress Bar
+        
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)
         self.progressBar.setInvertedAppearance(False)
         self.progressBar.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
         self.progressBar.setObjectName("progressBar")
+        self.progressBar.setStyleSheet("""
+        QProgressBar{
+            color:white;
+        }
+        """)
         self.label = QtWidgets.QPushButton(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(800, 20, 31, 41))
         self.label.setStyleSheet("color: rgb(255, 255, 255);\n"
@@ -46,18 +58,36 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
-        self.progressBar.setFormat(_translate("MainWindow", "%p%"))
+        self.progressBar.setFormat(_translate("MainWindow", "%v%/%m%"))
         self.label.setText(_translate("MainWindow", "X"))
         self.label.clicked.connect(lambda:close())
 
         def close():
             MainWindow.close()
+    
+    def update_progress_bar(self):
+        self.countdown_time += 1
+        self.progressBar.setValue(self.countdown_time)
+        if self.countdown_time >= 100:
+            self.timer.stop()
+            self.open_next_window()
 
-import res
+    def open_next_window(self):
+        # Aqui você precisa criar uma instância da próxima janela e mostrá-la
+        MainWindow = QtWidgets.QMainWindow()
+        ui = login.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        MainWindow.show()
+        
+        MainWindow = QtWidgets.QMainWindow()
+        ui = Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        MainWindow.close()
+        
+        
 
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
