@@ -18,3 +18,6 @@ def listar_table():
 def buscar_id_by_hole_volume(hole_volume):
     return model.buscar_id_by_hole_volume(hole_volume)
 
+def buscar_fluid_information_by_job_ref(job_ref):
+    return model.buscar_fluid_information_by_job_ref(job_ref)
+

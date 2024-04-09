@@ -11,4 +11,8 @@ def eliminar(type_fluid_proprieties, value, report_information_cp):
 
 def listar_drilling_fluid(): 
     return model.listar_drilling_fluid()
+
+
+def buscar_drilling_information_by_job_ref(job_ref):
+    return model.buscar_drilling_information_by_job_ref(job_ref)
  

@@ -29,3 +29,24 @@ def cadastrar(model_average, depth_location, sample_number, date_of_test,
             cursor.close()
             connection.close()
             return 0
+        
+def buscar_avarage_information_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT average_ooc_cpp.depth_location,sample_location_cp.cutting_dier1,average_ooc_cpp.sample_number,average_ooc_cpp.date_of_test,
+            average_ooc_cpp.time_of_test,average_ooc_cpp.average_dry_cuttings,average_ooc_cpp.average_wet_cuttings,average_ooc_cpp.mass_of_wet_cuttings,
+            average_ooc_cpp.mass_balance_requirement,average_ooc_cpp.mass_of_naf_base_fluids,average_ooc_cpp.mass_of_dry_cuttings,average_ooc_cpp.number_of_cutting_driver,
+            average_ooc_cpp.number_of_shakers
+            FROM average_ooc_cpp, model_average_cp,sample_location_cp,report_information_cp 
+            WHERE average_ooc_cpp.model_average = model_average_cp.id
+            AND sample_location_cp.id = average_ooc_cpp.sample_location
+            AND report_information_cp.id = average_ooc_cpp.report_information
+            AND report_information_cp.job_ref_number = %s """,(job_ref,))
+            dados = cursor.fetchall()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados  
+

@@ -59,5 +59,21 @@ def listar_drilling_fluid():
     finally:
         if connection:
             cursor.close()
-            return dados_novo                        
+            return dados_novo    
+
+
+def buscar_drilling_information_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("""SELECT type_fluid_proprieties.type,drilling_fluid_proprieties_cp.value FROM drilling_fluid_proprieties_cp,type_fluid_proprieties,
+            report_information_cp WHERE drilling_fluid_proprieties_cp.report_information_cp = report_information_cp.id
+            AND drilling_fluid_proprieties_cp.type_fluid_proprieties = type_fluid_proprieties.id
+            AND report_information_cp.job_ref_number = %s""",(job_ref,))
+            dados = cursor.fetchall()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados                    
         

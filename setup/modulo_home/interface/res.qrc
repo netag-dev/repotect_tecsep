@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="img">
+    <file>Splashs-tecpro.png</file>
+    <file>splash-tecpro2.png</file>
     <file>bg.jpg</file>
   </qresource>
 </RCC>

@@ -75,3 +75,17 @@ def buscar_id_by_hole_volume(hole_volume):
     finally:
         connection.close()
 
+
+def buscar_fluid_information_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT * FROM fluid_information_cp, report_information_cp,mud_type_cp WHERE fluid_information_cp.id_report = report_information_cp.id 
+            AND mud_type_cp.id = fluid_information_cp.mud_type
+            AND report_information_cp.job_ref_number = %s""",(job_ref,))
+            dados = cursor.fetchone()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados

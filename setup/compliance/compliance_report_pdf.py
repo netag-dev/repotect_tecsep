@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPus
 
 # Classe Para Geração dos Reports
 class GerarReport:
-    def gerar_pdf(self,filename,report_cabecalho,well_information,wbco_primary,wbco_back_up,employe):
+    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,employe):
 
         def caminho_absoluto_desktop():
             idioma_sistema = locale.getdefaultlocale()[0].lower()
@@ -30,11 +30,11 @@ class GerarReport:
         width, height = A4
 
         value_info = report_cabecalho
-        value_well_information = well_information
+        value_fluid_information = fluid_information
 
         
-        value_wbco_primary = wbco_primary
-        value_wbco_back_up = wbco_back_up
+        value_drilling_information = drilling_information
+        value_average = average
 
         value_employe = employe
 
@@ -56,24 +56,18 @@ class GerarReport:
 
         data_fluid_information =  [
                    
-                    ["SOBM (PARADRIL)", "2310", "10.1","29","15","685"],
+                    [value_fluid_information[31], value_fluid_information[5], value_fluid_information[6],value_fluid_information[7],value_fluid_information[8],value_fluid_information[9]],
                     ["Mud type / Base Oil type", "Rig total volume", "Density","Viscosity (PV)","Viscosity (YP)"," Hole Volume"]
                     
                 ]
 
 
-        data_drilling_fluid_properties =  [
-                    ["R600/R300", "73/44"],
-                    ["R200/R100", "32/21"],
-                    ["R6/R3", "73/44"],
-                    ["LGS (%)", "32/21"],
-                    ["HGS (%)", "32/21"],
-                    ["OWR", "73/44"],
-                    ["WPS (ppm)", "32/21"]
+        data_drilling_fluid_properties =  value_drilling_information + [
                     
                 ]
 
-        data_average_occ = [
+        print(value_average)
+        data_average_occ = value_average + [
                     ["",""],
                     ["",""],
                     ["Number of Shakers online"],
