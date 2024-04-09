@@ -71,7 +71,8 @@ class Ui_MainWindow(object):
         if self.countdown_time >= 100:
             self.timer.stop()
             self.open_next_window()
-
+            
+            
     def open_next_window(self):
         # Aqui você precisa criar uma instância da próxima janela e mostrá-la
         MainWindow = QtWidgets.QMainWindow()
@@ -84,9 +85,6 @@ class Ui_MainWindow(object):
         ui.setupUi(MainWindow)
         MainWindow.close()
         
-        
-
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
