@@ -2964,7 +2964,6 @@ class Ui_MainWindow(object):
                 shift = str(self.cbx_shift.currentText())
                 ongoing_activity = str(self.txt_area_ongoing_rig.toPlainText())
                 monitoring_comments = str(self.txt_area_monitoring_coments.toPlainText())
-                
 
             except Exception as e:
                 print(f"{e}")

@@ -148,7 +148,7 @@ def listar_report_information_by_job_ref(job_ref):
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
         cursor.execute(""" SELECT report_information_cp.id,job_ref_number,rig_name,field_location,job_type,shift,report_date,lp_name,wl_name,pp_name,
-        emp_name,hole_size,total_depth,feets_drilled,average_rop,time_at_depth FROM 
+        emp_name,hole_size,total_depth,feets_drilled,average_rop,time_at_depth,ongoing_rig_activity,monitoring_comments FROM 
         report_information_cp,tb_legal_person,tb_physical_person,tb_well,employee_cp
         WHERE report_information_cp.custumer = tb_legal_person.id 
         AND tb_physical_person.id = report_information_cp.prepared_by 

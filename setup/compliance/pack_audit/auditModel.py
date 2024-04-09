@@ -17,3 +17,18 @@ def cadastrar(findings, yes_no, time, contractor, report_information_cp):
             cursor.close()
             connection.close()
             return 0
+        
+def buscar_avarage_information_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT audit_questionnaire_cp.findings,audit_questionnaire_cp.yes_no,audit_questionnaire_cp.time,audit_questionnaire_cp.contractor
+            FROM audit_questionnaire_cp,report_information_cp WHERE  
+            report_information_cp.id = audit_questionnaire_cp.report_information_cp
+            AND report_information_cp.job_ref_number = %s """,(job_ref,))
+            dados = cursor.fetchall()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados  

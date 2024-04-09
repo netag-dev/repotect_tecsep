@@ -76,3 +76,17 @@ def buscar_id_by_name_email(name, email):
     finally:
         connection.close()
         return id_empregado
+
+
+def cadastrar_enginer(eng_shift,id_employe,id_report):
+    connection = connecao.cria_connecao()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(""" INSERT INTO engineer_cp(eng_shift,id_employee,id_report) VALUES (%s,%s,%s)""",(eng_shift,id_employe,id_report))
+        connection.commit()
+    except Exception as e:
+        print(f"Erro: {e}")
+        return -1
+    finally:
+        connection.close()
+        return 0

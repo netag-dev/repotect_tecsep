@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPus
 
 # Classe Para Geração dos Reports
 class GerarReport:
-    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,solids_control):
+    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi):
 
         def caminho_absoluto_desktop():
             idioma_sistema = locale.getdefaultlocale()[0].lower()
@@ -36,6 +36,8 @@ class GerarReport:
         value_average = average
 
         value_solids_control = solids_control
+
+        value_audit = audi
 
         
         
@@ -106,15 +108,21 @@ class GerarReport:
                     ["Location of Sample"]
         ]
 
-        data_auditQuestionary = [
-            ["Equipment Breakdown","Yes/No","Time","Contractor"],
-            ["Findings","Yes/No","Time","Contractor"]
+        data_auditQuestionary = value_audit + [
+            ["Equipment Breakdown","Yes/No","Time","Contractor"]
         ]
 
         data_ongoing_rig_activity = [
-                    ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s "]
+                    [value_info[16]]
                     
                 ]
+        
+        data_monitoring = [
+                    [value_info[17]]
+                    
+                ]
+
+
 
         data_compliance_enginer = [
             ["teste","teste","teste"],
@@ -144,7 +152,7 @@ class GerarReport:
 
         table_ongoing_activity = Table(data_ongoing_rig_activity,colWidths=200*mm)
 
-        table_monitoring_comments = Table(data_ongoing_rig_activity,colWidths=200*mm)
+        table_monitoring_comments = Table(data_monitoring,colWidths=200*mm)
 
         table_auditQuestionary = Table(data_auditQuestionary,colWidths=[70*mm,30*mm,50*mm,50*mm,])
 

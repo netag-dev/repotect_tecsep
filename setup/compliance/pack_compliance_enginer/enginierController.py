@@ -17,5 +17,8 @@ def cadastrar(name,email):
 
 def buscar_id_by_name_email(name,email):
     return compliance.pack_compliance_enginer.enginierModel.buscar_id_by_name_email(name,email)
+
+def cadastrar_enginer(eng_shift,id_employe,id_report):
+    return compliance.pack_compliance_enginer.enginierModel.cadastrar_enginer(eng_shift,id_employe,id_report)
     
     
