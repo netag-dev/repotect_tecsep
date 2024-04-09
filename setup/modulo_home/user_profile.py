@@ -181,7 +181,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        list_physical =  compliance.pack_physical_person.physicalController.listar_physical(user_logado)
+        list_physical = compliance.pack_physical_person.physicalController.listar_physical(user_logado)
 
         self.txt_nome.setText(str(list_physical[0]))
         self.txt_email.setText(str(list_physical[1]))
