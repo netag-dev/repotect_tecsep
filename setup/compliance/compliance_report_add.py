@@ -13,6 +13,7 @@ from compliance.fluid_information import fluid_informationController as controll
 from compliance.pack_drilling_fluid_property import drilling_fluid_propertyController as controller_drilling_fluid
 from compliance.pack_solids_control import solidsController as solid_controller
 from compliance.pack_audit import auditController as audit_controller
+from compliance.pack_compliance_enginer import enginierController as enginer_controller
 
 
 from PyQt5.QtGui import QIntValidator
@@ -2969,10 +2970,10 @@ class Ui_MainWindow(object):
                 print(f"{e}")
             
             finally:
-                print("Passou")
                 save_report_information = controller.cadastrar(str(id_cliente),str(id_well_number),data,str(id_compliance_enginer),job_ref_number,rig_name,field_location,job_type,project_description,hole_size,total_depth,feets_drilled,average_rop,time_at_depth,id_user_logado,shift,ongoing_activity,monitoring_comments)
-                if save_report_information == 0:
-                    print("Salvou")
+                svae_enginer = enginer_controller.cadastrar_enginer(shift,id_empregado,id_last_report)
+                if (save_report_information == 0) and (svae_enginer == 0):
+                    
                     self.tab_menus_compliance.setCurrentIndex(3)
                 else:
                     print("Não Salvou")
