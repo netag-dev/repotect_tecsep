@@ -25,10 +25,6 @@ class Ui_MainWindow(object):
         
         self.countdown_time = 0  # Contar em segundos.
         self.timer = QtCore.QTimer(self.centralwidget)
-        self.timer.timeout.connect(self.update_progress_bar)
-        self.timer.start(40)  # Correr por 40 milésimos 
-
-        self.update_progress_bar()  # Método que inicializa o Progress Bar
         
         self.progressBar.setOrientation(QtCore.Qt.Horizontal)
         self.progressBar.setInvertedAppearance(False)
@@ -42,8 +38,9 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QPushButton(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(800, 20, 31, 41))
         self.label.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 24pt \"MS Shell Dlg 2\";\n"
-"")
+                         "font: 24pt \"MS Shell Dlg 2\";\n"
+                         "background-color: rgba(0, 0, 0, 0);")
+
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -71,8 +68,7 @@ class Ui_MainWindow(object):
         if self.countdown_time >= 100:
             self.timer.stop()
             self.open_next_window()
-            
-            
+
     def open_next_window(self):
         # Aqui você precisa criar uma instância da próxima janela e mostrá-la
         MainWindow = QtWidgets.QMainWindow()
@@ -85,6 +81,9 @@ class Ui_MainWindow(object):
         ui.setupUi(MainWindow)
         MainWindow.close()
         
+        
+
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
