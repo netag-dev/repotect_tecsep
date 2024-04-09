@@ -156,7 +156,7 @@ class Ui_dashboard_ui(object):
         self.frame.setGeometry(QtCore.QRect(250, 0, 1151, 861))
         self.frame.setMinimumSize(QtCore.QSize(0, 861))
         self.frame.setMaximumSize(QtCore.QSize(16777215, 861))
-        self.frame.setStyleSheet("background-color:#eff2f9;\n" "\n" "")
+        self.frame.setStyleSheet("background-color:#fff;\n" "\n" "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
