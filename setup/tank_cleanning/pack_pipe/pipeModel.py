@@ -89,7 +89,7 @@ def buscar_id_nome_stoq(nome,stoq):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("SELECT id FROM tb_pipe_tc WHERE pi_name = %s AND pi_quantity = %s",(nome,stoq))
+        cursor.execute("SELECT id FROM tb_pipe_tc WHERE pi_name = %s AND pi_daily_used = %s",(nome,stoq))
         dados = cursor.fetchone()
         print(dados)
         connection.commit()

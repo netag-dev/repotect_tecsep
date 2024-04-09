@@ -542,7 +542,7 @@ class Ui_MainWindow(object):
         self.table_employee.setCornerButtonEnabled(False)
         self.table_employee.setObjectName("table_employee")
         self.table_employee.setColumnCount(5) 
-        self.table_employee.setHorizontalHeaderLabels(["Employee's name"," Email "," "," "," "])
+        self.table_employee.setHorizontalHeaderLabels(["Employee's name"," E-mail "," "," "," "])
         self.table_employee.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_employee.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_employee.horizontalHeaderItem(2).setTextAlignment(0x0001)

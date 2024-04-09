@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPus
 
 # Classe Para Geração dos Reports
 class GerarReport:
-    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,employe):
+    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,solids_control):
 
         def caminho_absoluto_desktop():
             idioma_sistema = locale.getdefaultlocale()[0].lower()
@@ -31,12 +31,11 @@ class GerarReport:
 
         value_info = report_cabecalho
         value_fluid_information = fluid_information
-
         
         value_drilling_information = drilling_information
         value_average = average
 
-        value_employe = employe
+        value_solids_control = solids_control
 
         
         
@@ -66,45 +65,44 @@ class GerarReport:
                     
                 ]
 
-        print(value_average)
-        data_average_occ = value_average + [
-                    ["",""],
-                    ["",""],
-                    ["Number of Shakers online"],
-                    ["Number of Cutting Dryers"],
-                    ["Mass of Dry cuttings (Md)"],
-                    ["Mass of NAF base Fluids (MBF)"],
-                    ["Mass Balance Requirement (MBR)"],
-                    ["Mass of Wet Cuttings (Mw)"],
-                    ["Average wet cuttings gms/Kg"],
-                    ["Average Dry cuttings gms/kg"],
-                    ["Time of test"],
-                    ["Date of test"],
-                    ["Sample Number (frequency)"],
-                    ["Sample Location"],
-                    ["Depth at Location"]
+        data_average_occ =   [
+                    ["","S/N: " + value_average[14]],
+                    ["","Model: " + value_average[13]],
+                    ["Number of Shakers online",value_average[13]],
+                    ["Number of Cutting Dryers",value_average[12]],
+                    ["Mass of Dry cuttings (Md)",value_average[11]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[10]],
+                    ["Mass Balance Requirement (MBR)",value_average[9]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[8]],
+                    ["Average wet cuttings gms/Kg",value_average[7]],
+                    ["Average Dry cuttings gms/kg",value_average[6]],
+                    ["Time of test",value_average[5]],
+                    ["Date of test",value_average[4]],
+                    ["Sample Number (frequency)",value_average[3]],
+                    ["Sample Location",value_average[2]],
+                    ["Depth at Location",value_average[1]]
                     
                 ]
         data_solid_control_equipament = [
-                    [" ",""],
-                    ["Dryer Screen size (mm)",""],
-                    [" ",""],
-                    ["Hours run"],
-                    ["Front"],
-                    ["Middle"],
-                    ["Back"],
-                    ["Scalper"],
+                    [" ",value_solids_control[7]],
+                    ["Dryer Screen size (mm)",value_solids_control[6]],
+                    [" ",value_solids_control[5]],
+                    ["Hours run",value_solids_control[4]],
+                    ["Front",value_solids_control[3]],
+                    ["Middle",value_solids_control[2]],
+                    ["Back",value_solids_control[1]],
+                    ["Scalper",value_solids_control[0]],
                     ["Shaker (Screen-API mesh)"]
         ]
 
         data_solid_control_sample = [
                     ["Well Section Average % OOC ",""],
-                    [" Average % OOC",""],
-                    ["Daily % OOC ( % BFi) "],
-                    ["Weight in (ppg)"],
-                    ["Flow (gpm)"],
-                    ["Hours run"],
-                    ["Bowl Speed (rpm )"],
+                    [" Average % OOC",value_solids_control[11]],
+                    ["Daily % OOC ( % BFi) ",value_solids_control[11]],
+                    ["Weight in (ppg)",value_solids_control[10]],
+                    ["Flow (gpm)",value_solids_control[9]],
+                    ["Hours run",value_solids_control[4]],
+                    ["Bowl Speed (rpm )",value_solids_control[8]],
                     ["Location of Sample"]
         ]
 

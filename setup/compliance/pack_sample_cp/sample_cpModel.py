@@ -35,3 +35,20 @@ def cadastrar(synthetic_sg,rop_at_time,
             cursor.close()
             connection.close()
             return 0
+        
+
+def buscar_solids_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT * FROM solids_control_cp,sample_location_cp,report_information_cp
+            WHERE solids_control_cp.location_of_sample = sample_location_cp.id
+            AND report_information_cp.id = solids_control_cp.report_information
+            AND report_information_cp.job_ref_number =  %s """,(job_ref,))
+            dados = cursor.fetchone()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados  
+

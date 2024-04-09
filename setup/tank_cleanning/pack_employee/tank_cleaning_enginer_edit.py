@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
         self.btn_list_filtration.clicked.connect(lambda:show_form_list_enginer())
 
         self.lbl_nome_empregado.setText(_translate("MainWindow", " Employee's Name "))
-        self.lbl_email.setText(_translate("MainWindow", "Email"))
+        self.lbl_email.setText(_translate("MainWindow", "E-mail"))
 
         self.txt_nome.setText(str(name))
         self.txt_email.setText(str(email))

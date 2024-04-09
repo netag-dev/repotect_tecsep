@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMessageBox,QDesktopWidget,QFileDialog
 import modulo_customer.custumerController
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name,customer_nif):
+    def setupUi(self, MainWindow,user_name,nome,nif,email,contacto):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -20,7 +20,6 @@ class Ui_MainWindow(object):
         # Define a posição da janela
         MainWindow.move(x, y)
 
-        print(customer_nif)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -290,10 +289,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,customer_nif)
+        self.retranslateUi(MainWindow,nome,nif,email,contacto)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow,customer_nif):
+    def retranslateUi(self, MainWindow,nome,nif,email,contacto):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -325,14 +324,17 @@ class Ui_MainWindow(object):
         self.lbl_contacto.setText(_translate("MainWindow", "Contact"))
         self.lbl_email.setText(_translate("MainWindow", "E-mail"))
         self.lbl_address.setText(_translate("MainWindow", "Address"))
-        self.lbl_logo.setText(_translate("MainWindow", "Logo"))
+        self.lbl_logo.setText(_translate("MainWindow", "NIF"))
 
         self.btn_salvar_cliente.setText(_translate("MainWindow", "Save Customer data"))
         self.btn_salvar_cliente.clicked.connect(lambda: validation_add_customer())
         
         #################### Aqui
-        self.txt_nome.setText(str(customer_nif))
-        #self.txt_email.setText(str(customer_email))
+        self.txt_nome.setText(str(nome))
+        self.txt_nif.setText(str(nif))
+        self.txt_email.setText(str(email))
+        self.txt_contact.setText(str(contacto))
+        self.txt_adress.setText(str(contacto))
         
         def call_form_client():
             self.window = QtWidgets.QMainWindow()

@@ -15,3 +15,7 @@ def cadastrar(synthetic_sg,rop_at_time,
              weight_oil,weight_condensate_gms,density_sample_sg,vol_oil,weight_water,
              weight_dry_solids_calculated,perc_water_by_volume,perc_oil_by_volume,weight_dry_solids_actual,
              perc_solids_by_volume,perc_oil_by_weight,perc_water_by_weight,perc_solids_by_weight,ooc,soc,mud_weight,acuracy_check)
+
+
+def buscar_solids_by_job_ref(job_ref):
+    return model.buscar_solids_by_job_ref(job_ref)

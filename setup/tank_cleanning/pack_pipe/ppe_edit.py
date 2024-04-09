@@ -283,7 +283,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard.clicked.connect(lambda:show_form_dashboard())
 
 
-        self.btn_compliance.setText(_translate("MainWindow", " D. F. Compliance"))
+        self.btn_compliance.setText(_translate("MainWindow", " A. M. Compliance"))
         self.btn_wbco.setText(_translate("MainWindow", " WBCO Tools"))
         self.btn_wbco.clicked.connect(lambda: call_form_wbco())
         self.btn_filtration.setText(_translate("MainWindow", " Filtration"))
@@ -304,7 +304,7 @@ class Ui_MainWindow(object):
         self.btn_list_consumivel.clicked.connect(lambda:show_form_list_ppe())
 
         self.lbl_nome_empregado.setText(_translate("MainWindow", " PPE Name "))
-        self.lbl_stoq.setText(_translate("MainWindow", "Stocke Quantity"))
+        self.lbl_stoq.setText(_translate("MainWindow", " Quantity"))
 
         self.btn_salvar_ppe.setText(_translate("MainWindow", "Save PPE data"))
 

@@ -568,7 +568,7 @@ class Ui_MainWindow(object):
         self.table_customer.setCornerButtonEnabled(False)
         self.table_customer.setObjectName("table_customer")
         self.table_customer.setColumnCount(6)
-        self.table_customer.setHorizontalHeaderLabels(["Name","Nif","Email","Adress","",""])
+        self.table_customer.setHorizontalHeaderLabels(["Name","Nif","E-mail","Address","",""])
         self.table_customer.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(2).setTextAlignment(0x0001)
@@ -613,11 +613,11 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
-        def show_form_edit_customer(customer_nif):
+        def show_form_edit_customer(nome,nif,email,contacto):
             self.window = QtWidgets.QMainWindow()
             import modulo_customer.customer_edit
             self.ui = modulo_customer.customer_edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text(),customer_nif)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text(),nome,nif,email,contacto)
             self.window.show()
             MainWindow.close()
         
@@ -628,15 +628,28 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                # Pegar a coluna Identify Card
-                col = col - 3
+                col_nif = col - 3
+                col_email = col - 2
+                col_contacto = col - 1
                 
+
+        
+
+                # Pegar a coluna Identify Card
+                col = col - 4
+                
+
+                item_nif = self.table_customer.item(row,col_nif)
                 item = self.table_customer.item(row,col)
+                item_email = self.table_customer.item(row,col_email)
+                item_contacto = self.table_customer.item(row,col_contacto)
                 if item is not None:
                     
-                    nif = item.text()
-                    show_form_edit_customer(nif)
-                    print(nif)
+                    cliente = item.text()
+                    nif = item_nif.text()
+                    email = item_email.text()
+                    contacto = item_contacto.text()
+                    show_form_edit_customer(cliente,nif,email,contacto)
 
         
         def btn_clicked_delete(): 

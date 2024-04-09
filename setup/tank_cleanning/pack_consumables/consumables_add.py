@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
         self.btn_list_consumivel.clicked.connect(lambda:show_form_list_consumable())
 
         self.lbl_nome_empregado.setText(_translate("MainWindow", " Consumable Name "))
-        self.lbl_email.setText(_translate("MainWindow", "Stocke Quantity"))
+        self.lbl_email.setText(_translate("MainWindow", "Quantity"))
 
         self.btn_salvar_consumiveis.setText(_translate("MainWindow", "Save Consumable data"))
 

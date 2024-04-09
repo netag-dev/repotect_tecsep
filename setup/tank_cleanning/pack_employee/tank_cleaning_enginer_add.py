@@ -329,7 +329,7 @@ class Ui_MainWindow(object):
         self.btn_list_employee.clicked.connect(lambda:show_form_list_enginer())
 
         self.lbl_nome_empregado.setText(_translate("MainWindow", " Employee's Name "))
-        self.lbl_email.setText(_translate("MainWindow", "Email"))
+        self.lbl_email.setText(_translate("MainWindow", "E-mail"))
 
         self.btn_salvar_employee.setText(_translate("MainWindow", "Save Employee data"))
 

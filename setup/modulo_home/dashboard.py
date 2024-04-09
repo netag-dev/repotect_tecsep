@@ -367,7 +367,7 @@ class Ui_dashboard_ui(object):
                 return dados[0]
                  
         
-        self.lbl_compliance.setText(_translate("dashboard_ui", "Drilling Fluid Compliance"))
+        self.lbl_compliance.setText(_translate("dashboard_ui", "Audit Monitor Compliance"))
         self.lbl_total_compliance.setText(_translate("dashboard_ui", str(listar_drilling_fluid())))
         
         def listar_wbco():
