@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.frame.setFont(font)
         self.frame.setAutoFillBackground(False)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n"
+        self.frame.setStyleSheet("background-color:#fff;\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
