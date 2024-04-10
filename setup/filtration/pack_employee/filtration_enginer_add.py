@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n" "\n" "")
+        self.frame.setStyleSheet("background-color:#fff;\n" "\n" "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -201,7 +201,39 @@ class Ui_MainWindow(object):
 
         self.txt_nome = QtWidgets.QLineEdit(self.frame)
         self.txt_nome.setGeometry(QtCore.QRect(30, 390, 341, 41))
-        self.txt_nome.setStyleSheet("QLineEdit{\n" "\n" "\n" "background-color:#fff;\n" "border: 1px solid #8ec0af;\n" "border-radius: 6px;\n font-size:18px;" "}")
+        self.txt_nome.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_nome.setPlaceholderText("")
         self.txt_nome.setObjectName("txt_nome")
 
@@ -215,7 +247,39 @@ class Ui_MainWindow(object):
 
         self.txt_email = QtWidgets.QLineEdit(self.frame)
         self.txt_email.setGeometry(QtCore.QRect(390, 390, 341, 41))
-        self.txt_email.setStyleSheet("QLineEdit{\n" "\n" "\n" "background-color:#fff;\n" "border: 1px solid #8ec0af;\n" "border-radius: 6px;\n font-size:18px;" "}")
+        self.txt_email.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_email.setPlaceholderText("")
         self.txt_email.setObjectName("txt_email")
 

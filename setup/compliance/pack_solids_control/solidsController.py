@@ -11,3 +11,6 @@ report_information)
 
 def buscar_solids_by_job_ref(job_ref):
     return model.buscar_solids_by_job_ref(job_ref)
+
+def buscar_num_registo_solid_by_job_ref(job_ref):
+    return model.buscar_num_registo_solid_by_job_ref(job_ref)

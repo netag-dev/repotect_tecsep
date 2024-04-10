@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.frame.setFont(font)
         self.frame.setAutoFillBackground(False)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n"
+        self.frame.setStyleSheet("background-color:#fff;\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -102,13 +102,39 @@ class Ui_MainWindow(object):
         self.lbl_descritpion.setObjectName("lbl_descritpion")
         self.txt_description = QtWidgets.QLineEdit(self.frame)
         self.txt_description.setGeometry(QtCore.QRect(10, 130, 321, 41))
-        self.txt_description.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        self.txt_description.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_description.setPlaceholderText("")
         self.txt_description.setObjectName("txt_description")
         self.btn_save = QtWidgets.QPushButton(self.frame)

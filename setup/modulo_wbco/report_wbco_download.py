@@ -288,7 +288,7 @@ class GerarReport:
         width = 7.8 * inch  # largura da imagem
         height = 2 * inch  # altura da imagem
 
-        img_certificate = ImageReader("img/arrendoda.png",styles["Estilo_texto_titulo"])
+        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
         c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
         
         
@@ -335,7 +335,7 @@ class GerarReport:
         p_wbco_activity.drawOn(c,5*mm,((108*mm) + (altura_wbco_primary) + 35) + altura_wbco_back_up + 33 + altura_on_going_activity + 25)
 
         p_lema.wrapOn(c,70*mm,60*mm)
-        p_lema.drawOn(c,7*mm,283*mm)
+        p_lema.drawOn(c,80*mm,283*mm)
 
 
         c.save()

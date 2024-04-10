@@ -36,9 +36,24 @@ def buscar_solids_by_job_ref(job_ref):
             WHERE solids_control_cp.location_of_sample = sample_location_cp.id
             AND report_information_cp.id = solids_control_cp.report_information
             AND report_information_cp.job_ref_number = %s""",(job_ref,))
-            dados = cursor.fetchone()
+            dados = cursor.fetchall()
             return dados
     except Exception as e:
         return e
     finally:
         return dados
+    
+
+def buscar_num_registo_solid_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT COUNT(solids_control_cp.id) FROM solids_control_cp,report_information_cp
+            WHERE solids_control_cp.report_information = report_information_cp.id
+            AND report_information_cp.job_ref_number =   %s """,(job_ref,))
+            dados = cursor.fetchone()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados 

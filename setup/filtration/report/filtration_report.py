@@ -430,7 +430,7 @@ class GerarReport:
         p_wbco_activity.drawOn(c,5*mm,((88*mm) + (altura_wbco_primary) + 35) + altura_wbco_back_up + 33 + altura_on_going_activity + 25)
 
         p_lema.wrapOn(c,70*mm,60*mm)
-        p_lema.drawOn(c,7*mm,283*mm)
+        p_lema.drawOn(c,80*mm,283*mm)
 
 
         c.save()

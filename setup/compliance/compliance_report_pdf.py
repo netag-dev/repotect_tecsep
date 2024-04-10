@@ -12,6 +12,7 @@ import sys,os,locale
 import psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget 
 from compliance.pack_average_ooc_cp import average_oocController as controller_occ
+from compliance.pack_solids_control import solidsController as controller_solid
 
 # Classe Para Geração dos Reports
 class GerarReport:
@@ -33,6 +34,9 @@ class GerarReport:
         value_info = report_cabecalho
 
         num_linhas_occ = controller_occ.buscar_num_registo_avarage_information_by_job_ref(report_cabecalho[1])        
+        
+        num_linhas_solid = controller_solid.buscar_num_registo_solid_by_job_ref(report_cabecalho[1])
+
         
 
         value_fluid_information = fluid_information
@@ -76,6 +80,13 @@ class GerarReport:
                     
                 ]
 
+        def calculate_average_occ(value):
+            return float(value)/10
+
+        daily_occ_1 = None
+        daily_occ_2 = None
+        daily_occ_3 = None
+
         table_average_occ = None
         data_average_occ = None
         if num_linhas_occ[0] == 2:
@@ -83,83 +94,163 @@ class GerarReport:
             data_average_occ =   [
                     ["","S/N: " + value_average[0][14], "S/N: " + value_average[1][14]],
                     ["","Model: " + value_average[0][13], "Model: " + value_average[1][13]],
-                    ["Number of Shakers online",value_average[0][13],value_average[1][13]],
-                    ["Number of Cutting Dryers",value_average[0][12],value_average[1][12]],
-                    ["Mass of Dry cuttings (Md)",value_average[0][11],value_average[1][11]],
-                    ["Mass of NAF base Fluids (MBF)",value_average[0][10],value_average[1][10]],
-                    ["Mass Balance Requirement (MBR)",value_average[0][9],value_average[1][9]],
-                    ["Mass of Wet Cuttings (Mw)",value_average[0][8],value_average[1][8]],
-                    ["Average wet cuttings gms/Kg",value_average[0][7],value_average[1][7]],
-                    ["Average Dry cuttings gms/kg",value_average[0][6],value_average[1][6]],
-                    ["Time of test",value_average[0][5],value_average[1][5]],
-                    ["Date of test",value_average[0][4],value_average[1][4]],
-                    ["Sample Number (frequency)",value_average[0][3],value_average[1][3]],
-                    ["Sample Location",value_average[0][2],value_average[1][2]],
-                    ["Depth at Location",value_average[0][1],value_average[1][1]]
+                    ["Number of Shakers online",value_average[0][12],value_average[1][12]],
+                    ["Number of Cutting Dryers",value_average[0][11],value_average[1][11]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][10],value_average[1][10]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][9],value_average[1][9]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][8],value_average[1][8]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][7],value_average[1][7]],
+                    ["Average wet cuttings gms/Kg",value_average[0][6],value_average[1][6]],
+                    ["Average Dry cuttings gms/kg",value_average[0][5],value_average[1][5]],
+                    ["Time of test",value_average[0][4],value_average[1][4]],
+                    ["Date of test",value_average[0][3],value_average[1][3]],
+                    ["Sample Number (frequency)",value_average[0][2],value_average[1][2]],
+                    ["Sample Location",value_average[0][1],value_average[1][1]],
+                    ["Depth at Location",value_average[0][0],value_average[1][0]]
                     
                 ]
+            daily_occ_1 = value_average[0][6]
+            daily_occ_2 = value_average[1][6]
         elif num_linhas_occ[0] == 1:
             data_average_occ =   [
                     ["","S/N: " + value_average[0][14]],
                     ["","Model: " + value_average[0][13]],
-                    ["Number of Shakers online",value_average[0][13]],
-                    ["Number of Cutting Dryers",value_average[0][12]],
-                    ["Mass of Dry cuttings (Md)",value_average[0][11]],
-                    ["Mass of NAF base Fluids (MBF)",value_average[0][10]],
-                    ["Mass Balance Requirement (MBR)",value_average[0][9]],
-                    ["Mass of Wet Cuttings (Mw)",value_average[0][8]],
-                    ["Average wet cuttings gms/Kg",value_average[0][7]],
-                    ["Average Dry cuttings gms/kg",value_average[0][6]],
-                    ["Time of test",value_average[0][5]],
-                    ["Date of test",value_average[0][4]],
-                    ["Sample Number (frequency)",value_average[0][3]],
-                    ["Sample Location",value_average[0][2]],
-                    ["Depth at Location",value_average[0][1]]
+                    ["Number of Shakers online",value_average[0][12]],
+                    ["Number of Cutting Dryers",value_average[0][11]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][10]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][9]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][8]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][7]],
+                    ["Average wet cuttings gms/Kg",value_average[0][6]],
+                    ["Average Dry cuttings gms/kg",value_average[0][5]],
+                    ["Time of test",value_average[0][4]],
+                    ["Date of test",value_average[0][3]],
+                    ["Sample Number (frequency)",value_average[0][2]],
+                    ["Sample Location",value_average[0][1]],
+                    ["Depth at Location",value_average[0][0]]
                     
                 ]
+            daily_occ_1 = value_average[0][6]
+
         elif num_linhas_occ[0] == 3:
             data_average_occ =   [
-                    ["","S/N: " + value_average[0][14], "S/N: " + value_average[1][14],"S/N: " + value_average[2][14]],
+                    ["","S/N: " + value_average[0][14], "S/N: " + value_average[1][14], "S/N: " + value_average[2][14]],
                     ["","Model: " + value_average[0][13], "Model: " + value_average[1][13], "Model: " + value_average[2][13]],
-                    ["Number of Shakers online",value_average[0][13],value_average[1][13],value_average[2][13]],
-                    ["Number of Cutting Dryers",value_average[0][12],value_average[1][12],value_average[2][12]],
-                    ["Mass of Dry cuttings (Md)",value_average[0][11],value_average[1][11],value_average[2][11]],
-                    ["Mass of NAF base Fluids (MBF)",value_average[0][10],value_average[1][10],value_average[2][10]],
-                    ["Mass Balance Requirement (MBR)",value_average[0][9],value_average[1][9],value_average[2][9]],
-                    ["Mass of Wet Cuttings (Mw)",value_average[0][8],value_average[1][8],value_average[2][8]],
-                    ["Average wet cuttings gms/Kg",value_average[0][7],value_average[1][7],value_average[2][7]],
-                    ["Average Dry cuttings gms/kg",value_average[0][6],value_average[1][6],value_average[2][6]],
-                    ["Time of test",value_average[0][5],value_average[1][5],value_average[2][5]],
-                    ["Date of test",value_average[0][4],value_average[1][4],value_average[2][4]],
-                    ["Sample Number (frequency)",value_average[0][3],value_average[1][3],value_average[2][3]],
-                    ["Sample Location",value_average[0][2],value_average[1][2],value_average[2][2]],
-                    ["Depth at Location",value_average[0][1],value_average[1][1],value_average[2][1]]
+                    ["Number of Shakers online",value_average[0][12],value_average[1][12],value_average[2][12]],
+                    ["Number of Cutting Dryers",value_average[0][11],value_average[1][11],value_average[2][11]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][10],value_average[1][10],value_average[2][10]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][9],value_average[1][9],value_average[2][9]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][8],value_average[1][8],value_average[2][8]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][7],value_average[1][7],value_average[2][7]],
+                    ["Average wet cuttings gms/Kg",value_average[0][6],value_average[1][6],value_average[2][6]],
+                    ["Average Dry cuttings gms/kg",value_average[0][5],value_average[1][5],value_average[2][5]],
+                    ["Time of test",value_average[0][4],value_average[1][4],value_average[2][4]],
+                    ["Date of test",value_average[0][3],value_average[1][3],value_average[2][3]],
+                    ["Sample Number (frequency)",value_average[0][2],value_average[1][2],value_average[2][2]],
+                    ["Sample Location",value_average[0][1],value_average[1][1],value_average[2][1]],
+                    ["Depth at Location",value_average[0][0],value_average[1][0],value_average[2][0]]
                     
                 ]
+            daily_occ_1 = value_average[0][6]
+            daily_occ_2 = value_average[1][6]
+            daily_occ_3 = value_average[2][6]
+            print(daily_occ_1,daily_occ_2,daily_occ_3)
 
+        data_solid_control_equipament = None
+        data_solid_control_sample = None
 
-        data_solid_control_equipament = [
-                    [" ",value_solids_control[7]],
-                    ["Dryer Screen size (mm)",value_solids_control[6]],
-                    [" ",value_solids_control[5]],
-                    ["Hours run",value_solids_control[4]],
-                    ["Front",value_solids_control[3]],
-                    ["Middle",value_solids_control[2]],
-                    ["Back",value_solids_control[1]],
-                    ["Scalper",value_solids_control[0]],
-                    ["Shaker (Screen-API mesh)"]
-        ]
+        table_solid_control_equipament = None
+        table_solid_control_sample = None
 
-        data_solid_control_sample = [
-                    ["Well Section Average % OOC ",""],
-                    [" Average % OOC",value_solids_control[11]],
-                    ["Daily % OOC ( % BFi) ",value_solids_control[11]],
-                    ["Weight in (ppg)",value_solids_control[10]],
-                    ["Flow (gpm)",value_solids_control[9]],
-                    ["Hours run",value_solids_control[4]],
-                    ["Bowl Speed (rpm )",value_solids_control[8]],
-                    ["Location of Sample"]
-        ]
+                
+
+        if num_linhas_solid[0] == 2:
+
+            daily_occ_1 = float(daily_occ_1) / 10
+            daily_occ_2 = float(daily_occ_2) / 10
+
+            total = (daily_occ_1 + daily_occ_2) / 10
+
+            data_solid_control_equipament = [
+                        [" ",value_solids_control[0][7],value_solids_control[1][7]],
+                        ["Dryer Screen size (mm)",value_solids_control[0][6],value_solids_control[1][6]],
+                        [" ",value_solids_control[0][5],value_solids_control[1][5]],
+                        ["Hours run",value_solids_control[0][4],value_solids_control[1][4]],
+                        ["Front",value_solids_control[0][3],value_solids_control[1][3]],
+                        ["Middle",value_solids_control[0][2],value_solids_control[1][2]],
+                        ["Back",value_solids_control[0][1],value_solids_control[1][1]],
+                        ["Scalper",value_solids_control[0][0],value_solids_control[1][0]],
+                        ["Shaker (Screen-API mesh)"]
+            ]
+
+            data_solid_control_sample = [
+                        ["Well Section Average % OOC ",""],
+                        [" Average % OOC",total],
+                        ["Daily % OOC ( % BFi) ",daily_occ_1,daily_occ_2],
+                        ["Weight in (ppg)",value_solids_control[0][10],value_solids_control[1][10]],
+                        ["Flow (gpm)",value_solids_control[0][9],value_solids_control[1][9]],
+                        ["Hours run",value_solids_control[0][4],value_solids_control[1][4]],
+                        ["Bowl Speed (rpm )",value_solids_control[0][8],value_solids_control[1][8]],
+                        ["Location of Sample"]
+            ]
+        
+        elif num_linhas_solid[0] == 1:
+            
+            daily_occ_1 = float(daily_occ_1)/10
+
+            data_solid_control_equipament = [
+                        [" ",value_solids_control[0][7]],
+                        ["Dryer Screen size (mm)",value_solids_control[0][6]],
+                        [" ",value_solids_control[0][5]],
+                        ["Hours run",value_solids_control[0][4]],
+                        ["Front",value_solids_control[0][3]],
+                        ["Middle",value_solids_control[0][2]],
+                        ["Back",value_solids_control[0][1]],
+                        ["Scalper",value_solids_control[0][0]],
+                        ["Shaker (Screen-API mesh)"]
+            ]
+
+            data_solid_control_sample = [
+                        ["Well Section Average % OOC ",],
+                        [" Average % OOC",daily_occ_1],
+                        ["Daily % OOC ( % BFi) ",daily_occ_1],
+                        ["Weight in (ppg)",value_solids_control[0][10]],
+                        ["Flow (gpm)",value_solids_control[0][9]],
+                        ["Hours run",value_solids_control[0][4]],
+                        ["Bowl Speed (rpm )",value_solids_control[0][8]],
+                        ["Location of Sample"]
+            ]
+        elif num_linhas_solid[0] == 3:
+
+            daily_occ_1 = float(daily_occ_1) / 10
+            daily_occ_2 = float(daily_occ_2) / 10
+            daily_occ_3 = float(daily_occ_3) / 10
+
+            total = (daily_occ_1 + daily_occ_3 + daily_occ_2)/3
+            
+            data_solid_control_equipament = [
+                        [" ",value_solids_control[0][7],value_solids_control[1][7],value_solids_control[2][7]],
+                        ["Dryer Screen size (mm)",value_solids_control[0][6],value_solids_control[1][6],value_solids_control[2][6]],
+                        [" ",value_solids_control[0][5],value_solids_control[1][5],value_solids_control[2][5]],
+                        ["Hours run",value_solids_control[0][4],value_solids_control[1][4],value_solids_control[2][4]],
+                        ["Front",value_solids_control[0][3],value_solids_control[1][3],value_solids_control[2][3]],
+                        ["Middle",value_solids_control[0][2],value_solids_control[1][2],value_solids_control[2][2]],
+                        ["Back",value_solids_control[0][1],value_solids_control[1][1],value_solids_control[2][1]],
+                        ["Scalper",value_solids_control[0][0],value_solids_control[1][0],value_solids_control[2][0]],
+                        ["Shaker (Screen-API mesh)"]
+            ]
+
+            data_solid_control_sample = [
+                        ["Well Section Average % OOC ",""],
+                        [" Average % OOC",total],
+                        ["Daily % OOC ( % BFi) ",daily_occ_1,daily_occ_2,daily_occ_3],
+                        ["Weight in (ppg)",value_solids_control[0][10],value_solids_control[1][10],value_solids_control[2][10]],
+                        ["Flow (gpm)",value_solids_control[0][9],value_solids_control[1][9],value_solids_control[2][9]],
+                        ["Hours run",value_solids_control[0][4],value_solids_control[1][4],value_solids_control[2][4]],
+                        ["Bowl Speed (rpm )",value_solids_control[0][8],value_solids_control[1][8],value_solids_control[2][8]],
+                        ["Location of Sample"]
+            ]
+
 
         data_auditQuestionary = value_audit + [
             ["Equipment Breakdown","Yes/No","Time","Contractor"]
@@ -176,7 +267,7 @@ class GerarReport:
                 ]
 
 
-
+        print(value_enginer)
         data_compliance_enginer = value_enginer+ [
             
             ["Drilling Fluids Complience Engineer","Shift",""]
@@ -204,9 +295,20 @@ class GerarReport:
         elif num_linhas_occ[0] == 3:
             table_average_occ = Table(data_average_occ,colWidths=[40*mm,53.3*mm,53.3*mm,53.3*mm])
 
-        table_solid_control_equipament = Table(data_solid_control_equipament,colWidths=[40*mm,160*mm])
+        if num_linhas_solid[0] == 2:
+            table_solid_control_equipament = Table(data_solid_control_equipament,colWidths=[40*mm,80*mm,80*mm])
 
-        table_solid_control_sample = Table(data_solid_control_sample,colWidths=[40*mm,160*mm])
+            table_solid_control_sample = Table(data_solid_control_sample,colWidths=[40*mm,80*mm,80*mm])
+        elif num_linhas_solid[0] == 1:
+            table_solid_control_equipament = Table(data_solid_control_equipament,colWidths=[40*mm,160*mm])
+
+            table_solid_control_sample = Table(data_solid_control_sample,colWidths=[40*mm,160*mm])
+        elif num_linhas_solid[0] == 3:
+            table_solid_control_equipament = Table(data_solid_control_equipament,colWidths=[40*mm,53.3*mm,53.3*mm,53.3*mm])
+
+            table_solid_control_sample = Table(data_solid_control_sample,colWidths=[40*mm,53.3*mm,53.3*mm,53.3*mm])
+
+        
 
         table_ongoing_activity = Table(data_ongoing_rig_activity,colWidths=200*mm)
 
@@ -557,7 +659,7 @@ class GerarReport:
         p_audit.drawOn(c,5*mm,total_table_with_monitoring + 6 )
 
         p_lema.wrapOn(c,70*mm,60*mm)
-        p_lema.drawOn(c,7*mm,283*mm)
+        p_lema.drawOn(c,80*mm,283*mm)
 
 
         c.save()

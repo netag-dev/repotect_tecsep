@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.frame.setFont(font)
         self.frame.setAutoFillBackground(False)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n"
+        self.frame.setStyleSheet("background-color:#fff;\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -95,24 +95,76 @@ class Ui_MainWindow(object):
         self.lbl_model.setObjectName("lbl_model")
         self.txt_model = QtWidgets.QLineEdit(self.frame)
         self.txt_model.setGeometry(QtCore.QRect(10, 130, 321, 41))
-        self.txt_model.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        self.txt_model.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_model.setPlaceholderText("")
         self.txt_model.setObjectName("txt_model")
         self.txt_sn = QtWidgets.QLineEdit(self.frame)
         self.txt_sn.setGeometry(QtCore.QRect(340, 130, 321, 41))
-        self.txt_sn.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        self.txt_sn.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_sn.setPlaceholderText("")
         self.txt_sn.setObjectName("txt_sn")
         self.lbl_sn = QtWidgets.QLabel(self.frame)

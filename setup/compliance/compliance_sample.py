@@ -4,9 +4,10 @@ from PyQt5.QtWidgets import QMessageBox
 from compliance.pack_model_average import average_modelController as controller
 from compliance.pack_sample_cp import sample_cpController as sample_controller
 from compliance.pack_average_ooc_cp import average_oocController as average_controller
+from compliance.pacote_report_information import report_informationController as controller_report
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
+    def setupUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1050, 870)
         MainWindow.setMinimumSize(QtCore.QSize(1050, 870))
@@ -764,13 +765,13 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report)
+        self.retranslateUi(MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         
             
 
-    def retranslateUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
+    def retranslateUi(self, MainWindow,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
         self.lbl_form_tittle.setText(_translate("MainWindow", "Samples"))
@@ -1127,6 +1128,8 @@ class Ui_MainWindow(object):
                 weight_oil,weight_condensate_gms,density_sample_sg,vol_oil,weigth_water,
                 weight_dry_solids_calculated,perc_water_by_volume,perc_oil_by_volume,weight_dry_solids_actual,
                 perc_solids_by_volume,perc_oil_by_weight,perc_water_by_weight,perc_solids_by_weight,ooc,soc,mud_weight,acuracy_check)
+
+                id_report = controller_report.buscar_id_ultimo_report()
 
                 save_average = average_controller.cadastrar_average(id_model,depth_location,sample_number,
                 dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,

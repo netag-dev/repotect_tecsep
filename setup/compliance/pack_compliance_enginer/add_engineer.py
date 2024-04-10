@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.frame.setFont(font)
         self.frame.setAutoFillBackground(False)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n"
+        self.frame.setStyleSheet("background-color:#fff;\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -95,24 +95,76 @@ class Ui_MainWindow(object):
         self.lbl_name.setObjectName("lbl_name")
         self.txt_name = QtWidgets.QLineEdit(self.frame)
         self.txt_name.setGeometry(QtCore.QRect(10, 130, 321, 41))
-        self.txt_name.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        self.txt_name.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_name.setPlaceholderText("")
         self.txt_name.setObjectName("txt_name")
         self.txt_email = QtWidgets.QLineEdit(self.frame)
         self.txt_email.setGeometry(QtCore.QRect(340, 130, 321, 41))
-        self.txt_email.setStyleSheet("QLineEdit{\n"
-"\n"
-"\n"
-"background-color:#fff;\n"
-"border: 1px solid #8ec0af;\n"
-"border-radius: 6px\n"
-"}")
+        self.txt_email.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_email.setPlaceholderText("")
         self.txt_email.setObjectName("txt_email")
         self.lbl_email = QtWidgets.QLabel(self.frame)

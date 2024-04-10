@@ -129,7 +129,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n" "\n" "")
+        self.frame.setStyleSheet("background-color:#fff;\n" "\n" "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -199,7 +199,39 @@ class Ui_MainWindow(object):
 
         self.txt_nome_consumivel = QtWidgets.QLineEdit(self.frame)
         self.txt_nome_consumivel.setGeometry(QtCore.QRect(30, 390, 341, 41))
-        self.txt_nome_consumivel.setStyleSheet("QLineEdit{\n" "\n" "\n" "background-color:#fff;\n" "border: 1px solid #8ec0af;\n" "border-radius: 6px;\n font-size:18px;" "}")
+        self.txt_nome_consumivel.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_nome_consumivel.setPlaceholderText("")
         self.txt_nome_consumivel.setObjectName("txt_nome_consumivel")
         self.txt_nome_consumivel.setText(str(nome))
@@ -214,7 +246,39 @@ class Ui_MainWindow(object):
 
         self.txt_quantidade_stoke = QtWidgets.QLineEdit(self.frame)
         self.txt_quantidade_stoke.setGeometry(QtCore.QRect(390, 390, 341, 41))
-        self.txt_quantidade_stoke.setStyleSheet("QLineEdit{\n" "\n" "\n" "background-color:#fff;\n" "border: 1px solid #8ec0af;\n" "border-radius: 6px;\n font-size:18px;" "}")
+        self.txt_quantidade_stoke.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_quantidade_stoke.setPlaceholderText("")
         self.txt_quantidade_stoke.setObjectName("txt_quantidade_stoke")
         self.txt_quantidade_stoke.setText(str(stoq))

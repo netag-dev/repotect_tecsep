@@ -370,7 +370,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(11)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n"
+        self.frame.setStyleSheet("background-color:#fff;\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)

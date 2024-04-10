@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n" "\n" "")
+        self.frame.setStyleSheet("background-color:#fff;\n" "\n" "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -616,35 +616,113 @@ class Ui_MainWindow(object):
         self.lbl_job_ref.setObjectName("lbl_job_ref")
         self.txt_job_ref = QtWidgets.QLineEdit(self.tab_report_information)
         self.txt_job_ref.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.txt_job_ref.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_job_ref.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_job_ref.setPlaceholderText("")
         self.txt_job_ref.setObjectName("txt_job_ref")
         self.txt_rig_name = QtWidgets.QLineEdit(self.tab_report_information)
         self.txt_rig_name.setGeometry(QtCore.QRect(530, 140, 491, 41))
-        self.txt_rig_name.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_rig_name.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_rig_name.setPlaceholderText("")
         self.txt_rig_name.setObjectName("txt_rig_name")
         self.txt_field_location = QtWidgets.QLineEdit(self.tab_report_information)
         self.txt_field_location.setGeometry(QtCore.QRect(530, 230, 491, 41))
-        self.txt_field_location.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_field_location.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_field_location.setPlaceholderText("")
         self.txt_field_location.setObjectName("txt_field_location")
         self.cbx_aproved_by = QtWidgets.QComboBox(self.tab_report_information)
@@ -680,24 +758,76 @@ class Ui_MainWindow(object):
 
         self.txt_job_type = QtWidgets.QLineEdit(self.tab_report_information)
         self.txt_job_type.setGeometry(QtCore.QRect(530, 320, 491, 41))
-        self.txt_job_type.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_job_type.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_job_type.setPlaceholderText("")
         self.txt_job_type.setObjectName("txt_job_type")
         self.txt_project_description = QtWidgets.QLineEdit(self.tab_report_information)
         self.txt_project_description.setGeometry(QtCore.QRect(530, 400, 491, 41))
-        self.txt_project_description.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_project_description.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_project_description.setText("")
         self.txt_project_description.setPlaceholderText("")
         self.txt_project_description.setObjectName("txt_project_description")
@@ -936,13 +1066,39 @@ class Ui_MainWindow(object):
 
         self.txt_rig_volume = QtWidgets.QLineEdit(self.tab_fluid_information)
         self.txt_rig_volume.setGeometry(QtCore.QRect(730, 40, 351, 41))
-        self.txt_rig_volume.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_rig_volume.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         
         #------------------------ Second Line --------------------------------__#
 
@@ -997,24 +1153,76 @@ class Ui_MainWindow(object):
         self.txt_density = QtWidgets.QLineEdit(self.tab_fluid_information)
         self.txt_density.setGeometry(QtCore.QRect(370, 132, 351, 41))
         self.txt_density.setObjectName("txt_density")
-        self.txt_density.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_density.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.txt_viscosity_pv = QtWidgets.QLineEdit(self.tab_fluid_information)
         self.txt_viscosity_pv.setGeometry(QtCore.QRect(732, 132, 349, 41))
         self.txt_viscosity_pv.setObjectName("txt_density")
-        self.txt_viscosity_pv.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_viscosity_pv.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.lbl_viscosity_pv = QtWidgets.QLabel(self.tab_fluid_information)
         self.lbl_viscosity_pv.setGeometry(QtCore.QRect(732, 100, 140, 31))
@@ -1048,13 +1256,39 @@ class Ui_MainWindow(object):
         self.txt_viscosity_yp = QtWidgets.QLineEdit(self.tab_fluid_information)
         self.txt_viscosity_yp.setGeometry(QtCore.QRect(10, 220, 351, 41))
         self.txt_viscosity_yp.setObjectName("cbx_density_type")
-        self.txt_viscosity_yp.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_viscosity_yp.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.lbl_hole_volume_type = QtWidgets.QLabel(self.tab_fluid_information)
         self.lbl_hole_volume_type.setGeometry(QtCore.QRect(370, 185, 191, 31))
@@ -1069,13 +1303,39 @@ class Ui_MainWindow(object):
         self.cbx_hole_volume_type.setGeometry(QtCore.QRect(370, 220, 351, 41))
         self.cbx_hole_volume_type.setObjectName("cbx_hole_volume_type")
         self.cbx_hole_volume_type.addItems(["bbls","m3"])
-        self.cbx_hole_volume_type.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.cbx_hole_volume_type.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.cbx_hole_volume_type.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;
@@ -1105,13 +1365,39 @@ class Ui_MainWindow(object):
         self.txt_hole_volume = QtWidgets.QLineEdit(self.tab_fluid_information)
         self.txt_hole_volume.setGeometry(QtCore.QRect(732, 220, 349, 41))
         self.txt_hole_volume.setObjectName("txt_hole_volume")
-        self.txt_hole_volume.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_hole_volume.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.lbl_hole_volume = QtWidgets.QLabel(self.tab_fluid_information)
         self.lbl_hole_volume.setGeometry(QtCore.QRect(732, 185, 140, 31))
@@ -1311,13 +1597,39 @@ class Ui_MainWindow(object):
         
         self.txt_value = QtWidgets.QLineEdit(self.tab_drilling_fluid_information)
         self.txt_value.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.txt_value.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_value.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
                 
         self.txt_value.setObjectName("txt_value")
         
@@ -1415,13 +1727,39 @@ class Ui_MainWindow(object):
         self.lbl_sample_number.setObjectName("lbl_sample_number")
         self.txt_depth_location = QtWidgets.QLineEdit(self.tab_add_sample)
         self.txt_depth_location.setGeometry(QtCore.QRect(10, 40, 351, 41))
-        self.txt_depth_location.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_depth_location.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         
         self.txt_depth_location.setObjectName("txt_depth_location")
         self.cbx_sample_location_occ = QtWidgets.QComboBox(self.tab_add_sample)
@@ -1462,13 +1800,39 @@ class Ui_MainWindow(object):
         self.lbl_sample_location.setObjectName("lbl_sample_location")
         self.txt_sample_number = QtWidgets.QLineEdit(self.tab_add_sample)
         self.txt_sample_number.setGeometry(QtCore.QRect(750, 40, 300, 41))
-        self.txt_sample_number.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_sample_number.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_sample_number.setPlaceholderText("")
         self.txt_sample_number.setObjectName("txt_sample_number")
 
@@ -1577,13 +1941,39 @@ class Ui_MainWindow(object):
         self.txt_number_of_cutting = QtWidgets.QLineEdit(self.tab_add_sample)
         self.txt_number_of_cutting.setGeometry(QtCore.QRect(380,230,351,41))
         self.txt_number_of_cutting.setObjectName("txt_number_of_cutting")
-        self.txt_number_of_cutting.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_number_of_cutting.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.lbl_number_of_shakers = QtWidgets.QLabel(self.tab_add_sample)
         self.lbl_number_of_shakers.setGeometry(QtCore.QRect(10,200,250,28))
@@ -1593,13 +1983,39 @@ class Ui_MainWindow(object):
         self.txt_number_of_shakers = QtWidgets.QLineEdit(self.tab_add_sample)
         self.txt_number_of_shakers.setGeometry(QtCore.QRect(10,230,351,41))
         self.txt_number_of_shakers.setObjectName("txt_number_of_shakers")
-        self.txt_number_of_shakers.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_number_of_shakers.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.cbx_model_average = QtWidgets.QComboBox(self.tab_add_sample)
         self.cbx_model_average.setGeometry(QtCore.QRect(748, 140, 300, 41))
@@ -1690,37 +2106,115 @@ class Ui_MainWindow(object):
         self.lbl_back.setObjectName("lbl_back")
         self.txt_middle = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_middle.setGeometry(QtCore.QRect(10, 310, 491, 41))
-        self.txt_middle.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_middle.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_middle.setPlaceholderText("")
         self.txt_middle.setObjectName("txt_middle")
         self.txt_hour_run = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_hour_run.setGeometry(QtCore.QRect(530, 140, 491, 41))
-        self.txt_hour_run.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_hour_run.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_hour_run.setPlaceholderText("")
         self.txt_hour_run.setObjectName("txt_hour_run")
        
         
         self.txt_front = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_front.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.txt_front.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_front.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_front.setPlaceholderText("")
         self.txt_front.setObjectName("txt_front")
         self.lbl_description_man_hour = QtWidgets.QLabel(self.tab_solid_control)
@@ -1748,13 +2242,39 @@ class Ui_MainWindow(object):
         self.cbx_dryer = QtWidgets.QComboBox(self.tab_solid_control)
         self.cbx_dryer.setGeometry(QtCore.QRect(530, 230, 491, 41))
         self.cbx_dryer.addItem("Select")
-        self.cbx_dryer.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.cbx_dryer.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.cbx_dryer.setPlaceholderText("")
         self.cbx_dryer.setObjectName("cbx_dryer")
         self.cbx_dryer.setStyleSheet("""
@@ -1822,13 +2342,39 @@ class Ui_MainWindow(object):
 
         self.txt_dryer_screen_size = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_dryer_screen_size.setGeometry(QtCore.QRect(800, 310, 225, 41))
-        self.txt_dryer_screen_size.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_dryer_screen_size.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_dryer_screen_size.setPlaceholderText("")
         self.txt_dryer_screen_size.setObjectName("txt_dryer_screen_size")
 
@@ -1881,35 +2427,113 @@ class Ui_MainWindow(object):
         
         self.txt_shaker_api = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_shaker_api.setGeometry(QtCore.QRect(10, 50, 491, 41))
-        self.txt_shaker_api.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_shaker_api.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_shaker_api.setPlaceholderText("")
         self.txt_shaker_api.setObjectName("txt_shaker_api")
         self.txt_scaper = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_scaper.setGeometry(QtCore.QRect(10, 140, 491, 41))
-        self.txt_scaper.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_scaper.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_scaper.setPlaceholderText("")
         self.txt_scaper.setObjectName("txt_scaper")
         self.txt_back = QtWidgets.QLineEdit(self.tab_solid_control)
         self.txt_back.setGeometry(QtCore.QRect(10, 220, 491, 41))
-        self.txt_back.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_back.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_back.setPlaceholderText("")
         self.txt_back.setObjectName("txt_back")
         self.lbl_middle.raise_()
@@ -1930,35 +2554,113 @@ class Ui_MainWindow(object):
         self.tab_solid_control_sample.setObjectName("tab_solid_control_sample")
         self.txt_bwl_speed = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_bwl_speed.setGeometry(QtCore.QRect(10, 40, 351, 41))
-        self.txt_bwl_speed.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_bwl_speed.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         
         self.txt_bwl_speed.setObjectName("txt_bwl_speed")
         self.txt_sample_number_non_produtive_man = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_sample_number_non_produtive_man.setGeometry(QtCore.QRect(750, 40, 300, 41))
-        self.txt_sample_number_non_produtive_man.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_sample_number_non_produtive_man.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_sample_number_non_produtive_man.setPlaceholderText("")
         self.txt_sample_number_non_produtive_man.setObjectName("txt_sample_number_non_produtive_man")
         self.txt_flow = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_flow.setGeometry(QtCore.QRect(380, 40, 351, 41))
-        self.txt_flow.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_flow.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_flow.setPlaceholderText("")
         self.txt_flow.setObjectName("txt_flow")
         self.btn_next_step_audit = QtWidgets.QPushButton(self.tab_solid_control_sample)
@@ -2065,13 +2767,39 @@ class Ui_MainWindow(object):
 
         self.txt_daily_occ = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_daily_occ.setGeometry(QtCore.QRect(10, 130, 351, 41))
-        self.txt_daily_occ.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_daily_occ.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_daily_occ.setPlaceholderText("")
         self.txt_daily_occ.setObjectName("txt_daily_occ")
 
@@ -2086,13 +2814,39 @@ class Ui_MainWindow(object):
 
         self.txt_well_selection_average = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_well_selection_average.setGeometry(QtCore.QRect(380, 130, 351, 41))
-        self.txt_well_selection_average.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_well_selection_average.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_well_selection_average.setPlaceholderText("")
         self.txt_well_selection_average.setObjectName("txt_well_selection_average")
 
@@ -2185,13 +2939,39 @@ class Ui_MainWindow(object):
         self.txt_contrator = QtWidgets.QLineEdit(self.tab_audit_questionary)
         self.txt_contrator.setObjectName("txt_finding")
         self.txt_contrator.setGeometry(QtCore.QRect(770,40,300,41))
-        self.txt_contrator.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_contrator.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
 
         self.btn_add_information_audit_questions = QtWidgets.QPushButton(self.tab_audit_questionary)
         self.btn_add_information_audit_questions.setGeometry(QtCore.QRect(10, 120, 351, 41))
@@ -2825,6 +3605,7 @@ class Ui_MainWindow(object):
             id_sample_location = return_id(self.cbx_sample_location_occ.currentText(),lista_sample_location)
             id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
 
+            id_last_report = controller.buscar_id_ultimo_report()
             save_solid_control = solid_controller.cadastrar(self.txt_shaker_api.text(),
             self.txt_scaper.text(),self.txt_back.text(),self.txt_middle.text(),self.txt_front.text(),self.txt_hour_run.text(),id_sample_location,self.txt_dryer_screen_size.text(),self.txt_bwl_speed.text(),self.txt_flow.text(),"15",self.txt_daily_occ.text(),id_last_report)
 
@@ -2852,13 +3633,13 @@ class Ui_MainWindow(object):
             show_message_sucess()
 
 
-        def add_sample_average_dry_cutting(depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report):
+        def add_sample_average_dry_cutting(depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings):
 
             
             self.window = QtWidgets.QMainWindow()
             import compliance.compliance_sample as add
             self.ui = add.Ui_MainWindow()
-            self.ui.setupUi(self.window,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings,id_report)
+            self.ui.setupUi(self.window,depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings)
             self.window.show()
             #MainWindow.close()
 
@@ -2917,11 +3698,10 @@ class Ui_MainWindow(object):
 
         id_sample_location = return_id(self.cbx_sample_location_occ.currentText(),lista_sample_location)
         #id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
-        id_last_report = controller.buscar_id_ultimo_report()
+        
 
-        print(id_last_report)
 
-        self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting(self.txt_depth_location.text(),id_sample_location,self.txt_sample_number.text(),self.data_test.text(),self.time_test.text(),self.cbx_model_average.currentText(),self.txt_number_of_shakers.text(),self.txt_number_of_cutting.text(),id_last_report))
+        self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting(self.txt_depth_location.text(),id_sample_location,self.txt_sample_number.text(),self.data_test.text(),self.time_test.text(),self.cbx_model_average.currentText(),self.txt_number_of_shakers.text(),self.txt_number_of_cutting.text()))
 
 
 
@@ -2972,9 +3752,12 @@ class Ui_MainWindow(object):
                 print(f"{e}")
             
             finally:
+                
                 save_report_information = controller.cadastrar(str(id_cliente),str(id_well_number),data,str(id_compliance_enginer),job_ref_number,rig_name,field_location,job_type,project_description,hole_size,total_depth,feets_drilled,average_rop,time_at_depth,id_user_logado,shift,ongoing_activity,monitoring_comments)
+                id_last_report = controller.buscar_id_ultimo_report()
                 svae_enginer = enginer_controller.cadastrar_enginer(shift,id_empregado,id_last_report)
-                if (save_report_information == 0):
+                print(svae_enginer)
+                if (save_report_information == 0) and (svae_enginer == 0):
                     
                     self.tab_menus_compliance.setCurrentIndex(3)
                 else:
@@ -2982,6 +3765,7 @@ class Ui_MainWindow(object):
             show_message_sucess()
 
         def add_auti_questionary():
+            id_last_report = controller.buscar_id_ultimo_report()
             save_audit = audit_controller.cadastrar(self.cbx_finding.currentText(),self.radioYes.text(),self.txt_time.text(),self.txt_contrator.text(),id_last_report)
             print(save_audit)  
 
