@@ -10,6 +10,7 @@ from compliance.pack_drilling_fluid_property import drilling_fluid_propertyContr
 from compliance.pack_average_ooc_cp import average_oocController as controller_average
 from compliance.pack_solids_control import solidsController as controller_solids
 from compliance.pack_audit import auditController as controller_audit
+from compliance.pack_compliance_enginer import enginierController as controller_enginer
 
 from compliance import compliance_report_pdf as pdf
 
@@ -784,11 +785,12 @@ class Ui_MainWindow(object):
                     average = controller_average.buscar_avarage_information_by_job_ref(job_ref)
                     solids_control = controller_solids.buscar_solids_by_job_ref(job_ref)
                     audi = controller_audit.buscar_avarage_information_by_job_ref(job_ref)
-                    print(audi)
-
+                    enginer = controller_enginer.buscar_enginer_by_job_ref(job_ref)
+                    
+                    
 
                     filemane = "Daily_Report_"+str(report_cabecalho[0])+"Drilling Fluid Compliance.pdf"
-                    self.gerador_report.gerar_pdf(filemane,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi)
+                    self.gerador_report.gerar_pdf(filemane,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi,enginer)
                     show_message_sucess()
                     print(job_ref)
 

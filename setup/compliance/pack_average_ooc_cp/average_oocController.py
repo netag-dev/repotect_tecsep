@@ -7,3 +7,6 @@ def cadastrar_average(model_average, depth_location, sample_number, date_of_test
 
 def buscar_avarage_information_by_job_ref(job_ref):
     return model.buscar_avarage_information_by_job_ref(job_ref)
+
+def buscar_num_registo_avarage_information_by_job_ref(job_ref):
+    return model.buscar_num_registo_avarage_information_by_job_ref(job_ref)

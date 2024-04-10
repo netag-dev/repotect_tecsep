@@ -90,3 +90,20 @@ def cadastrar_enginer(eng_shift,id_employe,id_report):
     finally:
         connection.close()
         return 0
+    
+
+def buscar_enginer_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(""" SELECT employee_cp.emp_name,engineer_cp.eng_shift FROM report_information_cp,engineer_cp,employee_cp
+        WHERE engineer_cp.id_employee = employee_cp.id
+        AND report_information_cp.id = engineer_cp.id_report
+        AND report_information_cp.job_ref_number = %s""",(job_ref,))
+        dados = cursor.fetchall()
+    except Exception as e:
+        print(f"Erro: {e}")
+        return -1
+    finally:
+        connection.close()
+        return dados

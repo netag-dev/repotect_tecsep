@@ -1128,6 +1128,12 @@ class Ui_MainWindow(object):
                 weight_dry_solids_calculated,perc_water_by_volume,perc_oil_by_volume,weight_dry_solids_actual,
                 perc_solids_by_volume,perc_oil_by_weight,perc_water_by_weight,perc_solids_by_weight,ooc,soc,mud_weight,acuracy_check)
 
+                save_average = average_controller.cadastrar_average(id_model,depth_location,sample_number,
+                dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
+                weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
+
+                print(id_report)
+
                 if save_sample != 0:
                         error_message("Adding Sample",save_sample)
                 else:
@@ -1135,10 +1141,8 @@ class Ui_MainWindow(object):
              except Exception as e:
                 error_message("Addinf Sample",e)
 
-             save_average = average_controller.cadastrar_average(id_model,depth_location,sample_number,
-                dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
-                weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
-             print(save_average)
+                
+
 
 
 

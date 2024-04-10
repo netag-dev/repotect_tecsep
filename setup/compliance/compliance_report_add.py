@@ -2919,6 +2919,8 @@ class Ui_MainWindow(object):
         #id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
         id_last_report = controller.buscar_id_ultimo_report()
 
+        print(id_last_report)
+
         self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting(self.txt_depth_location.text(),id_sample_location,self.txt_sample_number.text(),self.data_test.text(),self.time_test.text(),self.cbx_model_average.currentText(),self.txt_number_of_shakers.text(),self.txt_number_of_cutting.text(),id_last_report))
 
 
@@ -2972,21 +2974,11 @@ class Ui_MainWindow(object):
             finally:
                 save_report_information = controller.cadastrar(str(id_cliente),str(id_well_number),data,str(id_compliance_enginer),job_ref_number,rig_name,field_location,job_type,project_description,hole_size,total_depth,feets_drilled,average_rop,time_at_depth,id_user_logado,shift,ongoing_activity,monitoring_comments)
                 svae_enginer = enginer_controller.cadastrar_enginer(shift,id_empregado,id_last_report)
-                if (save_report_information == 0) and (svae_enginer == 0):
+                if (save_report_information == 0):
                     
                     self.tab_menus_compliance.setCurrentIndex(3)
                 else:
                     print("Não Salvou")
-            #save_report_information = controller.cadastrar()
-
-
-            #dsdsdsd
-
-            
-
-            #u_type = self.cb_tipo_usuario.itemText() 
-
-            # Condicao para adicao de usuario
             show_message_sucess()
 
         def add_auti_questionary():

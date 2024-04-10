@@ -43,10 +43,28 @@ def buscar_avarage_information_by_job_ref(job_ref):
             AND sample_location_cp.id = average_ooc_cpp.sample_location
             AND report_information_cp.id = average_ooc_cpp.report_information
             AND report_information_cp.job_ref_number =  %s """,(job_ref,))
+            dados = cursor.fetchall()
+            return dados
+    except Exception as e:
+        return e
+    finally:
+        return dados 
+
+
+def buscar_num_registo_avarage_information_by_job_ref(job_ref):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT COUNT(average_ooc_cpp.id)
+            FROM average_ooc_cpp, model_average_cp,sample_location_cp,report_information_cp 
+            WHERE average_ooc_cpp.model_average = model_average_cp.id
+            AND sample_location_cp.id = average_ooc_cpp.sample_location
+            AND report_information_cp.id = average_ooc_cpp.report_information
+            AND report_information_cp.job_ref_number =   %s """,(job_ref,))
             dados = cursor.fetchone()
             return dados
     except Exception as e:
         return e
     finally:
-        return dados  
+        return dados 
 

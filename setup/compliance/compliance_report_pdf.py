@@ -11,10 +11,11 @@ from reportlab.lib.colors import CMYKColor
 import sys,os,locale
 import psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget 
+from compliance.pack_average_ooc_cp import average_oocController as controller_occ
 
 # Classe Para Geração dos Reports
 class GerarReport:
-    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi):
+    def gerar_pdf(self,filename,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi,enginer):
 
         def caminho_absoluto_desktop():
             idioma_sistema = locale.getdefaultlocale()[0].lower()
@@ -30,14 +31,22 @@ class GerarReport:
         width, height = A4
 
         value_info = report_cabecalho
+
+        num_linhas_occ = controller_occ.buscar_num_registo_avarage_information_by_job_ref(report_cabecalho[1])        
+        
+
         value_fluid_information = fluid_information
         
         value_drilling_information = drilling_information
+
         value_average = average
+        
 
         value_solids_control = solids_control
 
         value_audit = audi
+
+        value_enginer = enginer
 
         
         
@@ -67,24 +76,68 @@ class GerarReport:
                     
                 ]
 
-        data_average_occ =   [
-                    ["","S/N: " + value_average[14]],
-                    ["","Model: " + value_average[13]],
-                    ["Number of Shakers online",value_average[13]],
-                    ["Number of Cutting Dryers",value_average[12]],
-                    ["Mass of Dry cuttings (Md)",value_average[11]],
-                    ["Mass of NAF base Fluids (MBF)",value_average[10]],
-                    ["Mass Balance Requirement (MBR)",value_average[9]],
-                    ["Mass of Wet Cuttings (Mw)",value_average[8]],
-                    ["Average wet cuttings gms/Kg",value_average[7]],
-                    ["Average Dry cuttings gms/kg",value_average[6]],
-                    ["Time of test",value_average[5]],
-                    ["Date of test",value_average[4]],
-                    ["Sample Number (frequency)",value_average[3]],
-                    ["Sample Location",value_average[2]],
-                    ["Depth at Location",value_average[1]]
+        table_average_occ = None
+        data_average_occ = None
+        if num_linhas_occ[0] == 2:
+
+            data_average_occ =   [
+                    ["","S/N: " + value_average[0][14], "S/N: " + value_average[1][14]],
+                    ["","Model: " + value_average[0][13], "Model: " + value_average[1][13]],
+                    ["Number of Shakers online",value_average[0][13],value_average[1][13]],
+                    ["Number of Cutting Dryers",value_average[0][12],value_average[1][12]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][11],value_average[1][11]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][10],value_average[1][10]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][9],value_average[1][9]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][8],value_average[1][8]],
+                    ["Average wet cuttings gms/Kg",value_average[0][7],value_average[1][7]],
+                    ["Average Dry cuttings gms/kg",value_average[0][6],value_average[1][6]],
+                    ["Time of test",value_average[0][5],value_average[1][5]],
+                    ["Date of test",value_average[0][4],value_average[1][4]],
+                    ["Sample Number (frequency)",value_average[0][3],value_average[1][3]],
+                    ["Sample Location",value_average[0][2],value_average[1][2]],
+                    ["Depth at Location",value_average[0][1],value_average[1][1]]
                     
                 ]
+        elif num_linhas_occ[0] == 1:
+            data_average_occ =   [
+                    ["","S/N: " + value_average[0][14]],
+                    ["","Model: " + value_average[0][13]],
+                    ["Number of Shakers online",value_average[0][13]],
+                    ["Number of Cutting Dryers",value_average[0][12]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][11]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][10]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][9]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][8]],
+                    ["Average wet cuttings gms/Kg",value_average[0][7]],
+                    ["Average Dry cuttings gms/kg",value_average[0][6]],
+                    ["Time of test",value_average[0][5]],
+                    ["Date of test",value_average[0][4]],
+                    ["Sample Number (frequency)",value_average[0][3]],
+                    ["Sample Location",value_average[0][2]],
+                    ["Depth at Location",value_average[0][1]]
+                    
+                ]
+        elif num_linhas_occ[0] == 3:
+            data_average_occ =   [
+                    ["","S/N: " + value_average[0][14], "S/N: " + value_average[1][14],"S/N: " + value_average[2][14]],
+                    ["","Model: " + value_average[0][13], "Model: " + value_average[1][13], "Model: " + value_average[2][13]],
+                    ["Number of Shakers online",value_average[0][13],value_average[1][13],value_average[2][13]],
+                    ["Number of Cutting Dryers",value_average[0][12],value_average[1][12],value_average[2][12]],
+                    ["Mass of Dry cuttings (Md)",value_average[0][11],value_average[1][11],value_average[2][11]],
+                    ["Mass of NAF base Fluids (MBF)",value_average[0][10],value_average[1][10],value_average[2][10]],
+                    ["Mass Balance Requirement (MBR)",value_average[0][9],value_average[1][9],value_average[2][9]],
+                    ["Mass of Wet Cuttings (Mw)",value_average[0][8],value_average[1][8],value_average[2][8]],
+                    ["Average wet cuttings gms/Kg",value_average[0][7],value_average[1][7],value_average[2][7]],
+                    ["Average Dry cuttings gms/kg",value_average[0][6],value_average[1][6],value_average[2][6]],
+                    ["Time of test",value_average[0][5],value_average[1][5],value_average[2][5]],
+                    ["Date of test",value_average[0][4],value_average[1][4],value_average[2][4]],
+                    ["Sample Number (frequency)",value_average[0][3],value_average[1][3],value_average[2][3]],
+                    ["Sample Location",value_average[0][2],value_average[1][2],value_average[2][2]],
+                    ["Depth at Location",value_average[0][1],value_average[1][1],value_average[2][1]]
+                    
+                ]
+
+
         data_solid_control_equipament = [
                     [" ",value_solids_control[7]],
                     ["Dryer Screen size (mm)",value_solids_control[6]],
@@ -124,9 +177,8 @@ class GerarReport:
 
 
 
-        data_compliance_enginer = [
-            ["teste","teste","teste"],
-            ["teste","teste","teste"],
+        data_compliance_enginer = value_enginer+ [
+            
             ["Drilling Fluids Complience Engineer","Shift",""]
         ]
 
@@ -144,7 +196,13 @@ class GerarReport:
 
         table_drilling_fluid_properties = Table(data_drilling_fluid_properties,colWidths=[40*mm,160*mm])
 
-        table_average_occ = Table(data_average_occ,colWidths=[40*mm,160*mm])
+        if num_linhas_occ[0] == 2:
+
+            table_average_occ = Table(data_average_occ,colWidths=[40*mm,80*mm,80*mm])
+        elif num_linhas_occ[0] == 1:
+            table_average_occ = Table(data_average_occ,colWidths=[40*mm,160*mm])
+        elif num_linhas_occ[0] == 3:
+            table_average_occ = Table(data_average_occ,colWidths=[40*mm,53.3*mm,53.3*mm,53.3*mm])
 
         table_solid_control_equipament = Table(data_solid_control_equipament,colWidths=[40*mm,160*mm])
 

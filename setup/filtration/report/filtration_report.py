@@ -380,11 +380,11 @@ class GerarReport:
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
 
-        width = 7.5 * inch  # largura da imagem
-        height = 1.5 * inch  # altura da imagem
+        width = 7.8 * inch  # largura da imagem
+        height = 2.1 * inch  # altura da imagem
 
-        img_certificate = ImageReader("img/arrendoda.png",styles["Estilo_texto_titulo"])
-        c.drawImage(img_certificate,5*mm,240*mm,width,height,mask='auto')
+        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,227*mm,width,height,mask='auto')
 
 
         

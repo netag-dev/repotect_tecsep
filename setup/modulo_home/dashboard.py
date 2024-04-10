@@ -42,7 +42,7 @@ class Ui_dashboard_ui(object):
         
 
         self.lbl_logo_tecseo = QtWidgets.QLabel(self.frame_aside_menu)
-        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(10, 30, 221, 91))
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(10, 30, 240, 105))
         self.lbl_logo_tecseo.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
         self.lbl_logo_tecseo.setText("")
         self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
