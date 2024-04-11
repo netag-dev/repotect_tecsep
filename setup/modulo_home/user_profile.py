@@ -23,8 +23,8 @@ class Ui_MainWindow(object):
         self.frame.setFont(font)
         self.frame.setAutoFillBackground(False)
         self.frame.setStyleSheet("background-color:#fff;\n"
-"\n"
-"")
+        "\n"
+        "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -37,9 +37,9 @@ class Ui_MainWindow(object):
         self.img_user_logado = QtWidgets.QPushButton(self.frame_2)
         self.img_user_logado.setGeometry(QtCore.QRect(980, 10, 31, 31))
         self.img_user_logado.setStyleSheet("background-color: #fff;\n"
-"border-radius:30px;\n"
-"width:30px;\n"
-"height:30px;")
+        "border-radius:30px;\n"
+        "width:30px;\n"
+        "height:30px;")
         self.img_user_logado.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(".\\../../../../../.designer/backup/user_dark.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)

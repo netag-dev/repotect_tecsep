@@ -1746,7 +1746,7 @@ class Ui_MainWindow(object):
         self.lbl_visual_complete_user.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_visual_complete_user.setObjectName("lbl_visual_complete_user")
 
-        self.lbl_visual_complete_user.setText(" User Visual Compete %")
+        self.lbl_visual_complete_user.setText(" User Perception %")
 
         self.lbl_original_hour = QtWidgets.QLabel(self.tab_productive_man_hour)
         self.lbl_original_hour.setGeometry(QtCore.QRect(10, 190, 371, 31))
@@ -3165,12 +3165,12 @@ class Ui_MainWindow(object):
                 visual_complete = (100 * valor_to_date)/val_estimated
                 visual_complete_user = int(self.txt_visual_complete_user.text())
 
-                if visual_complete_user > visual_complete:
-                        print("Estas Atrasado")
-                elif visual_complete_user < visual_complete:
-                        print("Estas em Adiantado")
+                if visual_complete_user < visual_complete:
+                        self.lbl_visual_complete.setStyleSheet("color: red;")
+                elif visual_complete_user > visual_complete:
+                       self.lbl_visual_complete.setStyleSheet("color: green;")
                 else:
-                        print("Estas em tempo")
+                        self.lbl_visual_complete.setStyleSheet("color: blue;")
                 print(f"{visual_complete} %")
                 
                 self.txt_hour_booked_date.setText(str(valor_to_date))

@@ -153,7 +153,7 @@ class GerarReport:
 
 
         data_competency_profile = dados_consumiveis + dados_ppe +  [
-            ["Name","Quantity Used","Consumables"]
+            ["Name","Quantity Used",""]
         ]
 
 
