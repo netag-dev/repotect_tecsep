@@ -448,7 +448,7 @@ class Ui_MainWindow(object):
 
         #Declaração das funções
 
-        numero_bi =  id_card
+        numero_bi = id_card
         lista_pessoa = modulo_personnel.personnelController.carregar_pessoa_por_bi(numero_bi)
 
 
@@ -545,16 +545,6 @@ class Ui_MainWindow(object):
                     msg_validation.setWindowTitle(' Error Editing User')
                     msg_validation.exec_()
                 
-                
-
-       
-
-
-
-            
-
-
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

@@ -16,6 +16,19 @@ def cadastrar(param1, param2, param3, param4, param5, param6):
             cursor.close()
             connection.close()
         return 0
+    
+def editar(nif, name, email, phone, adress): 
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute("UPDATE tb_legal_person SET lp_name = %s, lp_email = %s, lp_phone = %s, lp_address = %s WHERE lp_nif = %s ",(name,email,phone,adress,nif,))
+        connection.commit()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao actualizar dados no tb_legal_person: {e}")
+        return -1
+    finally:
+        return 0
 
 def listar(): 
     try: 
@@ -48,6 +61,7 @@ def eliminar(param):
             cursor.close()
             connection.close() 
         return 0
+    
 
 ##########################################################################################################################################
 #                                                           WELL
@@ -86,8 +100,6 @@ def listar_poco():
             connection.close()
         return dados
 
- 
- 
 def eliminar_poco(param): 
     try: 
         connection = connecao.cria_connecao()
@@ -104,7 +116,6 @@ def eliminar_poco(param):
             connection.close() 
             return 0
 
-
 def editar_poco(param1, param2): 
     try: 
         connection = connecao.cria_connecao()
@@ -120,6 +131,3 @@ def editar_poco(param1, param2):
             cursor.close()
             connection.close()
             return 0
-        
-
-

@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMessageBox,QDesktopWidget,QFileDialog
 import modulo_customer.custumerController
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name,nome,nif,email,contacto):
+    def setupUi(self, MainWindow,user_name,nome,nif,email,contacto,adress):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -289,10 +289,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,nome,nif,email,contacto)
+        self.retranslateUi(MainWindow,nome,nif,email,contacto,adress)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow,nome,nif,email,contacto):
+    def retranslateUi(self, MainWindow,nome,nif,email,contacto,adress):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
         self.txt_nif.setText(str(nif))
         self.txt_email.setText(str(email))
         self.txt_contact.setText(str(contacto))
-        self.txt_adress.setText(str(contacto))
+        self.txt_adress.setText(str(adress))
         
         def call_form_client():
             self.window = QtWidgets.QMainWindow()
@@ -394,6 +394,7 @@ class Ui_MainWindow(object):
             custumer_email = self.txt_email.text()
             custumer_address = self.txt_adress.text()
             custumer_contact = self.txt_contact.text()
+            customer_nif = self.txt_nif.text()
 
             # Condicao para adicao de usuario
             if customer_name == "" or custumer_email == "" or custumer_address == "":
@@ -403,12 +404,16 @@ class Ui_MainWindow(object):
                 msg_validation.setWindowTitle(' Error Adding Customer')
                 msg_validation.exec_()
             else:
-                #modulo_customer.custumerController.cadastrar( "500010203", customer_name, custumer_email, custumer_contact, "...", custumer_address)
-                #show_message_sucess()
-                self.txt_nome.clear()
-                self.txt_email.clear()
-                self.txt_adress.clear()
-                self.txt_contact.clear()
+                edit_customer = modulo_customer.custumerController.editar( customer_nif,customer_name,custumer_email,custumer_contact,custumer_address)
+                if edit_customer == 0:
+                    show_message_sucess()
+                    self.txt_nome.clear()
+                    self.txt_email.clear()
+                    self.txt_adress.clear()
+                    self.txt_contact.clear()
+                else:
+                    print("erro")
+                
 
 
 if __name__ == "__main__":
