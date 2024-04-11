@@ -447,13 +447,22 @@ class Ui_MainWindow(object):
         def show_message_sucess():
             msg_error = QMessageBox()
             msg_error.setIcon(QMessageBox.Information)
-            msg_error.setText('Customer added successfully')
-            msg_error.setWindowTitle('Adding Cusotmer')
+            msg_error.setText('Well added successfully')
+            msg_error.setWindowTitle('Adding Well')
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setText('Error when Add Well')
+            msg_error.setWindowTitle('Well')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
         
         def carregar_cliente():
             self.cbx_customers.addItems(modulo_wbco.wbcoController.carregar_cliente())
@@ -477,12 +486,17 @@ class Ui_MainWindow(object):
                 import modulo_customer.custumerController
                 id_cliente = modulo_wbco.wbcoController.carregar_buscar_id_cliente(self.cbx_customers.currentText())
                 id_supervisor = modulo_wbco.wbcoController.carregar_id_supervisor_by_email(self.lbl_user_logado.text())
-                modulo_customer.custumerController.carregar_cadastro_de_poco(customer_name,well_number,id_cliente,id_supervisor)
+                response = modulo_customer.custumerController.carregar_cadastro_de_poco(customer_name,well_number,id_cliente,id_supervisor)
+                
+                if response == 0:
+                    show_message_sucess()
+                    self.txt_nome.clear()
+                    self.txt_well_number.clear()
+                    show_form_list_well()
 
-                self.txt_nome.clear()
-                self.txt_well_number.clear()
-                show_message_sucess()
-
+                else:
+                    show_message_error()
+                
 
 if __name__ == "__main__":
     import sys

@@ -1,9 +1,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox, QDesktopWidget
-import modulo_wbco.sizeController
-import modulo_wbco.wbcoController
-import modulo_wbco.enginierwbcoController
+
+from filtration.pack_fluid_consumables_type import fluid_consumables_typeController as controller
 
 
 class Ui_MainWindow(object):
@@ -328,18 +327,14 @@ class Ui_MainWindow(object):
 
         self.btn_salvar_type_consumable.setText(_translate("MainWindow", "Save Consumable data"))
 
-        def get_id_personeel_position():
-            return modulo_wbco.wbcoController.buscar_id_personeel_postion(self.cbx_personel_position.currentText())
         
-        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable(self.txt_type_consumivel.text(),get_id_personeel_position()))
+        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable(self.txt_type_consumivel.text()))
         
         
 
         def save_consumable(descreption):
            
-           retorno = modulo_wbco.enginierwbcoController.save_data(descreption)
-           
-
+           retorno = controller.cadastrar(descreption)
            if retorno == 0:
                show_message_sucess("Successful update","Successfully Saved data")
                show_form_list_type_consumable()

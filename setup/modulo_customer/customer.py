@@ -608,12 +608,30 @@ class Ui_MainWindow(object):
         def show_message_sucess():
             msg_error = QMessageBox()
             msg_error.setIcon(QMessageBox.Information)
-            msg_error.setText('Well successfully removed')
-            msg_error.setWindowTitle('Well removal')
+            msg_error.setText('Customer successfully removed')
+            msg_error.setWindowTitle('Custimer removal')
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
+
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setText('Error removing Customer')
+            msg_error.setWindowTitle('Customer removal')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
+
+        def call_form_client():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_customer.customer
+            self.ui = modulo_customer.customer.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
 
         def show_form_edit_customer(nome,nif,email,contacto, adress):
             self.window = QtWidgets.QMainWindow()
@@ -660,27 +678,29 @@ class Ui_MainWindow(object):
 
         
         def btn_clicked_delete(): 
-            self.btn_edit_customer = self.btn_edit_customer.sender()
-            if isinstance(self.btn_edit_customer, QtWidgets.QPushButton):
+            self.btn_remove_customer = self.btn_remove_customer.sender()
+            if isinstance(self.btn_remove_customer, QtWidgets.QPushButton):
 
-                index = self.table_customer.indexAt(self.btn_edit_customer.pos())
+                index = self.table_customer.indexAt(self.btn_remove_customer.pos())
                 row = index.row()
                 col = index.column()
  
-                #Pegar a coluna Identify Card
-                col = col - 4
+                #Pegar a coluna Nif
+                col_nif = col - 5
                 
-                item = self.table_customer.item(row,col)
+                item = self.table_customer.item(row,col_nif)
                 if item is not None:
                     
                     nif = item.text()
+                    print(nif)
                     response = modulo_customer.custumerController.eliminar(nif)  
                     if response == 0:
                         show_message_sucess()
+                        call_form_client()
                     else:
-                        print("Erro ao ELiminar Costumer ")
+                        show_message_error()
                 
-                    #show_form_list_c well()
+                    
                     
 
         self.table_customer.horizontalHeader().setDefaultSectionSize(217)

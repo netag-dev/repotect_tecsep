@@ -606,8 +606,8 @@ class Ui_MainWindow(object):
 
         def show_form_list_size():
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.size
-            self.ui = modulo_wbco.size.Ui_MainWindow()
+            import compliance.pack_sample_location.sample_location as view
+            self.ui = view.Ui_MainWindow()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()
@@ -648,24 +648,15 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_aux = col
-
-                #Pegar a coluna Size
-                col = col - 4 
-
-                print(col)
-
-                #Pegar a coluna da Descrição
-                col_description = col_aux - 2
+                col = col - 4
 
 
-                item_description = self.table_size.item(row,col_description)
+                item_id = self.table_size.item(row,col)
                 
-                item = self.table_size.item(row,col)
-                if (item is not None ) or (item_description is not None):
-                    size = item.text()
-                    descritpion = item_description.text()
-                    response = modulo_wbco.sizeController.delete_data(size,descritpion)
+                if (item_id is not None):
+                    
+                    id = item_id.text()
+                    response = controller.delete_data(id)
                     if response == 0:
                         show_message_sucess("Successfully delete","Data removed successfully")
                         show_form_list_size()

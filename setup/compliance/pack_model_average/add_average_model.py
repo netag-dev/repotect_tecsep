@@ -236,6 +236,14 @@ class Ui_MainWindow(object):
         self.btn_save.setText(_translate("MainWindow", "Save data"))
         self.btn_save.clicked.connect(lambda:save_data())
 
+        def show_form_add_model_average():
+            self.window = QtWidgets.QMainWindow()
+            import compliance.pack_model_average.model_average as list_average
+            self.ui = list_average.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
         def show_message(title,message):
              msg = QMessageBox()
              msg.setIcon(QMessageBox.Information)

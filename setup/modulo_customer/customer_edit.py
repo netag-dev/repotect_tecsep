@@ -546,6 +546,16 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setText('Error when editing Customer')
+            msg_error.setWindowTitle('Customer')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
+
         
 
 
@@ -567,12 +577,14 @@ class Ui_MainWindow(object):
                 edit_customer = modulo_customer.custumerController.editar( customer_nif,customer_name,custumer_email,custumer_contact,custumer_address)
                 if edit_customer == 0:
                     show_message_sucess()
+                    call_form_client()
                     self.txt_nome.clear()
                     self.txt_email.clear()
                     self.txt_adress.clear()
                     self.txt_contact.clear()
                 else:
-                    print("erro")
+                    show_message_error()
+                    
                 
 
 

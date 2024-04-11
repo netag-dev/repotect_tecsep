@@ -6,8 +6,8 @@ def cadastrar(model_var,serial):
 def editar(model_var,serial, id):
     return model.editar(model_var,serial, id)
 
-def delete_data(model_var,serial, id):
-    return model.delete_data(model_var,serial, id)
+def delete_data( id):
+    return model.delete_data( id)
 
 def listar():
     return model.listar()

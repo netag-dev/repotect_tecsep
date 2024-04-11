@@ -22,7 +22,7 @@ def editar(param1, param2, param3):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("UPDATE tb_consumables_tc set cs_name = %s, cs_quantity = %s where id = %s ",(param1,param2,param3))                
+        cursor.execute("UPDATE tb_consumables_tc set cs_name = %s, cs_daily_used = %s where id = %s ",(param1,param2,param3))                
         connection.commit()
         cursor.close()
         return 0
@@ -37,7 +37,7 @@ def eliminar(nome,quantidade):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("DELETE FROM tb_consumables_tc WHERE cs_name = %s AND cs_quantity = %s ",(nome,quantidade))
+        cursor.execute("DELETE FROM tb_consumables_tc WHERE cs_name = %s AND cs_daily_used = %s ",(nome,quantidade))
         connection.commit()
         cursor.close()
         return 0

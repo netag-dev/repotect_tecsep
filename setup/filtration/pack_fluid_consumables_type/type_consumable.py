@@ -541,7 +541,7 @@ class Ui_MainWindow(object):
         self.table_type_consumable.setCornerButtonEnabled(False)
         self.table_type_consumable.setObjectName("table_type_consumable")
         self.table_type_consumable.setColumnCount(5) 
-        self.table_type_consumable.setHorizontalHeaderLabels(["Description"," "," "," "," "])
+        self.table_type_consumable.setHorizontalHeaderLabels(["Ref","Description"," "," "," "])
         self.table_type_consumable.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_type_consumable.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_type_consumable.horizontalHeaderItem(2).setTextAlignment(0x0001)
@@ -567,8 +567,8 @@ class Ui_MainWindow(object):
             
             
 
-            self.table_type_consumable.setItem(tablerow,0,QtWidgets.QTableWidgetItem(row[1]))
-            self.table_type_consumable.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[0]))
+            self.table_type_consumable.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.table_type_consumable.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[1]))
             self.table_type_consumable.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[0]))
             self.table_type_consumable.setCellWidget(tablerow,3,self.btn_edit_employee)
             self.table_type_consumable.setCellWidget(tablerow,4,self.btn_remove_employee)
@@ -599,18 +599,18 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
-        def show_form_edit_engier(name,email,position):
+        def show_form_edit_engier(id):
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.wbco_enginer_edit
-            self.ui = modulo_wbco.wbco_enginer_edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text(),name,email,position)
+            import filtration.pack_fluid_consumables_type.type_consumables_edit as edit
+            self.ui = edit.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text(),id)
             self.window.show()
             MainWindow.close()
 
         def show_form_list_type_consumable():
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.wbco_enginer
-            self.ui = modulo_wbco.wbco_enginer.Ui_MainWindow()
+            import filtration.pack_fluid_consumables_type.type_consumable as view
+            self.ui = view.Ui_MainWindow()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()
@@ -622,33 +622,17 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_aux_position = col
-
-                col_aux_email = col
-
-                #Pegar a coluna do Size
                 col = col - 3
+                
 
-
-                #Pegar a coluna da Descrição
-                col_position = col_aux_position - 1
-
-                #Pegar a coluna email
-                col_email = col_aux_email - 2
-
-                item_position = self.table_type_consumable.item(row,col_position)
                 
                 item = self.table_type_consumable.item(row,col)
 
-                item_email = self.table_type_consumable.item(row,col_email)
-                
-                if (item is not None ) or (item_position is not None):
+                if (item is not None ):
                     
-                    name = item.text()
-                    position = item_position.text()
-                    email = item_email.text()
-                    print(name,position,email)
-                    show_form_edit_engier(name,email,position)
+                    id = item.text()
+
+                    show_form_edit_engier(id)
 
           
 
@@ -660,34 +644,16 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_aux_position = col
-
-                col_aux_email = col
-
-                #Pegar a coluna do Size
                 col = col - 4
 
-
-                #Pegar a coluna da Descrição
-                col_position = col_aux_position - 1
-
-                #Pegar a coluna email
-                col_email = col_aux_email - 3
-
-                item_position = self.table_type_consumable.item(row,col_position)
                 
                 item = self.table_type_consumable.item(row,col)
 
-                item_email = self.table_type_consumable.item(row,col_email)
-                
-                if (item is not None ) or (item_email is not None):
+                if (item is not None ) :
                     
-                    name = item.text()
-                    email = item_email.text()
-
-                    print(name,email)
-
-                    response = modulo_wbco.enginierwbcoController.delete_data(name,email)
+                    id = item.text()
+                    
+                    response = controller.eliminar(id)
                     if response == 0:
                         show_message_sucess("Successfully delete","Data removed successfully")
                         show_form_list_type_consumable()

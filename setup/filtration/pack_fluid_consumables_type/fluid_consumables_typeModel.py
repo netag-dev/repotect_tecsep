@@ -7,29 +7,27 @@ def cadastrar(description):
         cursor = connection.cursor()
 
         cursor.execute(""" INSERT INTO tb_fluid_consumables_type_ft(description)
-                       values(%s) """,(description))    
+                       values(%s) """,(description,))    
         connection.commit()
         cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
+        return -1
     finally:
-        if connection:
-            cursor.close()
-            connection.close()
-
+       return 0
 
 def editar(param1, param2):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("UPDATE tb_fluid_consumables_type_ft set description = '"+param2+"' where id = '"+param1+"' ")                
+        cursor.execute("UPDATE tb_fluid_consumables_type_ft set description = %s where id = %s ",(param1,param2))                
         connection.commit()
         cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
+        return -1
     finally:
-        if connection:
-            cursor.close()
+       return 0
 
 def eliminar(param):
     try: 
@@ -40,9 +38,9 @@ def eliminar(param):
         cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
+        return -1
     finally:
-        if connection:
-            cursor.close()
+       return 0
                 
 def listar():    
     try: 
@@ -66,6 +64,20 @@ def buscar_id_by_name_email(description):
     finally:
         connection.close()
         return id_size
+    
+
+def buscar_by_id(id):
+    connection = connecao.cria_connecao()
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(""" SELECT description FROM tb_fluid_consumables_type_ft WHERE id = %s """,(id))
+            dados = cursor.fetchone()
+    except Exception as e:
+        print(f"{e}")
+        return -1
+    finally:
+        connection.close()
+        return dados[0]
     
 
 

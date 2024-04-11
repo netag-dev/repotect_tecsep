@@ -542,7 +542,7 @@ class Ui_MainWindow(object):
         self.table_ppe.setCornerButtonEnabled(False)
         self.table_ppe.setObjectName("table_ppe")
         self.table_ppe.setColumnCount(5) 
-        self.table_ppe.setHorizontalHeaderLabels(["PPE","Stock Quantity"," "," "," "])
+        self.table_ppe.setHorizontalHeaderLabels(["Ref","PPE","Stock Quantity"," "," "])
         self.table_ppe.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_ppe.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_ppe.horizontalHeaderItem(2).setTextAlignment(0x0001)
@@ -566,9 +566,9 @@ class Ui_MainWindow(object):
             self.btn_remove_ppe.setObjectName("btn_remove_ppe")
             
 
-            self.table_ppe.setItem(tablerow,0,QtWidgets.QTableWidgetItem(row[1]))
-            self.table_ppe.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[2])))
-            self.table_ppe.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[2]))
+            self.table_ppe.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.table_ppe.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.table_ppe.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
             self.table_ppe.setCellWidget(tablerow,3,self.btn_edit_ppe)
             self.table_ppe.setCellWidget(tablerow,4,self.btn_remove_ppe)
 
@@ -598,11 +598,11 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
-        def show_form_edit_ppe(name,quantidade):
+        def show_form_edit_ppe(id,stock,nome):
             self.window = QtWidgets.QMainWindow()
             import tank_cleanning.pack_pipe.ppe_edit as edit
             self.ui = edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text(),name,quantidade)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text(),id,stock,nome)
             self.window.show()
             MainWindow.close()
 
@@ -633,14 +633,14 @@ class Ui_MainWindow(object):
 
                 col_aux_email = col
 
-                #Pegar a coluna do Size
+                #Pegar id
                 col = col - 3
 
 
-                #Pegar a coluna da Descrição
+                #Pegar a nome
                 col_position = col_aux_position - 1
 
-                #Pegar a coluna email
+                #Pegar a stock
                 col_email = col_aux_email - 2
 
                 item_position = self.table_ppe.item(row,col_position)
@@ -651,11 +651,10 @@ class Ui_MainWindow(object):
                 
                 if (item is not None ) or (item_position is not None):
                     
-                    name = item.text()
-                    position = item_position.text()
-                    quantidade = item_quantidade.text()
-                    print(name,position,quantidade)
-                    show_form_edit_ppe(name,quantidade)
+                    id = item.text()
+                    stock = item_position.text()
+                    nome = item_quantidade.text()
+                    show_form_edit_ppe(id,stock,nome)
 
           
 
@@ -667,34 +666,15 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_aux_position = col
-
-                col_aux_email = col
-
-                #Pegar a coluna do Size
                 col = col - 4
-
-
-                #Pegar a coluna da Descrição
-                col_position = col_aux_position - 1
-
-                #Pegar a coluna email
-                col_email = col_aux_email - 3
-
-                item_position = self.table_ppe.item(row,col_position)
                 
                 item = self.table_ppe.item(row,col)
-
-                item_email = self.table_ppe.item(row,col_email)
                 
-                if (item is not None ) or (item_email is not None):
+                if (item is not None ):
                     
-                    name = item.text()
-                    email = item_email.text()
+                    id = item.text()
 
-                    print(name,email)
- 
-                    response = tank_cleanning.pack_pipe.pipeController.eliminar(name,email)
+                    response = tank_cleanning.pack_pipe.pipeController.eliminar(id)
                     if response == 0:
                         show_message_sucess("Successfully delete","Data removed successfully")
                         show_form_list_ppe()

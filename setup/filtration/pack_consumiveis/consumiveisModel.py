@@ -36,11 +36,12 @@ def eliminar(param):
     try:  
         connection = connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("DELETE FROM tb_consumiveis WHERE id = '"+param+"' ")
+        cursor.execute("DELETE FROM tb_consumiveis WHERE id = %s ",(param))
         connection.commit()
         cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
+        return -1
     finally:
         if connection:
             cursor.close()

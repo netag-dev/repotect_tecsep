@@ -77,18 +77,16 @@ def cadastrar_poco(nome,numero,cliente,pessoa_criar):
         cursor.close()
     except Exception as e:
         print(f"Erro ao inserir dados no tb_well: {e}")
+        return -1
     finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("Conexão fechada.")
+        return 0
 
 def listar_poco(): 
     try: 
         connection = connecao.cria_connecao()
         print("Conexão Aberta.")
         cursor = connection.cursor()
-        cursor.execute("SELECT wl_number,wl_name,lp_name FROM tb_legal_person,tb_well WHERE tb_legal_person.id = tb_well.id_legal_person")
+        cursor.execute("SELECT tb_well.id,wl_number,wl_name,lp_name FROM tb_legal_person,tb_well WHERE tb_legal_person.id = tb_well.id_legal_person")
         dados = cursor.fetchall()
         connection.commit()
         cursor.close()
@@ -104,7 +102,7 @@ def eliminar_poco(param):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("DELETE FROM tb_well WHERE wl_number = %s ",(param,))
+        cursor.execute("DELETE FROM tb_well WHERE id = %s ",(param,))
         connection.commit()
         cursor.close()
     except Exception as e: 
@@ -116,11 +114,11 @@ def eliminar_poco(param):
             connection.close() 
             return 0
 
-def editar_poco(param1, param2): 
+def editar_poco(param1, param2, param3,param4): 
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("UPDATE tb_well set wl_number = %s, wl_name = %s where wl_number = %s ",(param1, param2, param1))
+        cursor.execute("UPDATE tb_well set  wl_name= %s, wl_number = %s, id_legal_person = %s where id = %s ",(param1, param2, param3, param4))
         connection.commit()
         cursor.close()
     except Exception as e:
@@ -131,3 +129,31 @@ def editar_poco(param1, param2):
             cursor.close()
             connection.close()
             return 0
+        
+def buscar_poco_por_id(id_poco): 
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute(""" SELECT wl_number,wl_name,tb_legal_person.lp_name FROM tb_legal_person,tb_well  
+        WHERE tb_legal_person.id = tb_well.id_legal_person
+        AND tb_well.id = %s """,(id_poco))
+        dados = cursor.fetchone()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao actualizar dados no tb_well: {e}")
+        return -1
+    finally:
+        return dados
+    
+def buscar_customer_by_name(nome): 
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute(""" SELECT id FROM tb_legal_person WHERE  lp_name= %s """,(nome,))
+        dados = cursor.fetchone()
+        cursor.close()
+    except Exception as e:
+        print(f"Erro ao actualizar dados no tb_well: {e}")
+        return -1
+    finally:
+        return dados

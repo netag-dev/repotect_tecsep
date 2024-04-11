@@ -606,8 +606,8 @@ class Ui_MainWindow(object):
 
         def show_form_list_size():
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.size
-            self.ui = modulo_wbco.size.Ui_MainWindow()
+            import compliance.pack_compliance_enginer.engineer as view
+            self.ui = view.Ui_MainWindow()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()
@@ -651,31 +651,21 @@ class Ui_MainWindow(object):
           
 
         def btn_clicked_delete():
-            self.btn_edit_size = self.btn_edit_size.sender()
-            if isinstance(self.btn_edit_size, QtWidgets.QPushButton):
+            self.btn_remove_size = self.btn_remove_size.sender()
+            if isinstance(self.btn_remove_size, QtWidgets.QPushButton):
 
-                index = self.table_size.indexAt(self.btn_edit_size.pos())
+                index = self.table_size.indexAt(self.btn_remove_size.pos())
                 row = index.row()
                 col = index.column()
 
-                col_aux = col
-
-                #Pegar a coluna Size
-                col = col - 4 
-
-                print(col)
-
-                #Pegar a coluna da Descrição
-                col_description = col_aux - 2
+                col_id = col - 4 
 
 
-                item_description = self.table_size.item(row,col_description)
+                item_id = self.table_size.item(row,col_id)
                 
-                item = self.table_size.item(row,col)
-                if (item is not None ) or (item_description is not None):
-                    size = item.text()
-                    descritpion = item_description.text()
-                    response = modulo_wbco.sizeController.delete_data(size,descritpion)
+                if  (item_id is not None):
+                    id = item_id.text()
+                    response = controller.delete(id)
                     if response == 0:
                         show_message_sucess("Successfully delete","Data removed successfully")
                         show_form_list_size()

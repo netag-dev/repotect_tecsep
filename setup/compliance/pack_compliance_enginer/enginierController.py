@@ -23,5 +23,8 @@ def cadastrar_enginer(eng_shift,id_employe,id_report):
 
 def buscar_enginer_by_job_ref(job_ref):
     return compliance.pack_compliance_enginer.enginierModel.buscar_enginer_by_job_ref(job_ref)
+
+def delete(id):
+    return compliance.pack_compliance_enginer.enginierModel.delete(id)
     
     

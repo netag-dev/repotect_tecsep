@@ -8,7 +8,7 @@ def editar(param1, param2,param3):
     return filtration.pack_consumiveis.consumiveisModel.editar(param1, param2,param3)
 
 def eliminar(param):
-    filtration.pack_consumiveis.consumiveisModel.eliminar(param)
+    return filtration.pack_consumiveis.consumiveisModel.eliminar(param)
 
 def listar():     
     return filtration.pack_consumiveis.consumiveisModel.listar()

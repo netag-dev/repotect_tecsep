@@ -107,3 +107,16 @@ def buscar_enginer_by_job_ref(job_ref):
     finally:
         connection.close()
         return dados
+    
+def delete(id):
+    connection = connecao.cria_connecao()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(""" DELETE FROM employee_cp WHERE id = %s""",(id,))
+        connection.commit()
+    except Exception as e:
+        print(f"Erro: {e}")
+        return -1
+    finally:
+        connection.close()
+        return 0

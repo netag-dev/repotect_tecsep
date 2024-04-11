@@ -5,7 +5,7 @@ def cadastrar(pi_name, pi_quantity):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("""INSERT INTO tb_pipe_tc (pi_name, pi_quantity) 
+        cursor.execute("""INSERT INTO tb_pipe_tc (pi_name, pi_daily_used) 
                        values(%s,%s)""",(pi_name, pi_quantity))    
         connection.commit()
         cursor.close()
@@ -22,7 +22,7 @@ def editar(nome, stoq, id):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("UPDATE tb_pipe_tc set pi_name = %s, pi_quantity = %s  where id = %s ",(nome,stoq,id))                
+        cursor.execute("UPDATE tb_pipe_tc set pi_name = %s, pi_daily_used = %s  where id = %s ",(nome,stoq,id))                
         connection.commit()
         cursor.close()
     except Exception as e:
@@ -33,11 +33,11 @@ def editar(nome, stoq, id):
             cursor.close()
             return 0
 
-def eliminar(param1, param2):
+def eliminar(param1):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute(""" DELETE FROM tb_pipe_tc WHERE pi_name = %s AND pi_quantity = %s """,(param1, param2))
+        cursor.execute(""" DELETE FROM tb_pipe_tc WHERE id = %s """,(param1,))
         connection.commit()
     except Exception as e:
         print(f"Erro: {e}")
@@ -83,24 +83,6 @@ def listar_table():
             return dados
             print("Conexão fechada.")
 
-
-
-def buscar_id_nome_stoq(nome,stoq):    
-    try: 
-        connection = connecao.cria_connecao()
-        cursor = connection.cursor()
-        cursor.execute("SELECT id FROM tb_pipe_tc WHERE pi_name = %s AND pi_daily_used = %s",(nome,stoq))
-        dados = cursor.fetchone()
-        print(dados)
-        connection.commit()
-        cursor.close()
-    except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return dados[0]
         
 
 def buscar_ppe(ref_report):

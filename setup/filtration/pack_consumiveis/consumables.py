@@ -608,8 +608,8 @@ class Ui_MainWindow(object):
 
         def show_form_list_consumable():
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.wbco_enginer
-            self.ui = modulo_wbco.wbco_enginer.Ui_MainWindow()
+            import filtration.pack_consumiveis.consumables as view
+            self.ui = view.Ui_MainWindow()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()
@@ -659,35 +659,16 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_aux_position = col
-
-                col_aux_email = col
-
-                #Pegar a coluna do Size
-                col = col - 3
-
-
-                #Pegar a coluna da Descrição
-                col_position = col_aux_position - 1
-
-                #Pegar a coluna email
-                col_email = col_aux_email - 2
+                col = col - 4
 
                 item_id = self.table_employee.item(row,col)
                 
-                item_nome = self.table_employee.item(row,col_email)
-
-                item_stocke = self.table_employee.item(row,col_position)
                 
-                if (item_id is not None ) or (item_nome is not None):
+                if (item_id is not None ):
                     
                     id = item_id.text()
-                    nome = item_nome.text()
-                    quant = item_stocke.text()
 
-                    print(name,email)
-
-                    response = modulo_wbco.enginierwbcoController.delete_data(name,email)
+                    response = controller.eliminar(id)
                     if response == 0:
                         show_message_sucess("Successfully delete","Data removed successfully")
                         show_form_list_consumable()

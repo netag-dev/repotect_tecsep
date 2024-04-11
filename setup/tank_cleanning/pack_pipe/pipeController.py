@@ -6,8 +6,8 @@ def cadastrar(pi_name, pi_quantity):
 def editar(nome, stoq,id):
     return tank_cleanning.pack_pipe.pipeModel.editar(nome, stoq,id)
 
-def eliminar(param1, param2):
-    return tank_cleanning.pack_pipe.pipeModel.eliminar(param1, param2)
+def eliminar(param1):
+    return tank_cleanning.pack_pipe.pipeModel.eliminar(param1)
 
 def listar():
     return tank_cleanning.pack_pipe.pipeModel.listar()

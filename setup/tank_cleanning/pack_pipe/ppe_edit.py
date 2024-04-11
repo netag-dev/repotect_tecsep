@@ -6,7 +6,7 @@ import tank_cleanning.pack_pipe.pipeController
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name,nome,stoq):
+    def setupUi(self, MainWindow,user_name,id,stoq,nome):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -336,10 +336,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,id,stoq,nome)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow,id,stoq,nome):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -373,17 +373,15 @@ class Ui_MainWindow(object):
         self.btn_salvar_ppe.setText(_translate("MainWindow", "Save PPE data"))
 
         
-        self.btn_salvar_ppe.clicked.connect(lambda: save_ppe(self.txt_nome_ppe.text(),self.txt_quantidade_stoke.text()))
+        self.btn_salvar_ppe.clicked.connect(lambda: save_ppe())
+        
+        self.txt_nome_ppe.setText(str(nome))
+        self.txt_quantidade_stoke.setText(str(stoq))
         
 
-        id_ppe = tank_cleanning.pack_pipe.pipeController.buscar_id_nome_stoq(self.txt_nome_ppe.text(),self.txt_quantidade_stoke.text())
-        
-
-        def save_ppe(nome,stoq):
+        def save_ppe():
            
-           retorno = tank_cleanning.pack_pipe.pipeController.editar(nome,stoq,id_ppe)
-           
-
+           retorno = tank_cleanning.pack_pipe.pipeController.editar(self.txt_nome_ppe.text(),self.txt_quantidade_stoke.text(),id)
            if retorno == 0:
                show_message_sucess("Successful update","Successfully Saved data")
                show_form_list_ppe()

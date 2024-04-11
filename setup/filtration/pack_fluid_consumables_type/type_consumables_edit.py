@@ -1,13 +1,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox, QDesktopWidget
-import modulo_wbco.sizeController
-import modulo_wbco.wbcoController
-import modulo_wbco.enginierwbcoController
+
+from filtration.pack_fluid_consumables_type import fluid_consumables_typeController as controller
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name):
+    def setupUi(self, MainWindow,user_name,id):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -293,10 +292,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,id)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow,id):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -328,18 +327,17 @@ class Ui_MainWindow(object):
 
         self.btn_salvar_type_consumable.setText(_translate("MainWindow", "Save Consumable data"))
 
-        def get_id_personeel_position():
-            return modulo_wbco.wbcoController.buscar_id_personeel_postion(self.cbx_personel_position.currentText())
-        
-        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable(self.txt_type_consumivel.text(),get_id_personeel_position()))
-        
+        description = controller.buscar_by_id(id)
+        self.txt_type_consumivel.setText(str(description))
+        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable())
+
+
         
 
-        def save_consumable(descreption):
-           
-           retorno = modulo_wbco.enginierwbcoController.save_data(descreption)
+        def save_consumable():
            
 
+           retorno = controller.editar(self.txt_type_consumivel.text(),id)
            if retorno == 0:
                show_message_sucess("Successful update","Successfully Saved data")
                show_form_list_type_consumable()

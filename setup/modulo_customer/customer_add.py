@@ -568,15 +568,15 @@ class Ui_MainWindow(object):
                 ret = modulo_customer.custumerController.cadastrar( customer_nif, customer_name, custumer_email, custumer_contact, "...", custumer_address)
                 if (ret == 0):
                     show_message_sucess()
+                    call_form_client()
                     
                 else:
                     show_message_error("Error when saving data")
-                self.txt_nome.clear()
-                self.txt_email.clear()
-                self.txt_adress.clear()
-                self.txt_contact.clear()
-                self.txt_nif.clear()
-
+                    self.txt_nome.clear()
+                    self.txt_email.clear()
+                    self.txt_adress.clear()
+                    self.txt_contact.clear()
+                    self.txt_nif.clear()
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

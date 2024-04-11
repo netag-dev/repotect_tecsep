@@ -531,13 +531,14 @@ class Ui_MainWindow(object):
         self.table_well.setGridStyle(QtCore.Qt.NoPen)
         self.table_well.setCornerButtonEnabled(False)
         self.table_well.setObjectName("table_well")
-        self.table_well.setColumnCount(5) 
-        self.table_well.setHorizontalHeaderLabels(["Number","Name","Customer"," "," "])
+        self.table_well.setColumnCount(6) 
+        self.table_well.setHorizontalHeaderLabels(["Ref","Number","Name","Customer"," ",""])
         self.table_well.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_well.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_well.horizontalHeaderItem(2).setTextAlignment(0x0001)
         self.table_well.horizontalHeaderItem(3).setTextAlignment(0x0001)
         self.table_well.horizontalHeaderItem(4).setTextAlignment(0x0001)
+        self.table_well.horizontalHeaderItem(5).setTextAlignment(0x0001)
 
         list_poco = modulo_customer.custumerController.carregar_listagem_poco()
         print(list_poco)
@@ -558,11 +559,12 @@ class Ui_MainWindow(object):
             
             
 
-            self.table_well.setItem(tablerow,0,QtWidgets.QTableWidgetItem(row[0]))
+            self.table_well.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
             self.table_well.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[1]))
             self.table_well.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[2]))
-            self.table_well.setCellWidget(tablerow,3,self.btn_edit_well)
-            self.table_well.setCellWidget(tablerow,4,self.btn_remove_well)
+            self.table_well.setItem(tablerow,3,QtWidgets.QTableWidgetItem(row[3]))
+            self.table_well.setCellWidget(tablerow,4,self.btn_edit_well)
+            self.table_well.setCellWidget(tablerow,5,self.btn_remove_well)
 
             self.btn_edit_well.clicked.connect(lambda:btn_clicked_edit())
             self.btn_remove_well.clicked.connect(lambda:btn_clicked_delete())
@@ -604,9 +606,10 @@ class Ui_MainWindow(object):
                 col = index.column()
 
                 #Pegar a coluna Identify Card
-                col = col - 3
+                col = col - 4
                 
                 item = self.table_well.item(row,col)
+                print(item)
                 if item is not None:
                     
                     id_card = item.text()
@@ -615,15 +618,15 @@ class Ui_MainWindow(object):
           
 
         def btn_clicked_delete():
-            self.btn_edit_well = self.btn_edit_well.sender()
-            if isinstance(self.btn_edit_well, QtWidgets.QPushButton):
+            self.btn_remove_well = self.btn_remove_well.sender()
+            if isinstance(self.btn_remove_well, QtWidgets.QPushButton):
 
-                index = self.table_well.indexAt(self.btn_edit_well.pos())
+                index = self.table_well.indexAt(self.btn_remove_well.pos())
                 row = index.row()
                 col = index.column()
 
                 #Pegar a coluna Identify Card
-                col = col - 4 
+                col = col - 5 
                 
                 item = self.table_well.item(row,col)
                 if item is not None:
@@ -631,9 +634,9 @@ class Ui_MainWindow(object):
                     response = modulo_customer.custumerController.carregar_eliminar_poco(id_card)  
                     if response == 0:
                         show_message_sucess()
+                        show_form_list_well()
                     else:
                         print("Erro ao ELiminar Well ")
-                    show_form_list_well()
                     
 
         self.table_well.horizontalHeader().setDefaultSectionSize(217)

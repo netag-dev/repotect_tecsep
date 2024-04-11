@@ -2,11 +2,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox, QDesktopWidget
 import modulo_customer.customer
-import modulo_customer.custumerController
+import modulo_customer.custumerController as controller
 import modulo_wbco.wbcoController
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name,well_number ):
+    def setupUi(self, MainWindow,user_name,id_well ):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         # Define a posição da janela
         MainWindow.move(x, y)
 
-        print(well_number)
+        print(id_well)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -363,10 +363,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(MainWindow,id_well)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow,id_well):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -483,10 +483,21 @@ class Ui_MainWindow(object):
             msg_error.exec_()
 
         
+        
+
+        
+
+        dados_well = controller.buscar_poco_por_id(id_well)
+        self.txt_well_number.setText(str(dados_well[0]))
+        self.txt_nome.setText(str(dados_well[1]))
+        self.cbx_customers.addItem(str(dados_well[2]))
+
         def carregar_cliente():
             self.cbx_customers.addItems(modulo_wbco.wbcoController.carregar_cliente())
-
+        
         carregar_cliente()
+
+
 
 
         def validation_add_well():
@@ -498,15 +509,15 @@ class Ui_MainWindow(object):
                 msg_validation = QMessageBox()
                 msg_validation.setIcon(QMessageBox.Critical)
                 msg_validation.setText('Unsuccessful registration, existence of empty fields')
-                msg_validation.setWindowTitle(' Error Adding Customer')
+                msg_validation.setWindowTitle('Error When Editing Well')
                 msg_validation.exec_()
             else:
-                rt = modulo_customer.custumerController.carregar_editar_poco(well_name,well_number)
+                id_customer = controller.buscar_customer_by_name(self.cbx_customers.currentText()) 
+                rt = controller.carregar_editar_poco(well_name,well_number,id_customer,id_well)
                 if(rt == 0):
                     show_message_sucess()
-                self.txt_nome.clear()
-                self.txt_well_number.clear()
-                show_message_sucess()
+                    show_form_list_well()
+                
     
 
 if __name__ == "__main__":

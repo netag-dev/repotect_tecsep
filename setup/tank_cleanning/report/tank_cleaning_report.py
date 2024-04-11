@@ -627,6 +627,17 @@ class GerarReport:
         img = ImageReader("img/img.png",styles["Estilo_texto_titulo"])
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
+        p_text_lema = '"Proudly Tecsep, Proudly African"'
+        p_lema = Paragraph(p_text_lema,style = styles["Normal"])
+
+        p_lema.wrapOn(c,70*mm,60*mm)
+        p_lema.drawOn(c,80*mm,283*mm)
+
+        width = 7.8 * inch  # largura da imagem
+        height = 2.1 * inch  # altura da imagem
+
+        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,227*mm,width,height,mask='auto')
         
         ptext = "Daily Report #"+str(dados_cabebacalho[0])+" Tank Cleaning "
         ptlink = " www.tecsep-tsg.com"
