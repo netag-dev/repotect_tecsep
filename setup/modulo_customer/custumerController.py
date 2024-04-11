@@ -26,3 +26,6 @@ def carregar_eliminar_poco(param):
 
 def carregar_editar_poco(data1, data2):
     return modulo_customer.custumerModel.editar_poco(data1, data2)
+
+def editar(nif, name, email, phone, adress):
+    return modulo_customer.custumerModel.editar(nif, name, email, phone, adress)

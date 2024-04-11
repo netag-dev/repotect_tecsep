@@ -567,14 +567,15 @@ class Ui_MainWindow(object):
         self.table_customer.setGridStyle(QtCore.Qt.NoPen)
         self.table_customer.setCornerButtonEnabled(False)
         self.table_customer.setObjectName("table_customer")
-        self.table_customer.setColumnCount(6)
-        self.table_customer.setHorizontalHeaderLabels(["Name","Nif","E-mail","Address","",""])
+        self.table_customer.setColumnCount(7)
+        self.table_customer.setHorizontalHeaderLabels(["Name","Nif","E-mail","Contact","Address","",""])
         self.table_customer.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(2).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(3).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(4).setTextAlignment(0x0001)
         self.table_customer.horizontalHeaderItem(5).setTextAlignment(0x0001)
+        self.table_customer.horizontalHeaderItem(6).setTextAlignment(0x0001)
         list_cliente = modulo_customer.custumerController.listar()
         self.table_customer.setRowCount(10)
         tablerow = 0
@@ -595,8 +596,9 @@ class Ui_MainWindow(object):
             self.table_customer.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[1]))
             self.table_customer.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[3]))
             self.table_customer.setItem(tablerow,3,QtWidgets.QTableWidgetItem(row[4]))
-            self.table_customer.setCellWidget(tablerow,4, self.btn_edit_customer)
-            self.table_customer.setCellWidget(tablerow,5, self.btn_remove_customer)
+            self.table_customer.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[6]))
+            self.table_customer.setCellWidget(tablerow,5, self.btn_edit_customer)
+            self.table_customer.setCellWidget(tablerow,6, self.btn_remove_customer)
 
             self.btn_edit_customer.clicked.connect(lambda:btn_clicked_edit())
             self.btn_remove_customer.clicked.connect(lambda:btn_clicked_delete())
@@ -613,11 +615,11 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
-        def show_form_edit_customer(nome,nif,email,contacto):
+        def show_form_edit_customer(nome,nif,email,contacto, adress):
             self.window = QtWidgets.QMainWindow()
             import modulo_customer.customer_edit
             self.ui = modulo_customer.customer_edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text(),nome,nif,email,contacto)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text(),nome,nif,email,contacto,adress)
             self.window.show()
             MainWindow.close()
         
@@ -628,28 +630,33 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col_nif = col - 3
-                col_email = col - 2
-                col_contacto = col - 1
+
+                col_nif = col - 4
+                col_email = col - 3
+                col_contacto = col - 2
+                col_adress = col - 1
+                col = col - 5
                 
 
         
 
-                # Pegar a coluna Identify Card
-                col = col - 4
+               
                 
 
                 item_nif = self.table_customer.item(row,col_nif)
                 item = self.table_customer.item(row,col)
                 item_email = self.table_customer.item(row,col_email)
                 item_contacto = self.table_customer.item(row,col_contacto)
+                item_adress = self.table_customer.item(row, col_adress)
+                
                 if item is not None:
                     
                     cliente = item.text()
                     nif = item_nif.text()
                     email = item_email.text()
                     contacto = item_contacto.text()
-                    show_form_edit_customer(cliente,nif,email,contacto)
+                    adress = item_adress.text()
+                    show_form_edit_customer(cliente,nif,email,contacto,adress)
 
         
         def btn_clicked_delete(): 
