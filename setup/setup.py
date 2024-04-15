@@ -3,7 +3,7 @@ import sys
 import os
 
 # Obtém o caminho absoluto para o diretório de imagens
-img_path = os.path.abspath("../img")
+img_path = os.path.abspath("img")
 
 # Define as opções para a criação do executável
 build_exe_options = {
