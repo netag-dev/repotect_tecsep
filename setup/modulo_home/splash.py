@@ -51,6 +51,10 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        
+        self.timer.start(100)  # Intervalo de tempo em milissegundos (por exemplo, 100ms)
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -59,27 +63,26 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "X"))
         self.label.clicked.connect(lambda:close())
 
+        self.timer.timeout.connect(lambda:update_progress_bar())
+
         def close():
             MainWindow.close()
     
-    def update_progress_bar(self):
-        self.countdown_time += 1
-        self.progressBar.setValue(self.countdown_time)
-        if self.countdown_time >= 100:
-            self.timer.stop()
-            self.open_next_window()
+        def update_progress_bar():
+            self.countdown_time += 1
+            self.progressBar.setValue(self.countdown_time)
+            if self.countdown_time >= 1:
+                open_next_window()
+                self.timer.stop()
+                MainWindow.close()
 
-    def open_next_window(self):
-        # Aqui você precisa criar uma instância da próxima janela e mostrá-la
-        MainWindow = QtWidgets.QMainWindow()
-        ui = login.Ui_MainWindow()
-        ui.setupUi(MainWindow)
-        MainWindow.show()
-        
-        MainWindow = QtWidgets.QMainWindow()
-        ui = Ui_MainWindow()
-        ui.setupUi(MainWindow)
-        MainWindow.close()
+        def open_next_window():
+            
+            MainWindow = QtWidgets.QMainWindow()
+            ui = login.Ui_MainWindow()
+            ui.setupUi(MainWindow)
+            MainWindow.show()
+            
         
         
 

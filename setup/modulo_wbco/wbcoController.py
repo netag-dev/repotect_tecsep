@@ -62,10 +62,10 @@ def carregar_buscar_id_empregador_por_nome(nome):
          
     
     
-def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,rpt_weight_rangeng,
+def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,
                               rpt_volume_capacity,rpt_hole_volume,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,id_well,id_physical_person,id_legal_person,id_employee,id_report_header):
     
-    modulo_wbco.wbcoModel.salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,rpt_weight_rangeng,
+    modulo_wbco.wbcoModel.salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,
                               rpt_volume_capacity,rpt_hole_volume,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,id_well,id_physical_person,id_legal_person,id_employee,id_report_header) 
       
     
@@ -88,8 +88,8 @@ def salvar_wbco_primary(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,t
     else:
         return -1
     
-def salvar_wbco_backup(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools):
-    if(modulo_wbco.wbcoModel.salvar_wbco_backup(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools) == 0):
+def salvar_wbco_backup(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools):
+    if(modulo_wbco.wbcoModel.salvar_wbco_backup(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools) == 0):
         return 0
     else:
         return -1
@@ -142,10 +142,8 @@ def carregar_wbco_back_up(id_report):
         return modulo_wbco.wbcoModel.buscar_wbco_back_up_informatio(id_report)
     
 def carregar_wbco_back_up_by_job_ref(job_ref):
-    if(modulo_wbco.wbcoModel.buscar_wbco_back_up_informatio_by_job_ref(job_ref) is None):
-        return -1
-    else:
-        return modulo_wbco.wbcoModel.buscar_wbco_back_up_informatio_by_job_ref(job_ref)
+
+    return modulo_wbco.wbcoModel.buscar_wbco_back_up_informatio_by_job_ref(job_ref)
     
 
 def carregar_empregado(id_report):

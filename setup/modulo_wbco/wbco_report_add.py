@@ -707,15 +707,15 @@ class Ui_MainWindow(object):
         self.cbx_thread_primary.setObjectName("cbx_thread_primary")
         self.cbx_thread_primary.addItems(modulo_wbco.threadController.listar_thread_para_combo())
        
-        self.lbl_size = QtWidgets.QLabel(self.tab_wbco_primary)
-        self.lbl_size.setGeometry(QtCore.QRect(530, 20, 41, 31))
+        self.lbl_thread_conextions_box = QtWidgets.QLabel(self.tab_wbco_primary)
+        self.lbl_thread_conextions_box.setGeometry(QtCore.QRect(10, 190, 231, 31))
         
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
        
-        self.lbl_size.setFont(font)
-        self.lbl_size.setStyleSheet("color: rgb(52, 52, 52);")
-        self.lbl_size.setObjectName("lbl_size")
+        self.lbl_thread_conextions_box.setFont(font)
+        self.lbl_thread_conextions_box.setStyleSheet("color: rgb(52, 52, 52);")
+        self.lbl_thread_conextions_box.setObjectName("lbl_thread_conextions_box")
         
         self.lbl_drift_size = QtWidgets.QLabel(self.tab_wbco_primary)
         self.lbl_drift_size.setGeometry(QtCore.QRect(530, 190, 81, 31))
@@ -728,7 +728,7 @@ class Ui_MainWindow(object):
         self.lbl_drift_size.setObjectName("lbl_drift_size")
        
         self.lbl_thread_conections = QtWidgets.QLabel(self.tab_wbco_primary)
-        self.lbl_thread_conections.setGeometry(QtCore.QRect(10, 110, 161, 31))
+        self.lbl_thread_conections.setGeometry(QtCore.QRect(10, 110, 261, 31))
         
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -748,7 +748,7 @@ class Ui_MainWindow(object):
         self.lbl_od.setObjectName("lbl_od")
        
         self.txt_id_primary = QtWidgets.QLineEdit(self.tab_wbco_primary)
-        self.txt_id_primary.setGeometry(QtCore.QRect(10, 220, 491, 41))
+        self.txt_id_primary.setGeometry(QtCore.QRect(530, 50, 491, 41))
         self.txt_id_primary.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #8ec0af;
@@ -823,9 +823,9 @@ class Ui_MainWindow(object):
         self.txt_od_primary.setPlaceholderText("")
         self.txt_od_primary.setObjectName("txt_od_primary")
        
-        self.cbx_size_primary = QtWidgets.QComboBox(self.tab_wbco_primary)
-        self.cbx_size_primary.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.cbx_size_primary.setStyleSheet("""
+        self.cbx_thread_connections_box = QtWidgets.QComboBox(self.tab_wbco_primary)
+        self.cbx_thread_connections_box.setGeometry(QtCore.QRect(10, 220, 491, 41))
+        self.cbx_thread_connections_box.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;
                 border-radius: 6px;
@@ -850,8 +850,8 @@ class Ui_MainWindow(object):
                 image: url(img/arrow_2.png);
             }
         """)
-        self.cbx_size_primary.setObjectName("cbx_size_primary")
-        self.cbx_size_primary.addItems(modulo_wbco.sizeController.listar_size_para_combo())
+        self.cbx_thread_connections_box.setObjectName("cbx_thread_connections_box")
+        self.cbx_thread_connections_box.addItems(modulo_wbco.threadController.listar_thread_para_combo())
         
         self.txt_drift_primary = QtWidgets.QLineEdit(self.tab_wbco_primary)
         self.txt_drift_primary.setGeometry(QtCore.QRect(530, 220, 491, 41))
@@ -902,7 +902,7 @@ class Ui_MainWindow(object):
         self.lbl_description.setObjectName("lbl_description")
        
         self.lbl_id = QtWidgets.QLabel(self.tab_wbco_primary)
-        self.lbl_id.setGeometry(QtCore.QRect(10, 190, 31, 31))
+        self.lbl_id.setGeometry(QtCore.QRect(530, 20, 41, 31))
        
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -970,12 +970,12 @@ class Ui_MainWindow(object):
         self.lbl_id.raise_()
         self.lbl_description.raise_()
         self.cbx_thread_primary.raise_()
-        self.lbl_size.raise_()
+        self.lbl_thread_conextions_box.raise_()
         self.lbl_drift_size.raise_()
         self.lbl_od.raise_()
         self.txt_id_primary.raise_()
         self.txt_od_primary.raise_()
-        self.cbx_size_primary.raise_()
+        self.cbx_thread_connections_box.raise_()
         self.txt_drift_primary.raise_()
         self.txt_description_primary.raise_()
         self.btn_add_wbco_primary.raise_()
@@ -1036,15 +1036,15 @@ class Ui_MainWindow(object):
         self.lbl_description_back_up.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_description_back_up.setObjectName("lbl_description_back_up")
        
-        self.lbl_size_back_up = QtWidgets.QLabel(self.tab_wbco_backup)
-        self.lbl_size_back_up.setGeometry(QtCore.QRect(530, 20, 31, 31))
+        self.lbl_thread_conextions_box_back_up = QtWidgets.QLabel(self.tab_wbco_backup)
+        self.lbl_thread_conextions_box_back_up.setGeometry(QtCore.QRect(10, 190, 331, 31))
        
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         
-        self.lbl_size_back_up.setFont(font)
-        self.lbl_size_back_up.setStyleSheet("color: rgb(52, 52, 52);")
-        self.lbl_size_back_up.setObjectName("lbl_size_back_up")
+        self.lbl_thread_conextions_box_back_up.setFont(font)
+        self.lbl_thread_conextions_box_back_up.setStyleSheet("color: rgb(52, 52, 52);")
+        self.lbl_thread_conextions_box_back_up.setObjectName("lbl_thread_conextions_box_back_up")
         
         self.txt_od_back_up = QtWidgets.QLineEdit(self.tab_wbco_backup)
         self.txt_od_back_up.setGeometry(QtCore.QRect(530, 140, 491, 41))
@@ -1084,7 +1084,7 @@ class Ui_MainWindow(object):
         self.txt_od_back_up.setPlaceholderText("")
         self.txt_od_back_up.setObjectName("txt_od_back_up")
         self.lbl_id_back_up = QtWidgets.QLabel(self.tab_wbco_backup)
-        self.lbl_id_back_up.setGeometry(QtCore.QRect(10, 190, 31, 31))
+        self.lbl_id_back_up.setGeometry(QtCore.QRect(530, 20, 31, 31))
        
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -1093,9 +1093,9 @@ class Ui_MainWindow(object):
         self.lbl_id_back_up.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_id_back_up.setObjectName("lbl_id_back_up")
         
-        self.cbx_size_back_up = QtWidgets.QComboBox(self.tab_wbco_backup)
-        self.cbx_size_back_up.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.cbx_size_back_up.setStyleSheet("""
+        self.cbx_thread_box_back_up = QtWidgets.QComboBox(self.tab_wbco_backup)
+        self.cbx_thread_box_back_up.setGeometry(QtCore.QRect(10, 220, 491, 41))
+        self.cbx_thread_box_back_up.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;
                 border-radius: 6px;
@@ -1120,11 +1120,11 @@ class Ui_MainWindow(object):
                 image: url(img/arrow_2.png);
             }
         """)
-        self.cbx_size_back_up.setObjectName("cbx_size_back_up")
-        self.cbx_size_back_up.addItems(modulo_wbco.sizeController.listar_size_para_combo())
+        self.cbx_thread_box_back_up.setObjectName("cbx_thread_box_back_up")
+        self.cbx_thread_box_back_up.addItems(modulo_wbco.threadController.listar_thread_para_combo())
         
         self.lbl_thread_back_up = QtWidgets.QLabel(self.tab_wbco_backup)
-        self.lbl_thread_back_up.setGeometry(QtCore.QRect(10, 110, 161, 31))
+        self.lbl_thread_back_up.setGeometry(QtCore.QRect(10, 110, 261, 31))
         
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -1181,7 +1181,7 @@ class Ui_MainWindow(object):
         self.lbl_od_back_up.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_od_back_up.setObjectName("lbl_od_back_up")
         self.txt_id_back_up = QtWidgets.QLineEdit(self.tab_wbco_backup)
-        self.txt_id_back_up.setGeometry(QtCore.QRect(10, 220, 491, 41))
+        self.txt_id_back_up.setGeometry(QtCore.QRect(530, 50, 491, 41))
         self.txt_id_back_up.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #8ec0af;
@@ -1275,10 +1275,10 @@ class Ui_MainWindow(object):
         self.cbx_thread_back_up.raise_()
         self.lbl_drift_back_up.raise_()
         self.lbl_description_back_up.raise_()
-        self.lbl_size_back_up.raise_()
+        self.lbl_thread_conextions_box_back_up.raise_()
         self.txt_od_back_up.raise_()
         self.lbl_id_back_up.raise_()
-        self.cbx_size_back_up.raise_()
+        self.cbx_thread_box_back_up.raise_()
         self.txt_description_back_up.raise_()
         self.txt_id_back_up.raise_()
         self.txt_drift_back_up.raise_()
@@ -1386,7 +1386,7 @@ class Ui_MainWindow(object):
         self.lbl_od_well.setObjectName("lbl_od_well")
         
         self.txt_id = QtWidgets.QLineEdit(self.tab_well_information)
-        self.txt_id.setGeometry(QtCore.QRect(10, 320, 491, 41))
+        self.txt_id.setGeometry(QtCore.QRect(530, 50, 491, 41))
         self.txt_id.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #8ec0af;
@@ -1425,7 +1425,7 @@ class Ui_MainWindow(object):
 
         #Botao Next Step para Avançar ao Tab WBCO Tools Enginer (Days)
         self.btn_well_inf_next_step = QtWidgets.QPushButton(self.tab_well_information)
-        self.btn_well_inf_next_step.setGeometry(QtCore.QRect(10,400,491,41))
+        self.btn_well_inf_next_step.setGeometry(QtCore.QRect(10, 320,491,41))
         self.btn_well_inf_next_step.setObjectName("btn_well_inf_next_step")
         self.btn_well_inf_next_step.setStyleSheet("\n" "\n" "QPushButton#btn_well_inf_next_step{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:14px;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_well_inf_next_step:hover{\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_well_inf_next_step:pressed {\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "")
         self.btn_well_inf_next_step.setText("Next Step")
@@ -1433,7 +1433,7 @@ class Ui_MainWindow(object):
 
         
         self.lbl_id_well = QtWidgets.QLabel(self.tab_well_information)
-        self.lbl_id_well.setGeometry(QtCore.QRect(10, 290, 31, 31))
+        self.lbl_id_well.setGeometry(QtCore.QRect(530, 20, 41, 31))
        
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -1472,52 +1472,8 @@ class Ui_MainWindow(object):
         self.cbx_size.setObjectName("cbx_size")
         self.cbx_size.addItems(modulo_wbco.sizeController.listar_size_para_combo())
         
-        self.txt_size_well = QtWidgets.QLineEdit(self.tab_well_information)
-        self.txt_size_well.setGeometry(QtCore.QRect(530, 50, 491, 41))
-        self.txt_size_well.setStyleSheet("""
-            QLineEdit {
-                border: 1px solid #8ec0af;
-                border-radius: 2px;
-                padding: 5px;
-                background-color: #fff;
-            }
-            QLineEdit:focus {
-                border: 1px solid #4CAF50;
-            }
-            QLineEdit {
-                background-color: white;
-                border: 1px solid #8ec0af;
-                border-radius: 6px;
-                min-width: 10em;
-                padding: 6px;
-            }
-            QLineEdit:hover {
-                border: 2px solid #bbb;
-            }
-            QLineEdit:enabled {
-                background-color: white;
-            }
-            QLineEdit:disabled {
-                background-color: #eee;
-            }
-            QLineEdit:read-only {
-                background-color: #eee;
-            }
-            QLineEdit::placeholder {
-                color: #ccc;
-            }
-        """)
-        self.txt_size_well.setPlaceholderText("")
-        self.txt_size_well.setObjectName("txt_size_well")
-        self.lbl_size_well = QtWidgets.QLabel(self.tab_well_information)
-        self.lbl_size_well.setGeometry(QtCore.QRect(530, 20, 41, 31))
-       
-        font = QtGui.QFont("Arial")
-        font.setPointSize(11)
         
-        self.lbl_size_well.setFont(font)
-        self.lbl_size_well.setStyleSheet("color: rgb(52, 52, 52);")
-        self.lbl_size_well.setObjectName("lbl_size_well")
+        
         
         self.lbl_weight = QtWidgets.QLabel(self.tab_well_information)
         self.lbl_weight.setGeometry(QtCore.QRect(530, 110, 141, 31))
@@ -1653,7 +1609,7 @@ class Ui_MainWindow(object):
             }
         """)
         
-        self.lbl_size_well.raise_()
+      
         self.lbl_id_well.raise_()
         self.lbl_od_well.raise_()
         self.lbl_casing_size_2.raise_()
@@ -1664,7 +1620,6 @@ class Ui_MainWindow(object):
         self.cbx_od.raise_()
         self.txt_id.raise_()
         self.cbx_size.raise_()
-        self.txt_size_well.raise_()
         self.lbl_weight.raise_()
         self.txt_weigth_range.raise_()
         self.lbl_volume_capacity.raise_()
@@ -1991,9 +1946,9 @@ class Ui_MainWindow(object):
         self.lbl_job_type.setText(_translate("MainWindow", "Job Type"))
         self.lbl_approved_by.setText(_translate("MainWindow", "Approved By"))
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_report_information), _translate("MainWindow", "Report Information"))
-        self.lbl_size.setText(_translate("MainWindow", "Size"))
+        self.lbl_thread_conextions_box.setText(_translate("MainWindow", "Thread Connections (BOX)"))
         self.lbl_drift_size.setText(_translate("MainWindow", "Drift Size"))
-        self.lbl_thread_conections.setText(_translate("MainWindow", "Thread Connections"))
+        self.lbl_thread_conections.setText(_translate("MainWindow", "Thread Connections (PIN)"))
         self.lbl_od.setText(_translate("MainWindow", "OD"))
         self.lbl_description.setText(_translate("MainWindow", "Description"))
         self.lbl_id.setText(_translate("MainWindow", "ID"))
@@ -2004,9 +1959,9 @@ class Ui_MainWindow(object):
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_wbco_primary), _translate("MainWindow", "WBCO Tools On Board (Primary)"))
         self.lbl_drift_back_up.setText(_translate("MainWindow", "Drift Size"))
         self.lbl_description_back_up.setText(_translate("MainWindow", "Description"))
-        self.lbl_size_back_up.setText(_translate("MainWindow", "Size"))
+        self.lbl_thread_conextions_box_back_up.setText(_translate("MainWindow", "Thread Connections (BOX)"))
         self.lbl_id_back_up.setText(_translate("MainWindow", "ID"))
-        self.lbl_thread_back_up.setText(_translate("MainWindow", "Thread Connections"))
+        self.lbl_thread_back_up.setText(_translate("MainWindow", "Thread Connections (PIN)"))
         self.lbl_od_back_up.setText(_translate("MainWindow", "OD"))
         
         self.btn_add_wbco_on_bord.setText(_translate("MainWindow", " Add the filled information"))
@@ -2017,7 +1972,6 @@ class Ui_MainWindow(object):
         self.lbl_length.setText(_translate("MainWindow", "Length"))
         self.lbl_od_well.setText(_translate("MainWindow", "OD"))
         self.lbl_id_well.setText(_translate("MainWindow", "ID"))
-        self.lbl_size_well.setText(_translate("MainWindow", "Size"))
         self.lbl_weight.setText(_translate("MainWindow", "Weight Range"))
         self.lbl_volume_capacity.setText(_translate("MainWindow", "Volume Capacity"))
         self.lbl_hole_volume.setText(_translate("MainWindow", "Hole Volume"))
@@ -2174,10 +2128,10 @@ class Ui_MainWindow(object):
                 id_supervisor = modulo_wbco.wbcoController.carregar_id_supervisor_by_email(self.lbl_user_logado.text())
                 id_ultimo_report = modulo_wbco.wbcoController.carregar_buscar_id_report()
 
-                id_size_primary = modulo_wbco.sizeController.buscar_id_by_size(self.cbx_size_primary.currentText())
+                id_thread_connections_box = modulo_wbco.threadController.buscar_id_by_tch(self.cbx_thread_connections_box.currentText())
                 id_thread_primary = modulo_wbco.threadController.buscar_id_by_tch(self.cbx_thread_primary.currentText())
 
-                valor_wbco_primary = modulo_wbco.wbcoController.salvar_wbco_primary(txt_description_primary,id_size_primary,id_thread_primary,
+                valor_wbco_primary = modulo_wbco.wbcoController.salvar_wbco_primary(txt_description_primary,id_thread_connections_box,id_thread_primary,
                                     txt_od_primary,txt_id_primary,txt_drift_primary,id_supervisor,id_ultimo_report)
                 if valor_wbco_primary == 0:
                     self.txt_description_primary.clear()
@@ -2220,12 +2174,12 @@ class Ui_MainWindow(object):
                 message_error_validation("This field does not accept characters empty","Drift entry error")
             else:
 
-                id_size_backup = modulo_wbco.sizeController.buscar_id_by_size(self.cbx_size_back_up.currentText())
                 id_thread_backup = modulo_wbco.threadController.buscar_id_by_tch(cbx_thread_back_up)
+                id_thread_backup_box = modulo_wbco.threadController.buscar_id_by_tch(self.cbx_thread_connections_box.currentText())
 
                 id_supervisor = modulo_wbco.wbcoController.carregar_id_supervisor_by_email(self.lbl_user_logado.text())
                 id_ultimo_report = modulo_wbco.wbcoController.carregar_buscar_id_report()
-                valor_wbco_backup = modulo_wbco.wbcoController.salvar_wbco_backup(txt_description_back_up,id_size_backup,id_thread_backup,
+                valor_wbco_backup = modulo_wbco.wbcoController.salvar_wbco_backup(txt_description_back_up,id_thread_backup_box,id_thread_backup,
                                     txt_od_back_up,txt_id_back_up,txt_drift_back_up,id_supervisor,id_ultimo_report)
                 if valor_wbco_backup == 0:
                    
@@ -2252,7 +2206,6 @@ class Ui_MainWindow(object):
             txt_weigth_range =  str(self.txt_weigth_range.text())
             txt_volume_capacity = str(self.txt_volume_capacity.text())
             cbx_hole_volume = str(self.cbx_hole_volume.currentText())
-            txt_size_well = str(self.txt_size_well.text())
 
             def has_special_characters(input_str, special_chars):
                 for char in input_str:
@@ -2278,9 +2231,6 @@ class Ui_MainWindow(object):
             elif txt_weigth_range == "":
                 message_error_validation("This field does not accept characters empty","Weigth entry error")
 
-            elif txt_size_well == "":
-                message_error_validation("This field does not accept characters empty","Size entry error")
-            
             else:
                 show_message_sucess_validator("Well information","Data was entry Sucessful")
                 self.tab_menus_wbco.setCurrentIndex(2)
@@ -2355,7 +2305,7 @@ class Ui_MainWindow(object):
                 total_days_enginer = int(cout_job_ref) + 1
 
                 modulo_wbco.wbcoController.salvar_report_information(txt_area_on_going,id_casing_size,
-                self.txt_length.text(),id_od,self.txt_id.text(),self.txt_size_well.text(),self.txt_weigth_range.text(),self.txt_volume_capacity.text(),
+                self.txt_length.text(),id_od,self.txt_id.text(),self.txt_weigth_range.text(),self.txt_volume_capacity.text(),
                 self.cbx_hole_volume.currentText(),txt_wbco_activity,self.cbx_shitf_supervisor.currentText(),total_days_enginer,id_poco,id_supervisor,id_cliente,id_empregador,id_ultimo_registo_report_header)
 
                 

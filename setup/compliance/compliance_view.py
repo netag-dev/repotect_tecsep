@@ -81,13 +81,13 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../img/house-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("img/house-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         icon_view_pdf = QtGui.QIcon()
-        icon_view_pdf.addPixmap(QtGui.QPixmap("../img/print.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon_view_pdf.addPixmap(QtGui.QPixmap("img/print.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         icon_download = QtGui.QIcon()
-        icon_download.addPixmap(QtGui.QPixmap("../img/download-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon_download.addPixmap(QtGui.QPixmap("img/download-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         self.btn_dashboard.setIcon(icon)
         self.btn_dashboard.setIconSize(QtCore.QSize(25, 25))
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../img/vial-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("img/vial-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_compliance.setIcon(icon1)
         self.btn_compliance.setIconSize(QtCore.QSize(25, 25))
         self.btn_compliance.setFlat(False)
@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
 "background-color: #033029;\n"
 " }")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../img/tools.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("img/tools.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_wbco.setIcon(icon2)
         self.btn_wbco.setIconSize(QtCore.QSize(25, 25))
         self.btn_wbco.setFlat(False)
@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
 "background-color: #033029;\n"
 " }")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("../img/oil-well-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("img/oil-well-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_filtration.setIcon(icon3)
         self.btn_filtration.setIconSize(QtCore.QSize(25, 25))
         self.btn_filtration.setFlat(False)
@@ -210,7 +210,7 @@ class Ui_MainWindow(object):
 "background-color: #033029;\n"
 " }")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("../img/soap-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("img/soap-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_tank_cleaning.setIcon(icon4)
         self.btn_tank_cleaning.setIconSize(QtCore.QSize(25, 25))
         self.btn_tank_cleaning.setFlat(False)
@@ -241,7 +241,7 @@ class Ui_MainWindow(object):
 "background-color: #033029;\n"
 " }")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("../img/user-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("img/user-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_user_profile.setIcon(icon5)
         self.btn_user_profile.setIconSize(QtCore.QSize(25, 25))
         self.btn_user_profile.setFlat(False)
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
 "background-color: #033029;\n"
 " }")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("../img/right-from-bracket-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("img/right-from-bracket-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_logout.setIcon(icon6)
         self.btn_logout.setIconSize(QtCore.QSize(25, 25))
         self.btn_logout.setFlat(False)
@@ -344,7 +344,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("../img/user-group-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("img/user-group-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_customer.setIcon(icon7)
         self.btn_customer.setIconSize(QtCore.QSize(25, 25))
         self.btn_customer.setFlat(False)
@@ -386,7 +386,7 @@ class Ui_MainWindow(object):
 "height:30px;")
         self.img_user_login.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("../img/user_dark.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("img/user_dark.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.img_user_login.setIcon(icon8)
         self.img_user_login.setIconSize(QtCore.QSize(25, 25))
         self.img_user_login.setObjectName("img_user_login")
@@ -465,7 +465,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_add_report.setIcon(icon9)
         self.btn_add_report.setObjectName("btn_add_report")
 
@@ -502,7 +502,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_list_sample_location.setIcon(icon9)
         self.btn_list_sample_location.setObjectName("btn_list_sample_location")
 
@@ -541,7 +541,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_list_mud_type.setIcon(icon9)
         self.btn_list_mud_type.setObjectName("btn_list_mud_type")
 
@@ -584,7 +584,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_list_fluid_proprietes.setIcon(icon9)
         self.btn_list_fluid_proprietes.setObjectName("btn_list_fluid_proprietes")
 
@@ -626,7 +626,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_list_compliance_engineer.setIcon(icon9)
         self.btn_list_compliance_engineer.setObjectName("btn_list_compliance_engineer")
 
@@ -666,7 +666,7 @@ class Ui_MainWindow(object):
 " }\n"
 "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("../img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/file-lines-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_list_average_model.setIcon(icon9)
         self.btn_list_average_model.setObjectName("btn_list_average_model")
         self.btn_list_average_model.setText("Average Model")

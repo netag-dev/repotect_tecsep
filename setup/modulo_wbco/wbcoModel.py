@@ -8,13 +8,10 @@ def buscar_supervisor():
     
     try:
         with connection.cursor() as cursor:
-            cursor.execute("SELECT pp_name FROM tb_physical_person WHERE pp_type = %s ORDER BY pp_name", ("Supervisor", ))
+            cursor.execute("SELECT pp_name FROM tb_physical_person ORDER BY pp_name")
             usrm = cursor.fetchall()
 
             usrm_list = [item[0] for item in usrm]
-
-
-            
             return usrm_list
 
     finally:
@@ -238,33 +235,33 @@ def buscar_id_ultimo_report():
 
 
 # Salvar o WBCO_primary
-def salvar_wbco_primary(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools):
+def salvar_wbco_primary(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools):
     connection = connecao.cria_connecao()
     print("Conexão Aberta.")
 
     try:
         with connection.cursor() as cursor:
-            cursor.execute(""" INSERT INTO tb_tools_on_board_primary(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tl_description,tl_size,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools))
+            cursor.execute(""" INSERT INTO tb_tools_on_board_primary(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools))
             connection.commit()
             return 0
     finally:
         connection.close()
 
 # Salvar o WBCO_BackUp
-def salvar_wbco_backup(tlb_description,tlb_size,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools):
+def salvar_wbco_backup(tlb_description,tl_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools):
     connection = connecao.cria_connecao()
     print("Conexão Aberta.")
 
     try:
         with connection.cursor() as cursor:
-            cursor.execute(""" INSERT INTO tb_tools_on_board_backup (tlb_description,tlb_size,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tlb_description,tlb_size,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools))
+            cursor.execute(""" INSERT INTO tb_tools_on_board_backup (tlb_description,tlb_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tlb_description,tl_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools))
             connection.commit()
             return 0
     finally:
         connection.close()
 
 #Funcçaõ para Report Information
-def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,rpt_weight_rangeng,
+def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,
                               rpt_volume_capacity,rpt_hole_volume,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,id_well,id_physical_person,id_legal_person,id_employee,id_report_header):
     connection = connecao.cria_connecao()
     print("Conexão Aberta.")
@@ -274,10 +271,10 @@ def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,
 
             cursor.execute(""" INSERT INTO 
                            tb_report_wbco
-                           (rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,rpt_weight_rangeng,
+                           (rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,
                               rpt_volume_capacity,rpt_hole_volume,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,id_well,id_physical_person,id_legal_person,id_employee,id_report_header) 
                            values
-                           (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """,(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,rpt_weight_rangeng,
+                           (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """,(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,
                               rpt_volume_capacity,rpt_hole_volume,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,id_well,id_physical_person,id_legal_person,id_employee,id_report_header,))
             connection.commit()
             return 0
@@ -347,7 +344,7 @@ def buscar_well_information_with_report(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,
+            cursor.execute(""" SELECT rpt_casing_size,rpt_length,rpt_od,rpt_id,
                 rpt_weight_rangeng,rpt_volume_capacity,rpt_hole_volume,tb_report_wbco.id FROM 
 				public.tb_report_wbco,tb_report_header   WHERE tb_report_wbco.id_report_header =  tb_report_header.id 
 				AND tb_report_header.rpt_job_ref_number = %s 
@@ -370,7 +367,7 @@ def buscar_well_information():
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_size,
+            cursor.execute(""" SELECT rpt_casing_size,rpt_length,rpt_od,rpt_id,
                 rpt_weight_rangeng,rpt_volume_capacity,rpt_hole_volume,tb_report_wbco.id FROM 
 				public.tb_report_wbco,tb_report_header   WHERE tb_report_wbco.id_report_header =  tb_report_header.id 
                 ORDER BY tb_report_wbco.id DESC LIMIT 1  """)
@@ -390,7 +387,7 @@ def buscar_wbco_primary_informatio(id_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT tl_description,tl_size,thc,thc_description,
+            cursor.execute(""" SELECT tl_description,tb_thread_con.thc as pin ,thc_description,
                 tl_od,tl_id,tl_drift_size FROM tb_tools_on_board_primary,tb_thread_con, tb_report_wbco WHERE 
                 tb_report_wbco.id = tb_tools_on_board_primary.id_report_tools AND
 				tb_thread_con.id = tb_tools_on_board_primary.tl_thead_connetions AND
@@ -410,26 +407,31 @@ def buscar_wbco_primary_informatio_by_job_ref(job_ref):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT 
-    tl_description,
-    tl_size,
-    thc || ' (' || thc_description || ')' AS thc,
-    tl_od,
-    tl_id,
-    tl_drift_size 
-FROM 
-    tb_thread_con, tb_tools_on_board_primary, tb_report_wbco, tb_report_header 
-WHERE 
-    tb_report_wbco.id = tb_tools_on_board_primary.id_report_tools AND
-    tb_report_header.id = tb_report_wbco.id_report_header AND
-    tb_thread_con.id = tb_tools_on_board_primary.tl_thead_connetions AND
-    tb_report_header.rpt_job_ref_number =  %s  """,(job_ref,))
+            cursor.execute(""" 
+            SELECT 
+            tl_description,
+            thread_pin.thc || ' (' || thread_pin.thc_description || ')' AS thc,
+            thread_box.thc || ' (' || thread_box.thc_description || ')' AS thc_box,
+            tl_od,
+            tl_id,
+            tl_drift_size 
+            FROM 
+                tb_thread_con as thread_pin,tb_thread_con as thread_box, tb_tools_on_board_primary, tb_report_wbco, tb_report_header 
+            WHERE 
+            tb_report_wbco.id = tb_tools_on_board_primary.id_report_tools AND
+            tb_report_header.id = tb_report_wbco.id_report_header AND
+            thread_pin.id = tb_tools_on_board_primary.tl_thead_connetions AND
+            thread_box.id = tb_tools_on_board_primary.tl_thead_connetions_box AND
+            tb_report_header.rpt_job_ref_number = %s  """,(job_ref,))
             
             lista_wbco_primary = cursor.fetchall()
+            print(lista_wbco_primary)
 
-            return lista_wbco_primary
+    except Exception as e:
+            print(f"{e}")
+            return -1
     finally:
-        connection.close()
+        return lista_wbco_primary
 
 
 def buscar_wbco_back_up_informatio(id_report):
@@ -460,25 +462,29 @@ def buscar_wbco_back_up_informatio_by_job_ref(job_ref):
         with connection.cursor() as cursor:
             
             cursor.execute(""" SELECT 
-    tlb_description,
-    tlb_size,
-    thc || ' (' || thc_description || ')' AS thc,
-    tlb_od,
-    tlb_id,
-    tlb_drift_size 
-FROM 
-    tb_thread_con, tb_tools_on_board_backup, tb_report_wbco, tb_report_header 
-WHERE 
-    tb_report_wbco.id = tb_tools_on_board_backup.id_report_tools AND
-    tb_report_header.id = tb_report_wbco.id_report_header AND
-    tb_thread_con.id = tb_tools_on_board_backup.tlb_thead_connetions AND
-    tb_report_header.rpt_job_ref_number =%s  """,(job_ref,))
+            tlb_description,
+            thread_pin.thc || ' (' || thread_pin.thc_description || ')' AS thc,
+            thread_box.thc || ' (' || thread_box.thc_description || ')' AS thc_box,
+            tlb_od,
+            tlb_id,
+            tlb_drift_size 
+            FROM 
+            tb_thread_con as thread_pin,tb_thread_con as thread_box, tb_tools_on_board_backup, tb_report_wbco, tb_report_header 
+            WHERE 
+            tb_report_wbco.id = tb_tools_on_board_backup.id_report_tools AND
+            tb_report_header.id = tb_report_wbco.id_report_header AND
+            thread_pin.id = tb_tools_on_board_backup.tlb_thead_connetions AND
+            thread_box.id = tb_tools_on_board_backup.tlb_thead_connetions_box AND
+            tb_report_header.rpt_job_ref_number =%s  """,(job_ref,))
             
             lista_wbco_back_up = cursor.fetchall()
 
-            return lista_wbco_back_up
+    except Exception as e:
+        print(f"{e}")
+        return -1
     finally:
         connection.close()
+        return lista_wbco_back_up
 
 
 def buscar_empregado(id_report):

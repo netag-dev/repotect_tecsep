@@ -1,11 +1,11 @@
 import filtration.pack_fluid_consumables_type.fluid_consumables_typeModel
 
 
-def cadastrar(description):
-    return filtration.pack_fluid_consumables_type.fluid_consumables_typeModel.cadastrar(description)
+def cadastrar(type,description):
+    return filtration.pack_fluid_consumables_type.fluid_consumables_typeModel.cadastrar(type,description)
 
-def editar(param1, param2):
-    return filtration.pack_fluid_consumables_type.fluid_consumables_typeModel.editar(param1, param2)
+def editar(type,desc,id):
+    return filtration.pack_fluid_consumables_type.fluid_consumables_typeModel.editar(type,desc,id)
 
 def eliminar(param):
     return filtration.pack_fluid_consumables_type.fluid_consumables_typeModel.eliminar(param)

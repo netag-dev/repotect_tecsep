@@ -198,7 +198,7 @@ class Ui_MainWindow(object):
         self.btn_list_type_consumible.setObjectName("btn_list_type_consumible")
 
         self.txt_type_consumivel = QtWidgets.QLineEdit(self.frame)
-        self.txt_type_consumivel.setGeometry(QtCore.QRect(30, 390, 500, 41))
+        self.txt_type_consumivel.setGeometry(QtCore.QRect(30, 390, 325, 41))
         self.txt_type_consumivel.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #8ec0af;
@@ -235,11 +235,50 @@ class Ui_MainWindow(object):
         self.txt_type_consumivel.setPlaceholderText("")
         self.txt_type_consumivel.setObjectName("txt_type_consumivel")
 
-        self.lbl_tipo_consumivel = QtWidgets.QLabel(self.frame)
-        self.lbl_tipo_consumivel.setGeometry(QtCore.QRect(30, 360, 400, 31))
-        
-        
+        self.txt_description_consumivel = QtWidgets.QLineEdit(self.frame)
+        self.txt_description_consumivel.setGeometry(QtCore.QRect(375, 390, 325, 41))
+        self.txt_description_consumivel.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
+        self.txt_description_consumivel.setPlaceholderText("")
+        self.txt_description_consumivel.setObjectName("txt_description_consumivel")
 
+        self.lbl_tipo_consumivel = QtWidgets.QLabel(self.frame)
+        self.lbl_tipo_consumivel.setGeometry(QtCore.QRect(30, 360, 300, 31))
+
+        self.lbl_descricao_consumivel = QtWidgets.QLabel(self.frame)
+        self.lbl_descricao_consumivel.setGeometry(QtCore.QRect(375, 360, 400, 28))
+        self.lbl_descricao_consumivel.setText("Description")
         
 
 
@@ -264,8 +303,9 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         
         self.btn_salvar_type_consumable = QtWidgets.QPushButton(self.frame)
-        self.btn_salvar_type_consumable.setGeometry(QtCore.QRect(550, 390, 390, 41))
+        self.btn_salvar_type_consumable.setGeometry(QtCore.QRect(720, 390, 390, 41))
         self.btn_salvar_type_consumable.setStyleSheet("\n" "\n" "QPushButton#btn_salvar_type_consumable{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:15px;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_salvar_type_consumable:hover{\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_salvar_type_consumable:pressed {\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "")
+       
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_salvar_type_consumable.setIcon(icon9)
@@ -277,6 +317,7 @@ class Ui_MainWindow(object):
         icon10.addPixmap(QtGui.QPixmap("/img/upload-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         self.lbl_tipo_consumivel.raise_()
+        
         self.lbl_email.raise_()
         self.frame_2.raise_()
         self.frame_3.raise_()
@@ -284,8 +325,10 @@ class Ui_MainWindow(object):
         self.line_2.raise_()
         self.line_3.raise_()
         self.btn_list_type_consumible.raise_()
+        self.txt_description_consumivel.raise_()
         self.txt_type_consumivel.raise_()
         self.btn_salvar_type_consumable.raise_()
+        self.lbl_descricao_consumivel.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1400, 26))
@@ -303,7 +346,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard.clicked.connect(lambda:show_form_dashboard())
 
 
-        self.btn_compliance.setText(_translate("MainWindow", " D. F. Compliance"))
+        self.btn_compliance.setText(_translate("MainWindow", " A. M. Compliance"))
         self.btn_wbco.setText(_translate("MainWindow", " WBCO Tools"))
         self.btn_wbco.clicked.connect(lambda: call_form_wbco())
         self.btn_filtration.setText(_translate("MainWindow", " Filtration"))
@@ -323,18 +366,18 @@ class Ui_MainWindow(object):
         self.btn_list_type_consumible.setText(_translate("MainWindow", "List type of Consumable"))
         self.btn_list_type_consumible.clicked.connect(lambda:show_form_list_type_consumable())
 
-        self.lbl_tipo_consumivel.setText(_translate("MainWindow", " Type of consumable "))
+        self.lbl_tipo_consumivel.setText(_translate("MainWindow", " Size "))
 
         self.btn_salvar_type_consumable.setText(_translate("MainWindow", "Save Consumable data"))
 
         
-        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable(self.txt_type_consumivel.text()))
+        self.btn_salvar_type_consumable.clicked.connect(lambda: save_consumable(self.txt_type_consumivel.text(),self.txt_description_consumivel.text()))
         
         
 
-        def save_consumable(descreption):
+        def save_consumable(type,desc):
            
-           retorno = controller.cadastrar(descreption)
+           retorno = controller.cadastrar(type,desc)
            if retorno == 0:
                show_message_sucess("Successful update","Successfully Saved data")
                show_form_list_type_consumable()

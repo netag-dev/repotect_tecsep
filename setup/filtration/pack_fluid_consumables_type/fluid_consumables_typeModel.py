@@ -1,13 +1,13 @@
 import psycopg2
 import conection.connect as connecao
 
-def cadastrar(description):
+def cadastrar(type,description):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
 
-        cursor.execute(""" INSERT INTO tb_fluid_consumables_type_ft(description)
-                       values(%s) """,(description,))    
+        cursor.execute(""" INSERT INTO tb_fluid_consumables_type_ft(type,description)
+                       values(%s,%s) """,(type,description,))    
         connection.commit()
         cursor.close()
     except Exception as e:
@@ -16,11 +16,11 @@ def cadastrar(description):
     finally:
        return 0
 
-def editar(param1, param2):
+def editar(type,desc,id):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("UPDATE tb_fluid_consumables_type_ft set description = %s where id = %s ",(param1,param2))                
+        cursor.execute("UPDATE tb_fluid_consumables_type_ft set type = %s, description = %s where id = %s ",(type,desc,id))                
         connection.commit()
         cursor.close()
     except Exception as e:
@@ -46,7 +46,7 @@ def listar():
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("SELECT *FROM tb_fluid_consumables_type_ft")
+        cursor.execute("SELECT  *FROM tb_fluid_consumables_type_ft")
         dados = cursor.fetchall()
         
         cursor.close()

@@ -541,7 +541,7 @@ class Ui_MainWindow(object):
         self.table_type_consumable.setCornerButtonEnabled(False)
         self.table_type_consumable.setObjectName("table_type_consumable")
         self.table_type_consumable.setColumnCount(5) 
-        self.table_type_consumable.setHorizontalHeaderLabels(["Ref","Description"," "," "," "])
+        self.table_type_consumable.setHorizontalHeaderLabels(["Ref","Description","Size"," "," "])
         self.table_type_consumable.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_type_consumable.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_type_consumable.horizontalHeaderItem(2).setTextAlignment(0x0001)
@@ -555,12 +555,12 @@ class Ui_MainWindow(object):
 
         for row in list_type_consumable:
             
-            self.btn_edit_employee = QtWidgets.QPushButton("Edit Employee")
+            self.btn_edit_employee = QtWidgets.QPushButton("Edit")
             self.btn_edit_employee.setStyleSheet("\n" "\n" "QPushButton#btn_edit_employee{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:13px;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_edit_employee:hover{\n" " background-color: #044e42;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "}\n" "\n" "QPushButton#btn_edit_employee:pressed {\n" " background-color: #044e42;\n" "border-radius: 0px;\n" "background-color: #033029;\n" "padding:5px;\n" " }\n" "")
             self.btn_edit_employee.setIcon(icon_edit)
             self.btn_edit_employee.setObjectName("btn_edit_employee")
 
-            self.btn_remove_employee = QtWidgets.QPushButton("Remove Employee")
+            self.btn_remove_employee = QtWidgets.QPushButton("Remove")
             self.btn_remove_employee.setStyleSheet("\n" "\n" "QPushButton#btn_remove_employee{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:13px;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_remove_employee:hover{\n" " background-color: #044e42;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "}\n" "\n" "QPushButton#btn_remove_employee:pressed {\n" " background-color: #044e42;\n" "border-radius: 0px;\n" "background-color: #033029;\n" "padding:5px;\n" " }\n" "")
             self.btn_remove_employee.setIcon(icon_delete)
             self.btn_remove_employee.setObjectName("btn_remove_employee")
@@ -568,8 +568,8 @@ class Ui_MainWindow(object):
             
 
             self.table_type_consumable.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
-            self.table_type_consumable.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[1]))
-            self.table_type_consumable.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[0]))
+            self.table_type_consumable.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[2]))
+            self.table_type_consumable.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[1]))
             self.table_type_consumable.setCellWidget(tablerow,3,self.btn_edit_employee)
             self.table_type_consumable.setCellWidget(tablerow,4,self.btn_remove_employee)
 
@@ -599,11 +599,11 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
-        def show_form_edit_engier(id):
+        def show_form_edit_engier(id,desc,size):
             self.window = QtWidgets.QMainWindow()
             import filtration.pack_fluid_consumables_type.type_consumables_edit as edit
             self.ui = edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text(),id)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text(),id,desc,size)
             self.window.show()
             MainWindow.close()
 
@@ -622,17 +622,23 @@ class Ui_MainWindow(object):
                 row = index.row()
                 col = index.column()
 
-                col = col - 3
+                col_id = col - 3
+                col_desc = col - 2
+                col_size = col - 1
                 
 
                 
-                item = self.table_type_consumable.item(row,col)
+                item_id = self.table_type_consumable.item(row,col_id)
+                item_desc = self.table_type_consumable.item(row,col_desc)
+                item_size = self.table_type_consumable.item(row,col_size)
 
-                if (item is not None ):
+                if (item_id is not None or item_desc is not None or item_size is not None ):
                     
-                    id = item.text()
+                    id = item_id.text()
+                    desc = item_desc.text()
+                    size = item_size.text()
 
-                    show_form_edit_engier(id)
+                    show_form_edit_engier(id,desc,size)
 
           
 

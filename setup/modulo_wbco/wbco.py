@@ -709,7 +709,7 @@ class Ui_MainWindow(object):
                     wbco_back_up = modulo_wbco.wbcoController.carregar_wbco_back_up_by_job_ref(job_ref)
                     employe = modulo_wbco.wbcoController.carregar_empregado_by_job_ref(job_ref)
 
-                    filemane = "Daily_Report_"+str(well_information[8])+"_WBCO_Tools_Service.pdf"
+                    filemane = "Daily_Report_"+str(well_information[7])+"_WBCO_Tools_Service.pdf"
                     self.gerador_report.gerar_pdf(filemane,report_cabecalho,well_information,wbco_primary,wbco_back_up,employe)
                     show_message_sucess()
 

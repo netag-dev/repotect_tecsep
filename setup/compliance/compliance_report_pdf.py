@@ -518,17 +518,17 @@ class GerarReport:
         table_ongoing_activity.wrapOn(c,width,height)
         table_ongoing_activity.drawOn(c,5*mm,valor_heigth_total + altura_solid_sample + 13)
 
-        total_table_with_ongoing_value = valor_heigth_total + altura_solid_sample + 13
+        total_table_with_ongoing_value = valor_heigth_total + altura_solid_sample - 10
 
         table_ongoing_heigth = table_ongoing_activity._height
 
         table_monitoring_comments.wrapOn(c,width,height)
 
-        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value + 13 )
+        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value + 9 )
 
         table_monitoring_heigth = table_monitoring_comments._height
 
-        total_table_with_monitoring = table_ongoing_heigth + total_table_with_ongoing_value + 13 + table_monitoring_heigth
+        total_table_with_monitoring = table_ongoing_heigth + total_table_with_ongoing_value - 8 + table_monitoring_heigth
 
 
 
@@ -537,7 +537,7 @@ class GerarReport:
         
         table_audi_heigth = table_auditQuestionary._height
         
-        total_height_with_audit = table_ongoing_heigth + total_table_with_ongoing_value + 13 + table_monitoring_heigth + table_audi_heigth
+        total_height_with_audit = table_ongoing_heigth + total_table_with_ongoing_value - 8 + table_monitoring_heigth + table_audi_heigth
 
         table_compliance_enginer.wrapOn(c,width,height)
         table_compliance_enginer.drawOn(c,5*mm,total_height_with_audit + 13)
@@ -598,6 +598,7 @@ class GerarReport:
 
         
 
+
         
         ptext = "Daily Report #"+str(value_info[0])+" Drilling Fluids Compliance "
         pdrilling_information = "Drilling Information"
@@ -630,6 +631,13 @@ class GerarReport:
         #c.setFillColor(color)
 
         #c.rect(5*mm,45.7*mm,200*mm,10,fill=1, stroke=0)
+
+
+        width = 7 * inch  # largura da imagem
+        height = 1.5 * inch  # altura da imagem
+
+        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,15*mm,243*mm,width,height,mask='auto')
 
         p.wrapOn(c, 80*mm, 70*mm)  # size of 'textbox' for linebreaks etc.
         p.drawOn(c, 65*mm, 18*mm)    # position of text / where to draw

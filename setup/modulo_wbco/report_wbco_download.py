@@ -35,6 +35,7 @@ class GerarReport:
         value_well_information = well_information
 
         value_wbco_primary = wbco_primary
+        
         value_wbco_back_up = wbco_back_up
 
         value_employe = employe
@@ -50,20 +51,20 @@ class GerarReport:
         ]
 
         data_well_information =   [
-                    [value_well_information[0], value_well_information[1], value_well_information[2],value_well_information[3],value_well_information[4],value_well_information[5],value_well_information[6],value_well_information[7]],
-                    ["Casing Size", "Length", "OD","ID","Size"," Weight", "Volume Capacity","Hole Volume"]
+                    [value_well_information[0], value_well_information[1], value_well_information[2],value_well_information[3],value_well_information[4],value_well_information[5],value_well_information[6]],
+                    ["Casing Size", "Length", "OD","ID"," Weight", "Volume Capacity","Hole Volume"]
                     
                 ]
 
         data_wbco_primary =  value_wbco_primary +[
                    
                     
-                    ["Description", "Size", "Thread Coonections","OD","ID"," Drift Size"]
+                    ["Description", "Thread Coonections (PIN)", "Thread Coonections (BOX)","OD","ID"," Drift Size"]
                 ]
 
 
         data_wbco_back_up = value_wbco_back_up + [
-                    ["Description", "Size", "Thread Coonections","OD","ID"," Drift Size"]
+                    ["Description", "Thread Coonections (PIN)", "Thread Coonections (BOX)","OD","ID"," Drift Size"]
                 ]
 
         data_on_going = [
@@ -84,7 +85,7 @@ class GerarReport:
 
 
         #TBaela Well Infomration
-        new_table = Table(data_well_information, colWidths=[34*mm,24*mm,17*mm,17*mm,22*mm,18*mm,34*mm,34*mm])
+        new_table = Table(data_well_information, colWidths=[34*mm,24*mm,27*mm,27*mm,20*mm,38*mm,30*mm])
 
         #Tabela REport Information
         table = Table(data, colWidths= [40*mm,72*mm,38*mm,49.7*mm])
@@ -92,9 +93,9 @@ class GerarReport:
         #                ("ALIGN", (0,0), (-1,-1), "LEFT"),
         #                ('INNERGRID', (0,0), (-1,-1), 0.25, colors.black)])
 
-        table_wbco_primary = Table(data_wbco_primary,colWidths=[75*mm,18*mm,50*mm,19*mm,19*mm,19*mm])
+        table_wbco_primary = Table(data_wbco_primary,colWidths=[50*mm,42*mm,50*mm,19*mm,19*mm,19*mm])
 
-        table_wbco_backup = Table(data_wbco_back_up,colWidths=[75*mm,18*mm,50*mm,19*mm,19*mm,19*mm])
+        table_wbco_backup = Table(data_wbco_back_up,colWidths=[50*mm,42*mm,50*mm,19*mm,19*mm,19*mm])
 
         table_on_going_activity = Table(data_on_going,colWidths=200*mm)
 
@@ -288,17 +289,17 @@ class GerarReport:
         width = 7.8 * inch  # largura da imagem
         height = 2 * inch  # altura da imagem
 
-        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
-        c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
+        #img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
+        #c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
         
         
-        ptext = "Daily Report #"+str(value_well_information[8])+" WBCO Tools Service "
+        ptext = "Daily Report #"+str(value_well_information[7])+" WBCO Tools Service "
         ptlink = " www.tecsep-tsg.com"
         pwell_information = " Well Information"
         p_wbco_tools_primary = " WBCO Tools On board (primary)"
         p_wbco_tools_back_up = "WBCO Tools On board (Back Up)"
         p_ong_going_activity = "Ongoing Rig Activity"
-        p_text_lema = '"Proudly Tecsep, Proudly African"'
+        p_text_lema = '" Do it right the first time"'
 
 
 
@@ -335,7 +336,7 @@ class GerarReport:
         p_wbco_activity.drawOn(c,5*mm,((108*mm) + (altura_wbco_primary) + 35) + altura_wbco_back_up + 33 + altura_on_going_activity + 25)
 
         p_lema.wrapOn(c,70*mm,60*mm)
-        p_lema.drawOn(c,80*mm,283*mm)
+        p_lema.drawOn(c,85*mm,283*mm)
 
 
         c.save()

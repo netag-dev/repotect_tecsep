@@ -1109,7 +1109,7 @@ class Ui_MainWindow(object):
         self.lbl_density_type.setFont(font)
         self.lbl_density_type.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_density_type.setObjectName("lbl_density_type")
-        self.lbl_density_type.setText("Density Type")
+        self.lbl_density_type.setText("Density (Unit)")
 
         self.cbx_density_type = QtWidgets.QComboBox(self.tab_fluid_information)
         self.cbx_density_type.setGeometry(QtCore.QRect(10, 132, 351, 41))
@@ -1297,7 +1297,7 @@ class Ui_MainWindow(object):
         self.lbl_hole_volume_type.setFont(font)
         self.lbl_hole_volume_type.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_hole_volume_type.setObjectName("lbl_hole_volume_type")
-        self.lbl_hole_volume_type.setText("Hole Volume Type")
+        self.lbl_hole_volume_type.setText("Hole Volume (Unit)")
 
         self.cbx_hole_volume_type = QtWidgets.QComboBox(self.tab_fluid_information)
         self.cbx_hole_volume_type.setGeometry(QtCore.QRect(370, 220, 351, 41))
@@ -1935,7 +1935,7 @@ class Ui_MainWindow(object):
 
         self.lbl_number_of_cutting = QtWidgets.QLabel(self.tab_add_sample)
         self.lbl_number_of_cutting.setGeometry(QtCore.QRect(380,200,250,28))
-        self.lbl_number_of_cutting.setText("Number of Cutting Dryers")
+        self.lbl_number_of_cutting.setText("Number of Cutting Dryer")
         self.lbl_number_of_cutting.setObjectName("lbl_number_of_cutting")
 
         self.txt_number_of_cutting = QtWidgets.QLineEdit(self.tab_add_sample)
@@ -3169,7 +3169,7 @@ class Ui_MainWindow(object):
         self.cbx_shift.setObjectName("cbx_shift")
         self.cbx_shift.setGeometry(QtCore.QRect(380,40,351,41))
         self.cbx_shift.addItem("-- Select Shift --")
-        self.cbx_shift.addItems(["Days","Nigth"])
+        self.cbx_shift.addItems(["Days","Night"])
         self.cbx_shift.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;
@@ -3289,8 +3289,8 @@ class Ui_MainWindow(object):
         self.btn_next_step_driliing_properties.setText(_translate("MainWindow", "Next Step"))
         self.btn_next_step_driliing_properties.clicked.connect(lambda:save_fluid_information())
 
-        self.lbl_mud_type.setText(_translate("MainWindow", "Mud Type/Base Oil Type"))
-        self.lbl_rig_total_volume_type.setText(_translate("MainWindow", "Rig total volume type"))
+        self.lbl_mud_type.setText(_translate("MainWindow", "Mud Type"))
+        self.lbl_rig_total_volume_type.setText(_translate("MainWindow", "Rig total volume (Unit)"))
         self.lbl_rig_volume.setText(_translate("MainWindow", "Rig total volume"))
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_fluid_information), _translate("MainWindow", "Fluid Information"))
         self.lbl_hole_size.setText(_translate("MainWindow", "Hole Size"))
@@ -3298,8 +3298,8 @@ class Ui_MainWindow(object):
         self.btn_next_step_drilling_information.setText(_translate("MainWindow", "Next Step"))
         self.btn_next_step_drilling_information.clicked.connect(lambda:drilling_information())
 
-        self.lbl_total_depth.setText(_translate("MainWindow", "Total Deft (ft)"))
-        self.lbl_feets_drilled.setText(_translate("MainWindow", "Feets Drilled"))
+        self.lbl_total_depth.setText(_translate("MainWindow", "Total Depth (ft)"))
+        self.lbl_feets_drilled.setText(_translate("MainWindow", "Feet Drilled"))
         self.txt_feets_drilled.setPlaceholderText(_translate("MainWindow", " Write here..."))
         self.lbl_average_rop.setText(_translate("MainWindow", "Average ROP"))
         self.txt_average_rop.setPlaceholderText(_translate("MainWindow", " Write here..."))
@@ -3355,6 +3355,8 @@ class Ui_MainWindow(object):
         
         self.btn_next_step_solid.clicked.connect(lambda:next_step_solid())
         self.btn_next_fluid_information.setText(_translate("MainWindow", "Next"))
+        self.btn_next_fluid_information.clicked.connect(lambda:next_step_fluid_information())
+
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_ongoing_rig), _translate("MainWindow", "Inventory Mob"))
 
         self.btn_save_report.clicked.connect(lambda:save_report_header(self.cbx_customer.currentText()))
@@ -3497,6 +3499,9 @@ class Ui_MainWindow(object):
             else:
                 self.tab_menus_compliance.setCurrentIndex(1)
 
+        def next_step_fluid_information():
+            self.tab_menus_compliance.setCurrentIndex(3)
+
         def save_fluid_information():
 
             try:
@@ -3615,7 +3620,7 @@ class Ui_MainWindow(object):
                   
         def validator_hse():
 
-                self.tab_menus_compliance.setCurrentIndex(4)
+                self.tab_menus_compliance.setCurrentIndex(6)
 
         def validator_produtive_man_hour():
 
@@ -3627,7 +3632,7 @@ class Ui_MainWindow(object):
 
         def validator_imob_inventory():
 
-                self.tab_menus_compliance.setCurrentIndex(7)
+                self.tab_menus_compliance.setCurrentIndex(9)
 
         def report():
             show_message_sucess()
@@ -3763,6 +3768,7 @@ class Ui_MainWindow(object):
                 else:
                     print("Não Salvou")
             show_message_sucess()
+            self.tab_menus_compliance.setCurrentIndex(4)
 
         def add_auti_questionary():
             id_last_report = controller.buscar_id_ultimo_report()

@@ -679,7 +679,7 @@ class Ui_MainWindow(object):
             tablerow+=1
 
             self.button_download_report.clicked.connect(lambda:buttnon_download_report())
-            self.button_view_report.clicked.connect(lambda:view_report())
+            #self.button_view_report.clicked.connect(lambda:view_report())
 
         def show_message_sucess():
             msg_error = QMessageBox()
