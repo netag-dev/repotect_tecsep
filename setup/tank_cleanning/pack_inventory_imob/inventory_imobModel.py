@@ -175,14 +175,14 @@ def get_stoq_asset(id):
 
         ################################### Cadastros ####################################################
     
-def cadastrar_consumivel(id_consumivel,id_report,quantidade):
+def cadastrar_consumivel(id_consumivel,id_report,quantidade,open_stock,stock_adicional,total_stock,closing_bal):
     connection = connecao.cria_connecao()
     print("Conexão Aberta.")
 
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" INSERT INTO tb_consumiveis_tc_report(id_consumiveis,id_report_tc,quantidade_add) values (%s,%s,%s) """,(id_consumivel,id_report,quantidade))
+            cursor.execute(""" INSERT INTO tb_consumiveis_tc_report(id_consumiveis, id_report_tc, quantidade_add, open_stock, aditional_stock, total_stock, closing_bal) values (%s,%s,%s,%s,%s,%s,%s) """,(id_consumivel,id_report,quantidade,open_stock,stock_adicional,total_stock,closing_bal))
             
             connection.commit()
     
@@ -194,19 +194,19 @@ def cadastrar_consumivel(id_consumivel,id_report,quantidade):
         return 0
     
 
-def cadastrar_ppe(id,id_report,quantidade):
+def cadastrar_ppe(id_ppe,id_report,quantidade_ppe,open_stock,stock_adicional,total_stock,closing_bal):
     connection = connecao.cria_connecao()
     print("Conexão Aberta.")
 
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" INSERT INTO tb_ppe_tc_report(id_ppe,id_report_tc,quantidade_add) values (%s,%s,%s) """,(id,id_report,quantidade))
+            cursor.execute(""" INSERT INTO tb_ppe_tc_report(id_ppe, id_report_tc, quantidade_add, open_stock, aditional_stock, total_stock, closing_bal) values (%s,%s,%s,%s,%s,%s,%s) """,(id_ppe,id_report,quantidade_ppe,open_stock,stock_adicional,total_stock,closing_bal,))
             
             connection.commit()
     
     except Exception as e:
-        print(f"Erro ao Salvar Consumivel")
+        print(f"Erro ao Salvar PPE {e}")
         return -1
 
     finally:

@@ -114,7 +114,7 @@ def buscar_consumiveis(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT cs_name,cs_daily_used ,'Consumable' as consumivel_type FROM tb_consumables_tc,tb_consumiveis_tc_report, tb_report_tc
+            cursor.execute(""" SELECT cs_name,open_stock,aditional_stock,total_stock,cs_daily_used,closing_bal ,'Consumable' as consumivel_type FROM tb_consumables_tc,tb_consumiveis_tc_report, tb_report_tc
                             WHERE tb_consumiveis_tc_report.id_consumiveis = tb_consumables_tc.id
                             AND tb_consumiveis_tc_report.id_report_tc = tb_report_tc.id
                             AND tb_report_tc.id = %s """,(ref_report,))
@@ -126,7 +126,19 @@ def buscar_consumiveis(ref_report):
     finally:
         connection.close()
 
-        
+
+def buscar_quantidade_stoke(nome_equipamento):
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute(" SELECT cs_daily_used FROM tb_consumables_tc  WHERE cs_name = %s",(nome_equipamento,))    
+        quantidade_stoke = cursor.fetchone()
+    except Exception as e:
+        print(f"Erro ao na Base de Dados: {e}")
+        return -1
+    finally:
+         return quantidade_stoke
+
 
 
             

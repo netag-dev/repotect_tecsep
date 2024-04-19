@@ -2570,6 +2570,8 @@ class Ui_MainWindow(object):
         """)
         self.txt_opening_stock.setPlaceholderText("")
         self.txt_opening_stock.setObjectName("txt_opening_stock")
+        self.txt_opening_stock.setEnabled(False)
+    
 
         ##########################################
 
@@ -2602,20 +2604,46 @@ class Ui_MainWindow(object):
         self.lbl_opening_stock_ppe.setFont(font)
         self.lbl_opening_stock_ppe.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_opening_stock_ppe.setObjectName("lbl_opening_stock")
-        self.lbl_opening_stock_ppe.setText("Openning Stock")
+        self.lbl_opening_stock_ppe.setText("Opening Stock")
 
 
-        self.txt_daily_used_consumable_ppe = QtWidgets.QLineEdit(self.tab_imobe_inventory)
-        self.txt_daily_used_consumable_ppe.setGeometry(QtCore.QRect(530, 150, 491, 41))
-        self.txt_daily_used_consumable_ppe.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
-        self.txt_daily_used_consumable_ppe.setPlaceholderText("")
-        self.txt_daily_used_consumable_ppe.setObjectName("txt_daily_used_consumable_ppe")
+        self.txt_daily_used_ppe = QtWidgets.QLineEdit(self.tab_imobe_inventory)
+        self.txt_daily_used_ppe.setGeometry(QtCore.QRect(530, 150, 491, 41))
+        self.txt_daily_used_ppe.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
+        self.txt_daily_used_ppe.setPlaceholderText("")
+        self.txt_daily_used_ppe.setObjectName("txt_daily_used_ppe")
 
 
 
@@ -2623,15 +2651,42 @@ class Ui_MainWindow(object):
 
         self.txt_opening_stock_ppe = QtWidgets.QLineEdit(self.tab_imobe_inventory)
         self.txt_opening_stock_ppe.setGeometry(QtCore.QRect(530, 230, 491, 41))
-        self.txt_opening_stock_ppe.setStyleSheet("QLineEdit{\n"
-        "\n"
-        "\n"
-        "background-color:#fff;\n"
-        "border: 1px solid #8ec0af;\n"
-        "border-radius: 6px\n"
-        "}")
+        self.txt_opening_stock_ppe.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
         self.txt_opening_stock_ppe.setPlaceholderText("")
         self.txt_opening_stock_ppe.setObjectName("txt_opening_stock")
+        self.txt_opening_stock_ppe.setEnabled(False)
 
         ###############################################################
 
@@ -2657,8 +2712,98 @@ class Ui_MainWindow(object):
         self.lbl_consumambles.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_consumambles.setObjectName("lbl_consumambles")
         
+        self.lbl_additional_stock = QtWidgets.QLabel(self.tab_imobe_inventory)
+        self.lbl_additional_stock.setFont(font)
+        self.lbl_additional_stock.setObjectName("lbl_additional_stock")
+        self.lbl_additional_stock.setText("Additional Stock")
+        self.lbl_additional_stock.setGeometry(QtCore.QRect(530, 280, 491, 41))
+
+        self.lbl_additional_stock_consumivel = QtWidgets.QLabel(self.tab_imobe_inventory)
+        self.lbl_additional_stock_consumivel.setFont(font)
+        self.lbl_additional_stock_consumivel.setObjectName("lbl_additional_stock_consumivel")
+        self.lbl_additional_stock_consumivel.setText("Additional Stock")
+        self.lbl_additional_stock_consumivel.setGeometry(QtCore.QRect(10, 280, 491, 41))
+
+        self.txt_aditin_stock = QtWidgets.QLineEdit(self.tab_imobe_inventory)
+        self.txt_aditin_stock.setObjectName("txt_aditin_stock")
+        self.txt_aditin_stock.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
+
+        self.txt_aditin_stock.setGeometry(QtCore.QRect(530,320,491,41))
+        self.txt_aditin_stock.setText(str("0"))
+
+        self.txt_aditin_stock_consumivel = QtWidgets.QLineEdit(self.tab_imobe_inventory)
+        self.txt_aditin_stock_consumivel.setObjectName("txt_aditin_stock_consumivel")
+        self.txt_aditin_stock_consumivel.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #8ec0af;
+                border-radius: 2px;
+                padding: 5px;
+                background-color: #fff;
+            }
+            QLineEdit:focus {
+                border: 1px solid #4CAF50;
+            }
+            QLineEdit {
+                background-color: white;
+                border: 1px solid #8ec0af;
+                border-radius: 6px;
+                min-width: 10em;
+                padding: 6px;
+            }
+            QLineEdit:hover {
+                border: 2px solid #bbb;
+            }
+            QLineEdit:enabled {
+                background-color: white;
+            }
+            QLineEdit:disabled {
+                background-color: #eee;
+            }
+            QLineEdit:read-only {
+                background-color: #eee;
+            }
+            QLineEdit::placeholder {
+                color: #ccc;
+            }
+        """)
+
+        self.txt_aditin_stock_consumivel.setGeometry(QtCore.QRect(10,320,491,41))
+        self.txt_aditin_stock_consumivel.setText(str("0"))
+
         self.btn_add_information_inventory_mob = QtWidgets.QPushButton(self.tab_imobe_inventory)
-        self.btn_add_information_inventory_mob.setGeometry(QtCore.QRect(530, 320, 491, 41))
+        self.btn_add_information_inventory_mob.setGeometry(QtCore.QRect(530, 390, 491, 41))
         self.btn_add_information_inventory_mob.setStyleSheet("\n"
 "\n"
 "QPushButton#btn_add_information_inventory_mob{\n"
@@ -2690,7 +2835,7 @@ class Ui_MainWindow(object):
         self.btn_add_information_inventory_mob.setIcon(icon10)
         self.btn_add_information_inventory_mob.setObjectName("btn_add_information_inventory_mob")
         self.btn_save_report = QtWidgets.QPushButton(self.tab_imobe_inventory)
-        self.btn_save_report.setGeometry(QtCore.QRect(10, 320, 491, 41))
+        self.btn_save_report.setGeometry(QtCore.QRect(10, 390, 491, 41))
         self.btn_save_report.setStyleSheet("\n"
 "\n"
 "QPushButton#btn_save_report{\n"
@@ -2750,6 +2895,10 @@ class Ui_MainWindow(object):
         """)
         self.cbx_consumables.setPlaceholderText("")
         self.cbx_consumables.setObjectName("cbx_consumables")
+
+        
+
+
         self.lbl_opening_stock.raise_()
         self.lbl_daily_used.raise_()
         self.lbl_material_ppe.raise_()
@@ -2898,6 +3047,9 @@ class Ui_MainWindow(object):
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_imobe_inventory), _translate("MainWindow", "Inventory Mob"))
         self.cbx_customer.textActivated.connect(lambda: getPoco(self.cbx_customer.currentText()))
 
+        self.cbx_ppe.currentTextChanged.connect(lambda:buscar_quantidade_stock())
+        self.cbx_consumables.currentTextChanged.connect(lambda:buscar_quantidade_stock_consumiveis())
+
         self.btn_save_report.clicked.connect(lambda:report())
 
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_imobe_inventory), _translate("MainWindow", "Inventory Mob"))
@@ -2908,6 +3060,22 @@ class Ui_MainWindow(object):
         id_supervisor = modulo_wbco.wbcoController.carregar_id_supervisor_by_email(self.lbl_user_logado.text())
         
         id_cliente = modulo_wbco.wbcoController.carregar_buscar_id_cliente(self.cbx_customer.currentText())
+
+        def buscar_quantidade_stock():
+            if tank_cleanning.pack_pipe.pipeController.buscar_quantidade_stoke(self.cbx_ppe.currentText()) is not None:
+                quantidade = tank_cleanning.pack_pipe.pipeController.buscar_quantidade_stoke(self.cbx_ppe.currentText())
+                self.txt_opening_stock_ppe.setText(str(quantidade[0]))
+            else:
+                message_error_validation("Error loading quantity","Quantity")
+
+        def buscar_quantidade_stock_consumiveis():
+            if tank_cleanning.pack_consumables.consumablesController.buscar_quantidade_stoke(self.cbx_consumables.currentText()) is not None:
+                quantidade = tank_cleanning.pack_consumables.consumablesController.buscar_quantidade_stoke(self.cbx_consumables.currentText())
+                self.txt_opening_stock.setText(str(quantidade[0]))
+            else:
+                message_error_validation("Error loading quantity","Quantity")
+                
+                 
 
         def show_message_sucess():
             msg_error = QMessageBox()
@@ -3138,16 +3306,11 @@ class Ui_MainWindow(object):
 
                 val_estimated = int(self.txt_original_hour.text())
 
-                val_hour_to_date = 0
-
                 retorno_varificar_valor = tank_cleanning.pack_produtive_man.produtive_manController.verificar_registo_existente_com_report(id_report)
                 valor_to_date = retorno_varificar_valor
 
                 valor_to_date = int(valor_to_date)
 
-                
-
-                
                 valor_to_date += int(val_hour_to_day)
 
                 hour_remainig = val_estimated - valor_to_date
@@ -3158,9 +3321,6 @@ class Ui_MainWindow(object):
                   tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),valor_to_date,hour_remainig,self.txt_visual_complete.text(),id_report)
                 else:
                   tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),val_hour_to_day,self.txt_hour_remaining.text(),self.txt_visual_complete.text(),id_report)
-                  
-
-            
              
                 visual_complete = (100 * valor_to_date)/val_estimated
                 visual_complete_user = int(self.txt_visual_complete_user.text())
@@ -3202,10 +3362,7 @@ class Ui_MainWindow(object):
               stoq_ppe = tank_cleanning.pack_inventory_imob.inventory_imobController.get_stoq_ppe(id_ppe)
               stoq_ppe = int(stoq_ppe)
               
-
               only_special_character = '!#$%&/=?*+ªº^~-"abcdefghijklmnopqrstuvwyxz'
-             
-             
 
               def has_special_characters(input_str, special_chars):
                 for char in input_str:
@@ -3221,47 +3378,65 @@ class Ui_MainWindow(object):
         
               else:
                    ############################ Validação Dos Consumiveis ###########################################
-                   if self.txt_daily_used_consumable.text() != "":
+                   if self.txt_daily_used_consumables.text() != "":
+                        print("entrou")
+                        quantidade_consumivel = int(self.txt_daily_used_consumables.text())
+                        stock_adicional_consumivel = int(self.txt_aditin_stock_consumivel.text())
+                        open_stock_consumivel = int(self.txt_opening_stock.text())
                         
-                        quantidade_consumivel = int(self.txt_daily_used_consumable.text())
                         
 
                         if stoq_consumivel >= quantidade_consumivel:
                                 
-                                retorno_cadastro = tank_cleanning.pack_inventory_imob.inventory_imobController.cadastrar_consumivel(id_consumable,id_report,quantidade_consumivel)
+                                total_stock = open_stock_consumivel + stock_adicional_consumivel
+                        
+                                closing_bal = total_stock - quantidade_consumivel
+
+                                retorno_cadastro = tank_cleanning.pack_inventory_imob.inventory_imobController.cadastrar_consumivel(id_consumable,id_report,quantidade_consumivel,open_stock_consumivel,stock_adicional_consumivel,total_stock,closing_bal)
                                 quantidade_consumivel = stoq_consumivel - quantidade_consumivel
-                                retorno_update_stoque = tank_cleanning.pack_inventory_imob.inventory_imobController.update_stoque_consumiveis(id_consumable,quantidade_consumivel)
-                                
-                                if retorno_cadastro == 0 and retorno_update_stoque == 0:
-                                     self.txt_daily_used_consumable.setText("")
-                                     show_message_sucess()
-                                else:
-                                     message_error_validation("Erro na inserção dos dados", "Input Quantity Error")
-                                     self.txt_daily_used_consumable.setText("")
-                        else:
-                             message_error_validation("Quantidade Introduzida é menor que a quantidade em stoque", "Input Quantity Error")
-                             self.txt_daily_used_consumable.setText("")
-                   
-                   ########################### Validação dos PPE ###########################################################
-                   if self.txt_daily_used_consumables.text() != "":
-
-                        quantidade_ppe = int(self.txt_daily_used_consumables.text())
-
-                        if stoq_ppe >= quantidade_ppe:
-                                
-                                retorno_cadastro = tank_cleanning.pack_inventory_imob.inventory_imobController.cadastrar_ppe(id_ppe,id_report,quantidade_ppe)
-                                quantidade_ppe = stoq_ppe - quantidade_ppe
-                                retorno_update_stoque = tank_cleanning.pack_inventory_imob.inventory_imobController.update_stoque_ppe(id_ppe,quantidade_ppe)
+                                retorno_update_stoque = tank_cleanning.pack_inventory_imob.inventory_imobController.update_stoque_consumiveis(id_consumable,closing_bal)
                                 
                                 if retorno_cadastro == 0 and retorno_update_stoque == 0:
                                      self.txt_daily_used_consumables.setText("")
+                                     self.txt_aditin_stock_consumivel.setText("0")
                                      show_message_sucess()
+                                     buscar_quantidade_stock_consumiveis()
                                 else:
                                      message_error_validation("Erro na inserção dos dados", "Input Quantity Error")
                                      self.txt_daily_used_consumables.setText("")
                         else:
                              message_error_validation("Quantidade Introduzida é menor que a quantidade em stoque", "Input Quantity Error")
                              self.txt_daily_used_consumables.setText("")
+                   
+                   ########################### Validação dos PPE ###########################################################
+                   if self.txt_daily_used_ppe.text() != "":
+
+                        quantidade_ppe = int(self.txt_daily_used_ppe.text())
+                        stock_adicional = int(self.txt_aditin_stock.text())
+                        open_stock = int(self.txt_opening_stock_ppe.text())
+
+
+                        total_stock = open_stock + stock_adicional
+                        
+                        closing_bal = total_stock - quantidade_ppe
+
+                        if stoq_ppe >= quantidade_ppe:
+                                
+                                retorno_cadastro = tank_cleanning.pack_inventory_imob.inventory_imobController.cadastrar_ppe(id_ppe,id_report,quantidade_ppe,open_stock,stock_adicional,total_stock,closing_bal)
+                                quantidade_ppe = stoq_ppe - quantidade_ppe
+                                retorno_update_stoque = tank_cleanning.pack_inventory_imob.inventory_imobController.update_stoque_ppe(id_ppe,closing_bal)
+                                
+                                if retorno_cadastro == 0 and retorno_update_stoque == 0:
+                                    self.txt_daily_used_ppe.setText("")
+                                    self.txt_aditin_stock.setText("0")
+                                    show_message_sucess()
+                                    buscar_quantidade_stock()
+                                else:
+                                    message_error_validation("Erro na inserção dos dados", "Input Quantity Error")
+                                    self.txt_daily_used_ppe.setText("")
+                        else:
+                            message_error_validation("Quantidade Introduzida é menor que a quantidade em stoque", "Input Quantity Error")
+                            self.txt_daily_used_ppe.setText("")
 
 
         def validator_hse():

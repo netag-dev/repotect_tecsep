@@ -23,5 +23,8 @@ def buscar_id_nome_stoq(nome,stoq):
 def buscar_ppe(report):
     return tank_cleanning.pack_pipe.pipeModel.buscar_ppe(report)
 
+def buscar_quantidade_stoke(nome):
+    return tank_cleanning.pack_pipe.pipeModel.buscar_quantidade_stoke(nome)
+
 
  

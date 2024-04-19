@@ -21,5 +21,8 @@ def buscar_id_nome_stoq(nome,stoq):
 def buscar_consumiveis(report):
     return tank_cleanning.pack_consumables.consumablesModel.buscar_consumiveis(report)
 
+def buscar_quantidade_stoke(nome):
+    return tank_cleanning.pack_consumables.consumablesModel.buscar_quantidade_stoke(nome)
+
 
 

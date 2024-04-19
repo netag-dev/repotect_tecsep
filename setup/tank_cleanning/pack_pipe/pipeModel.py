@@ -92,10 +92,10 @@ def buscar_ppe(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT pi_name,pi_daily_used ,'PPE' as ppe_type FROM tb_pipe_tc,tb_ppe_tc_report, tb_report_tc
+            cursor.execute(""" SELECT pi_name,open_stock,aditional_stock,total_stock,quantidade_add,closing_bal ,'PPE' as ppe_type FROM tb_pipe_tc,tb_ppe_tc_report, tb_report_tc
                             WHERE tb_ppe_tc_report.id_ppe = tb_pipe_tc.id
                             AND tb_ppe_tc_report.id_report_tc = tb_report_tc.id
-                            AND tb_report_tc.id = %s """,(ref_report,))
+                            AND tb_report_tc.id = %s ORDER BY tb_ppe_tc_report.id DESC""",(ref_report,))
             
             lista_hse = cursor.fetchall()
 
@@ -103,4 +103,16 @@ def buscar_ppe(ref_report):
             return lista_hse
     finally:
         connection.close()
+
+def buscar_quantidade_stoke(nome_equipamento):
+    try: 
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute(" SELECT pi_daily_used FROM tb_pipe_tc  WHERE pi_name = %s",(nome_equipamento,))    
+        quantidade_stoke = cursor.fetchone()
+    except Exception as e:
+        print(f"Erro ao na Base de Dados: {e}")
+        return -1
+    finally:
+         return quantidade_stoke
 

@@ -45,14 +45,11 @@ def buscar_quantidade_stoke( nome_equipamento):
         cursor = connection.cursor()
         cursor.execute(" SELECT initial_stock FROM tb_consumiveis  WHERE nome_consumivel = %s",(nome_equipamento,))    
         quantidade_stoke = cursor.fetchone()
-        cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
+        return -1
     finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return quantidade_stoke
+         return quantidade_stoke
 
 
 def cadastrar(id_consumivel, id_type, ft_openning_stock, ft_additional_stock, ft_total_stock, ft_daily_used, ft_total_used, ft_closing_bal, id_report_ft):

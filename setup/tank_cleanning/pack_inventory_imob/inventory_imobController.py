@@ -39,11 +39,11 @@ def get_stoq_asset(id):
 
 ######################## Cadastro ###################################################
 
-def cadastrar_consumivel(id_consumivel,id_report,quantidade):
-    return tank_cleanning.pack_inventory_imob.inventory_imobModel.cadastrar_consumivel(id_consumivel,id_report,quantidade)
+def cadastrar_consumivel(id_consumivel,id_report,quantidade,open_stock,stock_adicional,total_stock,closing_bal):
+    return tank_cleanning.pack_inventory_imob.inventory_imobModel.cadastrar_consumivel(id_consumivel,id_report,quantidade,open_stock,stock_adicional,total_stock,closing_bal)
 
-def cadastrar_ppe(id,id_report,quantidade):
-    return tank_cleanning.pack_inventory_imob.inventory_imobModel.cadastrar_ppe(id,id_report,quantidade) 
+def cadastrar_ppe(id_ppe,id_report,quantidade_ppe,open_stock,stock_adicional,total_stock,closing_bal):
+    return tank_cleanning.pack_inventory_imob.inventory_imobModel.cadastrar_ppe(id_ppe,id_report,quantidade_ppe,open_stock,stock_adicional,total_stock,closing_bal) 
 
 def cadastrar_asset(id,id_report,quantidade):
     return tank_cleanning.pack_inventory_imob.inventory_imobModel.cadastrar_asset(id,id_report,quantidade)

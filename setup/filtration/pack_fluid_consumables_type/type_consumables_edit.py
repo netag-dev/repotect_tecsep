@@ -6,7 +6,7 @@ from filtration.pack_fluid_consumables_type import fluid_consumables_typeControl
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,user_name,type,desc,id):
+    def setupUi(self, MainWindow,user_name,id,desc,type):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 850)
         MainWindow.setMinimumSize(QtCore.QSize(1400, 850))
@@ -335,10 +335,10 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,type,desc,id)
+        self.retranslateUi(MainWindow,id,desc,type)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow,type,desc,id):
+    def retranslateUi(self, MainWindow,id,desc,type):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
 
@@ -379,7 +379,7 @@ class Ui_MainWindow(object):
 
         def save_consumable(type,desc,id):
            
-           retorno = controller.editar(type,desc,id)
+           retorno = controller.editar(type,desc,id)    
            if retorno == 0:
                show_message_sucess("Successful update","Successfully Saved data")
                show_form_list_type_consumable()

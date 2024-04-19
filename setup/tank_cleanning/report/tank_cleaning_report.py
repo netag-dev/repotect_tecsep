@@ -152,8 +152,8 @@ class GerarReport:
         ]
 
 
-        data_competency_profile = dados_consumiveis + dados_ppe +  [
-            ["Name","Quantity Used",""]
+        data_inventory = dados_consumiveis + dados_ppe +  [
+            ["Name","Opening Stock","Additional Stock","Total Stock","Daily Used","Closing Bal.",""]
         ]
 
 
@@ -171,7 +171,7 @@ class GerarReport:
 
         tatal_hour_personel = data_man_produtive_hour.__len__()
 
-        total_imbo_inventory = data_competency_profile.__len__()
+        total_imbo_inventory = data_inventory.__len__()
 
         print(total_imbo_inventory)
 
@@ -227,7 +227,7 @@ class GerarReport:
 
         table_competency_profile_title = Table(label_inventory_mob,colWidths=[200*mm]) 
 
-        table_man_competency_profile = Table(data_competency_profile,colWidths=[66.7*mm]) 
+        table_man_competency_profile = Table(data_inventory,colWidths=[28.5*mm]) 
 
         padding = 2
         table.setStyle([
@@ -627,7 +627,7 @@ class GerarReport:
         img = ImageReader("img/img.png",styles["Estilo_texto_titulo"])
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
-        p_text_lema = '"Proudly Tecsep, Proudly African"'
+        p_text_lema = '"Do it right the first time"'
         p_lema = Paragraph(p_text_lema,style = styles["Normal"])
 
         p_lema.wrapOn(c,70*mm,60*mm)
@@ -636,8 +636,8 @@ class GerarReport:
         width = 7.8 * inch  # largura da imagem
         height = 2.1 * inch  # altura da imagem
 
-        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
-        c.drawImage(img_certificate,5*mm,227*mm,width,height,mask='auto')
+        #img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
+        #c.drawImage(img_certificate,5*mm,227*mm,width,height,mask='auto')
         
         ptext = "Daily Report #"+str(dados_cabebacalho[0])+" Tank Cleaning "
         ptlink = " www.tecsep-tsg.com"
