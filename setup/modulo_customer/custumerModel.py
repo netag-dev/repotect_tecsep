@@ -5,9 +5,12 @@ def cadastrar(param1, param2, param3, param4, param5, param6):
     try: 
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("INSERT INTO tb_legal_person(lp_nif,lp_name,lp_email,lp_phone,lp_logo,lp_address) values('"+param1+"','"+param2+"','"+param3+"','"+param4+"','"+param5+"','"+param6+"') ")
-        connection.commit()
-        cursor.close()
+
+        with open(param5, 'rb') as file:
+            data = file.read()
+            cursor.execute(""" INSERT INTO tb_legal_person(lp_nif,lp_name,lp_email,lp_phone,lp_logo,lp_address) values(%s,%s,%s,%s,%s,%s) """,(param1,param2,param3,param4,data,param6,))
+            connection.commit()
+            cursor.close()
     except Exception as e:
         print(f"Erro ao na Base de Dados: {e}")
         return -1

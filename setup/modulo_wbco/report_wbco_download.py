@@ -8,9 +8,10 @@ from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
 import sys,os,locale
-import psycopg2
+import tempfile,psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget
-import modulo_wbco.wbcoController
+from modulo_wbco import wbcoController as controller
+import conection.connect as connecao
     
 
 
@@ -39,6 +40,7 @@ class GerarReport:
         value_wbco_back_up = wbco_back_up
 
         value_employe = employe
+
 
         
         
@@ -286,8 +288,23 @@ class GerarReport:
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
 
-        width = 7.8 * inch  # largura da imagem
-        height = 2 * inch  # altura da imagem
+        width = 1.5 * inch  # largura da imagem
+        height = 0.8 * inch  # altura da imagem
+
+        image_data = value_info[14]
+
+
+        # Salvar os dados da imagem em um arquivo temporário
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+        temp_file.write(image_data)
+        temp_file.close()
+
+        print(temp_file.name)
+
+        logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
+        c.drawImage(logo_cliente,160*mm,8*mm,width,height,mask='auto')
+
+        os.unlink(temp_file.name)
 
         #img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
         #c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
@@ -315,10 +332,10 @@ class GerarReport:
 
 
         p.wrapOn(c, 70*mm, 50*mm)  # size of 'textbox' for linebreaks etc.
-        p.drawOn(c, 130*mm, 15*mm)    # position of text / where to draw
+        p.drawOn(c, 75*mm, 15*mm)    # position of text / where to draw
 
         plink.wrapOn(c,70*mm,60*mm)
-        plink.drawOn(c,145*mm,22*mm)
+        plink.drawOn(c,90*mm,22*mm)
 
         pwell.wrapOn(c,50*mm,50*mm)
         pwell.drawOn(c,5*mm,80*mm)

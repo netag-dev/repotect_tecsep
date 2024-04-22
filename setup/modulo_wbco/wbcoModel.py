@@ -317,7 +317,7 @@ def buscar_cabecalho_report_information_with_report(ref_report):
         with connection.cursor() as cursor:
             
             cursor.execute(""" SELECT rpt_job_ref_number,rpt_rig_name,rpt_field_locations,rpt_job_type,rpt_shift,
-                            rpt_report_date,lp_name,wl_number,pp_name,rpt_ongoing_rig,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,emp_name 
+                            rpt_report_date,lp_name,wl_number,pp_name,rpt_ongoing_rig,rpt_wbco_tools_activity,rpt_shift_supervisor,rpt_total_day_supervisor,emp_name,lp_logo 
 							FROM public.tb_report_wbco,tb_legal_person, tb_employee_wbco,
                             tb_physical_person,tb_well,tb_report_header WHERE 
 							tb_report_wbco.id_legal_person = tb_legal_person.id
@@ -327,14 +327,14 @@ def buscar_cabecalho_report_information_with_report(ref_report):
 							AND tb_employee_wbco.id = tb_report_wbco.id_employee
                             AND tb_report_header.rpt_job_ref_number = %s
                            ORDER BY tb_report_wbco.id DESC LIMIT 1  """,(ref_report,))
-            
             lista_cabecalho_information = cursor.fetchone()
-            #print(lista_cabecalho_information[0])
-
-
-            return lista_cabecalho_information
+    except Exception as e:
+            print(f"{e}")
+            return -1
     finally:
-        connection.close()
+        return lista_cabecalho_information
+    
+
 
 
 def buscar_well_information_with_report(ref_report):
