@@ -30,11 +30,15 @@ class Ui_MainWindow(object):
         self.frame_aside_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_aside_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_aside_menu.setObjectName("frame_aside_menu")
-        self.label_15 = QtWidgets.QLabel(self.frame_aside_menu)
-        self.label_15.setGeometry(QtCore.QRect(10, 30, 221, 91))
-        self.label_15.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
-        self.label_15.setText("")
-        self.label_15.setObjectName("label_15")
+        self.lbl_logo_tecseo = QtWidgets.QPushButton(self.frame_aside_menu)
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(1, 30, 240, 105))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/TECSEP_Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lbl_logo_tecseo.setIcon(icon)
+        self.lbl_logo_tecseo.setIconSize(QtCore.QSize(230, 230))
+        self.lbl_logo_tecseo.setFlat(False)
+        self.lbl_logo_tecseo.setStyleSheet("\n" "\n" "QPushButton#lbl_logo_tecseo{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
+        self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
         self.btn_dashboard = QtWidgets.QPushButton(self.frame_aside_menu)
         self.btn_dashboard.setGeometry(QtCore.QRect(30, 140, 191, 41))
         self.btn_dashboard.setStyleSheet("\n" "\n" "QPushButton#btn_dashboard{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
@@ -373,7 +377,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard.clicked.connect(lambda:show_form_dashboard())
 
 
-        self.btn_compliance.setText(_translate("MainWindow", " D. F. Compliance"))
+        self.btn_compliance.setText(_translate("MainWindow", " A. M. Compliance"))
         self.btn_wbco.setText(_translate("MainWindow", " WBCO Tools"))
         self.btn_wbco.clicked.connect(lambda: call_form_wbco())
         self.btn_filtration.setText(_translate("MainWindow", " Filtration"))
@@ -387,13 +391,13 @@ class Ui_MainWindow(object):
 
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
-        self.label.setText(_translate("MainWindow", "Filtration Employees"))
-        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a new Employees to the system"))
+        self.label.setText(_translate("MainWindow", "Filtration Personnel"))
+        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a new Personnel to the system"))
         
-        self.btn_list_filtration.setText(_translate("MainWindow", "List Filtration Employees"))
+        self.btn_list_filtration.setText(_translate("MainWindow", "List Filtration Personnel"))
         self.btn_list_filtration.clicked.connect(lambda:show_form_list_enginer())
 
-        self.lbl_nome_empregado.setText(_translate("MainWindow", " Employee's Name "))
+        self.lbl_nome_empregado.setText(_translate("MainWindow", " Personnel Name "))
         self.lbl_email.setText(_translate("MainWindow", "E-mail"))
 
         self.txt_nome.setText(str(name))
@@ -409,7 +413,7 @@ class Ui_MainWindow(object):
         
         id_employee =  modulo_wbco.enginierwbcoController.buscar_id_by_name_email(self.txt_nome.text(),self.txt_email.text())
 
-        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Employee data"))
+        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Personnel data"))
         self.btn_salvar_employee.clicked.connect(lambda: save_engineer(self.txt_nome.text(),self.txt_email.text(),get_id(),id_employee))
         
 
@@ -429,8 +433,8 @@ class Ui_MainWindow(object):
 
         def show_form_list_enginer():
             self.window = QtWidgets.QMainWindow()
-            import modulo_wbco.wbco_enginer
-            self.ui = modulo_wbco.wbco_enginer.Ui_MainWindow()
+            import filtration.pack_employee.filtration_enginer as view
+            self.ui = view.Ui_MainWindow()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()

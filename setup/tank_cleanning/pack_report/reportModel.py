@@ -148,7 +148,7 @@ def buscar_cabecalho_report_information_with_report(ref_report):
         with connection.cursor() as cursor:
             
             cursor.execute(""" SELECT tb_report_tc.id,rpt_job_ref_number,rpt_rig_name,rpt_field_locations,rpt_job_type,rpt_shift,
-                            rpt_report_date,lp_name,pp_name,emp_name 
+                            rpt_report_date,lp_name,pp_name,emp_name,lp_logo 
 							FROM public.tb_report_tc,tb_legal_person,tb_report_header,
                             tb_physical_person,tb_employee_tc WHERE tb_report_tc.id_legal_person = tb_legal_person.id
                             AND tb_report_tc.id_physical_person = tb_physical_person.id 

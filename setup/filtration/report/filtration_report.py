@@ -8,7 +8,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
 import sys,os,locale
-import psycopg2
+import tempfile,psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget
     
 
@@ -404,11 +404,29 @@ class GerarReport:
         p_lema = Paragraph(p_text_lema,style = styles["Normal"])
 
 
+        width = 1.1 * inch  # largura da imagem
+        height = 0.8 * inch  # altura da imagem
+
+        image_data = value_info[9]
+
+        # Salvar os dados da imagem em um arquivo temporário
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+        temp_file.write(image_data)
+        temp_file.close()
+
+        print(temp_file.name)
+
+        logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
+        c.drawImage(logo_cliente,160*mm,8*mm,width,height,mask='auto')
+
+        os.unlink(temp_file.name)
+
+
         p.wrapOn(c, 70*mm, 50*mm)  # size of 'textbox' for linebreaks etc.
-        p.drawOn(c, 145*mm, 15*mm)    # position of text / where to draw
+        p.drawOn(c, 85*mm, 15*mm)    # position of text / where to draw
 
         plink.wrapOn(c,70*mm,60*mm)
-        plink.drawOn(c,145*mm,22*mm)
+        plink.drawOn(c,86*mm,22*mm)
 
         pwell.wrapOn(c,50*mm,50*mm)
         pwell.drawOn(c,5*mm,68*mm)

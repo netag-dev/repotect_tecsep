@@ -3,9 +3,9 @@ import psycopg2
 def cria_connecao():
     return psycopg2.connect( 
                 database = "repotec", 
-                host = "localhost", 
+                host = "102.219.126.14", 
                 user = "postgres", 
-                password = "postgres", 
-                port = "5433" 
+                password = "Angola2023#", 
+                port = "5432" 
             )
 

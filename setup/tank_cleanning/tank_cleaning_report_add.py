@@ -51,11 +51,15 @@ class Ui_MainWindow(object):
         self.frame_aside_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_aside_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_aside_menu.setObjectName("frame_aside_menu")
-        self.label_15 = QtWidgets.QLabel(self.frame_aside_menu)
-        self.label_15.setGeometry(QtCore.QRect(10, 30, 221, 91))
-        self.label_15.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
-        self.label_15.setText("")
-        self.label_15.setObjectName("label_15")
+        self.lbl_logo_tecseo = QtWidgets.QPushButton(self.frame_aside_menu)
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(1, 30, 240, 105))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/TECSEP_Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lbl_logo_tecseo.setIcon(icon)
+        self.lbl_logo_tecseo.setIconSize(QtCore.QSize(230, 230))
+        self.lbl_logo_tecseo.setFlat(False)
+        self.lbl_logo_tecseo.setStyleSheet("\n" "\n" "QPushButton#lbl_logo_tecseo{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
+        self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
         self.btn_dashboard = QtWidgets.QPushButton(self.frame_aside_menu)
         self.btn_dashboard.setGeometry(QtCore.QRect(30, 140, 191, 41))
         self.btn_dashboard.setStyleSheet("\n"
@@ -2961,9 +2965,9 @@ class Ui_MainWindow(object):
         self.btn_next_step_dayshift_activities.setText(_translate("MainWindow", "Next Step"))
         self.btn_next_step_dayshift_activities.clicked.connect(lambda:validator_dayshift_activity())
 
-        self.lbl_type_hse_2.setText(_translate("MainWindow", "Number Tank"))
-        self.lbl_quantity_hse_2.setText(_translate("MainWindow", "Type Waste"))
-        self.lbl_volume_waste.setText(_translate("MainWindow", "Volume Waste"))
+        self.lbl_type_hse_2.setText(_translate("MainWindow", "Number of Tank"))
+        self.lbl_quantity_hse_2.setText(_translate("MainWindow", "Type of Waste"))
+        self.lbl_volume_waste.setText(_translate("MainWindow", "Volume of Waste"))
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_tank), _translate("MainWindow", "Tank Information"))
         self.lbl_daily_progress.setText(_translate("MainWindow", "Daily Progress"))
         
@@ -2975,7 +2979,7 @@ class Ui_MainWindow(object):
         self.txt_area_planed_activities.setPlaceholderText(_translate("MainWindow", " Write here..."))
         self.lbl_norm_reading.setText(_translate("MainWindow", "NORM Reading result and contamination control"))
         self.txt_area_norm_reading.setPlaceholderText(_translate("MainWindow", " Write here..."))
-        self.lbl_equipament_material.setText(_translate("MainWindow", "Equipament Material"))
+        self.lbl_equipament_material.setText(_translate("MainWindow", "Equipament Slash Material"))
         self.txt_area_equipament_material.setPlaceholderText(_translate("MainWindow", " Write here..."))
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tb_dayshift_activities), _translate("MainWindow", "Daily Shift Activities"))
         self.lbl_name_person_dayshift.setText(_translate("MainWindow", "Name"))
@@ -2983,7 +2987,7 @@ class Ui_MainWindow(object):
         self.lbl_planed_dembed.setText(_translate("MainWindow", "Planned Demob"))
         self.lbl_crew_change.setText(_translate("MainWindow", "Crew Change"))
 
-        self.cbx_personel_position.addItems(["RPO","ATC Advisor","LeadHand","OP","ATC Op"])
+        self.cbx_personel_position.addItems(["Supervisor","Operator","Trainned"])
         self.cbx_planned_demeb.addItems(["TBC"])
 
         self.btn_next_step_hse.setText(_translate("MainWindow", "Next Step"))
@@ -3053,6 +3057,14 @@ class Ui_MainWindow(object):
         self.btn_save_report.clicked.connect(lambda:report())
 
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_imobe_inventory), _translate("MainWindow", "Inventory Mob"))
+
+        self.btn_compliance.clicked.connect(lambda:show_form_compliance())
+        self.btn_wbco.clicked.connect(lambda:call_form_wbco())
+        self.btn_logout.clicked.connect(lambda: logout())
+        self.btn_customer.clicked.connect(lambda: call_form_client())
+        self.btn_filtration.clicked.connect(lambda:show_add_filtration())
+        self.btn_tank_cleaning.clicked.connect(lambda:show_add_tank_cleaning())
+        self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
 
         self.lbl_user_logado.setText(str(user_logado))
 
@@ -3492,13 +3504,60 @@ class Ui_MainWindow(object):
             self.window.show()
             MainWindow.close()
 
+        def call_form_client():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_customer.customer
+            self.ui = modulo_customer.customer.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def show_form_compliance():
+            self.window = QtWidgets.QMainWindow()
+            import  compliance.compliance_view as list
+            self.ui = list.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def call_form_wbco():
+                self.window = QtWidgets.QMainWindow()
+                import modulo_wbco.wbco
+                self.ui = modulo_wbco.wbco.Ui_MainWindow()
+                self.ui.setupUi(self.window,self.lbl_user_logado.text())
+                self.window.show()
+                MainWindow.close()
+
+        def show_add_filtration():
+            self.window = QtWidgets.QMainWindow()
+            import  filtration.filtration
+            self.ui = filtration.filtration.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()  
+
+        def show_add_tank_cleaning():
+            self.window = QtWidgets.QMainWindow()
+            import  tank_cleanning.tank_cleaning_view
+            self.ui = tank_cleanning.tank_cleaning_view.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def show_perfil_user():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_home.user_profile as user
+            self.ui = user.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()      
+        
         def logout():
             self.window = QtWidgets.QMainWindow()
             import modulo_home.login
             self.ui = modulo_home.login.Ui_MainWindow()
             self.ui.setupUi(self.window)
             self.window.show()
-            MainWindow.close()
+            MainWindow.close() 
 
 
 if __name__ == "__main__":

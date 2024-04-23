@@ -10,7 +10,7 @@ import filtration.pack_filtration_sumary.fluid_sumaryController
 import filtration.pack_fluid_analisys.fluid_analisysController
 import filtration.pack_fluid_consumables.fluid_consumablesController
 import filtration.pack_enginer_day.enginer_dayController
-
+import modulo_wbco.wbcoController as controller
 import filtration.pack_employee.employeeController
 
 
@@ -41,11 +41,15 @@ class Ui_MainWindow(object):
         self.frame_aside_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_aside_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_aside_menu.setObjectName("frame_aside_menu")
-        self.label_15 = QtWidgets.QLabel(self.frame_aside_menu)
-        self.label_15.setGeometry(QtCore.QRect(10, 30, 221, 91))
-        self.label_15.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
-        self.label_15.setText("")
-        self.label_15.setObjectName("label_15")
+        self.lbl_logo_tecseo = QtWidgets.QPushButton(self.frame_aside_menu)
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(1, 30, 240, 105))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/TECSEP_Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lbl_logo_tecseo.setIcon(icon)
+        self.lbl_logo_tecseo.setIconSize(QtCore.QSize(230, 230))
+        self.lbl_logo_tecseo.setFlat(False)
+        self.lbl_logo_tecseo.setStyleSheet("\n" "\n" "QPushButton#lbl_logo_tecseo{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
+        self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
         self.btn_dashboard = QtWidgets.QPushButton(self.frame_aside_menu)
         self.btn_dashboard.setGeometry(QtCore.QRect(30, 140, 191, 41))
         self.btn_dashboard.setStyleSheet("\n"
@@ -2818,8 +2822,8 @@ class Ui_MainWindow(object):
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tasb_prepared_aproved), _translate("MainWindow", "Prepared and Approved by"))
         self.btn_next_step_fluid_information.setText(_translate("MainWindow", "Next Step"))
         self.btn_next_step_fluid_information.clicked.connect(lambda:validator_fluid_information())
-        self.lbl_type_filtered.setText(_translate("MainWindow", "Fluid Type Filter"))
-        self.txt_daily_total.setText(_translate("MainWindow", "Total Day"))
+        self.lbl_type_filtered.setText(_translate("MainWindow", "Fluid Type"))
+        self.txt_daily_total.setText(_translate("MainWindow", "Total fluid filtred for day"))
         self.lbl_density_type.setText(_translate("MainWindow", "Density Type"))
         self.lbl_hole_volume.setText(_translate("MainWindow", "Hole Volume Type"))
         self.lbl_viscosity.setText(_translate("MainWindow", "Viscosity"))
@@ -2836,7 +2840,7 @@ class Ui_MainWindow(object):
         self.lbl_stop_time.setText(_translate("MainWindow", "Stop Time"))
         self.lbl_total_min_cycles.setText(_translate("MainWindow", "Total minutes per cycle"))
         self.lbl_volume_per_cycle.setText(_translate("MainWindow", "Volume per Cycle Type"))
-        self.lbl_total_min_cycles_3.setText(_translate("MainWindow", "Cartridge Filters"))
+        self.lbl_total_min_cycles_3.setText(_translate("MainWindow", "Cartridge Filters (µ)"))
         self.lbl_de_per_cycle.setText(_translate("MainWindow", "D.E per Cycle 20kg sx"))
         self.btn_add_fluid_summary.setText(_translate("MainWindow", "Add the filled information to report"))
         self.btn_add_fluid_summary.clicked.connect(lambda:add_fluid_summary())
@@ -2876,6 +2880,13 @@ class Ui_MainWindow(object):
         self.cbx_type_density.addItems(["SG","PPG"])
         self.cbx_material_filtration.currentTextChanged.connect(lambda:buscar_quantidade_stoke())
         self.cbx_shift_engineer.addItems(["Day","Night"])
+
+        self.btn_compliance.clicked.connect(lambda:show_form_compliance())
+        self.btn_wbco.clicked.connect(lambda:call_form_wbco())
+        self.btn_logout.clicked.connect(lambda: logout())
+        self.btn_filtration.clicked.connect(lambda:show_add_filtration())
+        self.btn_tank_cleaning.clicked.connect(lambda:show_add_tank_cleaning())
+        self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
 
 
         def selected_value(tipo_valor_densidade,valor):
@@ -2998,8 +3009,9 @@ class Ui_MainWindow(object):
             if txt_area_ongoing == "":
                 message_error_validation("This field does not acept empty","Error inserting Filtration Activity")
             else:
+                id_cliente = controller.carregar_buscar_id_cliente(self.cbx_customer.currentText())
                 id_ultimo_registo_report_header = modulo_wbco.wbcoController.buscar_id_report_header_ultimo()
-                filtration.pack_report.reportController.salvar_info_report(txt_area_ongoing,txt_area_activity,id_supervisor,id_ultimo_registo_report_header)
+                filtration.pack_report.reportController.salvar_info_report(txt_area_ongoing,txt_area_activity,id_cliente,id_ultimo_registo_report_header)
                 self.tab_menus_wbco.setCurrentIndex(3)
 
         def validator_prepared_approved():
@@ -3154,13 +3166,53 @@ class Ui_MainWindow(object):
             self.window.show()
             MainWindow.close()
 
+
+        def show_form_compliance():
+            self.window = QtWidgets.QMainWindow()
+            import  compliance.compliance_view as list
+            self.ui = list.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def call_form_wbco():
+                self.window = QtWidgets.QMainWindow()
+                import modulo_wbco.wbco
+                self.ui = modulo_wbco.wbco.Ui_MainWindow()
+                self.ui.setupUi(self.window,self.lbl_user_logado.text())
+                self.window.show()
+                MainWindow.close()
+
+        def show_add_filtration():
+            self.window = QtWidgets.QMainWindow()
+            import  filtration.filtration
+            self.ui = filtration.filtration.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()  
+
+        def show_add_tank_cleaning():
+            self.window = QtWidgets.QMainWindow()
+            import  tank_cleanning.tank_cleaning_view
+            self.ui = tank_cleanning.tank_cleaning_view.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def show_perfil_user():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_home.user_profile as user
+            self.ui = user.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()      
+        
         def logout():
             self.window = QtWidgets.QMainWindow()
             import modulo_home.login
             self.ui = modulo_home.login.Ui_MainWindow()
             self.ui.setupUi(self.window)
             self.window.show()
-            MainWindow.close()       
+            MainWindow.close()      
 
 
 

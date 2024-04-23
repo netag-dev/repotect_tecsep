@@ -3,6 +3,7 @@ sys.path.append("..")
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDesktopWidget
+from PyQt5.QtGui import QPixmap
 from modulo_personnel.personnel import form_personeel_list
 import res
 import psycopg2
@@ -39,12 +40,17 @@ class Ui_dashboard_ui(object):
         self.frame_aside_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_aside_menu.setObjectName("frame_aside_menu")
 
-        
+        img_logo_tecsep = QPixmap("img/TECSEP_Logo.png")
+        redimens = img_logo_tecsep.scaled(220,70)
 
-        self.lbl_logo_tecseo = QtWidgets.QLabel(self.frame_aside_menu)
-        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(10, 30, 240, 105))
-        self.lbl_logo_tecseo.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
-        self.lbl_logo_tecseo.setText("")
+        self.lbl_logo_tecseo = QtWidgets.QPushButton(self.frame_aside_menu)
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(1, 30, 240, 105))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/TECSEP_Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lbl_logo_tecseo.setIcon(icon)
+        self.lbl_logo_tecseo.setIconSize(QtCore.QSize(230, 230))
+        self.lbl_logo_tecseo.setFlat(False)
+        self.lbl_logo_tecseo.setStyleSheet("\n" "\n" "QPushButton#lbl_logo_tecseo{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
         self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
 
         self.btn_dashboard = QtWidgets.QPushButton(self.frame_aside_menu)

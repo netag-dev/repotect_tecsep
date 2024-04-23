@@ -7,7 +7,7 @@ from reportlab.lib import colors
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
-import sys,locale,os
+import sys,locale,os,tempfile
 import psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget
 import tank_cleanning.pack_report.reportController
@@ -633,11 +633,22 @@ class GerarReport:
         p_lema.wrapOn(c,70*mm,60*mm)
         p_lema.drawOn(c,80*mm,283*mm)
 
-        width = 7.8 * inch  # largura da imagem
-        height = 2.1 * inch  # altura da imagem
+        width = 1.1 * inch  # largura da imagem
+        height = 0.8 * inch  # altura da imagem
 
-        #img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
-        #c.drawImage(img_certificate,5*mm,227*mm,width,height,mask='auto')
+        image_data = dados_cabebacalho[10]
+
+        # Salvar os dados da imagem em um arquivo temporário
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+        temp_file.write(image_data)
+        temp_file.close()
+
+        print(temp_file.name)
+
+        logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
+        c.drawImage(logo_cliente,160*mm,8*mm,width,height,mask='auto')
+
+        os.unlink(temp_file.name)
         
         ptext = "Daily Report #"+str(dados_cabebacalho[0])+" Tank Cleaning "
         ptlink = " www.tecsep-tsg.com"
@@ -655,10 +666,10 @@ class GerarReport:
 
 
         p.wrapOn(c, 70*mm, 50*mm)  # size of 'textbox' for linebreaks etc.
-        p.drawOn(c, 130*mm, 15*mm)    # position of text / where to draw
+        p.drawOn(c, 80*mm, 15*mm)    # position of text / where to draw
 
         plink.wrapOn(c,70*mm,60*mm)
-        plink.drawOn(c,145*mm,22*mm)
+        plink.drawOn(c,86*mm,22*mm)
 
         
     

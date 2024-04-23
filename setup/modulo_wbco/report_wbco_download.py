@@ -288,11 +288,10 @@ class GerarReport:
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
 
-        width = 1.5 * inch  # largura da imagem
+        width = 1.1 * inch  # largura da imagem
         height = 0.8 * inch  # altura da imagem
 
         image_data = value_info[14]
-
 
         # Salvar os dados da imagem em um arquivo temporário
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
@@ -306,8 +305,6 @@ class GerarReport:
 
         os.unlink(temp_file.name)
 
-        #img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
-        #c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
         
         
         ptext = "Daily Report #"+str(value_well_information[7])+" WBCO Tools Service "

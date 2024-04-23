@@ -8,7 +8,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.colors import CMYKColor
-import sys,os,locale
+import sys,os,locale,tempfile
 import psycopg2
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QPushButton, QLineEdit, QWidget 
 from compliance.pack_average_ooc_cp import average_oocController as controller_occ
@@ -330,9 +330,9 @@ class GerarReport:
                     ('LEFTPADDING', (0, 0), (-1, -1), padding),  # Espaçamento esquerdo das células
                     ('RIGHTPADDING', (0, 0), (-1, -1), padding),
                     ('VALIGN',(0,0),(0,-1),'MIDDLE'),
-                    ("LINEABOVE", (0,0), (-1,0), 0.9, colors.black),
-                    ('LINEABOVE', (0,1), (-1,-1), 0.3, colors.black),
-                    ('LINEBELOW', (0,-1), (-1,-1), 0.9, colors.black),
+                    ("LINEABOVE", (0,0), (-1,0), 1, colors.black),
+                    ('LINEABOVE', (0,1), (-1,-1), 0.25, colors.black),
+                    ('LINEBELOW', (0,-1), (-1,-1), 1, colors.black),
                     ("BACKGROUND", (0,0),(0,-1),colors.PCMYKColor(0,1,1,4,alpha=85)),
                     ("BACKGROUND", (3,5),(1,-6),colors.PCMYKColor(0,1,1,4,alpha=85)),
                     ('INNERGRID', (0,0), (-1,-1), 0.5, colors.black)
@@ -384,7 +384,7 @@ class GerarReport:
                         ("LINEABOVE", (0,14), (1,14), 0.9, colors.black),
                         ('LINEABOVE', (0,1), (-1,-1), 0.25, colors.black),
                         ('FONTSIZE', (0, 0), (-1, -1), 7),
-                        ('TOPPADDING', (0, 0), (-1, -1), -5),  # Espaçamento superior das células
+                        ('TOPPADDING', (0, 0), (-1, -1), -4),  # Espaçamento superior das células
                         ('LEFTPADDING', (0, 0), (-1, -1), padding),  # Espaçamento esquerdo das células
                         ('RIGHTPADDING', (0, 0), (-1, -1), padding),
                         ('LINEBELOW', (0,-1), (-1,-1), 0.9, colors.black),
@@ -399,7 +399,7 @@ class GerarReport:
                         ("LINEABOVE", (0,14), (1,14), 0.9, colors.black),
                         ('LINEABOVE', (0,1), (-1,-1), 0.25, colors.black),
                         ('FONTSIZE', (0, 0), (-1, -1), 7),
-                        ('TOPPADDING', (0, 0), (-1, -1), -5),  # Espaçamento superior das células
+                        ('TOPPADDING', (0, 0), (-1, -1), -4),  # Espaçamento superior das células
                         ('LEFTPADDING', (0, 0), (-1, -1), padding),  # Espaçamento esquerdo das células
                         ('RIGHTPADDING', (0, 0), (-1, -1), padding),
                         ('LINEBELOW', (0,-1), (-1,-1), 0.9, colors.black),
@@ -414,7 +414,7 @@ class GerarReport:
                         ("LINEABOVE", (0,14), (1,14), 0.9, colors.black),
                         ('LINEABOVE', (0,1), (-1,-1), 0.25, colors.black),
                         ('FONTSIZE', (0, 0), (-1, -1), 7),
-                        ('TOPPADDING', (0, 0), (-1, -1), -5),  # Espaçamento superior das células
+                        ('TOPPADDING', (0, 0), (-1, -1), -4),  # Espaçamento superior das células
                         ('LEFTPADDING', (0, 0), (-1, -1), padding),  # Espaçamento esquerdo das células
                         ('RIGHTPADDING', (0, 0), (-1, -1), padding),
                         ('LINEBELOW', (0,-1), (-1,-1), 0.9, colors.black),
@@ -518,17 +518,17 @@ class GerarReport:
         table_ongoing_activity.wrapOn(c,width,height)
         table_ongoing_activity.drawOn(c,5*mm,valor_heigth_total + altura_solid_sample + 13)
 
-        total_table_with_ongoing_value = valor_heigth_total + altura_solid_sample - 10
+        total_table_with_ongoing_value = valor_heigth_total + altura_solid_sample 
 
         table_ongoing_heigth = table_ongoing_activity._height
 
         table_monitoring_comments.wrapOn(c,width,height)
 
-        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value + 9 )
+        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value  )
 
         table_monitoring_heigth = table_monitoring_comments._height
 
-        total_table_with_monitoring = table_ongoing_heigth + total_table_with_ongoing_value - 8 + table_monitoring_heigth
+        total_table_with_monitoring = table_ongoing_heigth + total_table_with_ongoing_value  + table_monitoring_heigth
 
 
 
@@ -537,7 +537,7 @@ class GerarReport:
         
         table_audi_heigth = table_auditQuestionary._height
         
-        total_height_with_audit = table_ongoing_heigth + total_table_with_ongoing_value - 8 + table_monitoring_heigth + table_audi_heigth
+        total_height_with_audit = table_ongoing_heigth + total_table_with_ongoing_value  + table_monitoring_heigth + table_audi_heigth
 
         table_compliance_enginer.wrapOn(c,width,height)
         table_compliance_enginer.drawOn(c,5*mm,total_height_with_audit + 13)
@@ -607,7 +607,7 @@ class GerarReport:
         p_average_ooc_cuttings = "Average OOC Cuttings Discharged Overboard from Drying Equipment"
         p_ongoing_activity = "Ongoing Rig Activity:"
         p_monitoring_comments = "Monitoring Comments:"
-        p_text_lema = '"Proudly Tecsep, Proudly African"'
+        p_text_lema = '"Do it right the first time"'
         p_audit_questionary = "Audit Questionnaire"
         
 
@@ -633,11 +633,24 @@ class GerarReport:
         #c.rect(5*mm,45.7*mm,200*mm,10,fill=1, stroke=0)
 
 
-        width = 7 * inch  # largura da imagem
-        height = 1.5 * inch  # altura da imagem
+        width = 1.1 * inch  # largura da imagem
+        height = 0.8 * inch  # altura da imagem
 
-        img_certificate = ImageReader("img/round_tre.png",styles["Estilo_texto_titulo"])
-        c.drawImage(img_certificate,15*mm,243*mm,width,height,mask='auto')
+        image_data = value_info[18]
+
+        print(image_data)
+
+        # Salvar os dados da imagem em um arquivo temporário
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+        temp_file.write(image_data)
+        temp_file.close()
+
+        print(temp_file.name)
+
+        logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
+        c.drawImage(logo_cliente,160*mm,5*mm,width,height,mask='auto')
+
+        os.unlink(temp_file.name)
 
         p.wrapOn(c, 80*mm, 70*mm)  # size of 'textbox' for linebreaks etc.
         p.drawOn(c, 65*mm, 18*mm)    # position of text / where to draw
@@ -661,7 +674,7 @@ class GerarReport:
         p_activity.drawOn(c,5*mm,altura_solid_equipament + valor_heigth_total - 4)
 
         p_comments.wrapOn(c,70*mm,60*mm)
-        p_comments.drawOn(c,5*mm,altura_on_going_activity + total_table_with_ongoing_value - 85)
+        p_comments.drawOn(c,5*mm,altura_on_going_activity + total_table_with_ongoing_value - 112)
 
         p_audit.wrapOn(c,40*mm,50*mm)
         p_audit.drawOn(c,5*mm,total_table_with_monitoring + 6 )

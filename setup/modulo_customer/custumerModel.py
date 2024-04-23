@@ -139,7 +139,7 @@ def buscar_poco_por_id(id_poco):
         cursor = connection.cursor()
         cursor.execute(""" SELECT wl_number,wl_name,tb_legal_person.lp_name FROM tb_legal_person,tb_well  
         WHERE tb_legal_person.id = tb_well.id_legal_person
-        AND tb_well.id = %s """,(id_poco))
+        AND tb_well.id = %s """,(id_poco,))
         dados = cursor.fetchone()
         cursor.close()
     except Exception as e:

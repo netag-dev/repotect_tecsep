@@ -48,11 +48,15 @@ class Ui_MainWindow(object):
         self.frame_aside_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_aside_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_aside_menu.setObjectName("frame_aside_menu")
-        self.label_15 = QtWidgets.QLabel(self.frame_aside_menu)
-        self.label_15.setGeometry(QtCore.QRect(10, 30, 221, 91))
-        self.label_15.setStyleSheet("image: url(:/img/logo_tecsep-1-removebg-preview.png);")
-        self.label_15.setText("")
-        self.label_15.setObjectName("label_15")
+        self.lbl_logo_tecseo = QtWidgets.QPushButton(self.frame_aside_menu)
+        self.lbl_logo_tecseo.setGeometry(QtCore.QRect(1, 30, 240, 105))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/TECSEP_Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.lbl_logo_tecseo.setIcon(icon)
+        self.lbl_logo_tecseo.setIconSize(QtCore.QSize(230, 230))
+        self.lbl_logo_tecseo.setFlat(False)
+        self.lbl_logo_tecseo.setStyleSheet("\n" "\n" "QPushButton#lbl_logo_tecseo{\n" "\n" "border:none;\n" "color:white;\n" "font-size:18px;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:left;\n" "}\n" "\n" "QPushButton#btn_dashboard:hover{\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_dashboard:pressed {\n" " background-color: #044e42;\n" "border-radius: 12px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "\n" "\n" "")
+        self.lbl_logo_tecseo.setObjectName("lbl_logo_tecseo")
         self.btn_dashboard = QtWidgets.QPushButton(self.frame_aside_menu)
         self.btn_dashboard.setGeometry(QtCore.QRect(30, 140, 191, 41))
         self.btn_dashboard.setStyleSheet("\n"
@@ -2766,6 +2770,7 @@ class Ui_MainWindow(object):
         self.daily_occ.setText("Daily % OOC ( % BFi)")
 
         self.txt_daily_occ = QtWidgets.QLineEdit(self.tab_solid_control_sample)
+        self.txt_daily_occ.setEnabled(False)
         self.txt_daily_occ.setGeometry(QtCore.QRect(10, 130, 351, 41))
         self.txt_daily_occ.setStyleSheet("""
             QLineEdit {
@@ -2813,6 +2818,7 @@ class Ui_MainWindow(object):
         self.lbl_well_selection_average.setText("Well Section Average % OOC ")
 
         self.txt_well_selection_average = QtWidgets.QLineEdit(self.tab_solid_control_sample)
+        self.txt_well_selection_average.setEnabled(False)
         self.txt_well_selection_average.setGeometry(QtCore.QRect(380, 130, 351, 41))
         self.txt_well_selection_average.setStyleSheet("""
             QLineEdit {
@@ -3317,7 +3323,7 @@ class Ui_MainWindow(object):
         self.btn_add_information_drilling_fluid.clicked.connect(lambda:add_drilling_fluid())
 
         self.tab_menus_compliance.setTabText(self.tab_menus_compliance.indexOf(self.tab_drilling_fluid_information), _translate("MainWindow", "Drilling Fluid Proprieties"))
-        self.lbl_depth.setText(_translate("MainWindow", "Depth Location"))
+        self.lbl_depth.setText(_translate("MainWindow", "Depth"))
         self.lbl_sample_number.setText(_translate("MainWindow", "Sample Number"))
         self.lbl_sample_location.setText(_translate("MainWindow", "Sample Location"))
         self.btn_add_sample.setText(_translate("MainWindow", "Add Sample"))
@@ -3370,6 +3376,14 @@ class Ui_MainWindow(object):
         self.lbl_user_logado.setText(str(user_logado))
 
         self.btn_add_information_audit_questions.clicked.connect(lambda:add_auti_questionary())
+
+        self.btn_compliance.clicked.connect(lambda:show_form_compliance())
+        self.btn_wbco.clicked.connect(lambda:call_form_wbco())
+        self.btn_logout.clicked.connect(lambda: logout())
+        self.btn_customer.clicked.connect(lambda: call_form_client())
+        self.btn_filtration.clicked.connect(lambda:show_add_filtration())
+        self.btn_tank_cleaning.clicked.connect(lambda:show_add_tank_cleaning())
+        self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
 
 
         def carregar_poco(cliente):
@@ -3681,6 +3695,53 @@ class Ui_MainWindow(object):
             self.window.show()
             MainWindow.close()
 
+        def call_form_client():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_customer.customer
+            self.ui = modulo_customer.customer.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def show_form_compliance():
+            self.window = QtWidgets.QMainWindow()
+            import  compliance.compliance_view as list
+            self.ui = list.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def call_form_wbco():
+                self.window = QtWidgets.QMainWindow()
+                import modulo_wbco.wbco
+                self.ui = modulo_wbco.wbco.Ui_MainWindow()
+                self.ui.setupUi(self.window,self.lbl_user_logado.text())
+                self.window.show()
+                MainWindow.close()
+
+        def show_add_filtration():
+            self.window = QtWidgets.QMainWindow()
+            import  filtration.filtration
+            self.ui = filtration.filtration.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()  
+
+        def show_add_tank_cleaning():
+            self.window = QtWidgets.QMainWindow()
+            import  tank_cleanning.tank_cleaning_view
+            self.ui = tank_cleanning.tank_cleaning_view.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()
+            MainWindow.close()
+
+        def show_perfil_user():
+            self.window = QtWidgets.QMainWindow()
+            import modulo_home.user_profile as user
+            self.ui = user.Ui_MainWindow()
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
+            self.window.show()      
+        
         def logout():
             self.window = QtWidgets.QMainWindow()
             import modulo_home.login
