@@ -1135,12 +1135,12 @@ class Ui_MainWindow(object):
                 dataTeste,timeTest,numberOfShake,numberOfCuttings,sample_location,
                 weight_dry_solids_calculated,ooc,weight_of_sample,acuracy_check,weight_oil,weight_dry_solids_actual,id_report)
 
-                print(id_report)
 
                 if save_sample != 0:
                         error_message("Adding Sample",save_sample)
                 else:
                         success_message(" Adding Success","Data Add Sucessful")
+                        MainWindow.close()
              except Exception as e:
                 error_message("Addinf Sample",e)
 

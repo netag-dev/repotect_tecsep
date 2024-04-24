@@ -2038,12 +2038,6 @@ class Ui_MainWindow(object):
             print(modulo_wbco.wbcoController.buscar_total_days_supervisor(self.txt_job_ref.text(),id_supervisor)) 
     
         def report():
-
-            value_well_information = modulo_wbco.wbcoController.carregar_well_information()
-            filemane = "Daily_Report_"+str(value_well_information[8])+"_WBCO_Tools_Service.pdf"
-            
-            
-            self.gerador_report.gerar_pdf(filemane)
             show_message_sucess()
 
         def get_next_tab():
@@ -2074,9 +2068,7 @@ class Ui_MainWindow(object):
 
         def validator_report_information():
 
-            countVezes = False
-
-            caracter_especial = '1234567890!#$%&/=?*+ªº^~-"'
+            caracter_especial = '!#$%&/=?*+ªº^~-"'
             only_special_character = '!#$%&/=?*+ªº^~-"'
 
             # Text Rig Name

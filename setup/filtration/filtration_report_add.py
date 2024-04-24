@@ -1237,7 +1237,7 @@ class Ui_MainWindow(object):
         self.txt_daily_total_2.setPlaceholderText("")
         self.txt_daily_total_2.setObjectName("txt_daily_total_2")
         self.cbx_type_density = QtWidgets.QComboBox(self.tab_fluid_information)
-        self.cbx_type_density.setGeometry(QtCore.QRect(10, 140, 491, 41))
+        self.cbx_type_density.setGeometry(QtCore.QRect(10, 140, 500, 41))
         self.cbx_type_density.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;
@@ -2959,7 +2959,7 @@ class Ui_MainWindow(object):
 
             countVezes = False
 
-            caracter_especial = '1234567890!#$%&/=?*+ªº^~-"'
+            caracter_especial = '!#$%&/=?*+ªº^~-"'
             only_special_character = '!#$%&/=?*+ªº^~-"'
 
             # Text Rig Name
@@ -3091,8 +3091,6 @@ class Ui_MainWindow(object):
                 id_consumivel = filtration.pack_fluid_consumables.fluid_consumablesController.buscar_id(self.cbx_material_filtration.currentText())
 
                 id_tipo = filtration.pack_fluid_consumables.fluid_consumablesController.buscar_id_tipo(self.cbx_material_filtration_2.currentText())
-        
-                
 
                 # Verificando se os campos de texto estão vazios ou não numéricos e tratando esses casos
                 if usado_diario_texto.strip() == "" or not usado_diario_texto.isdigit():
@@ -3107,8 +3105,6 @@ class Ui_MainWindow(object):
 
                 id_consumivel = filtration.pack_fluid_consumables.fluid_consumablesController.buscar_id(self.cbx_material_filtration.currentText())
 
-                print(id_consumivel)
-
                 id_tipo = filtration.pack_fluid_consumables.fluid_consumablesController.buscar_id_tipo(self.cbx_material_filtration_2.currentText())
 
                 # Calculando o novo estoque
@@ -3117,6 +3113,7 @@ class Ui_MainWindow(object):
                 id_ultimo_report_ft = filtration.pack_report.reportController.buscar_ultimo_registo_report()
                 filtration.pack_fluid_consumables.fluid_consumablesController.carregar_cadastro(id_consumivel,id_tipo,stock_atual,adicional,total_stoke,usado_diario_texto,usado_diario,novo_estoque,id_ultimo_report_ft)
 
+                show_message_sucess()
                
 
 
@@ -3127,9 +3124,10 @@ class Ui_MainWindow(object):
             id_ultimo_report_ft = filtration.pack_report.reportController.buscar_ultimo_registo_report()
             filtration.pack_enginer_day.enginer_dayController.cadastrar(self.cbx_shift_engineer.currentText(),self.txt_total_days.text(),id_tecnico,id_ultimo_report_ft)
 
+            show_message_sucess()
 
         def report():
-            print("Print Gerado")
+            show_message_sucess()
 
 
 

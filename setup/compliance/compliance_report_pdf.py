@@ -591,10 +591,10 @@ class GerarReport:
 
 
         width = 1.5 * inch  # largura da imagem
-        height = 1 * inch  # altura da imagem
+        height = 0.8 * inch  # altura da imagem
 
         img_certificate = ImageReader("img/logo_iso.png",styles["Estilo_texto_titulo"])
-        c.drawImage(img_certificate,5*mm,257*mm,width,height,mask='auto')
+        c.drawImage(img_certificate,5*mm,265*mm,width,height,mask='auto')
 
         
         ptext = "Daily Report #"+str(value_info[0])+" Drilling Fluids Compliance "
@@ -630,8 +630,8 @@ class GerarReport:
         #c.rect(5*mm,45.7*mm,200*mm,10,fill=1, stroke=0)
 
 
-        width = 1.1 * inch  # largura da imagem
-        height = 0.8 * inch  # altura da imagem
+        width = 0.9 * inch  # largura da imagem
+        height = 0.6 * inch  # altura da imagem
 
         image_data = value_info[18]
 
@@ -645,7 +645,7 @@ class GerarReport:
         print(temp_file.name)
 
         logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
-        c.drawImage(logo_cliente,160*mm,5*mm,width,height,mask='auto')
+        c.drawImage(logo_cliente,160*mm,7*mm,width,height,mask='auto')
 
         os.unlink(temp_file.name)
 

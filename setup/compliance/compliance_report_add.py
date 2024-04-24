@@ -3045,7 +3045,7 @@ class Ui_MainWindow(object):
         "")
         self.btn_next_enginer_compliance.setIcon(icon10)
         self.btn_next_enginer_compliance.setObjectName("btn_next_enginer_compliance")
-        self.btn_next_enginer_compliance.setText("Next")
+        self.btn_next_enginer_compliance.setText("Gerate Report")
 
        
 
@@ -3376,6 +3376,7 @@ class Ui_MainWindow(object):
         self.lbl_user_logado.setText(str(user_logado))
 
         self.btn_add_information_audit_questions.clicked.connect(lambda:add_auti_questionary())
+        self.btn_next_enginer_compliance.clicked.connect(lambda:save_report())
 
         self.btn_compliance.clicked.connect(lambda:show_form_compliance())
         self.btn_wbco.clicked.connect(lambda:call_form_wbco())
@@ -3384,6 +3385,10 @@ class Ui_MainWindow(object):
         self.btn_filtration.clicked.connect(lambda:show_add_filtration())
         self.btn_tank_cleaning.clicked.connect(lambda:show_add_tank_cleaning())
         self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
+
+
+        def save_report():
+            show_message_report_saved()
 
 
         def carregar_poco(cliente):
@@ -3577,45 +3582,6 @@ class Ui_MainWindow(object):
         def next_step_solid():
             self.tab_menus_compliance.setCurrentIndex(7)
 
-        def add_hse_to_report():
-             
-            
-                show_message_sucess()
-
-        def add_tank_information():
-             
-                show_message_sucess()
-                   
-                
-       
-             
-
-        def add_produtive_man_to_report():
-             
-             only_special_character = '!#$%&/=?*+ªº^~-"'
-             
-             
-
-             def has_special_characters(input_str, special_chars):
-                for char in input_str:
-                    if char in special_chars:
-                        return True
-                return False
-
-             if has_special_characters(self.txt_scaper.text(), only_special_character) or (self.txt_scaper.text() == ""):
-                message_error_validation("This field does not accept special characters or is empty", "Input Description Error")
-            
-             elif has_special_characters(self.cbx_dryer_screen_size.text(),only_special_character) or (self.cbx_dryer_screen_size.text() == ""):
-                message_error_validation("This field does not accept special characters or is empty", "Field Location entry Error")
-        
-             elif has_special_characters(self.txt_middle.text(),only_special_character) or (self.txt_middle.text() == ""):
-                message_error_validation("This field does not accept special characters or is empty", "Field Location entry Error")
-             
-             else:
-                        
-
-                show_message_sucess()
-
         def add_sollid_control():
             
             lista_sample_location = controller_sample_location.listar()
@@ -3628,17 +3594,16 @@ class Ui_MainWindow(object):
             save_solid_control = solid_controller.cadastrar(self.txt_shaker_api.text(),
             self.txt_scaper.text(),self.txt_back.text(),self.txt_middle.text(),self.txt_front.text(),self.txt_hour_run.text(),id_sample_location,self.txt_dryer_screen_size.text(),self.txt_bwl_speed.text(),self.txt_flow.text(),"15",self.txt_daily_occ.text(),id_last_report)
 
-            show_message_sucess()
+            if save_solid_control != -1:
+                show_message_sucess()
+            else:
+                message_error_validation("Error saving Solid Control","Error")
 
         
                   
         def validator_hse():
 
                 self.tab_menus_compliance.setCurrentIndex(6)
-
-        def validator_produtive_man_hour():
-
-                self.tab_menus_compliance.setCurrentIndex(5)
 
         def validator_solid_control():
 
@@ -3647,9 +3612,6 @@ class Ui_MainWindow(object):
         def validator_imob_inventory():
 
                 self.tab_menus_compliance.setCurrentIndex(9)
-
-        def report():
-            show_message_sucess()
 
 
         def add_sample_average_dry_cutting(depth_location,sample_location,sample_number,dataTeste,timeTest,model,numberOfShake,numberOfCuttings):
@@ -3822,7 +3784,6 @@ class Ui_MainWindow(object):
                 save_report_information = controller.cadastrar(str(id_cliente),str(id_well_number),data,str(id_compliance_enginer),job_ref_number,rig_name,field_location,job_type,project_description,hole_size,total_depth,feets_drilled,average_rop,time_at_depth,id_user_logado,shift,ongoing_activity,monitoring_comments)
                 id_last_report = controller.buscar_id_ultimo_report()
                 svae_enginer = enginer_controller.cadastrar_enginer(shift,id_empregado,id_last_report)
-                print(svae_enginer)
                 if (save_report_information == 0) and (svae_enginer == 0):
                     
                     self.tab_menus_compliance.setCurrentIndex(3)
@@ -3834,7 +3795,10 @@ class Ui_MainWindow(object):
         def add_auti_questionary():
             id_last_report = controller.buscar_id_ultimo_report()
             save_audit = audit_controller.cadastrar(self.cbx_finding.currentText(),self.radioYes.text(),self.txt_time.text(),self.txt_contrator.text(),id_last_report)
-            print(save_audit)  
+            if save_audit == 0:
+                show_message_sucess()
+            else:
+                message_error_validation("Error Saving Audit Questionary","Error") 
 
 if __name__ == "__main__":
     import sys

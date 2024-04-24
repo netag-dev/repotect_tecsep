@@ -1915,7 +1915,7 @@ class Ui_MainWindow(object):
         self.txt_qt_booked_today.setPlaceholderText("")
         self.txt_qt_booked_today.setObjectName("txt_qt_booked_today")
         self.lbl_description_man_hour = QtWidgets.QLabel(self.tab_productive_man_hour)
-        self.lbl_description_man_hour.setGeometry(QtCore.QRect(10, 110, 81, 31))
+        self.lbl_description_man_hour.setGeometry(QtCore.QRect(10, 110, 181, 31))
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.lbl_description_man_hour.setFont(font)

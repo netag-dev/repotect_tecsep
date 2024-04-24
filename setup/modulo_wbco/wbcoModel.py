@@ -243,9 +243,11 @@ def salvar_wbco_primary(tl_description,tl_thead_connetions_box,tl_thead_connetio
         with connection.cursor() as cursor:
             cursor.execute(""" INSERT INTO tb_tools_on_board_primary(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tl_description,tl_thead_connetions_box,tl_thead_connetions,tl_od,tl_id,tl_drift_size,id_physical_person,id_report_tools))
             connection.commit()
-            return 0
+    except Exception as e:
+        print(f"{e}")
+        return -1
     finally:
-        connection.close()
+        return 0
 
 # Salvar o WBCO_BackUp
 def salvar_wbco_backup(tlb_description,tl_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools):
@@ -256,9 +258,11 @@ def salvar_wbco_backup(tlb_description,tl_thead_connetions_box,tlb_thead_conneti
         with connection.cursor() as cursor:
             cursor.execute(""" INSERT INTO tb_tools_on_board_backup (tlb_description,tlb_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools) values(%s,%s,%s,%s,%s,%s,%s,%s) """,(tlb_description,tl_thead_connetions_box,tlb_thead_connetions,tlb_od,tlb_id,tlb_drift_size,id_physical_person,id_report_tools))
             connection.commit()
-            return 0
+    except Exception as e:
+        print(f"{e}")
+        return -1
     finally:
-        connection.close()
+        return 0
 
 #Funcçaõ para Report Information
 def salvar_report_information(rpt_ongoing_rig,rpt_casing_size,rpt_length,rpt_od,rpt_id,rpt_weight_rangeng,

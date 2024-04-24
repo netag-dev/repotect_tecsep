@@ -385,7 +385,7 @@ class Ui_MainWindow(object):
         self.btn_salvar_cliente.setGeometry(QtCore.QRect(750, 520, 341, 41))
         self.btn_salvar_cliente.setStyleSheet("\n" "\n" "QPushButton#btn_salvar_cliente{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:16px;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_salvar_cliente:hover{\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_salvar_cliente:pressed {\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("..img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_salvar_cliente.setIcon(icon9)
         self.btn_salvar_cliente.setIconSize(QtCore.QSize(25, 25))
         self.btn_salvar_cliente.setObjectName("btn_salvar_cliente")

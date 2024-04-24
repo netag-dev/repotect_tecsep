@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("..img/house-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("img/house-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_dashboard.setIcon(icon)
         self.btn_dashboard.setIconSize(QtCore.QSize(25, 25))
         self.btn_dashboard.setFlat(False)

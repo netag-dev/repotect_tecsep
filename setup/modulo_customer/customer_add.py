@@ -381,7 +381,7 @@ class Ui_MainWindow(object):
         self.lbl_nif.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_nif.setObjectName("lbl_nif")
         self.btn_salvar_cliente = QtWidgets.QPushButton(self.frame)
-        self.btn_salvar_cliente.setGeometry(QtCore.QRect(30, 590, 341, 41))
+        self.btn_salvar_cliente.setGeometry(QtCore.QRect(750, 520, 341, 41))
         self.btn_salvar_cliente.setStyleSheet("\n" "\n" "QPushButton#btn_salvar_cliente{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:16px;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_salvar_cliente:hover{\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_salvar_cliente:pressed {\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "")
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("..img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -426,11 +426,6 @@ class Ui_MainWindow(object):
         self.txt_nif.setPlaceholderText("")
         self.txt_nif.setObjectName("txt_nif")
 
-        self.btn_carregar_img = QtWidgets.QPushButton(self.frame)
-        self.btn_carregar_img.setGeometry(QtCore.QRect(750, 520, 341, 41))
-        self.btn_carregar_img.setStyleSheet("\n" "\n" "QPushButton#btn_carregar_img{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:16px;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_carregar_img:hover{\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "transition: background-color 0.5s ease;\n" "padding:10px;\n" "}\n" "\n" "QPushButton#btn_carregar_img:pressed {\n" " background-color: #044e42;\n" "border-radius: 6px;\n" "background-color: #033029;\n" "padding:10px;\n" " }\n" "")
-        self.btn_carregar_img.setObjectName("btn_carregar_img")
-        self.btn_carregar_img.setText("Upload Image")
         
         icon10 = QtGui.QIcon()
         icon10.addPixmap(QtGui.QPixmap("/img/upload-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -499,8 +494,6 @@ class Ui_MainWindow(object):
         self.btn_salvar_cliente.setText(_translate("MainWindow", "Save Customer data"))
         self.btn_salvar_cliente.clicked.connect(lambda: save_data())
 
-        self.btn_carregar_img.clicked.connect(lambda:select_image())
-        
         self.btn_compliance.clicked.connect(lambda:show_form_compliance())
         self.btn_wbco.clicked.connect(lambda:call_form_wbco())
         self.btn_logout.clicked.connect(lambda: logout())
@@ -612,8 +605,6 @@ class Ui_MainWindow(object):
         def select_image():
             filename, _ = QFileDialog.getOpenFileName(MainWindow, "Selecionar Imagem", "", "Image files (*.jpg *.png *.bmp)")
             if filename:
-                #self.btn_carregar_img.setText(filename)
-                #self.btn_carregar_img.setStyleSheet(""" QPushButton#btn_carregar_img{font-size:13px;} """)
                 return filename
 
         def save_data():
