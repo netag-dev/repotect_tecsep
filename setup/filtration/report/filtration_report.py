@@ -421,6 +421,11 @@ class GerarReport:
 
         os.unlink(temp_file.name)
 
+        width = 1.5 * inch  # largura da imagem
+        height = 1 * inch  # altura da imagem
+
+        img_certificate = ImageReader("img/logo_iso.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,257*mm,width,height,mask='auto')
 
         p.wrapOn(c, 70*mm, 50*mm)  # size of 'textbox' for linebreaks etc.
         p.drawOn(c, 85*mm, 15*mm)    # position of text / where to draw

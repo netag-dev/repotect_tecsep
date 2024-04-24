@@ -3329,29 +3329,28 @@ class Ui_MainWindow(object):
                 if retorno_varificar_valor != -1:
                   self.txt_original_hour.setEnabled(False)
 
-
-                  tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),valor_to_date,hour_remainig,self.txt_visual_complete.text(),id_report)
+                  #tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),valor_to_date,hour_remainig,self.txt_visual_complete.text(),id_report)
                 else:
-                  tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),val_hour_to_day,self.txt_hour_remaining.text(),self.txt_visual_complete.text(),id_report)
              
-                visual_complete = (100 * valor_to_date)/val_estimated
-                visual_complete_user = int(self.txt_visual_complete_user.text())
+                    visual_complete = (100 * valor_to_date)/val_estimated
+                    visual_complete_user = int(self.txt_visual_complete_user.text())
 
-                if visual_complete_user < visual_complete:
-                        self.lbl_visual_complete.setStyleSheet("color: red;")
-                elif visual_complete_user > visual_complete:
-                       self.lbl_visual_complete.setStyleSheet("color: green;")
-                else:
-                        self.lbl_visual_complete.setStyleSheet("color: blue;")
-                print(f"{visual_complete} %")
-                
-                self.txt_hour_booked_date.setText(str(valor_to_date))
+                    if visual_complete_user < visual_complete:
+                            self.lbl_visual_complete.setStyleSheet("color: red;")
+                    elif visual_complete_user > visual_complete:
+                        self.lbl_visual_complete.setStyleSheet("color: green;")
+                    else:
+                            self.lbl_visual_complete.setStyleSheet("color: blue;")
+                    print(f"{visual_complete} %")
+                    
+                    self.txt_hour_booked_date.setText(str(valor_to_date))
 
-                
-                self.txt_hour_remaining.setText(str(hour_remainig))
+                    
+                    self.txt_hour_remaining.setText(str(hour_remainig))
 
-                self.txt_visual_complete.setText(str(visual_complete))
+                    self.txt_visual_complete.setText(str(visual_complete))
                         
+                    tank_cleanning.pack_produtive_man.produtive_manController.carregar_cadastro(self.txt_numbrt_work.text(),self.txt_description_man_hour.text(),self.txt_original_hour.text(),self.txt_booked_today.text(),self.txt_qt_booked_today.text(),val_hour_to_day,self.txt_hour_remaining.text(),self.txt_visual_complete.text(),id_report)
 
                 show_message_sucess()
 

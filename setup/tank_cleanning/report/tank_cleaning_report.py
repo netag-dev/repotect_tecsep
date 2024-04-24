@@ -19,7 +19,7 @@ import tank_cleanning.pack_hse.hseController
 
 # Classe Para Geração dos Reports
 class GerarReport:
-    def gerar_pdf(self,filename,report_cabecalho,lista_turno_diurno,lista_turno_noturno,lista_actividade,lista_man_produtive_hour,lista_tank_information,lista_hse,listar_non_produtive_man,lista_consumiveis,lista_ppe):
+    def gerar_pdf(self,filename,report_cabecalho,lista_turno_diurno,lista_turno_noturno,lista_actividade,lista_man_produtive_hour,lista_tank_information,lista_hse,listar_non_produtive_man,lista_consumiveis,lista_ppe,count_tank_informar):
 
 
 
@@ -42,13 +42,12 @@ class GerarReport:
         dados_actividades = lista_actividade
         dados_man_produtive = lista_man_produtive_hour
         dados_tank_information = lista_tank_information
-        print(dados_tank_information)
         dados_hse = lista_hse
         dados_non_produtive = listar_non_produtive_man
         dados_consumiveis = lista_consumiveis
         dados_ppe = lista_ppe
 
-        
+        num_registo_tank_information = count_tank_informar
         
         data = [
                         ["Shift (Day/NIgth):", dados_cabebacalho[5], "Approved By:",dados_cabebacalho[9]],
@@ -122,12 +121,22 @@ class GerarReport:
             [dados_actividades[4]]
         ]
 
-       
+        print(dados_tank_information)
 
-        data_tank_information = dados_tank_information + [
-            
-            ["Tank Number","Type West","Volume West","Tank Type"]
-        ]
+        if num_registo_tank_information > 1:
+
+            data_tank_information = dados_tank_information + [
+                
+                ["Tank Number","Type West","Volume West","Tank Type"]
+            ]
+        else:
+            data_tank_information = [
+                [dados_tank_information[0],dados_tank_information[1],dados_tank_information[2],dados_tank_information[3]],
+                ["Tank Number","Type West","Volume West","Tank Type"]
+            ]
+
+            print(data_tank_information)
+
 
         label_man_produtive_hour = [
             ["Productive Man Hour Report"]
@@ -173,11 +182,7 @@ class GerarReport:
 
         total_imbo_inventory = data_inventory.__len__()
 
-        print(total_imbo_inventory)
-
-        
-       
-
+    
         style = getSampleStyleSheet()["Normal"]
         style.alignment = 1 
         
@@ -213,7 +218,7 @@ class GerarReport:
 
         table_equipament = Table(data_equipament,colWidths=[200*mm]) 
 
-        table_tank_information = Table(data_tank_information,colWidths=[50*mm]) 
+        table_tank_information = Table(data_tank_information,colWidths=[50*mm,50*mm,50*mm,50*mm]) 
 
 
         table_man_produtive_hour_title = Table(label_man_produtive_hour,colWidths=[200*mm]) 
@@ -393,7 +398,7 @@ class GerarReport:
                                 ('LEFTPADDING', (0, 0), (-1, -1), padding),  # Espaçamento esquerdo das células
                                 ('RIGHTPADDING', (0, 0), (-1, -1), padding),
                                 ('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black),
-                                ("BACKGROUND",(0,3),(3,4),colors.PCMYKColor(0,1,1,3)),
+                                ("BACKGROUND",(0,0),(3,total_linha_tank_information),colors.PCMYKColor(0,1,1,3)),
                                 ('ALIGN',(0,0),(3,total_linha_tank_information),"CENTER"),
                                 ("BOX",(0,0),(-1,-1),0.25,colors.black)])
         
@@ -649,6 +654,12 @@ class GerarReport:
         c.drawImage(logo_cliente,160*mm,8*mm,width,height,mask='auto')
 
         os.unlink(temp_file.name)
+
+        width = 1.5 * inch  # largura da imagem
+        height = 1 * inch  # altura da imagem
+
+        img_certificate = ImageReader("img/logo_iso.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,257*mm,width,height,mask='auto')
         
         ptext = "Daily Report #"+str(dados_cabebacalho[0])+" Tank Cleaning "
         ptlink = " www.tecsep-tsg.com"

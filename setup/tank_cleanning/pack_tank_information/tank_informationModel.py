@@ -72,13 +72,36 @@ def buscar_tank_information(id_report):
                     tb_tank_information_tc.id_report_tc = tb_report_tc.id
                     AND tb_report_tc.id_report_header = tb_report_header.id
                     AND tb_report_tc.id = %s""",(id_report,))
-            
-            lista_prfile_competence = cursor.fetchall()
+            count = count_tank_information(id_report)
+            if count == 1:
+                lista_prfile_competence = cursor.fetchone()
+            else:
+                lista_prfile_competence = cursor.fetchall()
 
-
-            return lista_prfile_competence
+    except Exception as e:
+        print(f"{e}")
     finally:
-        connection.close()
+        return lista_prfile_competence
+
+
+def count_tank_information(id_report):
+    connection = connecao.cria_connecao()
+    print("Conexão Aberta.")
+
+    try:
+        with connection.cursor() as cursor:
+            
+            cursor.execute(""" SELECT COUNT (tb_tank_information_tc.id) FROM tb_tank_information_tc,
+                    tb_report_tc,tb_report_header WHERE
+
+                    tb_tank_information_tc.id_report_tc = tb_report_tc.id
+                    AND tb_report_tc.id_report_header = tb_report_header.id
+                    AND tb_report_tc.id = %s""",(id_report,))
+            count_tank = cursor.fetchone()[0]
+    except Exception as e:
+        print(f"{e}")
+    finally:
+        return count_tank
    
 
 

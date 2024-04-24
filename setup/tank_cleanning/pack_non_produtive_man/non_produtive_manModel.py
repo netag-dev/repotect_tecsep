@@ -66,7 +66,7 @@ def buscar_produtive_man_hour(ref_report):
     try:
         with connection.cursor() as cursor:
             
-            cursor.execute(""" SELECT pm_work_order
+            cursor.execute(""" SELECT pm_work_order,
                         pm_description,pm_original_hours,pm_hours_brocked_td,pm_qt_hours_brocked_td,pm_hours_brocked_date,pm_hours_remaining_td,
                         pm_visual_perc_complete FROM tb_produtive_man_tc,tb_physical_person,tb_report_tc 
                         WHERE tb_produtive_man_tc.id_report_tc = tb_report_tc.id 

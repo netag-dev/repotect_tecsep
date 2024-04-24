@@ -85,6 +85,8 @@ class GerarReport:
             ["WBCO Tools Enginer (Days)","Shift","Total Days",""]
         ]
 
+        print(data_wbco_enginner)
+
 
         #TBaela Well Infomration
         new_table = Table(data_well_information, colWidths=[34*mm,24*mm,27*mm,27*mm,20*mm,38*mm,30*mm])
@@ -298,14 +300,16 @@ class GerarReport:
         temp_file.write(image_data)
         temp_file.close()
 
-        print(temp_file.name)
-
         logo_cliente = ImageReader(temp_file.name,styles["Estilo_texto_titulo"])
         c.drawImage(logo_cliente,160*mm,8*mm,width,height,mask='auto')
 
         os.unlink(temp_file.name)
 
-        
+        width = 1.5 * inch  # largura da imagem
+        height = 1 * inch  # altura da imagem
+
+        img_certificate = ImageReader("img/logo_iso.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,257*mm,width,height,mask='auto')
         
         ptext = "Daily Report #"+str(value_well_information[7])+" WBCO Tools Service "
         ptlink = " www.tecsep-tsg.com"

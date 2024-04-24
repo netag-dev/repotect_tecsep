@@ -410,8 +410,8 @@ def buscar_wbco_primary_informatio_by_job_ref(job_ref):
             cursor.execute(""" 
             SELECT 
             tl_description,
-            thread_pin.thc || ' (' || thread_pin.thc_description || ')' AS thc,
-            thread_box.thc || ' (' || thread_box.thc_description || ')' AS thc_box,
+            thread_pin.thc || ' ' || thread_pin.thc_description || '' AS thc,
+            thread_box.thc || ' ' || thread_box.thc_description || '' AS thc_box,
             tl_od,
             tl_id,
             tl_drift_size 
@@ -463,8 +463,8 @@ def buscar_wbco_back_up_informatio_by_job_ref(job_ref):
             
             cursor.execute(""" SELECT 
             tlb_description,
-            thread_pin.thc || ' (' || thread_pin.thc_description || ')' AS thc,
-            thread_box.thc || ' (' || thread_box.thc_description || ')' AS thc_box,
+            thread_pin.thc || ' ' || thread_pin.thc_description || '' AS thc,
+            thread_box.thc || ' ' || thread_box.thc_description || '' AS thc_box,
             tlb_od,
             tlb_id,
             tlb_drift_size 

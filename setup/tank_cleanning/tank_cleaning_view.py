@@ -710,14 +710,10 @@ class Ui_MainWindow(object):
                 if item is not None:
                     
                     job_ref = item.text()
-                    
-                    print(job_ref)
 
                     report_cabecalho = tank_cleanning.pack_report.reportController.carregar_info_report_cabecalho_por_job_ref(job_ref)
                     lista_pessoa_turno_diurno = tank_cleanning.pack_shift.shiftController.listar_pessoa_turno_diurno(report_cabecalho[0])
-                    lista_pessoa_turno_noturno = tank_cleanning.pack_shift.shiftController.listar_pessoa_turno_noturno(report_cabecalho[0])
-
-                    print(report_cabecalho[0])    
+                    lista_pessoa_turno_noturno = tank_cleanning.pack_shift.shiftController.listar_pessoa_turno_noturno(report_cabecalho[0])    
 
                     lista_actividades = tank_cleanning.pack_daily_progress.dayshift_activityController.listar_actividade(report_cabecalho[0])
                     lista_man_produtive_hour = tank_cleanning.pack_non_produtive_man.non_produtive_manController.listar_produtive_man_hour(report_cabecalho[0])
@@ -725,12 +721,13 @@ class Ui_MainWindow(object):
                     lista_hse = tank_cleanning.pack_hse.hseController.listar_hse(report_cabecalho[0])
                     listar_non_produtive_man = tank_cleanning.pack_non_produtive_man.non_produtive_manController.listar_non_produtive_man(report_cabecalho[0])
                     lista_tank_information = tank_cleanning.pack_tank_information.tank_informationController.buscar_tank_information(report_cabecalho[0])
+                    count_tank_informar = tank_cleanning.pack_tank_information.tank_informationController.count_tank_information(report_cabecalho[0])
                     lista_consumiveis = tank_cleanning.pack_consumables.consumablesController.buscar_consumiveis(report_cabecalho[0])
                     lista_ppe = tank_cleanning.pack_pipe.pipeController.buscar_ppe(report_cabecalho[0])
 
 
                     filemane = "Daily_Report_"+str(report_cabecalho[0])+"_Tank_Cleaning.pdf"
-                    self.gerador_report.gerar_pdf(filemane,report_cabecalho,lista_pessoa_turno_diurno,lista_pessoa_turno_noturno,lista_actividades,lista_man_produtive_hour,lista_tank_information,lista_hse,listar_non_produtive_man,lista_consumiveis,lista_ppe)
+                    self.gerador_report.gerar_pdf(filemane,report_cabecalho,lista_pessoa_turno_diurno,lista_pessoa_turno_noturno,lista_actividades,lista_man_produtive_hour,lista_tank_information,lista_hse,listar_non_produtive_man,lista_consumiveis,lista_ppe,count_tank_informar)
                     show_message_sucess()
 
                     #show_form_edit_personeel(id_card) 

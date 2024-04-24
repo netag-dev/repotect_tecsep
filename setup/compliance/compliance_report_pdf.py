@@ -524,7 +524,7 @@ class GerarReport:
 
         table_monitoring_comments.wrapOn(c,width,height)
 
-        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value  )
+        table_monitoring_comments.drawOn(c,5*mm,table_ongoing_heigth + total_table_with_ongoing_value - 2  )
 
         table_monitoring_heigth = table_monitoring_comments._height
 
@@ -590,14 +590,11 @@ class GerarReport:
         c.drawImage(img, 5*mm, 5*mm, width, height, mask='auto')
 
 
-        width = 7.5 * inch  # largura da imagem
-        height = 2 * inch  # altura da imagem
+        width = 1.5 * inch  # largura da imagem
+        height = 1 * inch  # altura da imagem
 
-        #img_certificate = ImageReader("img/arrendoda.png",styles["Estilo_texto_titulo"])
-        #c.drawImage(img_certificate,5*mm,230*mm,width,height,mask='auto')
-
-        
-
+        img_certificate = ImageReader("img/logo_iso.png",styles["Estilo_texto_titulo"])
+        c.drawImage(img_certificate,5*mm,257*mm,width,height,mask='auto')
 
         
         ptext = "Daily Report #"+str(value_info[0])+" Drilling Fluids Compliance "

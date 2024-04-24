@@ -16,4 +16,7 @@ def buscar_tank_information(id_report):
     return tank_cleanning.pack_tank_information.tank_informationModel.buscar_tank_information(id_report)
 
 
+def count_tank_information(id_report):
+    return tank_cleanning.pack_tank_information.tank_informationModel.count_tank_information(id_report)
+
 
