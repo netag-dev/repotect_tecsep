@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email
 
 def cadastrar(synthetic_sg,rop_at_time,
              weight_empty,weight_filled_body_sample,weight_filled_body_sample_water,
