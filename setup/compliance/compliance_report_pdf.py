@@ -597,7 +597,7 @@ class GerarReport:
         c.drawImage(img_certificate,5*mm,265*mm,width,height,mask='auto')
 
         
-        ptext = "Daily Report #"+str(value_info[0])+" Drilling Fluids Compliance "
+        ptext = "Daily Report #"+str(value_info[0])+" Audit Monitoring Compliance "
         pdrilling_information = "Drilling Information"
         p_fluid_information = " Fluid Information"
         p_drilling_fluid_properties = "Drilling Fluid Proprties"
