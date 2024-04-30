@@ -1,7 +1,7 @@
 import modulo_personnel.personnelModel
 
 def carregar_cadastro(data2, data3, data4, data5, data6, data7):
-    modulo_personnel.personnelModel.cadastrar( data2, data3, data4, data5, data6, data7) 
+    return modulo_personnel.personnelModel.cadastrar( data2, data3, data4, data5, data6, data7) 
 
 def carregar_listagem():
     return modulo_personnel.personnelModel.listar()

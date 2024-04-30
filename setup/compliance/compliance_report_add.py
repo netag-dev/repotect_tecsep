@@ -3545,7 +3545,7 @@ class Ui_MainWindow(object):
                     show_message_sucess()
                     self.tab_menus_compliance.setCurrentIndex(5)
             except Exception as e:
-                message_error_validation(e,"Fluid Information")
+                message_error_validation("Fill in all fields","Fluid Information")
 
             
                      
@@ -3726,12 +3726,8 @@ class Ui_MainWindow(object):
 
         id_sample_location = return_id(self.cbx_sample_location_occ.currentText(),lista_sample_location)
         #id_mode_avarage = return_id(self.cbx_model_average.currentText(),lista_model_average)
-        
-
 
         self.btn_add_sample.clicked.connect(lambda:add_sample_average_dry_cutting(self.txt_depth_location.text(),id_sample_location,self.txt_sample_number.text(),self.data_test.text(),self.time_test.text(),self.cbx_model_average.currentText(),self.txt_number_of_shakers.text(),self.txt_number_of_cutting.text()))
-
-
 
         #Funcao para Salvar
         def save_report_header(customer):

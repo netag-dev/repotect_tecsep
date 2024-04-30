@@ -793,7 +793,7 @@ class Ui_MainWindow(object):
                     
                     
 
-                    filemane = "Daily_Report_"+str(report_cabecalho[0])+"Drilling Fluid Compliance.pdf"
+                    filemane = "Daily_Report_"+str(report_cabecalho[0])+"Audit Monitoring Compliance.pdf"
                     self.gerador_report.gerar_pdf(filemane,report_cabecalho,fluid_information,drilling_information,average,solids_control,audi,enginer)
                     show_message_sucess()
                     print(job_ref)

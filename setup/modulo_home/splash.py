@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
         def update_progress_bar():
             self.countdown_time += 1
             self.progressBar.setValue(self.countdown_time)
-            if self.countdown_time >= 100:
+            if self.countdown_time >= 1:
                 open_next_window()
                 self.timer.stop()
                 MainWindow.close()

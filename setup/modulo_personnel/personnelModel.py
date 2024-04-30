@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email as email
 
 def cadastrar(param2, param3, param4, param5, param6, param7): 
     try: 
@@ -8,13 +9,12 @@ def cadastrar(param2, param3, param4, param5, param6, param7):
         cursor.execute("INSERT INTO tb_physical_person (pp_name,bi,pp_email,pp_senha,pp_phone,pp_type) values('"+param2+"','"+param3+"','"+param4+"','"+param5+"','"+param6+"','"+param7+"') ")
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
         print(f"Erro ao inserir dados no tb_physical_person: {e}")
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("Conexão fechada.")
+        body = f"Erro ao inserir dados no tb_physical_person: {e}"
+        email.save_error(body)
+        return -1
 
 def editar(param1, param2, param3, param4, param5, param6, param7): 
     try: 
@@ -23,15 +23,12 @@ def editar(param1, param2, param3, param4, param5, param6, param7):
         cursor.execute("UPDATE tb_physical_person set bi = %s, pp_name = %s, pp_email = %s, pp_senha = %s, pp_phone = %s, pp_type = %s where id = %s ",(param2,param3,param4,param5,param6,param7,param1))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
         print(f"Erro ao actualizar dados no tb_physical_person: {e}")
+        body = f"Erro ao actualizar dados no tb_physical_person: {e}"
+        email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("Conexão fechada.")
-            return 0
 
 def eliminar(param): 
     try: 
@@ -40,15 +37,12 @@ def eliminar(param):
         cursor.execute("DELETE FROM tb_physical_person WHERE bi = %s ",(param,))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
         print(f"Erro ao inserir dados no tb_physical_person: {e}")
+        body = f"Erro ao inserir dados no tb_physical_person: {e}"
+        email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("Conexão fechada.")
-            return 0
     
 def listar(): 
     try:

@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email as email
 
 def cadastrar(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report):
     try: 
@@ -8,10 +9,12 @@ def cadastrar(mud_type, rig_type, density_type, hole_type, rig_total_volume, den
         cursor.execute(""" INSERT INTO fluid_information_cp(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """,(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id_report,))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-        return e
-    return 0
+        print(f"Erro ao Salvar informações do Fluido: {e}")
+        body = f"Erro ao Salvar informações do Fluido: {e}"
+        email.save_error(body)
+        return -1
 
 def editar(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume, id):
     try: 
@@ -20,10 +23,13 @@ def editar(mud_type, rig_type, density_type, hole_type, rig_total_volume, densit
         cursor.execute("UPDATE fluid_information_cp set mud_type = %s, rig_type = %s, hole_type = %s, rig_total_volume = %s, density = %s, viscosity_vp = %s, viscosity_yp = %s, hole_volume = %s, where id = %s ",(mud_type, rig_type, density_type, hole_type, rig_total_volume, density, viscosity_vp, viscosity_yp, hole_volume,id))                
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
+        print(f"Erro ao editar: {e}")
+        body = f"Erro ao na Base de Dados: {e}"
+        email.save_error(body)
         return -1
-    return 0
+    
 
 def delete_data(density, viscosity_vp, viscosity_yp, hole_volume):
     connection = connecao.cria_connecao()
@@ -31,10 +37,12 @@ def delete_data(density, viscosity_vp, viscosity_yp, hole_volume):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM fluid_information_cp WHERE density = %s AND viscosity_vp = %s AND viscosity_yp = %s AND hole_volume = %s """,(density, viscosity_vp, viscosity_yp, hole_volume))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
-        return -1
-    return 0   
+        body = f"Erro: {e}"
+        email.save_error(body)
+        return -1  
                 
 def listar():    
     try: 

@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email
 
 def cadastrar(shaker, scalper, back, middle, front, hours_run, location_of_sample,
 dryer_screen_size , bowl_speed, flow, weight_in_ppg, daily_perc_ooc, 
@@ -15,14 +16,12 @@ dryer_screen_size , bowl_speed, flow, weight_in_ppg, daily_perc_ooc,
 report_information))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro na Base de dados: {e}")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
         
 
 def buscar_solids_by_job_ref(job_ref):

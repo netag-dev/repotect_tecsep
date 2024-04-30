@@ -1,0 +1,107 @@
+2024-04-30 10:09:57,004 ERROR Ocorreu um erro: syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:09:59,594 ERROR Ocorreu um erro: syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:18:16,690 ERROR Ocorreu um erro: Erro ao efectuar o Loginsyntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:18:19,118 ERROR Ocorreu um erro: Erro ao efectuar o Loginsyntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:21:27,871 ERROR Ocorreu um erro: Erro ao efectuar o Login:syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:21:30,094 ERROR Ocorreu um erro: Erro ao efectuar o Login:syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:24:01,293 ERROR Ocorreu um erro: Erro ao efectuar o Login:syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:24:03,853 ERROR Ocorreu um erro: Erro ao efectuar o Login:syntax error at or near "FROM"
+LINE 1:   FROM tb_physical_person WHERE pp_email='admin' AND pp_senh...
+          ^
+
+2024-04-30 10:27:02,973 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:40:37,683 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:41:08,383 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:42:54,606 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:44:16,588 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:45:58,315 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:48:23,733 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:48:26,483 ERROR Falha ao enviar e-mail de erro: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials t20-20020a05600c199400b0041c012ca327sm10101402wmq.45 - gsmtp')
+2024-04-30 10:52:37,597 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:52:39,763 ERROR Falha ao enviar e-mail de erro: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials j10-20020a05600c190a00b00418a9961c47sm44769377wmq.47 - gsmtp')
+2024-04-30 10:55:50,993 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:55:53,422 ERROR Falha ao enviar e-mail de erro: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials j9-20020a5d4489000000b0034d9605eb70sm927970wrq.49 - gsmtp')
+2024-04-30 10:56:39,632 ERROR Ocorreu um erro: Erro ao Listar dados no tb_physical_person: syntax error at or near "FROM"
+LINE 1:  FROM tb_legal_person
+         ^
+
+2024-04-30 10:59:51,283 ERROR Ocorreu um erro: Erro ao eliminar dados no tb_legal_person: syntax error at or near "tb_legal_person"
+LINE 1:  tb_legal_person WHERE lp_nif = 'd' 
+         ^
+
+2024-04-30 11:00:43,727 ERROR Ocorreu um erro: Erro ao eliminar dados no tb_legal_person: syntax error at or near "tb_legal_person"
+LINE 1:  tb_legal_person WHERE lp_nif = 'd' 
+         ^
+
+2024-04-30 11:03:10,212 ERROR Ocorreu um erro: Erro ao actualizar dados no tb_legal_person: syntax error at or near "lp_name"
+LINE 1:  lp_name = 'Q', lp_email = '1', lp_phone = 'WA', lp_address ...
+         ^
+
+2024-04-30 11:04:22,605 ERROR Ocorreu um erro: Erro ao actualizar dados no tb_legal_person: syntax error at or near "lp_name"
+LINE 1:  lp_name = 'Q', lp_email = '1', lp_phone = 'WA', lp_address ...
+         ^
+
+2024-04-30 11:05:07,932 ERROR Ocorreu um erro: Erro ao actualizar dados no tb_legal_person: syntax error at or near "lp_name"
+LINE 1:  lp_name = 'Q', lp_email = '1', lp_phone = 'WA', lp_address ...
+         ^
+
+2024-04-30 11:14:30,719 ERROR Ocorreu um erro: Erro ao eliminar dados no tb_well: syntax error at or near "tb_well"
+LINE 1:  tb_well WHERE id = '28' 
+         ^
+
+2024-04-30 11:19:25,474 ERROR Ocorreu um erro: Erro ao inserir dados no tb_physical_person: syntax error at or near "_physical_person"
+LINE 1: _physical_person (pp_name,bi,pp_email,pp_senha,pp_phone,pp_t...
+        ^
+
+2024-04-30 13:02:12,959 ERROR Ocorreu um erro: Erro ao Salvar informações do Fluido: invalid input syntax for type double precision: ""
+LINE 1: ...olume,id_report) values(4,'bbls','PPG','bbls','1','','2','1'...
+                                                             ^
+

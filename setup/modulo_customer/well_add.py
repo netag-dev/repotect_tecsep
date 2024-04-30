@@ -460,7 +460,7 @@ class Ui_MainWindow(object):
 
         def show_message_error():
             msg_error = QMessageBox()
-            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setIcon(QMessageBox.Critical)
             msg_error.setText('Error when Add Well')
             msg_error.setWindowTitle('Well')
             icon = QtGui.QIcon()

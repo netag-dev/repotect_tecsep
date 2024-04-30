@@ -486,6 +486,16 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.Critical)
+            msg_error.setText('Error when edit Well')
+            msg_error.setWindowTitle('Well')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
+
         
         
 
@@ -521,6 +531,8 @@ class Ui_MainWindow(object):
                 if(rt == 0):
                     show_message_sucess()
                     show_form_list_well()
+                else:
+                    show_message_error()
                 
     
 

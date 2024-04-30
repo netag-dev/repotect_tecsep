@@ -590,8 +590,8 @@ class Ui_MainWindow(object):
         def show_message_sucess():
             msg_error = QMessageBox()
             msg_error.setIcon(QMessageBox.Information)
-            msg_error.setText('Customer added successfully')
-            msg_error.setWindowTitle('Adding Customer')
+            msg_error.setText('Customer edited successfully')
+            msg_error.setWindowTitle('edit Customer')
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             msg_error.setWindowIcon(icon)
@@ -599,7 +599,7 @@ class Ui_MainWindow(object):
 
         def show_message_error():
             msg_error = QMessageBox()
-            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setIcon(QMessageBox.Critical)
             msg_error.setText('Error when editing Customer')
             msg_error.setWindowTitle('Customer')
             icon = QtGui.QIcon()

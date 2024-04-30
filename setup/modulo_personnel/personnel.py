@@ -312,7 +312,7 @@ class form_personeel_list(object):
                     if response == 0:
                         show_message_sucess()
                     else:
-                        print("Erro ao ELiminar usuario ")
+                        show_message_error()
                     show_form_personeel_list()
                     
                     
@@ -321,7 +321,17 @@ class form_personeel_list(object):
             self.ui = modulo_personnel.personnel.form_personeel_list()
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
-            MainWindow.close()            
+            MainWindow.close()   
+
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.Critical)
+            msg_error.setText('Error when editing Customer')
+            msg_error.setWindowTitle('Customer')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()         
 
         def show_message_sucess():
             msg_error = QMessageBox()

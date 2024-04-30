@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email as email
 
 def cadastrar(findings, yes_no, time, contractor, report_information_cp):
     try:
@@ -9,14 +10,12 @@ def cadastrar(findings, yes_no, time, contractor, report_information_cp):
 (findings, yes_no, time, contractor, report_information_cp))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
         print(f"Erro na Base de dados: {e}")
+        body = f"Erro na Base de dados: {e}"
+        email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
         
 def buscar_avarage_information_by_job_ref(job_ref):
     connection = connecao.cria_connecao()

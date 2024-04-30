@@ -1,6 +1,6 @@
 import psycopg2
 import conection.connect as connecao
-
+import config_email.config_email
 
 def listar():
     connection = connecao.cria_connecao()
@@ -29,12 +29,12 @@ def editar(name, email,id):
          with connection.cursor() as cursor:
             cursor.execute(""" UPDATE employee_cp SET emp_name = %s, emp_email = %s  WHERE id = %s  """,(name, email,id))
             connection.commit()
+            return 0
     except Exception as e:
-        print(f"Erro {e}")
-        return -1
-    finally:  
-        connection.close()
-        return 0 
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1 
 
 
 def delete_data(nome,email):
@@ -43,12 +43,12 @@ def delete_data(nome,email):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM employee_cp WHERE emp_name = %s AND emp_email = %s """,(nome, email))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
-        return -1
-    finally:
-        connection.close()
-        return 0   
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1   
 
 def cadastrar(name, email):
     connection = connecao.cria_connecao()
@@ -56,12 +56,12 @@ def cadastrar(name, email):
         cursor = connection.cursor()
         cursor.execute(""" INSERT INTO employee_cp(emp_name,emp_email) VALUES (%s,%s)  """,(name, email))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return 0
     
 
 def buscar_id_by_name_email(name, email):
@@ -70,12 +70,12 @@ def buscar_id_by_name_email(name, email):
         cursor = connection.cursor()
         cursor.execute(""" SELECT id FROM employee_cp WHERE emp_name = %s AND emp_email = %s """,(name,email))
         id_empregado = cursor.fetchone()
+        return id_empregado
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return id_empregado
 
 
 def cadastrar_enginer(eng_shift,id_employe,id_report):
@@ -84,12 +84,12 @@ def cadastrar_enginer(eng_shift,id_employe,id_report):
         cursor = connection.cursor()
         cursor.execute(""" INSERT INTO engineer_cp(eng_shift,id_employee,id_report) VALUES (%s,%s,%s)""",(eng_shift,id_employe,id_report))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return 0
     
 
 def buscar_enginer_by_job_ref(job_ref):
@@ -101,12 +101,12 @@ def buscar_enginer_by_job_ref(job_ref):
         AND report_information_cp.id = engineer_cp.id_report
         AND report_information_cp.job_ref_number = %s""",(job_ref,))
         dados = cursor.fetchall()
+        return dados
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return dados
     
 def delete(id):
     connection = connecao.cria_connecao()
@@ -114,9 +114,9 @@ def delete(id):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM employee_cp WHERE id = %s""",(id,))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return 0

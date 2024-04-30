@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email
 
 def cadastrar(model,serial_number):
     try: 
@@ -8,14 +9,12 @@ def cadastrar(model,serial_number):
         cursor.execute(""" INSERT INTO model_average_cp(model,serial_number) values(%s,%s) """,(model,serial_number))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-        return e
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1
 
 def editar(model,serial_number,id):
     try: 
@@ -24,14 +23,12 @@ def editar(model,serial_number,id):
         cursor.execute(""" UPDATE model_average_cp SET model = %s, serial_number = %s where id = %s """,(model,serial_number,id))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
 
 def delete_data(id):
     connection = connecao.cria_connecao()
@@ -39,12 +36,12 @@ def delete_data(id):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM model_average_cp WHERE id = %s""",(id))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
-        return -1
-    finally:
-        connection.close()
-        return 0   
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1   
                 
 def listar():    
     try: 

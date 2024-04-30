@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email
 
 def cadastrar(type_fluid_proprieties, value, report_information_cp):
     try:
@@ -8,14 +9,13 @@ def cadastrar(type_fluid_proprieties, value, report_information_cp):
         cursor.execute(""" INSERT INTO drilling_fluid_proprieties_cp(type_fluid_proprieties, value, report_information_cp) VALUES (%s, %s, %s)""", (type_fluid_proprieties, value, report_information_cp))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao inserir novo registo: {e}")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+
 def editar(type_fluid_proprieties, value, report_information_cp):
     try:
         connection = connecao.cria_connecao()
@@ -23,13 +23,12 @@ def editar(type_fluid_proprieties, value, report_information_cp):
         cursor.execute("UPDATE drilling_fluid_proprieties_cp SET type_fluid_proprieties = %s, value = %s, report_information_cp = %s, WHERE id = %s", (type_fluid_proprieties, value, report_information_cp))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao atualizar dados")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            return 0
         
 def eliminar(type_fluid_proprieties, value, report_information_cp):
     connection = connecao.cria_connecao()
@@ -37,12 +36,12 @@ def eliminar(type_fluid_proprieties, value, report_information_cp):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM drilling_fluid_proprieties_cp WHERE type_fluid_proprieties = %s AND value = %s""", (type_fluid_proprieties, value))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        connection.close()
-        return 0
     
 ################## Listagens #####################
 

@@ -694,6 +694,16 @@ class Ui_MainWindow(object):
             msg_error.setWindowIcon(icon)
             msg_error.exec_()
 
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.Critical)
+            msg_error.setText('Error when editing Customer')
+            msg_error.setWindowTitle('Customer')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
+
         #Funcao para Salvar
         def validation_add_user():
             user_name = self.txt_nome.text()
@@ -711,13 +721,16 @@ class Ui_MainWindow(object):
                 msg_validation.setWindowTitle(' Error Adding User')
                 msg_validation.exec_()
             else:
-                modulo_personnel.personnelController.carregar_cadastro( user_name, identfy_card, email, password, phone_number, self.cb_tipo_usuario.currentText())
-                show_message_sucess()
-                self.txt_nome.clear()
-                self.txt_bi_card.clear()
-                self.txt_phone_number.clear()
-                self.txt_email.clear()
-                self.txt_password.clear()
+                if modulo_personnel.personnelController.carregar_cadastro( user_name, identfy_card, email, password, phone_number, self.cb_tipo_usuario.currentText()) == 0:
+                    show_message_sucess()
+                    self.txt_nome.clear()
+                    self.txt_bi_card.clear()
+                    self.txt_phone_number.clear()
+                    self.txt_email.clear()
+                    self.txt_password.clear()
+                else:
+                    show_message_error()
+
 
 
 

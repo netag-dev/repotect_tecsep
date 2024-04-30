@@ -27,14 +27,12 @@ def cadastrar(synthetic_sg,rop_at_time,
              perc_solids_by_volume,perc_oil_by_weight,perc_water_by_weight,perc_solids_by_weight,ooc,soc,mud_weight,acuracy_check))
         connection.commit() 
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro na Base de dados: {e}")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
         
 
 def buscar_solids_by_job_ref(job_ref):

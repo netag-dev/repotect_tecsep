@@ -1,6 +1,6 @@
 import psycopg2
 import conection.connect as connecao
-
+import config_email.config_email
 def cadastrar(description):
     try: 
         connection = connecao.cria_connecao()
@@ -8,14 +8,12 @@ def cadastrar(description):
         cursor.execute("INSERT INTO type_fluid_proprieties(type) VALUES (%s)", (description,))
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-        return e
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1
 
 def editar(description,id):
     try: 
@@ -24,14 +22,12 @@ def editar(description,id):
         cursor.execute(""" UPDATE type_fluid_proprieties SET type = %s where id = %s """,(description,id))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
         return -1
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
 
 def delete_data(id):
     connection = connecao.cria_connecao()
@@ -39,12 +35,12 @@ def delete_data(id):
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM type_fluid_proprieties WHERE id = %s""",(id))
         connection.commit()
+        return 0
     except Exception as e:
         print(f"Erro: {e}")
-        return -1
-    finally:
-        connection.close()
-        return 0   
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1   
                 
 def listar():    
     try: 

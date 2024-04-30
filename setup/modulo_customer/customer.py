@@ -621,7 +621,7 @@ class Ui_MainWindow(object):
 
         def show_message_error():
             msg_error = QMessageBox()
-            msg_error.setIcon(QMessageBox.critical)
+            msg_error.setIcon(QMessageBox.Critical)
             msg_error.setText('Error removing Customer')
             msg_error.setWindowTitle('Customer removal')
             icon = QtGui.QIcon()

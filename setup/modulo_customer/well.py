@@ -602,6 +602,16 @@ class Ui_MainWindow(object):
             self.window.show()
             MainWindow.close()
 
+        def show_message_error():
+            msg_error = QMessageBox()
+            msg_error.setIcon(QMessageBox.Critical)
+            msg_error.setText('Error when remove Well')
+            msg_error.setWindowTitle('Well')
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap("img/sucess_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            msg_error.setWindowIcon(icon)
+            msg_error.exec_()
+
         def btn_clicked_edit():
             self.btn_edit_well = self.btn_edit_well.sender()
             if isinstance(self.btn_edit_well, QtWidgets.QPushButton):
@@ -641,7 +651,8 @@ class Ui_MainWindow(object):
                         show_message_sucess()
                         show_form_list_well()
                     else:
-                        print("Erro ao ELiminar Well ")
+                        show_message_error()
+                        
                     
 
         self.table_well.horizontalHeader().setDefaultSectionSize(217)

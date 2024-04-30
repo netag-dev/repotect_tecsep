@@ -1,5 +1,6 @@
 import psycopg2
 import conection.connect as connecao
+import config_email.config_email
 
 def cadastrar(description):
     try: 
@@ -8,14 +9,12 @@ def cadastrar(description):
         cursor.execute(""" INSERT INTO mud_type_cp(type) values(%s) """,(description,))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-        return e
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1
 
 def editar(description,id):
     try: 
@@ -24,14 +23,12 @@ def editar(description,id):
         cursor.execute(""" UPDATE mud_type_cp SET type = %s WHERE id = %s """,(description,id,))    
         connection.commit()
         cursor.close()
+        return 0
     except Exception as e:
-        print(f"Erro ao na Base de Dados: {e}")
-        return e
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
-            return 0
+        print(f"Erro: {e}")
+        body = f"Erro: {e}"
+        config_email.config_email.save_error(body)
+        return -1
 
 def delete_data(id):
     connection = connecao.cria_connecao()
