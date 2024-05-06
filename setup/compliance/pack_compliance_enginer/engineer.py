@@ -543,7 +543,7 @@ class Ui_MainWindow(object):
         self.table_size.setCornerButtonEnabled(False)
         self.table_size.setObjectName("table_model_average")
         self.table_size.setColumnCount(5) 
-        self.table_size.setHorizontalHeaderLabels(["Ref","Name","Email"," "," "])
+        self.table_size.setHorizontalHeaderLabels(["Ref","Name","E-mail"," "," "])
         self.table_size.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_size.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_size.horizontalHeaderItem(2).setTextAlignment(0x0001)
@@ -710,10 +710,10 @@ class Ui_MainWindow(object):
         self.btn_user.clicked.connect(lambda:call_form_user())
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
-        self.label_titulo_form.setText(_translate("MainWindow", "A. M. Compliance Employees"))
-        self.lbl_text_form.setText(_translate("MainWindow", "Below is the list of all A. M. Compliance Employees registered in the system"))
+        self.label_titulo_form.setText(_translate("MainWindow", "A. M. Compliance Personnel"))
+        self.lbl_text_form.setText(_translate("MainWindow", "Below is the list of all A. M. Compliance Personnel registered in the system"))
        
-        self.btn_add_employee.setText(_translate("MainWindow", "Add new Employee"))
+        self.btn_add_employee.setText(_translate("MainWindow", "Add new Personnel"))
         self.btn_add_employee.clicked.connect(lambda: show_form_add_employee())
        
         self.btn_list_compliance_report.setText(_translate("MainWindow","List A. M. Compliance Report"))

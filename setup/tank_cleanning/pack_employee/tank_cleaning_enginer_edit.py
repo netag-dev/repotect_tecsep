@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("background-color:#eff2f9;\n" "\n" "")
+        self.frame.setStyleSheet("background-color:#fff;\n" "\n" "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -174,7 +174,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(40, 90, 431, 16))
+        self.label_2.setGeometry(QtCore.QRect(40, 90, 531, 16))
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n""font: 9pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.frame_9 = QtWidgets.QFrame(self.frame)
@@ -379,7 +379,7 @@ class Ui_MainWindow(object):
         
         id_employee =  tank_cleanning.pack_employee.employeeController.buscar_id_by_name_email(self.txt_nome.text(),self.txt_email.text())
 
-        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Employee data"))
+        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Personnel data"))
         self.btn_salvar_employee.clicked.connect(lambda: save_engineer(self.txt_nome.text(),self.txt_email.text(),id_employee))
         
 

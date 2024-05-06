@@ -404,7 +404,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.lbl_text_form = QtWidgets.QLabel(self.frame_3)
-        self.lbl_text_form.setGeometry(QtCore.QRect(40, 90, 431, 16))
+        self.lbl_text_form.setGeometry(QtCore.QRect(40, 90, 531, 16))
         self.lbl_text_form.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 9pt \"MS Shell Dlg 2\";")
         self.lbl_text_form.setObjectName("lbl_text_form")
@@ -544,7 +544,7 @@ class Ui_MainWindow(object):
         self.table_employee.setCornerButtonEnabled(False)
         self.table_employee.setObjectName("table_employee")
         self.table_employee.setColumnCount(5) 
-        self.table_employee.setHorizontalHeaderLabels(["Personnel"," Email "," Personnel Position"," "," "])
+        self.table_employee.setHorizontalHeaderLabels(["Personnel"," E-mail "," Personnel Position"," "," "])
         self.table_employee.horizontalHeaderItem(0).setTextAlignment(0x0001)
         self.table_employee.horizontalHeaderItem(1).setTextAlignment(0x0001)
         self.table_employee.horizontalHeaderItem(2).setTextAlignment(0x0001)

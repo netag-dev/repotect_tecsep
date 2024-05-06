@@ -2,10 +2,16 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import datetime
+import datetime,os
 
-# Configuração do logger para gravar em arquivo
-logging.basicConfig(filename='app.log', level=logging.ERROR,
+user_data_dir = os.path.join(os.environ['APPDATA'], 'MyAppLogs')  # Windows
+
+# Cria o diretório se não existir
+os.makedirs(user_data_dir, exist_ok=True)
+
+# Configura o logger para usar o novo local do arquivo de log
+log_file = os.path.join(user_data_dir, 'app.log')
+logging.basicConfig(filename=log_file, level=logging.ERROR,
                     format='%(asctime)s %(levelname)s %(message)s')
 
 def enviar_email_erro(subject, body):

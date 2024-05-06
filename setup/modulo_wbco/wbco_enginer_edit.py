@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(40, 90, 631, 16))
+        self.label_2.setGeometry(QtCore.QRect(40, 90, 651, 16))
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n""font: 9pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.frame_9 = QtWidgets.QFrame(self.frame)
@@ -393,7 +393,7 @@ class Ui_MainWindow(object):
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
         self.label.setText(_translate("MainWindow", "WBCO Tools Personnel"))
-        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a new Personnel to the system"))
+        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a Personnel to the system"))
         
         self.btn_list_wbco.setText(_translate("MainWindow", "List WBCO Personnel"))
         self.btn_list_wbco.clicked.connect(lambda:show_form_list_enginer())
@@ -414,7 +414,7 @@ class Ui_MainWindow(object):
         
         id_employee =  modulo_wbco.enginierwbcoController.buscar_id_by_name_email(self.txt_nome.text(),self.txt_email.text())
 
-        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Employee data"))
+        self.btn_salvar_employee.setText(_translate("MainWindow", "Save Personnel data"))
         self.btn_salvar_employee.clicked.connect(lambda: save_engineer(self.txt_nome.text(),self.txt_email.text(),get_id(),id_employee))
         
 

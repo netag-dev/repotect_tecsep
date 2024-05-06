@@ -827,7 +827,7 @@ class Ui_MainWindow(object):
         self.btn_add_report.setText(_translate("MainWindow", " Add new Report"))
         self.btn_add_report.clicked.connect(lambda: show_form_add_filtration_report())
 
-        self.btn_list_type_consumable.setText(_translate("MainWindow", "  Type of Consumable"))
+        self.btn_list_type_consumable.setText(_translate("MainWindow", "  Type of Consumables"))
         self.btn_list_type_consumable.clicked.connect(lambda: show_form_list_type_consumable())
 
         self.btn_list_consumable.setText(_translate("MainWindow"," Consumables"))

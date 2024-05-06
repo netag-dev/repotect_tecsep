@@ -702,8 +702,8 @@ class Ui_MainWindow(object):
         self.btn_user.clicked.connect(lambda:call_form_user())
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
-        self.label_titulo_form.setText(_translate("MainWindow", "Mud Type / Base Oil type"))
-        self.lbl_text_form.setText(_translate("MainWindow", "Below is the list of all Mud Type / Base Oil type registered in the system"))
+        self.label_titulo_form.setText(_translate("MainWindow", "Mud Type"))
+        self.lbl_text_form.setText(_translate("MainWindow", "Below is the list of all Mud Type registered in the system"))
        
         self.btn_add_mud_type.setText(_translate("MainWindow", "Add new mud type"))
         self.btn_add_mud_type.clicked.connect(lambda: show_form_add_mud_type())

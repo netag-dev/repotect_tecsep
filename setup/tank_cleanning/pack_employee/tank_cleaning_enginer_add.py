@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(40, 90, 431, 16))
+        self.label_2.setGeometry(QtCore.QRect(40, 90, 531, 16))
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n""font: 9pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.frame_9 = QtWidgets.QFrame(self.frame)

@@ -405,7 +405,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.lbl_text_form = QtWidgets.QLabel(self.frame_3)
-        self.lbl_text_form.setGeometry(QtCore.QRect(40, 90, 431, 16))
+        self.lbl_text_form.setGeometry(QtCore.QRect(40, 90, 531, 16))
         self.lbl_text_form.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 9pt \"MS Shell Dlg 2\";")
         self.lbl_text_form.setObjectName("lbl_text_form")

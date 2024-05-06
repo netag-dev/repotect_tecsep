@@ -591,7 +591,7 @@ class Ui_MainWindow(object):
             self.btn_edit_customer.setIcon(icon_edit)
             self.btn_edit_customer.setObjectName("btn_edit_customer")
 
-            self.btn_remove_customer = QtWidgets.QPushButton("Remove Cuastomer")
+            self.btn_remove_customer = QtWidgets.QPushButton("Remove Customer")
             self.btn_remove_customer.setStyleSheet("\n" "\n" "QPushButton#btn_remove_customer{\n" "\n" "border:none;\n" "background-color:#044e42;\n" "color:white;\n" "font-size:13px;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "text-align:rigth;\n" "}\n" "\n" "QPushButton#btn_remove_customer:hover{\n" " background-color: #044e42;\n" "border-radius: 3px;\n" "transition: background-color 0.5s ease;\n" "padding:5px;\n" "}\n" "\n" "QPushButton#btn_remove_customer:pressed {\n" " background-color: #044e42;\n" "border-radius: 0px;\n" "background-color: #033029;\n" "padding:5px;\n" " }\n" "")
             self.btn_remove_customer.setIcon(icon_delete)
             self.btn_remove_customer.setObjectName("btn_remove_customer")

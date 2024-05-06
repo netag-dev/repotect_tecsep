@@ -229,8 +229,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
-        self.lbl_form_tittle.setText(_translate("MainWindow", "Add A. M. Compliance Employee"))
-        self.lbl_form_text.setText(_translate("MainWindow", "Fill in the fields to save a A. M. Compliance Employee in system"))
+        self.lbl_form_tittle.setText(_translate("MainWindow", "Add A. M. Compliance Personnel"))
+        self.lbl_form_text.setText(_translate("MainWindow", "Fill in the fields to save a A. M. Compliance Personnel in system"))
         self.lbl_name.setText(_translate("MainWindow", "Name"))
         self.lbl_email.setText(_translate("MainWindow", "E-mail"))
         self.btn_save.setText(_translate("MainWindow", "Save data"))

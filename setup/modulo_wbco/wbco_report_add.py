@@ -1986,11 +1986,11 @@ class Ui_MainWindow(object):
         self.lbl_wbco_activity.setText(_translate("MainWindow", "WBCO Tools Activity"))
         self.tab_menus_wbco.setTabText(self.tab_menus_wbco.indexOf(self.tab_activity), _translate("MainWindow", "Activity"))
         self.lbl_supervisor.setText(_translate("MainWindow", "Supervisor Information"))
-        self.lbl_wbco_tool_enginer_supervisor.setText(_translate("MainWindow", "WBCO Tools Enginer "))
+        self.lbl_wbco_tool_enginer_supervisor.setText(_translate("MainWindow", "WBCO Tools Engineer "))
         self.lbl_shift_supervisor.setText(_translate("MainWindow", "Shift"))
         self.lbl_techinical.setText(_translate("MainWindow", "Technician Information"))
         self.lbl_shift_techinical.setText(_translate("MainWindow", "Shift"))
-        self.lbl_wbco_tool_enginer_techinical.setText(_translate("MainWindow", "WBCO Tools Enginer "))
+        self.lbl_wbco_tool_enginer_techinical.setText(_translate("MainWindow", "WBCO Tools Engineer "))
        
         #self.btn_gerar_report.setText(_translate("MainWindow", "Generate report"))
         self.btn_wbco_primary_next_step.clicked.connect(lambda: get_next_tab())
@@ -2260,7 +2260,7 @@ class Ui_MainWindow(object):
             
            
             if has_special_characters(cbx_enginer_techinical,caracter_especial) or (cbx_enginer_techinical == ""):
-                message_error_validation("This filed does not accept characters empty","Techinical Enginer entry error")        
+                message_error_validation("This filed does not accept characters empty","Techinical Engineer entry error")        
             else:
                 show_message_sucess_validator("Engineer Information","Data was entry Sucessful")
                 self.tab_menus_wbco.setCurrentIndex(3)

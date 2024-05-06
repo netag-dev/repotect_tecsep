@@ -5,7 +5,7 @@ def listar_physical(pp_email):
     try:
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute(""" SELECT pp_name, pp_email, pp_type, pp_senha FROM tb_physical_person WHERE pp_email = %s """, (pp_email))
+        cursor.execute(""" SELECT pp_name, pp_email, pp_type, pp_senha FROM tb_physical_person WHERE pp_email = %s """, (pp_email,))
         dados = cursor.fetchone()
         cursor.close()
     except Exception as e:

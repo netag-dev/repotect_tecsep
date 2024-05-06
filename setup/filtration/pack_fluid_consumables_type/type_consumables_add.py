@@ -174,7 +174,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.VLine)
         self.line.setObjectName("line")
         self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(40, 90, 431, 16))
+        self.label_2.setGeometry(QtCore.QRect(40, 90, 531, 16))
         self.label_2.setStyleSheet("color: rgb(255, 255, 255);\n""font: 9pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.frame_9 = QtWidgets.QFrame(self.frame)
@@ -364,10 +364,10 @@ class Ui_MainWindow(object):
 
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
-        self.label.setText(_translate("MainWindow", "Type of Consumable"))
+        self.label.setText(_translate("MainWindow", "Type of Consumables"))
         self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to add a new Consumable to the system"))
         
-        self.btn_list_type_consumible.setText(_translate("MainWindow", "List type of Consumable"))
+        self.btn_list_type_consumible.setText(_translate("MainWindow", "List type of Consumables"))
         self.btn_list_type_consumible.clicked.connect(lambda:show_form_list_type_consumable())
 
         self.lbl_tipo_consumivel.setText(_translate("MainWindow", " Size "))

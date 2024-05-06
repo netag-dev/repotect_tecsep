@@ -596,7 +596,7 @@ class Ui_MainWindow(object):
         self.btn_list_personeel.setText(_translate("MainWindow", "List Personnel"))
         self.btn_list_personeel.clicked.connect(lambda: show_form_personeel_list())
         self.label_3.setText(_translate("MainWindow", "Full name"))
-        self.label_4.setText(_translate("MainWindow", "Identity card number"))
+        self.label_4.setText(_translate("MainWindow", "Card number"))
         self.label_5.setText(_translate("MainWindow", "Phone number"))
         self.label_6.setText(_translate("MainWindow", "E-mail"))
         self.cb_tipo_usuario.setItemText(0, _translate("MainWindow", " Admin"))

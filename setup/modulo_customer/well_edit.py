@@ -239,7 +239,7 @@ class Ui_MainWindow(object):
         self.txt_nome.setPlaceholderText("")
         self.txt_nome.setObjectName("txt_nome")
         self.lbl_nome = QtWidgets.QLabel(self.frame)
-        self.lbl_nome.setGeometry(QtCore.QRect(30, 360, 81, 31))
+        self.lbl_nome.setGeometry(QtCore.QRect(30, 360, 95, 31))
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
         self.lbl_nome.setFont(font)

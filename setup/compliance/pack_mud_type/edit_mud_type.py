@@ -184,8 +184,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow,description,id):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Edit Mud Type"))
-        self.lbl_form_tittle.setText(_translate("MainWindow", "Mud Type / Base Oil type"))
-        self.lbl_form_text.setText(_translate("MainWindow", "Fill in the fields to edit a Mud Type / Base Oil type in system"))
+        self.lbl_form_tittle.setText(_translate("MainWindow", "Mud Type"))
+        self.lbl_form_text.setText(_translate("MainWindow", "Fill in the fields to edit a Mud Type in system"))
         self.lbl_syntetic_sg.setText(_translate("MainWindow", "Description"))
         self.btn_save.setText(_translate("MainWindow", "Save data"))
         self.btn_save.clicked.connect(lambda:save_data())
