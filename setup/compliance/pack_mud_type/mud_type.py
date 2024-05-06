@@ -337,7 +337,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("img/add.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("img/user-group-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_customer.setIcon(icon7)
         self.btn_customer.setIconSize(QtCore.QSize(25, 25))
         self.btn_customer.setFlat(False)
@@ -605,8 +605,9 @@ class Ui_MainWindow(object):
             self.window = QtWidgets.QMainWindow()
             import compliance.pack_mud_type.edit_mud_type as edit
             self.ui = edit.Ui_MainWindow()
-            self.ui.setupUi(self.window,description,id)
+            self.ui.setupUi(self.window,description,id,self.lbl_user_logado.text())
             self.window.show()
+            MainWindow.close()
 
         def show_form_list_size():
             self.window = QtWidgets.QMainWindow()
@@ -615,6 +616,8 @@ class Ui_MainWindow(object):
             self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
             MainWindow.close()
+
+        
 
         def btn_clicked_edit():
             self.btn_edit_size = self.btn_edit_size.sender()
@@ -730,8 +733,9 @@ class Ui_MainWindow(object):
             self.window = QtWidgets.QMainWindow()
             import compliance.pack_mud_type.add_mud_type as add_model
             self.ui = add_model.Ui_MainWindow()
-            self.ui.setupUi(self.window)
+            self.ui.setupUi(self.window,self.lbl_user_logado.text())
             self.window.show()
+            MainWindow.close()
            
 
         def call_form_user():

@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QMessageBox
 from compliance.pack_model_average import average_modelController as controller
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,model,serial_number,id):
+    def setupUi(self, MainWindow,model,serial_number,id,user_logado):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 230)
         MainWindow.setMinimumSize(QtCore.QSize(1000, 230))
@@ -175,39 +175,77 @@ class Ui_MainWindow(object):
         self.lbl_sn.setStyleSheet("color: rgb(52, 52, 52);")
         self.lbl_sn.setObjectName("lbl_sn")
         self.btn_save = QtWidgets.QPushButton(self.frame)
-        self.btn_save.setGeometry(QtCore.QRect(670, 130, 321, 41))
+        self.btn_save.setGeometry(QtCore.QRect(670, 130, 161, 41))
         self.btn_save.setStyleSheet("\n"
-"\n"
-"QPushButton#btn_save{\n"
-"\n"
-"border:none;\n"
-"background-color:#044e42;\n"
-"color:white;\n"
-"font-size:14px;\n"
-"border-radius: 6px;\n"
-"transition: background-color 0.5s ease;\n"
-"padding:10px;\n"
-"text-align:rigth;\n"
-"}\n"
-"\n"
-"QPushButton#btn_save:hover{\n"
-" background-color: #044e42;\n"
-"border-radius: 6px;\n"
-"transition: background-color 0.5s ease;\n"
-"padding:10px;\n"
-"}\n"
-"\n"
-"QPushButton#btn_save:pressed {\n"
-" background-color: #044e42;\n"
-"border-radius: 6px;\n"
-"background-color: #033029;\n"
-"padding:10px;\n"
-" }\n"
-"")
+        "\n"
+        "QPushButton#btn_save{\n"
+        "\n"
+        "border:none;\n"
+        "background-color:#044e42;\n"
+        "color:white;\n"
+        "font-size:14px;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "text-align:rigth;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_save:hover{\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_save:pressed {\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "background-color: #033029;\n"
+        "padding:10px;\n"
+        " }\n"
+        "")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(".\\../../../../../../img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_save.setIcon(icon1)
         self.btn_save.setObjectName("btn_save")
+
+
+        self.btn_cancel = QtWidgets.QPushButton(self.frame)
+        self.btn_cancel.setGeometry(QtCore.QRect(835, 130, 161, 41))
+        self.btn_cancel.setText("Cancel")
+        self.btn_cancel.setStyleSheet("\n"
+        "\n"
+        "QPushButton#btn_cancel{\n"
+        "\n"
+        "border:none;\n"
+        "background-color:#044e42;\n"
+        "color:white;\n"
+        "font-size:14px;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "text-align:rigth;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_cancel:hover{\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_cancel:pressed {\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "background-color: #033029;\n"
+        "padding:10px;\n"
+        " }\n"
+        "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(".\\../../../../../../img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_cancel.setIcon(icon1)
+        self.btn_cancel.setObjectName("btn_cancel")
+
         self.lbl_sn.raise_()
         self.frame_2.raise_()
         self.frame_3.raise_()
@@ -217,16 +255,17 @@ class Ui_MainWindow(object):
         self.txt_model.raise_()
         self.txt_sn.raise_()
         self.btn_save.raise_()
+        self.btn_cancel.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1000, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,model,serial_number,id)
+        self.retranslateUi(MainWindow,model,serial_number,id,user_logado)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow,model,serial_number,id):
+    def retranslateUi(self, MainWindow,model,serial_number,id,user_logado):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
         self.lbl_form_tittle.setText(_translate("MainWindow", "Model Drying Equipment"))
@@ -235,6 +274,7 @@ class Ui_MainWindow(object):
         self.lbl_sn.setText(_translate("MainWindow", "S/N"))
         self.btn_save.setText(_translate("MainWindow", "Save data"))
         self.btn_save.clicked.connect(lambda:edit_data())
+        self.btn_cancel.clicked.connect(lambda:close_windows())
 
 
         self.txt_model.setText(str(model))
@@ -256,6 +296,14 @@ class Ui_MainWindow(object):
              msg.setWindowTitle("Error")
              msg.exec_()
 
+        def close_windows():
+            self.window = QtWidgets.QMainWindow()
+            import compliance.pack_model_average.model_average as view
+            self.ui = view.Ui_MainWindow()
+            self.ui.setupUi(self.window,user_logado)
+            self.window.show()
+            MainWindow.close()
+
         def edit_data():
             
             model = self.txt_model.text()
@@ -265,7 +313,7 @@ class Ui_MainWindow(object):
                 edit = controller.editar(model,serial_n,id)
                 if edit == 0:
                     show_message("Edit","Data Edited")
-                    MainWindow.close()
+                    close_windows()
                 else:
                     show_message_error("Edit","Error Edited data")
             except Exception as e:

@@ -372,7 +372,7 @@ class Ui_MainWindow(object):
 
         self.lbl_tipo_consumivel.setText(_translate("MainWindow", " Size "))
 
-        self.btn_salvar_type_consumable.setText(_translate("MainWindow", "Save Consumable data"))
+        self.btn_salvar_type_consumable.setText(_translate("MainWindow", "Save Type of consumable data"))
 
         self.txt_type_consumivel.setText(str(type))
         self.txt_description_consumivel.setText(str(desc))

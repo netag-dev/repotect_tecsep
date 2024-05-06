@@ -3175,7 +3175,7 @@ class Ui_MainWindow(object):
         self.cbx_shift.setObjectName("cbx_shift")
         self.cbx_shift.setGeometry(QtCore.QRect(380,40,351,41))
         self.cbx_shift.addItem("-- Select Shift --")
-        self.cbx_shift.addItems(["Days","Night"])
+        self.cbx_shift.addItems(["Day","Night"])
         self.cbx_shift.setStyleSheet("""
             QComboBox {
                 border: 1px solid #8ec0af;

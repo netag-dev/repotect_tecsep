@@ -350,7 +350,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard.clicked.connect(lambda:show_form_dashboard())
 
 
-        self.btn_compliance.setText(_translate("MainWindow", " D. F. Compliance"))
+        self.btn_compliance.setText(_translate("MainWindow", " A. M. Compliance"))
         self.btn_wbco.setText(_translate("MainWindow", " WBCO Tools"))
         self.btn_wbco.clicked.connect(lambda: call_form_wbco())
         self.btn_filtration.setText(_translate("MainWindow", " Filtration"))
@@ -365,7 +365,7 @@ class Ui_MainWindow(object):
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
         self.label.setText(_translate("MainWindow", "Tank Cleaning Personnel"))
-        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to add a new Personnel to the system"))
+        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a Personnel to the system"))
         
         self.btn_list_filtration.setText(_translate("MainWindow", "List Personnel"))
         self.btn_list_filtration.clicked.connect(lambda:show_form_list_enginer())

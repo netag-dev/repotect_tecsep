@@ -14,7 +14,7 @@ from compliance.pack_sample_location import sample_locationController as control
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow,description,id):
+    def setupUi(self, MainWindow,description,id,user_logado):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(700, 230)
         MainWindow.setMinimumSize(QtCore.QSize(700, 230))
@@ -138,49 +138,86 @@ class Ui_MainWindow(object):
         self.txt_description.setPlaceholderText("")
         self.txt_description.setObjectName("txt_description")
         self.btn_save = QtWidgets.QPushButton(self.frame)
-        self.btn_save.setGeometry(QtCore.QRect(360, 130, 321, 41))
+        self.btn_save.setGeometry(QtCore.QRect(360, 130, 161, 41))
         self.btn_save.setStyleSheet("\n"
-"\n"
-"QPushButton#btn_save{\n"
-"\n"
-"border:none;\n"
-"background-color:#044e42;\n"
-"color:white;\n"
-"font-size:14px;\n"
-"border-radius: 6px;\n"
-"transition: background-color 0.5s ease;\n"
-"padding:10px;\n"
-"text-align:rigth;\n"
-"}\n"
-"\n"
-"QPushButton#btn_save:hover{\n"
-" background-color: #044e42;\n"
-"border-radius: 6px;\n"
-"transition: background-color 0.5s ease;\n"
-"padding:10px;\n"
-"}\n"
-"\n"
-"QPushButton#btn_save:pressed {\n"
-" background-color: #044e42;\n"
-"border-radius: 6px;\n"
-"background-color: #033029;\n"
-"padding:10px;\n"
-" }\n"
-"")
+        "\n"
+        "QPushButton#btn_save{\n"
+        "\n"
+        "border:none;\n"
+        "background-color:#044e42;\n"
+        "color:white;\n"
+        "font-size:14px;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "text-align:rigth;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_save:hover{\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_save:pressed {\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "background-color: #033029;\n"
+        "padding:10px;\n"
+        " }\n"
+        "")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(".\\../../../../../../img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_save.setIcon(icon1)
         self.btn_save.setObjectName("btn_save")
+
+
+        self.btn_cancel = QtWidgets.QPushButton(self.frame)
+        self.btn_cancel.setGeometry(QtCore.QRect(525, 130, 161, 41))
+        self.btn_cancel.setStyleSheet("\n"
+        "\n"
+        "QPushButton#btn_cancel{\n"
+        "\n"
+        "border:none;\n"
+        "background-color:#044e42;\n"
+        "color:white;\n"
+        "font-size:14px;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "text-align:rigth;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_cancel:hover{\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "transition: background-color 0.5s ease;\n"
+        "padding:10px;\n"
+        "}\n"
+        "\n"
+        "QPushButton#btn_cancel:pressed {\n"
+        " background-color: #044e42;\n"
+        "border-radius: 6px;\n"
+        "background-color: #033029;\n"
+        "padding:10px;\n"
+        " }\n"
+        "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(".\\../../../../../../img/check-solid.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_cancel.setIcon(icon1)
+        self.btn_cancel.setObjectName("btn_cancel")
+        self.btn_cancel.setText("Cancel")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 700, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
 
-        self.retranslateUi(MainWindow,description,id)
+        self.retranslateUi(MainWindow,description,id,user_logado)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow,description,id):
+    def retranslateUi(self, MainWindow,description,id,user_logado):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Dashboard"))
         self.lbl_form_tittle.setText(_translate("MainWindow", "Sample Location"))
@@ -188,8 +225,16 @@ class Ui_MainWindow(object):
         self.lbl_descritpion.setText(_translate("MainWindow", "Description"))
         self.btn_save.setText(_translate("MainWindow", "Save data"))
         self.btn_save.clicked.connect(lambda:save_data())
+        self.btn_cancel.clicked.connect(lambda:close_windows())
         self.txt_description.setText(str(description))
 
+        def close_windows():
+            self.window = QtWidgets.QMainWindow()
+            import compliance.pack_sample_location.sample_location as view
+            self.ui = view.Ui_MainWindow()
+            self.ui.setupUi(self.window,user_logado)
+            self.window.show()
+            MainWindow.close()
 
         def show_message(title,message):
              msg = QMessageBox()
@@ -214,7 +259,7 @@ class Ui_MainWindow(object):
                 salvar = controlloer.editar(description,id)
                 if salvar == 0:
                     show_message("Edit","Data Saved")
-                    MainWindow.close()
+                    close_windows()
                 else:
                     show_message_error("Edit","Error saving data")
             except (TypeError,ValueError,Exception,) as e:

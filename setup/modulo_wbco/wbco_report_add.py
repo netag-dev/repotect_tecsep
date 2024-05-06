@@ -1691,7 +1691,7 @@ class Ui_MainWindow(object):
         self.lbl_supervisor.setObjectName("lbl_supervisor")
         
         self.lbl_wbco_tool_enginer_supervisor = QtWidgets.QLabel(self.tab_wbco_engineer)
-        self.lbl_wbco_tool_enginer_supervisor.setGeometry(QtCore.QRect(10, 100, 171, 31))
+        self.lbl_wbco_tool_enginer_supervisor.setGeometry(QtCore.QRect(10, 100, 271, 31))
         
         font = QtGui.QFont("Arial")
         font.setPointSize(11)
@@ -1769,7 +1769,7 @@ class Ui_MainWindow(object):
             }
         """)
         self.cbx_shitf_supervisor.setObjectName("cbx_shitf_supervisor")
-        self.cbx_shitf_supervisor.addItem("Days")
+        self.cbx_shitf_supervisor.addItem("Day")
         self.cbx_shitf_supervisor.addItem("Night")
 
         
@@ -1831,7 +1831,7 @@ class Ui_MainWindow(object):
         
         
         self.lbl_wbco_tool_enginer_techinical = QtWidgets.QLabel(self.tab_wbco_engineer)
-        self.lbl_wbco_tool_enginer_techinical.setGeometry(QtCore.QRect(560, 100, 171, 31))
+        self.lbl_wbco_tool_enginer_techinical.setGeometry(QtCore.QRect(560, 100, 271, 31))
         
         font = QtGui.QFont("Arial")
         font.setPointSize(11)

@@ -357,7 +357,7 @@ class Ui_MainWindow(object):
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
         self.label.setText(_translate("MainWindow", "Size"))
-        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a size to the system"))
+        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to add a size to the system"))
         
         self.btn_list_size.setText(_translate("MainWindow", "List Size"))
         self.btn_list_size.clicked.connect(lambda:show_form_list_size())

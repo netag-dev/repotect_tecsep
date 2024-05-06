@@ -393,7 +393,7 @@ class Ui_MainWindow(object):
 
         self.btn_customer.setText(_translate("MainWindow", "Customers"))
         self.label.setText(_translate("MainWindow", "Well"))
-        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to add a new well to the system"))
+        self.label_2.setText(_translate("MainWindow", "Fill in all the fields to be able to edit a well to the system"))
         
         self.btn_list_well.setText(_translate("MainWindow", "List Well"))
         self.btn_list_well.clicked.connect(lambda:show_form_list_well())
