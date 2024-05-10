@@ -287,12 +287,20 @@ class form_personeel_list(object):
                 #Pegar a coluna Identify Card
                 col = col - 3
                 
-                item = self.tableWidget.item(row,col)
-                if item is not None:
-                    
-                    id_card = item.text()
-                    show_form_edit_personeel(id_card)
-                    print(id_card)
+                tipo_usuario = modulo_personnel.personnelController.buscar_tipo_usuario(user_logado)
+                card_id = modulo_personnel.personnelController.buscar_card_id(user_logado)
+                if tipo_usuario == -1:
+                    show_message_error()
+                else:
+                    item = self.tableWidget.item(row,col)
+                    if tipo_usuario == " Admin" or item.text() == card_id:
+                        if item is not None:
+                            
+                            id_card = item.text()
+                            show_form_edit_personeel(id_card)
+                            print(id_card)
+                    else:
+                        show_message_error()
 
         def delete_data_ButtonClicked():
             self.button_edit_personeel = self.button_edit_personeel.sender()

@@ -18,5 +18,11 @@ def carregar_pessoa_editar(param1, param2, param3, param4, param5, param6, param
 def eleminar_pessoa(param):
     return modulo_personnel.personnelModel.eliminar(param)
 
+def buscar_tipo_usuario(email):
+    return modulo_personnel.personnelModel.buscar_tipo_usuario(email)
+
+def buscar_card_id(email):
+    return modulo_personnel.personnelModel.buscar_card_id(email)
+
 
 

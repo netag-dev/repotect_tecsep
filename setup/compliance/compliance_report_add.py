@@ -2593,9 +2593,9 @@ class Ui_MainWindow(object):
         """)
         
         self.txt_bwl_speed.setObjectName("txt_bwl_speed")
-        self.txt_sample_number_non_produtive_man = QtWidgets.QLineEdit(self.tab_solid_control_sample)
-        self.txt_sample_number_non_produtive_man.setGeometry(QtCore.QRect(750, 40, 300, 41))
-        self.txt_sample_number_non_produtive_man.setStyleSheet("""
+        self.txt_weight_in = QtWidgets.QLineEdit(self.tab_solid_control_sample)
+        self.txt_weight_in.setGeometry(QtCore.QRect(50, 40, 300, 41))
+        self.txt_weight_in.setStyleSheet("""
             QLineEdit {
                 border: 1px solid #8ec0af;
                 border-radius: 2px;
@@ -2628,8 +2628,8 @@ class Ui_MainWindow(object):
                 color: #ccc;
             }
         """)
-        self.txt_sample_number_non_produtive_man.setPlaceholderText("")
-        self.txt_sample_number_non_produtive_man.setObjectName("txt_sample_number_non_produtive_man")
+        self.txt_weight_in.setPlaceholderText("")
+        self.txt_weight_in.setObjectName("txt_weight_in")
         self.txt_flow = QtWidgets.QLineEdit(self.tab_solid_control_sample)
         self.txt_flow.setGeometry(QtCore.QRect(380, 40, 351, 41))
         self.txt_flow.setStyleSheet("""
@@ -2856,7 +2856,7 @@ class Ui_MainWindow(object):
         self.txt_well_selection_average.setPlaceholderText("")
         self.txt_well_selection_average.setObjectName("txt_well_selection_average")
 
-        self.txt_sample_number_non_produtive_man.raise_()
+        self.txt_weight_in.raise_()
         self.txt_flow.raise_()
         self.btn_next_step_audit.raise_()
         self.btn_add_information_solid_sample.raise_()
@@ -3596,6 +3596,20 @@ class Ui_MainWindow(object):
 
             if save_solid_control != -1:
                 show_message_sucess()
+                self.txt_depth_location.clear()
+                self.txt_sample_number.clear()
+                self.txt_number_of_cutting.clear()
+                self.txt_number_of_shakers.clear()
+                self.txt_shaker_api.clear()
+                self.txt_front.clear()
+                self.txt_scaper.clear()
+                self.txt_hour_run.clear()
+                self.txt_back.clear()
+                self.txt_middle.clear()
+                self.txt_bwl_speed.clear()
+                self.txt_flow.clear()
+                self.txt_weight_in.clear()
+                
             else:
                 message_error_validation("Error saving Solid Control","Error")
 

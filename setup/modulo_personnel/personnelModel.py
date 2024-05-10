@@ -48,7 +48,7 @@ def listar():
     try:
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM tb_physical_person")
+        cursor.execute("SELECT * FROM tb_physical_person WHERE bi != 'none type'")
         dados = cursor.fetchall()
         connection.commit()
         cursor.close()
@@ -77,4 +77,31 @@ def buscar_pessoa_por_bi(id_card):
             connection.close()
             return dados
             print("Conexão fechada.")
+
+
+def buscar_tipo_usuario(email):
+    try:
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute("SELECT pp_type FROM tb_physical_person WHERE pp_email = %s",(email,))
+        dados = cursor.fetchone()[0]
+        connection.commit()
+        cursor.close()
+        return dados
+    except Exception as e:
+        print(f"Erro ao Listar dados no tb_physical_person: {e}")
+        return -1
+
+def buscar_card_id(email):
+    try:
+        connection = connecao.cria_connecao()
+        cursor = connection.cursor()
+        cursor.execute("SELECT bi FROM tb_physical_person WHERE pp_email = %s",(email,))
+        dados = cursor.fetchone()[0]
+        connection.commit()
+        cursor.close()
+        return dados
+    except Exception as e:
+        print(f"Erro ao Listar dados no tb_physical_person: {e}")
+        return -1
 
