@@ -48,7 +48,7 @@ def listar():
     try:
         connection = connecao.cria_connecao()
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM tb_physical_person")
+        cursor.execute("SELECT * FROM tb_physical_person WHERE bi != 'none type'")
         dados = cursor.fetchall()
         connection.commit()
         cursor.close()
