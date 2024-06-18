@@ -139,17 +139,19 @@ class Ui_MainWindow(object):
 
         #Funcção Para Abrir A Dashboard 
         def openWindow():
-            lg = loginController.carregar_login(self.txt_email.text(),self.txt_password.text())
+            response = loginController.carregar_login(self.txt_email.text(),self.txt_password.text())
             user_logado = self.txt_email.text()
-            if(lg == 0):
-                print("Entrou")
+            print(response)
+            if(response[1] == 0):
+                
+                tipo_user = response[0]
                 self.window = QtWidgets.QMainWindow()
                 from . import dashboard
                 self.ui = dashboard.Ui_dashboard_ui()
-                self.ui.setupUi(self.window,user_logado)
+                self.ui.setupUi(self.window,user_logado,tipo_user)
                 self.window.show()
                 MainWindow.close()
-            elif(lg == -1):
+            elif(response[1] == -1):
                 msg_error = QMessageBox()
                 msg_error.setIcon(QMessageBox.Critical)
                 msg_error.setText('The email entered is incorrect, try agin')
@@ -158,7 +160,7 @@ class Ui_MainWindow(object):
                 icon.addPixmap(QtGui.QPixmap("../img/error_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 msg_error.setWindowIcon(icon)
                 msg_error.exec_()
-            elif(lg == -2):
+            elif(response[1] == -2):
                 msg_error = QMessageBox()
                 msg_error.setIcon(QMessageBox.Critical)
                 msg_error.setText('The password entered is incorrect, try agin')
@@ -167,38 +169,6 @@ class Ui_MainWindow(object):
                 icon.addPixmap(QtGui.QPixmap("../img/error_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 msg_error.setWindowIcon(icon)
                 msg_error.exec_()
-            #else:
-            #    print("N Entrou")
-            #loginController.LoginController.fazer_login("a","b",self.txt_email.text(),self.txt_password.text())
-            """
-            if self.txt_email.text() == "admin":
-                if self.txt_password.text() == "123":
-                    self.window = QtWidgets.QMainWindow()
-                    import dashboard
-                    self.ui = dashboard.Ui_dashboard_ui()
-                    self.ui.setupUi(self.window)
-                    self.window.show()
-                    MainWindow.close()
-                else:
-                    msg_error = QMessageBox()
-                    msg_error.setIcon(QMessageBox.Critical)
-                    msg_error.setText('The password entered is incorrect, try agin')
-                    msg_error.setWindowTitle('Password Error')
-                    icon = QtGui.QIcon()
-                    icon.addPixmap(QtGui.QPixmap("../img/error_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                    msg_error.setWindowIcon(icon)
-                    msg_error.exec_()
-            
-            else:
-                msg_error = QMessageBox()
-                msg_error.setIcon(QMessageBox.Critical)
-                msg_error.setText('The enail entered is incorrect, try agin')
-                msg_error.setWindowTitle('Email Error')
-                icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap("../img/error_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                msg_error.setWindowIcon(icon)
-                msg_error.exec_()
-            """
 
     def toggle_password_echo_mode(self, state):
         if state == 2:  

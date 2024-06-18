@@ -1,13 +1,13 @@
 import psycopg2
 
 def fazer_login(email, senha):
-    connection = psycopg2.connect( database = "repotec", host = "localhost", user = "postgres", password = "postgres", port = "5433" )  
+    connection = psycopg2.connect( database = "repotec", host = "localhost", user = "postgres", password = "postgres", port = "5432" )  
     try:
         with connection.cursor() as cursor:
             cursor.execute(" SELECT * FROM tb_physical_person WHERE pp_email=%s AND pp_senha=%s", (email, senha))
             usrm = cursor.fetchone()
             if(usrm):
-                tipo_usuario = usrm[0]
+                tipo_usuario = usrm[6]
                 return [tipo_usuario,0]
             else:
                 return -1

@@ -2,19 +2,20 @@ import sys
 sys.path.append("..")
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QDesktopWidget
+from PyQt5.QtWidgets import QDesktopWidget,QMessageBox
 from PyQt5.QtGui import QPixmap
 from modulo_personnel.personnel import form_personeel_list
 import res
 import psycopg2
 import conection.connect as connecao
+from utils.message_box import show_message_user_not_allow,show_message_sucess
 
 class Ui_dashboard_ui(object):
 
 
 
 
-    def setupUi(self, dashboard_ui,user_name):
+    def setupUi(self, dashboard_ui,user_name,tipo_user):
         dashboard_ui.setObjectName("dashboard_ui")
         dashboard_ui.resize(1400, 850)
         dashboard_ui.setMinimumSize(QtCore.QSize(1400, 850))
@@ -29,7 +30,6 @@ class Ui_dashboard_ui(object):
 
         # Define a posição da janela
         dashboard_ui.move(x, y) 
-
 
         self.centralwidget = QtWidgets.QWidget(dashboard_ui)
         self.centralwidget.setObjectName("centralwidget")
@@ -324,12 +324,10 @@ class Ui_dashboard_ui(object):
         self.menubar.setObjectName("menubar")
         dashboard_ui.setMenuBar(self.menubar)
 
-        self.retranslateUi(dashboard_ui)
+        self.retranslateUi(dashboard_ui,tipo_user)
         QtCore.QMetaObject.connectSlotsByName(dashboard_ui)
 
-
-
-    def retranslateUi(self, dashboard_ui):
+    def retranslateUi(self, dashboard_ui,tipo_user):
         _translate = QtCore.QCoreApplication.translate
         dashboard_ui.setWindowTitle(_translate("dashboard_ui", "Dashboard"))
         self.btn_dashboard.setText(_translate("dashboard_ui", " Dashboard"))
@@ -346,7 +344,7 @@ class Ui_dashboard_ui(object):
         self.btn_user_profile.setText(_translate("dashboard_ui", "User Profile"))
         self.btn_user_profile.clicked.connect(lambda:show_perfil_user())
 
-        self.btn_user.clicked.connect(lambda: call_form_user())
+        self.btn_user.clicked.connect(lambda: call_form_user(tipo_user))
 
         self.btn_logout.setText(_translate("dashboard_ui", "Logout"))
         self.btn_logout.clicked.connect(lambda: logout())
@@ -427,20 +425,30 @@ class Ui_dashboard_ui(object):
         self.lbl_tank_cleaning.setText(_translate("dashboard_ui", " Tank Cleaning "))
         self.lbl_total_tank_cleaning.setText(_translate("dashboard_ui", str(listar_tank_cleaning())))
 
-        def call_form_user():
-            self.window = QtWidgets.QMainWindow()
-            self.ui = form_personeel_list()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text())
-            self.window.show()
-            dashboard_ui.close()
+        def call_form_user(tipo_user):
+
+            if tipo_user == "Admin":
+
+                self.window = QtWidgets.QMainWindow()
+                self.ui = form_personeel_list()
+                self.ui.setupUi(self.window,self.lbl_user_logado.text())
+                self.window.show()
+                dashboard_ui.close()
+            else:
+                show_message_user_not_allow()
 
         def call_form_client():
-            self.window = QtWidgets.QMainWindow()
-            import modulo_customer.customer
-            self.ui = modulo_customer.customer.Ui_MainWindow()
-            self.ui.setupUi(self.window,self.lbl_user_logado.text())
-            self.window.show()
-            dashboard_ui.close()
+            
+            if tipo_user == "Admin":
+
+                self.window = QtWidgets.QMainWindow()
+                import modulo_customer.customer
+                self.ui = modulo_customer.customer.Ui_MainWindow()
+                self.ui.setupUi(self.window,self.lbl_user_logado.text())
+                self.window.show()
+                dashboard_ui.close()
+            else:
+                show_message_user_not_allow()
 
         def call_form_wbco():
             self.window = QtWidgets.QMainWindow()

@@ -1,6 +1,6 @@
 import psycopg2
 import conection.connect as connecao
-import config_email.config_email as email
+
 
 def cadastrar(param2, param3, param4, param5, param6, param7): 
     try: 
@@ -13,7 +13,7 @@ def cadastrar(param2, param3, param4, param5, param6, param7):
     except Exception as e:
         print(f"Erro ao inserir dados no tb_physical_person: {e}")
         body = f"Erro ao inserir dados no tb_physical_person: {e}"
-        email.save_error(body)
+       
         return -1
 
 def editar(param1, param2, param3, param4, param5, param6, param7): 
@@ -27,7 +27,7 @@ def editar(param1, param2, param3, param4, param5, param6, param7):
     except Exception as e:
         print(f"Erro ao actualizar dados no tb_physical_person: {e}")
         body = f"Erro ao actualizar dados no tb_physical_person: {e}"
-        email.save_error(body)
+        
         return -1
 
 def eliminar(param): 
@@ -41,7 +41,7 @@ def eliminar(param):
     except Exception as e:
         print(f"Erro ao inserir dados no tb_physical_person: {e}")
         body = f"Erro ao inserir dados no tb_physical_person: {e}"
-        email.save_error(body)
+        
         return -1
     
 def listar(): 

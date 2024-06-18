@@ -1,6 +1,5 @@
 import psycopg2
 import conection.connect as connecao
-import config_email.config_email
 
 def cadastrar(param1, param2, param3, param4, param5, param6): 
     try: 
@@ -16,7 +15,7 @@ def cadastrar(param1, param2, param3, param4, param5, param6):
     except Exception as e:
         print(f"Erro ao Salvar dados do Cliente: {e}")
         body = f"Erro ao Salvar dados do Cliente: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
         
     
@@ -30,7 +29,7 @@ def editar(nif, name, email, phone, adress):
         return 0
     except Exception as e:
         body = f"Erro ao actualizar dados no tb_legal_person: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
         
 
@@ -43,7 +42,7 @@ def listar():
         return dados
     except (Exception,UnboundLocalError) as e:
         body = f"Erro ao Listar dados no tb_physical_person: {e}"
-        config_email.config_email.save_error(body)
+        
         return - 1
         
 
@@ -57,7 +56,7 @@ def eliminar(param):
         return 0
     except Exception as e:
         body = f"Erro ao eliminar dados no tb_legal_person: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
     
 
@@ -77,7 +76,7 @@ def cadastrar_poco(nome,numero,cliente,pessoa_criar):
     except Exception as e:
         print(f"Erro ao inserir dados no tb_well: {e}")
         body = f"Erro ao inserir dados no tb_well: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
 
 def listar_poco(): 
@@ -108,7 +107,7 @@ def eliminar_poco(param):
     except Exception as e: 
         print(f"Erro ao eliminar dados no tb_well: {e}")
         body = f"Erro ao eliminar dados no tb_well: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
 
 def editar_poco(param1, param2, param3,param4): 
@@ -122,7 +121,7 @@ def editar_poco(param1, param2, param3,param4):
     except Exception as e:
         print(f"Erro ao actualizar dados no tb_well: {e}")
         body = f"Erro ao actualizar dados no tb_well: {e}"
-        config_email.config_email.save_error(body)
+        
         return -1
         
 def buscar_poco_por_id(id_poco): 
