@@ -2,7 +2,7 @@ import psycopg2
 
 def cria_connecao():
     return psycopg2.connect( 
-                database = "repotec", 
+                database = "repotec_portal", 
                 host = "102.219.126.14", 
                 user = "postgres", 
                 password = "Angola2023#", 

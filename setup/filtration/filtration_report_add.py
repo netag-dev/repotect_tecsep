@@ -3113,7 +3113,7 @@ class Ui_MainWindow(object):
                 id_ultimo_report_ft = filtration.pack_report.reportController.buscar_ultimo_registo_report()
                 filtration.pack_fluid_consumables.fluid_consumablesController.carregar_cadastro(id_consumivel,id_tipo,stock_atual,adicional,total_stoke,usado_diario_texto,usado_diario,novo_estoque,id_ultimo_report_ft)
 
-                show_message_sucess()
+                show_message_sucess("Added successfully")
                
 
 
@@ -3124,10 +3124,10 @@ class Ui_MainWindow(object):
             id_ultimo_report_ft = filtration.pack_report.reportController.buscar_ultimo_registo_report()
             filtration.pack_enginer_day.enginer_dayController.cadastrar(self.cbx_shift_engineer.currentText(),self.txt_total_days.text(),id_tecnico,id_ultimo_report_ft)
 
-            show_message_sucess()
+            show_message_sucess("Added successfully")
 
         def report():
-            show_message_sucess()
+            show_message_sucess("Report Gerated")
 
 
 
